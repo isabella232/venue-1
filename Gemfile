@@ -14,11 +14,12 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem "haml-rails", "~> 1.0"
 
 group :development, :test do
-gem 'rspec-rails'
-gem 'pry-byebug'
-gem 'pry-rails'
-gem 'factory_bot_rails'
-gem 'shoulda-matchers'
+  gem 'rspec-rails'
+  gem 'pry-byebug'
+  gem 'pry-rails'
+  gem 'factory_bot_rails'
+  gem 'shoulda-matchers'
+  gem 'coveralls', require: false
 end
 
 group :development do
