@@ -14,6 +14,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem "haml-rails", "~> 1.0"
 
 group :development, :test do
+  gem 'chromedriver-helper'
+  gem 'selenium-webdriver'
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
   gem 'rspec-rails'
