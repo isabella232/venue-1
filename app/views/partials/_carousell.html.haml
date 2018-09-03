@@ -1,0 +1,28 @@
+#hero-carousel.carousel.slide{"data-ride" => "carousel"}
+    / Indicators
+    %ol.carousel-indicators
+        -# %li.active{"data-slide-to" => "0", "data-target" => "#hero-carousel"}
+        -# %li{"data-slide-to" => "1", "data-target" => "#hero-carousel"}
+        -# %li{"data-slide-to" => "2", "data-target" => "#hero-carousel"}
+        -# %li{"data-slide-to" => "3", "data-target" => "#hero-carousel"}
+    / Wrapper for slides
+    .carousel-inner{role: "listbox"}
+        - @entries.each_with_index do |entry, index|
+            - image_name = "hero-carousel-#{index + 1}.jpg"
+            .item.active{style: "background-image: url('#{image_path(image_name)})"}
+                = image_tag image_name, class: 'faux'
+                .carousel-caption
+                    %h1= entry
+    / Controls
+    %a.left.carousel-control{"data-slide" => "prev", href: "index.html#hero-carousel", role: "button"}
+        %svg#Layer_1{style: "enable-background:new 0 0 24 42;", version: "1.1", viewbox: "0 0 24 42", x: "0px", "xml:space" => "preserve", xmlns: "http://www.w3.org/2000/svg", "xmlns:xlink" => "http://www.w3.org/1999/xlink", y: "0px"}
+        :css
+            .st0{fill:none;stroke:#FFFFFF;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+        %polyline.st0{points: "21,39 3,21 21,3 "}
+        %span.sr-only Previous
+    %a.right.carousel-control{"data-slide" => "next", href: "index.html#hero-carousel", role: "button"}
+        %svg#Layer_1{style: "enable-background:new 0 0 24 42;", version: "1.1", viewbox: "0 0 24 42", x: "0px", "xml:space" => "preserve", xmlns: "http://www.w3.org/2000/svg", "xmlns:xlink" => "http://www.w3.org/1999/xlink", y: "0px"}
+        :css
+            .st0{fill:none;stroke:#FFFFFF;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+        %polyline.st0{points: "3,2 21,20 3,38 "}
+        %span.sr-only Next
