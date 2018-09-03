@@ -23,6 +23,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'factory_bot_rails'
   gem 'shoulda-matchers'
+  gem 'coveralls', require: false
 end
 
 group :development do
