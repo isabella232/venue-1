@@ -1,22 +1,25 @@
-.form-group
-  = form_with model: @campaign, local: true do |form|
+= form_with model: @campaign, local: true do |form|
+  .form-group  
     .control-label
       = form.label :title
     %br/
     .form-control    
       = form.text_field :title
     %br/
+  .form-group  
     .control-label   
       = form.label :description
     %br/
     .form-control    
       = form.text_area :description
     %br/
+  .form-group  
     .control-label    
       = form.label :location
     %br/
     .form-control    
       = form.text_field :location
     %br/
+  .form-group  
     .form-submit   
       = form.submit 'Launch Campaign'
