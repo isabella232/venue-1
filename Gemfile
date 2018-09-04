@@ -30,6 +30,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'shoulda-matchers'
   gem 'coveralls', require: false
+  gem 'rubocop-rspec'
 end
 
 group :development do
