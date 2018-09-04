@@ -1,0 +1,21 @@
+= form_with model: @campaign, local: true do |form|
+  .field
+    = form.label :title
+  %br/
+  .field    
+    = form.text_field :title
+  %br/
+  .field    
+    = form.label :description
+  %br/
+  .field    
+    = form.text_area :description
+  %br/
+  .field    
+    = form.label :location
+  %br/
+  .field    
+    = form.text_area :location
+  %br/
+  .field    
+    = form.submit 'Launch Campaign'
