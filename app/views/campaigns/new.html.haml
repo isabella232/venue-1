@@ -1,25 +1,18 @@
 = form_with model: @campaign, local: true do |form|
   .form-group  
-    .control-label
-      = form.label :title
+    = form.label :title, class: 'control-label'
     %br/
-    .form-control    
-      = form.text_field :title
+    = form.text_field :title, class: 'form-control'
     %br/
   .form-group  
-    .control-label   
-      = form.label :description
+    = form.label :description, class: 'control-label'
+    %br/   
+    = form.text_area :description, class: 'form-control'
     %br/
-    .form-control    
-      = form.text_area :description
+  .form-group     
+    = form.label :location, class: 'control-label'
+    %br/  
+    = form.text_field :location, class: 'form-control'
     %br/
-  .form-group  
-    .control-label    
-      = form.label :location
-    %br/
-    .form-control    
-      = form.text_field :location
-    %br/
-  .form-group  
-    .form-submit   
-      = form.submit 'Launch Campaign'
+  .form-group    
+    = form.submit 'Launch Campaign', class: 'form-submit'
