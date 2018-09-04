@@ -4,7 +4,7 @@ Feature: Guest can create a new Campaign
     I would like to create a Campaign
 
     Scenario: Guest successfully create a new Campaign
-        Given I am on the 'landing' page
+        Given I am on the landing page
         And I click on 'New Campaign'
         Then I should be redirected to the Create New Campaign page
         And I fill in 'Title' with 'Clare Cunningham'
