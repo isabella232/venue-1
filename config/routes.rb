@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  get 'campaigns/index'
   root controller: :application, action: :index
+  resources :campaigns, only: [:create, :new]
 end
