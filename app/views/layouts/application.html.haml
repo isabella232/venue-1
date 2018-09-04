@@ -9,9 +9,10 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
   %body
-    - @campaigns.each do |campaign|
-      %h1= campaign.title
-      %p= campaign.description
-      %p= campaign.location
-
-  = yield
+    = render partial: 'partials/header'
+    #content
+      - flash.each do |key, value|
+        = value
+      - if current_page?(root_path)
+        //= render partial: 'partials/carousell'
+        = yield

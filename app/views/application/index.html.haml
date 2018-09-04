@@ -1,1 +1,4 @@
-%h1 Hello World
+- @campaigns.each do |campaign|
+    %h1= campaign.title
+    %p= campaign.description
+    %p= campaign.location
