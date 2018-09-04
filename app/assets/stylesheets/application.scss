@@ -150,7 +150,6 @@ html {
   /* 1.1 Forms */
   
   .form-group {
-    + .form-group {}
     .control-label {
       font-size: 16px;
       font-weight: normal;
@@ -210,6 +209,9 @@ html {
     }
     .form-submit {
       background-color: transparent;
+      color: #FFF;
+      font-size: 16px;
+      font-weight: normal;
       border: 1px solid #f0d75d;
       border-radius: 50px;
       display: table;
