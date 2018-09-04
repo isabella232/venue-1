@@ -3,5 +3,6 @@ Then("I should be redirected to the Create New Campaign page") do
 end
 
 Then("there should be a Campaign titled {string} in the Database") do |expected_title|
-    expect(Campaign.last.title).to eq expected_title
+    campaign = Campaign.find_by(title: expected_title)
+    expect(campaign).not_to eq nil
 end
