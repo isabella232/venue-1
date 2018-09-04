@@ -7,10 +7,13 @@
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
   %body
-  %h1 Veronica Maggio in Stockholm
-  %h2 Don't miss a fantastic singer in September
-  %h3 Stockholm
+    - @campaigns.each do |campaign|
+      %h1= campaign.title
+      %p= campaign.description
+      %p= campaign.location
+
   = yield
       
       
