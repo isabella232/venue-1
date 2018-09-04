@@ -1,6 +1,4 @@
 class CampaignsController < ApplicationController
-  def index
-  end
 
   def new
     @campaign = Campaign.new
@@ -17,8 +15,7 @@ class CampaignsController < ApplicationController
 
 private
 
-def campaign_params
-  params.require(:campaign).permit(:title, :description, :location)
-end
-
+  def campaign_params
+    params.require(:campaign).permit(:title, :description, :location)
+  end
 end
