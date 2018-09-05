@@ -5,14 +5,12 @@ Feature: Guests can view the full Campaign page
     I would like to access a full Campaign page.
 
     Background:
-        |title                         |description                                 |location   |
+        | title                        | description                                | location   |
         | Veronica Maggio in Stockholm | Don't miss a fantastic singer in September | Stockholm |
-
 
     Scenario: Guest can view the full description of Campaign
         Given I am on the landing page
         And I click on 'Veronica Maggio in Stockholm'
-        And I wait 1 second
         Then I should be redirected to the Campaign page 'Veronica Maggio in Stockholm'
         And I should see 'Veronica Maggio in Stockholm'
         And I should see "Don't miss a fantastic singer in September"

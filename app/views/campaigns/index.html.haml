@@ -1,4 +1,6 @@
 - @campaigns.each do |campaign|
-    %h1.title= campaign.title
-    %p= campaign.description
+    %h1.title
+        = link_to campaign.title, campaign_path(campaign)
+    %p
+        = truncate(campaign.description, length: 100) { link_to ' (...)', campaign_path(campaign)} 
     %p= campaign.location
