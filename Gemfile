@@ -32,6 +32,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'shoulda-matchers'
   gem 'coveralls', require: false
+  gem 'pundit-matchers', '~> 1.6.0'
 end
 
 group :development do

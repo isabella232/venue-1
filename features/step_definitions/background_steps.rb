@@ -4,7 +4,7 @@ Given("the following campaign exists") do |table|
     end
 end
 
-Given("the following user exist") do |table|
+Given("the following user(s) exist") do |table|
     table.hashes.each do |user_hash|
         create(:user, user_hash)
     end

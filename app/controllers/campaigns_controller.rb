@@ -7,6 +7,7 @@ class CampaignsController < ApplicationController
 
   def new
     @campaign = Campaign.new
+    authorize @campaign
   end
 
   def create
