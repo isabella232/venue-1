@@ -7,17 +7,16 @@
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
   %body
-    #content
-      = render partial: 'partials/header'
-      
-      - flash.each do |key, value|
-        = value
-      - if current_page?(root_path)
-        = render partial: 'partials/carousell'
-        .container
-          = yield
-      - else 
+    = render partial: 'partials/header'
+    
+    - flash.each do |key, value|
+      = value
+    - if current_page?(root_path)
+      = render partial: 'partials/carousell'
+      .container
         = yield
-      
+    - else 
+      = yield
       
