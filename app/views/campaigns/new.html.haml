@@ -1,18 +1,18 @@
 = form_with model: @campaign, local: true do |form|
-  .form-group  
+  .form-group
     = form.label :title, class: 'control-label'
     %br/
     = form.text_field :title, class: 'form-control'
     %br/
-  .form-group  
+  .form-group
     = form.label :description, class: 'control-label'
     %br/   
     = form.text_area :description, class: 'form-control'
     %br/
-  .form-group     
+  .form-group    
     = form.label :location, class: 'control-label'
     %br/  
     = form.text_field :location, class: 'form-control'
     %br/
-  .form-group    
+  .form-group
     = form.submit 'Launch Campaign', class: 'form-submit'
