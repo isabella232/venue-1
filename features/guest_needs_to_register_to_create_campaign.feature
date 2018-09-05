@@ -1,3 +1,4 @@
+@javascript
 Feature: Guests need to register to create campaigns
     As a System Owner
     In order to have control of the Campaigns created
@@ -6,11 +7,13 @@ Feature: Guests need to register to create campaigns
     PT link: https://www.pivotaltracker.com/story/show/160228213
 
     Scenario: Guest needs to register
-        When I am on the landing page
+        Given I am on the landing page
         And I click on 'Sign up'
-        And I should see 'Sign up with Email address'
-        And I fill in 'Email address' field with 'mikael@venue.com'
-        And I fill in 'Password' field with 'my-password'
-        And I fill in 'Re-Type Password' field with 'my-password'
+        And I wait 1 second
+        #Then I should see 'Sign up with Email address'
+        # Then stop
+        And I fill in 'Email address' with 'mikael@venue.com'
+        And I fill in 'Password' with 'my-password'
+        And I fill in 'Re-Type Password' with 'my-password'
         And I click on 'Sign up'
         Then I should see 'Welcome! You have signed up successfully.'
