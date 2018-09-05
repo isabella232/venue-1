@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  root controller: :application, action: :index
+  root controller: :campaigns, action: :index
+  resources :campaigns, only: [:index, :create, :new]
 end
+ 
