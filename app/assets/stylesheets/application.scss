@@ -109,24 +109,16 @@ html {
   }
   
   .carousel {
-    .carousel-indicators li {
-      box-shadow: 0 0 3px rgba(255, 255, 255, 0.5) inset;
-      height: 10px;
-      margin: 0 2px;
-      width: 10px;
-      &.active {
-        background-color: #7ed321;
-        height: 10px;
-        margin: 0 2px;
-        width: 10px;
-      }
-    }
+
+
     .carousel-control {
+      cursor: pointer;
       background: transparent none;
       width: 100px;
       -moz-transition: all 0.3s ease 0s;
       -webkit-transition: all 0.3s ease 0s;
       transition: all 0.3s ease 0s;
+      z-index: 999;
       &:hover {
         background: transparent none;
         width: 100px;
@@ -136,13 +128,23 @@ html {
       }
       svg {
         height: 40px;
-        left: 50%;
-        position: absolute;
-        top: 50%;
         width: 40px;
         -moz-transform: translate(-50%, -50%);
         -webkit-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
+      }
+      &:nth-of-type(1) {
+        height: 100px;
+        position: absolute;
+        left: 0;
+        top: 50%;
+      }
+      
+      &:nth-of-type(2) {
+        height: 100px;
+        position: absolute;
+        right: 0;
+        top: 50%;
       }
     }
   }
