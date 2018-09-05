@@ -3,5 +3,5 @@ Rails.application.routes.draw do
     registrations: :registrations
   }
   root controller: :campaigns, action: :index
-  resources :campaigns, only: [:index, :create, :new]
+  resources :campaigns, only: [:index, :create, :new, :show]
 end
