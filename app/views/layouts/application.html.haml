@@ -9,11 +9,15 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     = render partial: 'partials/header'
+    %p.notice= notice
+    %p.alert= alert
+
     #content
       - flash.each do |key, value|
         = value
       - if current_page?(root_path)
         = render partial: 'partials/carousell'
       = yield
+      
       
       
