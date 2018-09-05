@@ -1,6 +1,7 @@
 $mui-primary-color: #293239;
 $mui-btn-primary-bg-color : $mui-primary-color;
 $mui-btn-flat-bg-color-hover: darken($mui-primary-color, 5%);
+$mui-overlay-bg-color: rgba($mui-primary-color, 0.70);
 @import url('https://fonts.googleapis.com/css?family=Lato:300,400,700,900');
 @import 'mui';
 @import 'mui_extensions';

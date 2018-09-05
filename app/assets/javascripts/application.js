@@ -41,22 +41,17 @@ const initiateSlider = (selector) => {
     next.addEventListener('click', () => App.slider.next());
 }
 
-const editRecordModal = (html) => {
-    var showAccountElement = document.getElementById('content')
-    showAccountElement.style.display = 'none'
+const showPartialAsModal = (html) => {
     let modalEl = document.createElement('div');
     modalEl.style.width = '80vw';
     modalEl.style.height = '70vh';
-    modalEl.style.margin = '20px auto';
+    modalEl.style.margin = '60px auto';
     modalEl.style.padding = '20px 20px';
     modalEl.style.backgroundColor = '#293239';
     modalEl.innerHTML = html;
 
     mui.overlay('on', modalEl, {
-        static: true,
-        onclose: function () {
-            showAccountElement.style.display = ''
-        }
+        static: true
     });
 }
 
