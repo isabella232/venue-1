@@ -1,3 +1,4 @@
+@javascript
 Feature: Guest can create a new Campaign
     As a Guest,
     In order to bring the Artists to my city
