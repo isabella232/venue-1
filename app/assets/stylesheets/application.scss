@@ -1,5 +1,5 @@
 $mui-primary-color: #293239;
-$mui-btn-primary-bg-color:  $mui-primary-color;
+$mui-btn-primary-bg-color : $mui-primary-color;
 $mui-btn-flat-bg-color-hover: darken($mui-primary-color, 5%);
 @import url('https://fonts.googleapis.com/css?family=Lato:300,400,700,900');
 @import 'mui';
@@ -124,43 +124,41 @@ img.faux {
         -moz-transition: all 0.3s ease 0s;
         -webkit-transition: all 0.3s ease 0s;
         transition: all 0.3s ease 0s;
-      }
-      svg {
+    }
+    svg {
         height: 40px;
         width: 40px;
         -moz-transform: translate(-50%, -50%);
         -webkit-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
-      }
-      &:nth-of-type(1) {
+    }
+    &:nth-of-type(1) {
         height: 100px;
         position: absolute;
         left: 0;
         top: 50%;
-      }
-      
-      &:nth-of-type(2) {
+    }
+    &:nth-of-type(2) {
         height: 100px;
         position: absolute;
         right: 0;
         top: 50%;
-      }
     }
-  }
-  
-  /* 1.1 Forms */
-  
-  .form-group {
+}
+
+/* 1.1 Forms */
+
+.form-group {
     .control-label {
-      font-size: 16px;
-      font-weight: normal;
-      margin: 30px;
-      .fa {
-        color: #f0d75d;
-        font-size: 18px;
-        margin-right: 4px;
-        vertical-align: middle;
-      }
+        font-size: 16px;
+        font-weight: normal;
+        margin: 30px;
+        .fa {
+            color: #f0d75d;
+            font-size: 18px;
+            margin-right: 4px;
+            vertical-align: middle;
+        }
     }
     .upload {
         background-color: #3C3D44;
@@ -183,7 +181,6 @@ img.faux {
             box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 0, 0, 0.6);
         }
     }
-
     textarea.form-control {
         height: 123px;
         &.taller {
@@ -211,16 +208,16 @@ img.faux {
         }
     }
     .form-submit {
-      background-color: transparent;
-      color: #FFF;
-      font-size: 16px;
-      font-weight: normal;
-      border: 1px solid #f0d75d;
-      border-radius: 50px;
-      display: table;
-      font-size: 13px;
-      margin: 30px auto 0;
-      padding: 5px 30px;
+        background-color: transparent;
+        color: #FFF;
+        font-size: 16px;
+        font-weight: normal;
+        border: 1px solid #f0d75d;
+        border-radius: 50px;
+        display: table;
+        font-size: 13px;
+        margin: 30px auto 0;
+        padding: 5px 30px;
     }
     .form-checkbox {
         display: table;
