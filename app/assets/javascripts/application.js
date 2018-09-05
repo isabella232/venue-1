@@ -13,6 +13,7 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+//= require mui
 //= require siema/dist/siema.min.js
 //= require_tree .
 
@@ -38,8 +39,25 @@ const initiateSlider = (selector) => {
     const next = document.querySelector('.next');
     prev.addEventListener('click', () => App.slider.prev());
     next.addEventListener('click', () => App.slider.next());
+}
 
+const showPartialAsModal = (html) => {
+    let modalEl = document.createElement('div');
+    modalEl.style.width = '80vw';
+    modalEl.style.height = '70vh';
+    modalEl.style.margin = '60px auto';
+    modalEl.style.padding = '20px 20px';
+    modalEl.style.backgroundColor = '#293239';
+    modalEl.innerHTML = html;
 
+    mui.overlay('on', modalEl, {
+        static: true
+    });
+}
+
+const cancelModal = (event) => {
+    event.preventDefault();
+    mui.overlay('off');
 }
 
 document.addEventListener('turbolinks:load', () => {
