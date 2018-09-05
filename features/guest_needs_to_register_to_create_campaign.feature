@@ -8,7 +8,6 @@ Feature: Guests need to register to create campaigns
     Scenario: Guest needs to register
         When I am on the landing page
         And I click on 'Sign up'
-        And I am redirected to 'Sign up' page
         And I should see 'Sign up with Email address'
         And I fill in 'Email address' field with 'mikael@venue.com'
         And I fill in 'Password' field with 'my-password'
