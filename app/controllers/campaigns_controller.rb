@@ -1,7 +1,8 @@
 class CampaignsController < ApplicationController
-  
+  before_action :authenticate_user!, only: [:create]
+
   def index
-      @campaigns = Campaign.all
+        @campaigns = Campaign.all
   end
 
   def new
