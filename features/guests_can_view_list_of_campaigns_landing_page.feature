@@ -5,7 +5,7 @@ Feature: Guests can view the list of Campaigns on the landing page
     ´
 
     Background:
-        Given the following campaign exists
+        Given the following campaign exist
         | title                        | description                                | location  |
         | Veronica Maggio in Stockholm | Don't miss a fantastic singer in September | Stockholm |
 

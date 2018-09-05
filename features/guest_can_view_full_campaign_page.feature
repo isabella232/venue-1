@@ -5,6 +5,7 @@ Feature: Guests can view the full Campaign page
     I would like to access a full Campaign page.
 
     Background:
+        Given the following campaign exist
         | title                        | description                                | location   |
         | Veronica Maggio in Stockholm | Don't miss a fantastic singer in September | Stockholm |
 
