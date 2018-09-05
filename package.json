@@ -1,5 +1,7 @@
 {
   "name": "venue",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "siema": "^1.5.1"
+  }
 }
