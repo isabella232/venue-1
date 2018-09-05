@@ -1,5 +1,3 @@
-
-
 Then("I should be redirected to the Create New Campaign page") do
     expect(current_path).to eq new_campaign_path
 end
@@ -11,4 +9,9 @@ end
 
 Then ('I should see {string}') do |content|
     expect(page).to have_content content
+end
+
+Then("I should be redirected to the Campaign page {string}") do |title|
+    campaign = Campaign.find_by(title: title)
+    expect(current_path).to eq campaign_path(campaign)
 end
