@@ -16,7 +16,7 @@ Feature: Guests need to register to create campaigns
         And I fill in 'Re-Type Password' with 'my-password'
         And I click on 'Sign up for Venue'
         Then I should see 'Welcome! You have signed up successfully.'
-        And It should be one user in the database with the email 'mikael@venue.com'
+        And It should be a user in the database with the email 'mikael@venue.com'
 
     Scenario: Guest start register process and then backs out
         Given I am on the landing page
