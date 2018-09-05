@@ -14,4 +14,25 @@ RSpec.describe User, type: :model do
       expect(create(:user)).to be_valid
     end
   end
+
+  describe 'User roles' do
+    let(:fan) {create :user, role: :fan}
+    let(:artist) {create :user, role: :artist}
+
+    it 'fan responds true if role is fan' do
+      expect(fan.fan?).to eq true
+    end
+
+    it 'fan responds false if role is not fan' do
+      expect(fan.artist?).to eq false
+    end
+    
+    it 'artist responds true if role is artist' do
+      expect(artist.artist?).to eq true
+    end
+
+    it 'artist responds false if role is not artist' do
+      expect(artist.fan?).to eq false
+    end
+  end
 end
