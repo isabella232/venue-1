@@ -1,7 +1,5 @@
-
-
-Then("I should be redirected to the Create New Campaign page") do
-    expect(current_path).to eq new_campaign_path
+Then("I should see {string}") do |content|
+    expect(page).to have_content content
 end
 
 Then("there should be a Campaign titled {string} in the Database") do |expected_title|
@@ -9,6 +7,7 @@ Then("there should be a Campaign titled {string} in the Database") do |expected_
     expect(campaign).not_to eq nil
 end
 
-Then ('I should see {string}') do |content|
-    expect(page).to have_content content
+Then("It should be a user in the database with the email {string}") do |expected_email|
+    user = User.find_by(email: expected_email)
+    expect(user.email).to eq expected_email
 end

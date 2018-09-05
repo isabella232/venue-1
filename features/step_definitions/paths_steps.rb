@@ -1,3 +1,3 @@
-When("I am on the {string} page") do |page|
+When("I am on the landing page") do 
     visit root_path
-end
+  end
