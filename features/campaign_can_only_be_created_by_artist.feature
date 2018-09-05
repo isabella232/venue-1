@@ -5,27 +5,23 @@ Feature: A Campaign can only be created by an Artist
 
     Background:
         Given the following users exist
-        |email              |role       |
-        |user@user.se       |artist     |
-
+        | email             | role      |
+        | user@fan.se       | artist    |
+        | user@artist.se    | artist    |
      
-     Scenario: User tries to access Create Campaign page
-        When I am logged in as 'user@user.se'
-        And I am on the 'Campaign page' page
-        Then I should see 'Access denied'
-        And I then 
-     Scenario: Subscriber tries to access Create Article page
-        When I am logged in as 'subscriber@user.se'
-        And I am on the 'Create Article' page
+    Scenario: Fan tries to access Create Campaign page via link
+        Given I am logged in as 'user@fan.se'
+        And I am on the 'Create Campign' page
         Then I should see 'Access denied'
         And I should be redirected to the 'landing' page
-     Scenario: Author tries to access Create Article page
-        When I am logged in as 'author@user.se'
-        And I am on the 'Landing' page
-        And I click on 'New Article'
-        Then I should be redirected to the 'Create Article' page
-     Scenario: Editor tries to access Create Article page
-        When I am logged in as 'editor@user.se'
-        And I am on the 'Landing' page
-        And I click on 'New Article'
-        And I should be redirected to the 'Create Article' page 
+
+    Scenario: Fan should not see Create Campaign link on landing page
+        Given I am logged in as 'user@fan.se'
+        And I am on the 'Create Campaign' page
+        Then I should NOT see 'New Campaign'
+ 
+    Scenario: Artist tries to access Create Article page
+        Given I am logged in as 'user@artist.se'
+        And I am on the landing page
+        When I click on 'New Campaign'
+        And I should see 'Create a New Campaign'

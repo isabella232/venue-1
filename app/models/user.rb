@@ -7,6 +7,6 @@ class User < ApplicationRecord
   enum role: { artist: 0, fan: 1 }
 
   def set_default_role
-    self.role ||= :guest
+    self.role ||= :fan
   end
 end
