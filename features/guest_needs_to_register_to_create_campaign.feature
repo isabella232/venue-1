@@ -10,10 +10,9 @@ Feature: Guests need to register to create campaigns
         Given I am on the landing page
         And I click on 'Sign up'
         And I wait 1 second
-        #Then I should see 'Sign up with Email address'
-        # Then stop
+        Then I should see 'Sign up with Email address'
         And I fill in 'Email address' with 'mikael@venue.com'
         And I fill in 'Password' with 'my-password'
         And I fill in 'Re-Type Password' with 'my-password'
-        And I click on 'Sign up'
+        And I click on 'Sign up for Venue'
         Then I should see 'Welcome! You have signed up successfully.'

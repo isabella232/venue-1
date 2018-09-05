@@ -6,7 +6,6 @@ class RegistrationsController < Devise::RegistrationsController
     end
 
     def create 
-        binding.pry
         super
     end
 
