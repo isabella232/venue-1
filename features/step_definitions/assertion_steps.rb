@@ -6,3 +6,8 @@ Then("there should be a Campaign titled {string} in the Database") do |expected_
     campaign = Campaign.find_by(title: expected_title)
     expect(campaign).not_to eq nil
 end
+
+Then("It should be one user in the database with the email {string}") do |expected_email|
+    user = User.find_by(email: expected_email)
+    expect(user.email).to eq expected_email
+end
