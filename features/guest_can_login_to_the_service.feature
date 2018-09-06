@@ -9,7 +9,7 @@ Feature: Guest can login to the service
     Background:
         Given the following user exist
         |email           |password   |
-        |thomas@venue.se |password|
+        |thomas@venue.se |password   |
 
     Scenario: Guest can login to the service [Happy path]
         Given I am on the 'landing' page
