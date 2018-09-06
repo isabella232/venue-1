@@ -18,3 +18,5 @@ campaigns = Campaign.create([
         location: 'Karlstad'
     }
 ])
+
+user = User.create(email: 'test@test.se', password: 'my-password', role: 'artist')
