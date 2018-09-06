@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  
   describe "DB table" do
     it { is_expected.to have_db_column :email }
     it { is_expected.to have_db_column :encrypted_password }
@@ -13,6 +12,11 @@ RSpec.describe User, type: :model do
     it "for :user is valid" do
       expect(create(:user)).to be_valid
     end
+  end
+
+  describe 'Associations' do
+    it {is_expected.to have_many :campaigns}
+
   end
 
   describe 'User roles' do
