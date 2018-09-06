@@ -14,6 +14,14 @@ Feature: A Guest can become a Fan with OAuth authentication
         Then I should be redirected to the 'landing' page 
         And I should see 'Successfully authenticated from Facebook account'
 
+    Scenario: Authentication fails with Facebook
+        Given the facebook authentication is not granted
+        And I am on the 'landing' page
+        And I click on 'Sign up'
+        And I click on 'Sign up with Facebook'
+        Then I should be redirected to the 'landing' page
+        And I should see 'Could not authenticate you!'
+
     #Scenario: Guest can authenticate with Google
     #    Given I am on the 'landing' page
     #    And I click on 'Sign up'
