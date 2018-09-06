@@ -6,7 +6,7 @@ RSpec.describe Campaign, type: :model do
   it { is_expected.to validate_presence_of :description }
   it { is_expected.to validate_presence_of :location }
   end
-  
+
   describe 'Factory' do
     it 'should have valid Factory' do
       expect(create(:campaign)).to be_valid 
@@ -14,7 +14,7 @@ RSpec.describe Campaign, type: :model do
   end
 
   describe 'Associations' do
-    it {is_expected.to belong_to :user}
+    it { is_expected.to belong_to :user }
   end
 
 end

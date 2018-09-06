@@ -6,8 +6,8 @@ Feature: Guest can create a new Campaign
 
     Background:
         Given the following user exist
-        |email          | role   |
-        |mikael@venue.se| artist |
+        | email           | role   |
+        | mikael@venue.se | artist |
     
     Scenario: Registered User successfully create a new Campaign
         Given I am logged in as 'mikael@venue.se'

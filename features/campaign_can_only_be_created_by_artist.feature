@@ -6,9 +6,9 @@ Feature: A Campaign can only be created by an Artist
 
     Background:
         Given the following users exist
-        | email             | role      |
-        | user@fan.se       | fan       |
-        | user@artist.se    | artist    |
+        | email          | role   |
+        | user@fan.se    | fan    |
+        | user@artist.se | artist |
 
     Scenario: Fan tries to access Create Campaign page via link
         Given I am logged in as 'user@fan.se'

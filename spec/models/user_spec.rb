@@ -14,13 +14,13 @@ RSpec.describe User, type: :model do
   end
 
   describe 'Associations' do
-    it {is_expected.to have_many :campaigns}
+    it { is_expected.to have_many :campaigns }
 
   end
 
   describe 'User roles' do
-    let(:user_fan) {create :user, role: :fan}
-    let(:user_artist) {create :user, role: :artist}
+    let(:user_fan) { create :user, role: :fan }
+    let(:user_artist) { create :user, role: :artist }
 
     it 'fan responds true if role is fan' do
       expect(user_fan.fan?).to eq true
