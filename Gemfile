@@ -15,6 +15,7 @@ gem "haml-rails", "~> 1.0"
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'pundit'
+gem 'omniauth-google-oauth2', '~> 0.5.3'
 
 ## CSS Frameworks and support
 ## MUI is 'almost' like Bootstrap but without jQuery. Allegedly ;-) 
