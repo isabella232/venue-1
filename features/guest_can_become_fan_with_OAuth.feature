@@ -7,8 +7,10 @@ Feature: A Guest can become a Fan with OAuth authentication
     Scenario: Guest can authenticate with Facebook
         Given I am on the 'landing' page
         And I click on 'Sign up'
-        Then stop
         And I click on 'Sign up with Facebook'
+        Then I wait 1 second
+        And I click 'Log in with Facebook'
+        Then I wait 1 second
         Then I should be redirected to the 'landing' page 
         And I should see 'Successfully authenticated from Facebook account'
 
