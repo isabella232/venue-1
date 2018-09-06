@@ -1,3 +1,4 @@
+@javascript
 Feature: A Campaign can only be created by an Artist
     As a System owner, 
     In order to eliminate fake and non-serious Campaigns
@@ -11,7 +12,7 @@ Feature: A Campaign can only be created by an Artist
 
     Scenario: Fan tries to access Create Campaign page via link
         Given I am logged in as 'user@fan.se'
-        And I am on the 'Create Campaign' page
+        And I try to access 'Create Campaign' page
         Then I should see 'Access denied'
         And I should be redirected to the 'landing' page
 
@@ -24,4 +25,4 @@ Feature: A Campaign can only be created by an Artist
         Given I am logged in as 'user@artist.se'
         And I am on the 'landing' page
         When I click on 'New Campaign'
-        And I should see 'Create a New Campaign'
+        Then I should see the 'Create a New Campaign' form
