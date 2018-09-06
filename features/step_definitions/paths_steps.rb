@@ -9,3 +9,7 @@ def page_path(path)
     root_path
   end
 end
+
+Given("I try to access {string} page") do |page_name|
+  visit page_path(page_name)
+end
