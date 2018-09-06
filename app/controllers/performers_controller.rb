@@ -2,18 +2,23 @@ class PerformersController < ApplicationController
     respond_to :js
     before_action :authenticate_user!, only: [:create]
 
+    def new
+        @performer = Performer.new
+    end
+    
     def create
-        @performer = current_user.create(performer_params)
+        @performer = Performer.create(performer_params)
         if @performer.persisted?
             redirect_to root_path
         else
-            render :new
+            render :new, error: 'Empty field'
         end
     end
 
     private
 
     def performer_params
-        params.require(:performer).permit(:name, :genre, :city, :description)
+        params.require(:performer).permit(:name, :genre, :city, :description, :facebook, :instagram, :twitter, :website, :spotify
+            )
     end
 end
