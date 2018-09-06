@@ -5,7 +5,7 @@ class CampaignPolicy < ApplicationPolicy
     end
 
     def create?
-        new?
+        user.artist?
     end
 
     def index?

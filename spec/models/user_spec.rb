@@ -16,23 +16,23 @@ RSpec.describe User, type: :model do
   end
 
   describe 'User roles' do
-    let(:fan) {create :user, role: :fan}
-    let(:artist) {create :user, role: :artist}
+    let(:user_fan) {create :user, role: :fan}
+    let(:user_artist) {create :user, role: :artist}
 
     it 'fan responds true if role is fan' do
-      expect(fan.fan?).to eq true
+      expect(user_fan.fan?).to eq true
     end
 
     it 'fan responds false if role is not fan' do
-      expect(fan.artist?).to eq false
+      expect(user_fan.artist?).to eq false
     end
     
     it 'artist responds true if role is artist' do
-      expect(artist.artist?).to eq true
+      expect(user_artist.artist?).to eq true
     end
 
     it 'artist responds false if role is not artist' do
-      expect(artist.fan?).to eq false
+      expect(user_artist.fan?).to eq false
     end
   end
 end
