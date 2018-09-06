@@ -16,9 +16,12 @@
     = f.label :password_confirmation, 'Re-Type Password', class: 'control-label'
     %br/
     = f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control'
+  .social-login-buttons  
+    .facebook
+      = link_to "Sign up with Facebook", user_facebook_omniauth_authorize_path
+    .google
+      = link_to "Sign up with Google", '#'
   .form-group
     = f.submit "Sign up for Venue", class: 'form-submit'
-    = link_to "Sign up with Facebook", user_facebook_omniauth_authorize_path
-    = link_to "Sign up with Google", '#'
     = button_tag 'Cancel', class: 'form-submit', onclick: 'cancelModal(event);'
 
