@@ -25,5 +25,6 @@ Feature: A Guest can become a Fan with OAuth authentication
         Given I am on the 'landing' page
         And I click on 'Sign up'
         And I click on 'Sign up with Google'
+        Then I wait 2 seconds
         Then I should be redirected to the 'landing' page 
         Then I should see 'Successfully authenticated from Google account'
