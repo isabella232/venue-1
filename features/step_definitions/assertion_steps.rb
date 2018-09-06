@@ -12,6 +12,10 @@ Then("I should be redirected to the Campaign page for {string}") do |title|
     expect(current_path).to eq campaign_path(campaign)
 end
 
+Then("I should be redirected to the landing page") do |string|
+    expect(current_path).to eq root_path
+end
+
 Then("It should be a user in the database with the email {string}") do |expected_email|
     user = User.find_by(email: expected_email)
     expect(user.email).to eq expected_email
