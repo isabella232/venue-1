@@ -11,7 +11,6 @@ Feature: Guest can login to the service
         |email           |password   |
         |thomas@venue.se |password|
 
-
     Scenario: Guest can login to the service [Happy path]
         Given I am on the 'landing' page
         And I click on 'Log in'
@@ -21,7 +20,3 @@ Feature: Guest can login to the service
         And I fill in 'Password' with 'password'
         And I click on 'Login'
         Then I should see 'Signed in successfully.'
-
-    
-    
-
