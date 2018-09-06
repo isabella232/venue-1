@@ -40,8 +40,17 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe 'OAuth methods' do
+  describe 'Facebook OAuth methods' do
     let(:auth_response) { OmniAuth::AuthHash.new(OmniAuthFixtures.facebook_mock) }
+
+    it 'creates an instance from an oauth hash' do
+      create_user = lambda {User.from_omniauth(auth_response)}
+      expect{create_user.call}.to change{ User.count}.from(0).to(1)
+    end
+  end
+
+  describe 'Google OAuth methods' do
+    let(:auth_response) { OmniAuth::AuthHash.new(OmniAuthFixtures.google_oauth2_response) }
 
     it 'creates an instance from an oauth hash' do
       create_user = lambda {User.from_omniauth(auth_response)}
