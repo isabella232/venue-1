@@ -1,3 +1,4 @@
+@javascript
 Feature: Attaching image to the campaign 
     As an Artist
     To further promote my Campaign
