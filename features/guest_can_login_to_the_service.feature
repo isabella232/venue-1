@@ -16,7 +16,6 @@ Feature: Guest can login to the service
         Given I am on the landing page
         And I click on 'Log in'
         And I wait 1 second
-        Then stop
         Then I should see 'Log in with Email address'
         And I fill in 'Email address' with 'thomas@venue.se'
         And I fill in 'Password' with 'password'

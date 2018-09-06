@@ -1,5 +1,11 @@
 class ApplicationController < ActionController::Base
     before_action :get_slider_content
+
+    def after_sign_in_path_for(resource_or_scope)
+        super
+    end
+
+        
     
     private 
     def get_slider_content 

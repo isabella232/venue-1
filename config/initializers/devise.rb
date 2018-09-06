@@ -10,7 +10,7 @@ Devise.setup do |config|
 
   config.skip_session_storage = [:http_auth]
 
-  config.authentication_keys = [ :login ]
+  # config.authentication_keys = [ :login ]
   
   config.stretches = Rails.env.test? ? 1 : 11
 
