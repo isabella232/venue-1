@@ -8,9 +8,7 @@ Feature: A Guest can become a Fan with OAuth authentication
         Given I am on the 'landing' page
         And I click on 'Sign up'
         And I click on 'Sign up with Facebook'
-        Then I wait 1 second
-        And I click 'Log in with Facebook'
-        Then I wait 1 second
+        Then I wait 2 seconds
         Then I should be redirected to the 'landing' page 
         And I should see 'Successfully authenticated from Facebook account'
 
@@ -19,6 +17,7 @@ Feature: A Guest can become a Fan with OAuth authentication
         And I am on the 'landing' page
         And I click on 'Sign up'
         And I click on 'Sign up with Facebook'
+        Then I wait 2 seconds
         Then I should be redirected to the 'landing' page
         And I should see 'Could not authenticate you!'
 
