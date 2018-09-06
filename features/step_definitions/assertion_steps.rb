@@ -28,3 +28,7 @@ Then("It should be a user in the database with the email {string}") do |expected
     user = User.find_by(email: expected_email)
     expect(user.email).to eq expected_email
 end
+
+Then("my profile should have been created") do
+    pending # Write code here that turns the phrase above into concrete actions
+  end
