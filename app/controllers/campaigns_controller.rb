@@ -11,7 +11,7 @@ class CampaignsController < ApplicationController
   end
 
   def create
-    @campaign = Campaign.create(campaign_params)
+    @campaign = current_user.campaigns.create(campaign_params)
     if @campaign.persisted?
       redirect_to root_path
     else
