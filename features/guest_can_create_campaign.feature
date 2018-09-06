@@ -10,7 +10,7 @@ Feature: Guest can create a new Campaign
         |mikael@venue.se|my-password|
     
     Scenario: Registered User successfully create a new Campaign
-        Given I am on the landing page
+        Given I am on the 'landing' page
         And I am logged in as 'mikael@venue.se'
         And I click on 'New Campaign'
         And I fill in 'Title' with 'Clare Cunningham'
@@ -20,7 +20,7 @@ Feature: Guest can create a new Campaign
         Then there should be a Campaign titled 'Clare Cunningham' in the Database
 
     Scenario: Guest tries to create a new Campaign
-        Given I am on the landing page
+        Given I am on the 'landing' page
         And I click on 'New Campaign'
         And I fill in 'Title' with 'Clare Cunningham'
         And I fill in 'Description' with 'Dubbed as having a vocal register similar to Adele'

@@ -6,12 +6,12 @@ Feature: A Campaign can only be created by an Artist
     Background:
         Given the following users exist
         | email             | role      |
-        | user@fan.se       | artist    |
+        | user@fan.se       | fan       |
         | user@artist.se    | artist    |
      
     Scenario: Fan tries to access Create Campaign page via link
         Given I am logged in as 'user@fan.se'
-        And I am on the 'Create Campign' page
+        And I am on the 'Create Campaign' page
         Then I should see 'Access denied'
         And I should be redirected to the 'landing' page
 
@@ -22,6 +22,6 @@ Feature: A Campaign can only be created by an Artist
  
     Scenario: Artist tries to access Create Article page
         Given I am logged in as 'user@artist.se'
-        And I am on the landing page
+        And I am on the 'landing' page
         When I click on 'New Campaign'
         And I should see 'Create a New Campaign'
