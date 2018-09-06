@@ -4,7 +4,7 @@ end
 
 Then("I should see the {string} form") do |content|
     expect(page).to have_content content
-  end
+end
 
 Then("I should NOT see {string}") do |content|
     expect(page).not_to have_content content 

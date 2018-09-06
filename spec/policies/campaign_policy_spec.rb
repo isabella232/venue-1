@@ -9,7 +9,8 @@ RSpec.describe CampaignPolicy do
         it { is_expected.to permit_actions [:index, :show] }
         it { is_expected.to forbid_actions [:create, :new] }
     end
-     context 'user is an artist' do
+    
+    context 'user is an artist' do
         let(:user) { create(:user, role: 'artist') }
         it { is_expected.to permit_actions [:index, :show, :create, :new] }
     end
