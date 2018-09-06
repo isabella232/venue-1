@@ -6,8 +6,8 @@ Feature: Attaching image to the campaign
 
     Background:
         Given the following user exist
-        | email          | role   |
-        | user@artist.se | artist |
+        | email          | role   | password   |
+        | user@artist.se | artist | my-pasword |
         And I am logged in as 'user@artist.se'
 
     Scenario: Attaching image to the campaign
@@ -18,7 +18,7 @@ Feature: Attaching image to the campaign
         And I fill in 'Description' with 'Dubbed as having a vocal register similar to Adele'
         And I fill in 'Location' with 'Stockholm'
         And I see 'Upload a campaign photo'
-        And I attach a file
+        And I attach an image-file
         #And I should see the 'dummy.jpeg' image
         And I click on 'Launch Campaign'
         Then there should be a Campaign titled 'Clare Cunningham' in the Database
