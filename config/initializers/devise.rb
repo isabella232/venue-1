@@ -19,6 +19,4 @@ Devise.setup do |config|
     Rails.application.credentials.google[:app_id],
     Rails.application.credentials.google[:app_secret],
     {scope: 'email public_profile', callbackURL: '/auth/google/callback'}
-
-  config.omniauth :google_oauth2
 end

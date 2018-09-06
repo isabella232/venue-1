@@ -5,8 +5,7 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: [:facebook]
-
+         :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
   enum role: { artist: 0, fan: 1 }
 
   def set_default_role
