@@ -1,4 +1,5 @@
 require 'coveralls'
+require 'pundit/matchers'
 Coveralls.wear_merged!('rails')
 
 RSpec.configure do |config|

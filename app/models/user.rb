@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+  after_initialize :set_default_role, :if => :new_record?
+
+  has_many :campaigns
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
@@ -16,5 +20,11 @@ class User < ApplicationRecord
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
     end
+         :recoverable, :rememberable, :validatable
+
+  enum role: { artist: 0, fan: 1 }
+
+  def set_default_role
+    self.role ||= :fan
   end
 end
