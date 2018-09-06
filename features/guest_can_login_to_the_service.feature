@@ -13,7 +13,7 @@ Feature: Guest can login to the service
 
 
     Scenario: Guest can login to the service [Happy path]
-        Given I am on the landing page
+        Given I am on the 'landing' page
         And I click on 'Log in'
         And I wait 1 second
         Then I should see 'Log in with Email address'
