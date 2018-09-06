@@ -15,4 +15,9 @@ Devise.setup do |config|
     Rails.application.credentials.facebook[:app_id],
     Rails.application.credentials.facebook[:app_secret],
     {scope: 'email public_profile', callbackURL: '/auth/facebook/callback'}
+  config.omniauth :google,
+    Rails.application.credentials.google[:app_id],
+    Rails.application.credentials.google[:app_secret]
+    
+  config.omniauth :google_oauth2, 12345, 12345 #where the first value is the app id and the second the application secret.
 end
