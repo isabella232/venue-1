@@ -1,3 +1,4 @@
+require './features/support/omni_auth_fixtures'
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
@@ -36,6 +37,15 @@ RSpec.describe User, type: :model do
 
     it 'artist responds false if role is not artist' do
       expect(user_artist.fan?).to eq false
+    end
+  end
+
+  describe 'OAuth methods' do
+    let(:auth_response) { OmniAuth::AuthHash.new(OmniAuthFixtures.facebook_mock) }
+
+    it 'creates an instance from an oauth hash' do
+      create_user = lambda {User.from_omniauth(auth_response)}
+      expect{create_user.call}.to change{ User.count}.from(0).to(1)
     end
   end
 end
