@@ -1,0 +1,54 @@
+%h2 Create your Artist profile
+= form_with model: @performer, local: true do |form|
+  .form-group
+    = form.label :name, 'Artist name', class: 'control-label'
+    %br/
+    = form.text_field :name, class: 'form-control'
+    %br/
+  .form-group
+    = form.label :genre, class: 'control-label'
+    %br/   
+    = form.text_area :genre, class: 'form-control'
+  .form-group
+    = form.label :description, 'Artist Description', class: 'control-label'
+    %br/   
+    = form.text_area :description, class: 'form-control'
+    %br/
+  .form-group    
+    = form.label :city, class: 'control-label'
+    %br/  
+    = form.text_field :city, class: 'form-control'
+    %br/
+  .form-group    
+    = form.label :facebook, class: 'control-label'
+    %br/  
+    = form.text_field :facebook, class: 'form-control'
+    %br/
+  .form-group    
+    = form.label :instagram, class: 'control-label'
+    %br/  
+    = form.text_field :instagram, class: 'form-control'
+    %br/
+  .form-group    
+    = form.label :twitter, class: 'control-label'
+    %br/  
+    = form.text_field :twitter, class: 'form-control'
+    %br/
+  .form-group    
+    = form.label :youtube, class: 'control-label'
+    %br/  
+    = form.text_field :youtube, class: 'form-control'
+    %br/
+  .form-group    
+    = form.label :website, class: 'control-label'
+    %br/  
+    = form.text_field :website, class: 'form-control'
+    %br/
+  .form-group    
+    = form.label :spotify, class: 'control-label'
+    %br/  
+    = form.text_field :spotify, class: 'form-control'
+    %br/
+  .form-group
+    = form.submit 'Create Profile', class: 'form-submit'
+    = button_tag 'Cancel', class: 'form-submit', onclick: 'cancelModal(event);' 
