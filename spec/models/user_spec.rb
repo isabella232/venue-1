@@ -1,4 +1,3 @@
-require './features/support/omni_auth_fixtures'
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
