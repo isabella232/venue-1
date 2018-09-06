@@ -9,19 +9,19 @@ Feature: Guest can login to the service
     Background:
         Given the following user exist
         |email           |password   |
-        |mikael@venue.se |my-password|
+        |thomas@venue.se |password|
 
 
     Scenario: Guest can login to the service [Happy path]
         Given I am on the landing page
         And I click on 'Log in'
         And I wait 1 second
+        Then stop
         Then I should see 'Log in with Email address'
-        And I fill in 'Email address' with 'mikael@venue.se'
-        And I fill in 'Password' with 'my-password'
-        And I click on 'Log in'
+        And I fill in 'Email address' with 'thomas@venue.se'
+        And I fill in 'Password' with 'password'
+        And I click on 'Login'
         Then I should see 'Signed in successfully.'
-        And I am on the landing page
 
     
     
