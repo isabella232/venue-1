@@ -7,6 +7,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
 
+  enum role: { artist: 0, fan: 1 }
+
+  def set_default_role
+    self.role ||= :fan
+  end
+
   def self.new_with_session(params, session)
     super.tap do |user|
       if data = session['devise.facebook_data'] && session['devise.facebook_data']['extra']['raw_info']
@@ -20,11 +26,5 @@ class User < ApplicationRecord
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
     end
-         :recoverable, :rememberable, :validatable
-
-  enum role: { artist: 0, fan: 1 }
-
-  def set_default_role
-    self.role ||= :fan
   end
 end
