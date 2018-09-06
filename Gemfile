@@ -13,9 +13,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem "haml-rails", "~> 1.0"
 gem 'devise'
-
-## CSS Frameworks and support
-## MUI is 'almost' like Bootstrap but without jQuery. Allegedly ;-) 
+gem 'omniauth-facebook'
 gem 'mui-sass', '~> 0.9.35'
 gem 'font-awesome-sass', '~> 5.0', '>= 5.0.13'
 
