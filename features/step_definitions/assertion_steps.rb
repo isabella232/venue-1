@@ -29,6 +29,7 @@ Then("It should be a user in the database with the email {string}") do |expected
     expect(user.email).to eq expected_email
 end
 
-Then("my profile should have been created") do
-    pending # Write code here that turns the phrase above into concrete actions
-  end
+Then("an artist profile page with the name {string} should have been created") do |artist_name|
+    performer = Performer.find_by(name: artist_name)
+    expect(performer.name).to eq artist_name
+end

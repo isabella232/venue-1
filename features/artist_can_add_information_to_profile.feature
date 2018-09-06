@@ -13,8 +13,6 @@ Feature: Artist can add information to profile
     Scenario:
         When I am on the 'landing' page
         And I click on 'Edit Profile'
-        #Then I should be redirected to the 'Edit Profile' page
-        #And I should see 'Create your Artist profile'
         And I fill in 'Artist name' with 'Kanye West'
         And I fill in 'Genre' with 'Hip-Hop'
         And I fill in 'City' with 'Los Angeles'
@@ -22,7 +20,8 @@ Feature: Artist can add information to profile
         And I fill in 'Facebook' with 'https://www.facebook.com/TheKanyewestPage/'
         And I fill in 'Instagram' with '@kanyewestt_official'
         And I fill in 'Twitter' with '@kanyewest'
+        And I fill in 'Youtube' with 'https://www.youtube.com/'
         And I fill in 'Website' with 'kanyewest.com'
         And I fill in 'Spotify' with 'https://open.spotify.com/artist/5K4W6rqBFWDnAN6FQUkS6x?si=4zpontE-TrmF46FSVJcNHA'
         And I click on 'Create Profile'
-        Then my profile should have been created
+        Then an artist profile page with the name 'Kanye West' should have been created
