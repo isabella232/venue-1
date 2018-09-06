@@ -4,18 +4,18 @@
   .form-group
     = f.label :email, 'Email address', class: 'control-label'
     %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control'
+    = f.email_field :email, autofocus: true, class: 'form-control'
   .form-group
     = f.label :password, class: 'control-label'
     - if @minimum_password_length
       %em
         (#{@minimum_password_length} characters minimum)
     %br/
-    = f.password_field :password, autocomplete: "new-password", class: 'form-control'
+    = f.password_field :password, class: 'form-control'
   .form-group
     = f.label :password_confirmation, 'Re-Type Password', class: 'control-label'
     %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control'
+    = f.password_field :password_confirmation, class: 'form-control'
   .form-group
     = f.submit "Sign up for Venue", class: 'form-submit'
     = button_tag 'Cancel', class: 'form-submit', onclick: 'cancelModal(event);' 
