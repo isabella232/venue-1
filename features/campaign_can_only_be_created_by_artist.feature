@@ -8,7 +8,7 @@ Feature: A Campaign can only be created by an Artist
         | email             | role      |
         | user@fan.se       | fan       |
         | user@artist.se    | artist    |
-     
+
     Scenario: Fan tries to access Create Campaign page via link
         Given I am logged in as 'user@fan.se'
         And I am on the 'Create Campaign' page
@@ -19,7 +19,7 @@ Feature: A Campaign can only be created by an Artist
         Given I am logged in as 'user@fan.se'
         And I am on the 'Create Campaign' page
         Then I should NOT see 'New Campaign'
- 
+
     Scenario: Artist tries to access Create Article page
         Given I am logged in as 'user@artist.se'
         And I am on the 'landing' page
