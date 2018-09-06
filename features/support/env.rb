@@ -16,6 +16,7 @@ end
 Before do
   OmniAuth.config.test_mode = true
   OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new(OmniAuthFixtures.facebook_mock)
+  OmniAuth.config.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new(OmniAuthFixtures.google_response)
 end
 
 Cucumber::Rails::Database.javascript_strategy = :truncation
