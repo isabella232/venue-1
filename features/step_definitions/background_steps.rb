@@ -18,4 +18,8 @@ end
 Given("the facebook authentication is not granted") do
     OmniAuth.config.mock_auth[:facebook] = :invalid_credentials
 end
+
+Given("the google authentication is not granted") do
+    OmniAuth.config.mock_auth[:google_oauth2] = :invalid_credentials
+  end
   

@@ -28,3 +28,12 @@ Feature: A Guest can become a Fan with OAuth authentication
         Then I wait 2 seconds
         Then I should be redirected to the 'landing' page 
         Then I should see 'Successfully authenticated from Google account'
+
+    Scenario: Authentication fails with Google
+        Given the google authentication is not granted
+        And I am on the 'landing' page
+        And I click on 'Sign up'
+        And I click on 'Sign up with Google'
+        Then I wait 2 seconds
+        Then I should be redirected to the 'landing' page
+        And I should see 'Could not authenticate you!'
