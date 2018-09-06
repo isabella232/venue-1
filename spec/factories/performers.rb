@@ -7,6 +7,7 @@ FactoryBot.define do
     facebook { "MyString" }
     instagram { "MyString" }
     twitter { "MyString" }
+    youtube { "MyString" }
     website { "MyString" }
     spotify { "MyString" }
   end

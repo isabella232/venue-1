@@ -18,7 +18,7 @@ class PerformersController < ApplicationController
     private
 
     def performer_params
-        params.require(:performer).permit(:name, :genre, :city, :description, :facebook, :instagram, :twitter, :website, :spotify
+        params.require(:performer).permit(:name, :genre, :city, :description, :facebook, :instagram, :twitter, :youtube, :website, :spotify
             )
     end
 end
