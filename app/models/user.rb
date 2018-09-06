@@ -2,7 +2,7 @@ class User < ApplicationRecord
   after_initialize :set_default_role, :if => :new_record?
 
   has_many :campaigns
-  has_many :artists
+  has_and_belongs_to_many :performer
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
