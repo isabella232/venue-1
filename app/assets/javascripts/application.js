@@ -41,10 +41,10 @@ const initiateSlider = (selector) => {
     next.addEventListener('click', () => App.slider.next());
 }
 
-const showPartialAsModal = (html) => {
+const showPartialAsModal = (html, dimensions) => {
     let modalEl = document.createElement('div');
-    modalEl.style.width = '80vw';
-    modalEl.style.height = '70vh';
+    modalEl.style.width = dimensions.width;
+    modalEl.style.height = dimensions.height;
     modalEl.style.margin = '60px auto';
     modalEl.style.padding = '20px 20px';
     modalEl.style.backgroundColor = '#293239';
