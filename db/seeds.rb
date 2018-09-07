@@ -18,3 +18,7 @@ campaigns = Campaign.create([
         location: 'Karlstad'
     }
 ])
+
+
+
+admin = User.create(email: 'admin@venue.se', password: 'my-password', role: 'admin')

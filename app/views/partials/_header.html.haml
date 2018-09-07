@@ -7,11 +7,11 @@
                 %td.mui--text-right
                     %ul.mui-list--inline.mui--text-body2
                         %li
-                            %a{href: "#", class: 'mui-btn mui-btn--flat mui-btn--primary'} Campaigns
+                            = link_to 'Campaigns', campaigns_path, remote: true, class: 'mui-btn mui-btn--flat mui-btn--primary'
                         %li
                             %a{href: "#", class: 'mui-btn mui-btn--flat mui-btn--primary'} Artists
                         %li
-                            - if     current_user&.artist?
+                            - if current_user&.artist?
                                 = link_to 'New Campaign', new_campaign_path, remote: true, class: 'mui-btn mui-btn--flat mui-btn--primary'
                         %li
                             - unless current_user

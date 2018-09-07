@@ -1,7 +1,12 @@
 - @campaigns.each do |campaign|
     %h1
         = link_to campaign.title, campaign_path(campaign)
+    - if campaign.image.attached?
+        = image_tag article.image
     %p
         = truncate(campaign.description, length: 100) { link_to ' (more)', campaign_path(campaign)} 
     %p
         = campaign.location
+    - if current_user&.admin? && campaign.state == 'pending'
+        %button{type: "button"} Reject
+        %button{type: "button"} Accept
