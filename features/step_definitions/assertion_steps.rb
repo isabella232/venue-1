@@ -41,8 +41,3 @@ end
 Then("I should see the {string} image") do |file_name|
     expect(page).to have_css "img[src*='#{file_name}']"
 end
-  
-Then("I should be on {string} campaign page") do |campaign_title|
-  campaign = Campaign.find_by(title: campaign_title)
-  expect(current_path).to eq campaign_path(campaign)
-end
