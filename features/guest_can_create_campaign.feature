@@ -19,6 +19,7 @@ Feature: Guest can create a new Campaign
         And I fill in 'Location' with 'Stockholm'
         And I attach an image to the campaign
         And I click on 'Launch Campaign'
+        Then I wait 1 second
         Then there should be a Campaign titled 'Clare Cunningham' in the Database
 
     Scenario: Registered User don't fill out all fields    
