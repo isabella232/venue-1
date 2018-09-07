@@ -15,3 +15,9 @@
         %form-group
           = f.submit "Sign up for Venue", class: 'form-submit'
           = button_tag 'Cancel', class: 'form-submit', onclick: 'cancelModal(event);' 
+        .social-login-buttons  
+          .facebook
+            = link_to "Sign up with Facebook", user_facebook_omniauth_authorize_path
+            %br/
+          .google
+            = link_to "Sign up with Google", user_google_oauth2_omniauth_authorize_path

@@ -15,7 +15,6 @@ RSpec.describe User, type: :model do
 
   describe 'Associations' do
     it { is_expected.to have_many :campaigns }
-
   end
 
   describe 'User roles' do
@@ -36,6 +35,41 @@ RSpec.describe User, type: :model do
 
     it 'artist responds false if role is not artist' do
       expect(user_artist.fan?).to eq false
+    end
+  end
+
+  describe 'OAuth methods - Facebook and Google' do
+    let(:facebook_auth_response) { OmniAuth::AuthHash.new(OmniAuthFixtures.facebook_mock) }
+    let(:google_auth_response) { OmniAuth::AuthHash.new(OmniAuthFixtures.google_oauth2_response) }
+    let(:create_user_from_facebook) { lambda {User.from_omniauth(facebook_auth_response)}}
+    let(:create_user_from_google) { lambda {User.from_omniauth(google_auth_response)}}
+
+    it 'creates an instance from an Facebook oauth hash' do
+      expect{create_user_from_facebook.call}.to change{ User.count}.from(0).to(1)
+    end
+
+    it 'creates an instance from an Google oauth hash' do
+      expect{create_user_from_google.call}.to change{ User.count}.from(0).to(1)
+    end
+
+    describe 'Facebook' do
+      before do
+        create_user_from_facebook.call
+        @user = User.last
+      end
+      it 'has Facebook as provider' do
+        expect(@user.provider).to eq("facebook")
+      end
+    end
+
+    describe 'Google' do
+      before do
+        create_user_from_google.call
+        @user = User.last
+      end
+      it 'has Google as provider' do
+        expect(@user.provider).to eq("google_oauth2")
+      end
     end
   end
 end
