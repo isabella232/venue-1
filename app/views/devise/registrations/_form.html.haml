@@ -11,7 +11,7 @@
       %em
         (#{@minimum_password_length} characters minimum)
     %br/
-    = f.password_field :password, autocomplete: "new-password", class: 'form-control'
+    = f.password_field :password, input: "new-password", class: 'form-control'
   .form-group
     = f.label :password_confirmation, 'Re-Type Password', class: 'control-label'
     %br/
