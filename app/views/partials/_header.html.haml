@@ -17,6 +17,8 @@
                             - if current_user&.artist?
                                 = link_to 'Edit Profile', new_performer_path, remote: true, class: 'mui-btn mui-btn--flat mui-btn--primary'
                         %li
-                            = link_to 'Log in', new_user_session_path, remote: true, class: 'mui-btn mui-btn--flat mui-btn--primary'
+                            - unless current_user
+                                = link_to 'Log in', new_user_session_path, remote: true, class: 'mui-btn mui-btn--flat mui-btn--primary'
                         %li
-                            = link_to 'Sign up', new_user_registration_path, remote: true, class: 'mui-btn mui-btn--flat mui-btn--primary'
+                            - unless current_user
+                                = link_to 'Sign up', new_user_registration_path, remote: true, class: 'mui-btn mui-btn--flat mui-btn--primary'
