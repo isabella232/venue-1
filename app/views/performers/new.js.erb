@@ -1,5 +1,5 @@
-var html = "<%= escape_javascript(render 'devise/registrations/form')%>"
-showPartialAsModal(html, {width: '60%', height: '50%'});
+var html = "<%= escape_javascript(render '/performers/form')%>"
+showPartialAsModal(html, {width: '90vw', height: '800px'});
 
 var form = document.querySelector('.mui-form')
 form.addEventListener('ajax:error', (event) => {

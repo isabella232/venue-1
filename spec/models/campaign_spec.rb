@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe Campaign, type: :model do
   describe 'DB table' do
-  it { is_expected.to validate_presence_of :title }
-  it { is_expected.to validate_presence_of :description }
-  it { is_expected.to validate_presence_of :location }
+    it { is_expected.to validate_presence_of :title }
+    it { is_expected.to validate_presence_of :description }
+    it { is_expected.to validate_presence_of :location }
   end
 
   describe 'Factory' do

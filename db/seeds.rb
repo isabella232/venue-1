@@ -18,3 +18,6 @@ campaigns = Campaign.create([
         location: 'Karlstad'
     }
 ])
+
+fan = User.create(email: 'fan@venue.se', password: 'my-password', role: 'fan')
+artist = User.create(email: 'artist@venue.se', password: 'my-password', role: 'artist')

@@ -5,6 +5,8 @@ end
 def page_path(path)
   if path == 'Create Campaign'
     new_campaign_path
+  elsif path == 'Create Artist Profile'
+    new_performer_path
   else
     root_path
   end

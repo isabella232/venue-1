@@ -15,6 +15,7 @@ RSpec.describe User, type: :model do
 
   describe 'Associations' do
     it { is_expected.to have_many :campaigns }
+    it { is_expected.to have_and_belong_to_many :performer }
   end
 
   describe 'User roles' do

@@ -2,7 +2,8 @@
   .mui-row
     .mui-col-md-8.mui-col-md-offset-2
       %h2 Create a New Campaign
-      = form_with model: @campaign, local: true,  class: 'mui-form' do |form|
+      #display_error_message
+      = form_with model: @campaign, class: 'mui-form' do |form|
         .mui-textfield.mui-textfield--float-label
           = form.text_field :title
           = form.label :title

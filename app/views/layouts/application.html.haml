@@ -10,9 +10,9 @@
 
   %body
     = render partial: 'partials/header'
-
     - flash.each do |key, value|
-      = value
+      :javascript
+        showToast("#{key.humanize}", "#{value}", {});
     - if current_page?(root_path)
       = render partial: 'partials/carousell'
       .container
