@@ -20,3 +20,4 @@ Feature: Guest can login to the service
         And I fill in 'Password' with 'password'
         And I click on 'Login'
         Then I should see 'Signed in successfully.'
+
