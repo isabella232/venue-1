@@ -19,6 +19,7 @@ Feature: Attaching image to the campaign
         And I fill in 'Location' with 'Stockholm'
         And I attach an image to the campaign
         And I click on 'Launch Campaign'
+        And I wait 1 second
         Then I should be redirected to the Campaign page for 'Clare Cunningham'
         And I should see the 'dummy.jpg' image
 
