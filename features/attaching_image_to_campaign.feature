@@ -17,10 +17,9 @@ Feature: Attaching image to the campaign
         And I fill in 'Title' with 'Clare Cunningham'
         And I fill in 'Description' with 'Dubbed as having a vocal register similar to Adele'
         And I fill in 'Location' with 'Stockholm'
-        And I see 'Upload a campaign photo'
-        And I attach an image-file
-        And I should see the 'dummy.jpg' image
+        And I attach an image to the campaign
         And I click on 'Launch Campaign'
         Then I should be on 'Clare Cunningham' campaign page
+        And I should see the 'dummy.jpg' image
 
     

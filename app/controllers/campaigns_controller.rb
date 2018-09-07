@@ -2,7 +2,7 @@ class CampaignsController < ApplicationController
   before_action :authenticate_user!, only: [:create]
 
   def index
-        @campaigns = Campaign.all
+    @campaigns = Campaign.all
   end
 
   def new
@@ -13,7 +13,7 @@ class CampaignsController < ApplicationController
   def create
     @campaign = current_user.campaigns.create(campaign_params)
     if @campaign.persisted?
-      redirect_to campaign_path
+      redirect_to campaign_path(@campaign)
     else
       render :new
     end

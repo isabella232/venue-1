@@ -29,17 +29,11 @@ Then("It should be a user in the database with the email {string}") do |expected
     expect(user.email).to eq expected_email
 end
 
-Then("I attach an image-file") do
-    attach_file('image', "#{::Rails.root}/spec/fixtures/dummy.jpg")
-end
-
-
 Then("I should see the {string} image") do |file_name|
-    expect(page).to have_selector "img[src$='#{file_name}']"
+    expect(page).to have_css "img[src*='#{file_name}']"
 end
   
-
-Then("I should be on {string} campaign page") do |campaing_page|
-  campaign = Campaign.find_by(title: campaign.title)
+Then("I should be on {string} campaign page") do |campaign_title|
+  campaign = Campaign.find_by(title: campaign_title)
   expect(current_path).to eq campaign_path(campaign)
 end
