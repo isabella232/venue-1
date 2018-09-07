@@ -25,4 +25,5 @@ Feature: A Campaign can only be created by an Artist
         Given I am logged in as 'user@artist.se'
         And I am on the 'landing' page
         When I click on 'New Campaign'
+        And I wait 1 second
         Then I should see the 'Create a New Campaign' form
