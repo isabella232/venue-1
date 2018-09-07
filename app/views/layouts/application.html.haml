@@ -10,7 +10,6 @@
 
   %body
     = render partial: 'partials/header'
-
     - flash.each do |key, value|
       :javascript
         showToast("#{key.humanize}", "#{value}", {});
