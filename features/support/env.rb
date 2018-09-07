@@ -13,7 +13,14 @@ rescue NameError
   raise "You need to add database_cleaner to your Gemfile (in the :test group) if you wish to use it."
 end
 
+Before do
+  OmniAuth.config.test_mode = true
+  OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new(OmniAuthFixtures.facebook_mock)
+  OmniAuth.config.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new(OmniAuthFixtures.google_oauth2_response)
+end
+
 Cucumber::Rails::Database.javascript_strategy = :truncation
+
 Chromedriver.set_version '2.36'
 
  Capybara.register_driver :selenium do |app|

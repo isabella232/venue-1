@@ -9,9 +9,16 @@ Given("the following user(s) exist") do |table|
         create(:user, user_hash)
     end
 end
-  
+
 Given("I am logged in as {string}") do |email|
     @user = User.find_by(email: email)
     login_as(@user, scope: :user)
 end
-  
+
+Given("the facebook authentication is not granted") do
+    OmniAuth.config.mock_auth[:facebook] = :invalid_credentials
+end
+
+Given("the google authentication is not granted") do
+    OmniAuth.config.mock_auth[:google_oauth2] = :invalid_credentials
+end
