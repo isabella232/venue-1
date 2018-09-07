@@ -10,10 +10,14 @@
                             %a{href: "#", class: 'mui-btn mui-btn--flat mui-btn--primary'} Campaigns
                         %li
                             %a{href: "#", class: 'mui-btn mui-btn--flat mui-btn--primary'} Artists
-                        %li
-                            - if current_user&.artist?
+                        - if current_user&.artist?
+                            %li
                                 = link_to 'New Campaign', new_campaign_path, remote: true, class: 'mui-btn mui-btn--flat mui-btn--primary'
-                        %li
-                            = link_to 'Log in', new_user_session_path, remote: true, class: 'mui-btn mui-btn--flat mui-btn--primary'
-                        %li
-                            = link_to 'Sign up', new_user_registration_path, remote: true, class: 'mui-btn mui-btn--flat mui-btn--primary'
+                        - if !user_signed_in?
+                            %li
+                                = link_to 'Log in', new_user_session_path, remote: true, class: 'mui-btn mui-btn--flat mui-btn--primary'
+                            %li
+                                = link_to 'Sign up', new_user_registration_path, remote: true, class: 'mui-btn mui-btn--flat mui-btn--primary'
+                        - if user_signed_in?    
+                            %li
+                                = link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'mui-btn mui-btn--flat mui-btn--primary'
