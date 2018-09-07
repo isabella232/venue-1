@@ -17,4 +17,10 @@ RSpec.describe Campaign, type: :model do
     it { is_expected.to belong_to :user }
   end
 
+  describe 'Attachment' do
+    it 'is valid  ' do
+      subject.image.attach(io: File.open(fixture_path + '/dummy.jpg'), filename: 'dummy.jpg', content_type: 'image/jpg')
+      expect(subject.image).to be_attached
+    end
+  end
 end

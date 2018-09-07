@@ -13,3 +13,7 @@ end
 And("stop") do  
     binding.pry
 end
+
+And("I attach an image to the campaign") do
+    attach_file('campaign_image', "#{::Rails.root}/spec/fixtures/dummy.jpg")
+end
