@@ -13,7 +13,7 @@ class CampaignsController < ApplicationController
   def create
     @campaign = current_user.campaigns.create(campaign_params)
     if @campaign.persisted?
-      redirect_to root_path
+      redirect_to campaign_path
     else
       render :new
     end
@@ -26,6 +26,6 @@ class CampaignsController < ApplicationController
 private
 
   def campaign_params
-    params.require(:campaign).permit(:title, :description, :location)
+    params.require(:campaign).permit(:title, :description, :location, :image)
   end
 end

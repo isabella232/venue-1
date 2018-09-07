@@ -30,7 +30,7 @@ Then("It should be a user in the database with the email {string}") do |expected
 end
 
 Then("I attach an image-file") do
-    attach_file('article_image', "#{::Rails.root}/spec/fixtures/dummy.jpeg")
+    attach_file('image', "#{::Rails.root}/spec/fixtures/dummy.jpg")
 end
 
 
@@ -39,6 +39,7 @@ Then("I should see the {string} image") do |file_name|
 end
   
 
-Then("I see {string}") do |string|
-    pending # Write code here that turns the phrase above into concrete actions
+Then("I should be on {string} campaign page") do |campaing_page|
+  campaign = Campaign.find_by(title: campaign.title)
+  expect(current_path).to eq campaign_path(campaign)
 end

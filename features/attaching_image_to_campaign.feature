@@ -19,8 +19,8 @@ Feature: Attaching image to the campaign
         And I fill in 'Location' with 'Stockholm'
         And I see 'Upload a campaign photo'
         And I attach an image-file
-        #And I should see the 'dummy.jpeg' image
+        And I should see the 'dummy.jpg' image
         And I click on 'Launch Campaign'
-        Then there should be a Campaign titled 'Clare Cunningham' in the Database
+        Then I should be on 'Clare Cunningham' campaign page
 
     

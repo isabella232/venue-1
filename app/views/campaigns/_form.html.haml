@@ -14,8 +14,10 @@
     = form.label :location, class: 'control-label'
     %br/  
     = form.text_field :location, class: 'form-control'
+  .form-group   
+    = form.label :post, :image
     %br/
-    = form.file_field :image, content: 'Upload a campaign photo'
+    = form.file_field :image 
     %br/
 
   .form-group
