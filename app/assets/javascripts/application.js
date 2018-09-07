@@ -63,8 +63,9 @@ const cancelModal = (event) => {
 
 
 const showToast = (key, value, options) => {
-    let position = options.position || 'bottomLeft'
-    let target = options.target || ''
+    let position, target
+    position = options.position || 'bottomLeft'
+    target = options.target || ''
     iziToast.show({
         title: key,
         message: value,

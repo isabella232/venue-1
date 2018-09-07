@@ -13,7 +13,7 @@
 
     - flash.each do |key, value|
       :javascript
-        showToast("#{key.humanize}", "#{value}");
+        showToast("#{key.humanize}", "#{value}", {});
     - if current_page?(root_path)
       = render partial: 'partials/carousell'
       .container
