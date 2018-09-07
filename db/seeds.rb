@@ -19,6 +19,6 @@ campaigns = Campaign.create([
     }
 ])
 
-
-
+fan = User.create(email: 'fan@venue.se', password: 'my-password', role: 'fan')
+artist = User.create(email: 'artist@venue.se', password: 'my-password', role: 'artist')
 admin = User.create(email: 'admin@venue.se', password: 'my-password', role: 'admin')

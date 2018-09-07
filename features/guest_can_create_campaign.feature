@@ -6,9 +6,9 @@ Feature: Guest can create a new Campaign
 
     Background:
         Given the following user exist
-        | email           | role   |
-        | mikael@venue.se | artist |
-    
+            | email           | role   |
+            | mikael@venue.se | artist |
+        
     Scenario: Registered User successfully create a new Campaign
         Given I am logged in as 'mikael@venue.se'
         And I am on the 'landing' page
@@ -19,8 +19,23 @@ Feature: Guest can create a new Campaign
         And I fill in 'Location' with 'Stockholm'
         And I attach an image to the campaign
         And I click on 'Launch Campaign'
+        Then I wait 1 second
         Then there should be a Campaign titled 'Clare Cunningham' in the Database
 
+    Scenario: Registered User don't fill out all fields    
+        Given I am logged in as 'mikael@venue.se'
+        And I am on the 'landing' page
+        And I click on 'New Campaign'
+        Then I should see the 'Create a New Campaign' form
+        And I fill in 'Title' with ''
+        And I fill in 'Description' with 'Dubbed as having a vocal register similar to Adele'
+        And I fill in 'Location' with 'Stockholm'
+        And I attach an image to the campaign
+        And I click on 'Launch Campaign'
+        Then I should see 'Additional input required'
+    
     Scenario: Guest tries to create a new Campaign
         Given I am on the 'landing' page
         Then I should NOT see 'New Campaign'
+
+    

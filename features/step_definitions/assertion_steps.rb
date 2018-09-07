@@ -29,6 +29,11 @@ Then("It should be a user in the database with the email {string}") do |expected
     expect(user.email).to eq expected_email
 end
 
+Then("an artist profile page with the name {string} should have been created") do |artist_name|
+    performer = Performer.find_by(name: artist_name)
+    expect(performer.name).to eq artist_name
+end
+
 Then("I should see the {string} image") do |file_name|
     expect(page).to have_css "img[src*='#{file_name}']"
 end
