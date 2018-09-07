@@ -1,20 +1,21 @@
-%h2 Create a New Campaign
-= form_with model: @campaign, local: true do |form|
-  .form-group
-    = form.label :title, class: 'control-label'
-    %br/
-    = form.text_field :title, class: 'form-control'
-    %br/
-  .form-group
-    = form.label :description, class: 'control-label'
-    %br/   
-    = form.text_area :description, class: 'form-control'
-    %br/
-  .form-group    
-    = form.label :location, class: 'control-label'
-    %br/  
-    = form.text_field :location, class: 'form-control'
-    %br/
-  .form-group
-    = form.submit 'Launch Campaign', class: 'form-submit'
-    = button_tag 'Cancel', class: 'form-submit', onclick: 'cancelModal(event);' 
+.mui-container-fluid
+  .mui-row
+    .mui-col-md-8.mui-col-md-offset-2
+      %h2 Create a New Campaign
+      = form_with model: @campaign, local: true,  class: 'mui-form' do |form|
+        .mui-textfield.mui-textfield--float-label
+          = form.text_field :title
+          = form.label :title
+        .mui-textfield.mui-textfield--float-label
+          = form.text_area :description, rows: 10
+          = form.label :description
+        .mui-textfield.mui-textfield--float-label
+          = form.text_field :location
+          = form.label :location
+        .form-group   
+          = form.label :image
+          = form.file_field :image 
+        .form-group
+          = form.submit 'Launch Campaign', class: 'form-submit'
+          = button_tag 'Cancel', class: 'form-submit', onclick: 'cancelModal(event);' 
+
