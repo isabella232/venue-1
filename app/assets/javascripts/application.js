@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require mui
 //= require siema/dist/siema.min.js
+//= require izitoast/dist/js/iziToast.min.js
 //= require_tree .
 
 
@@ -60,9 +61,25 @@ const cancelModal = (event) => {
     mui.overlay('off');
 }
 
+
+const showToast = (key, value, options) => {
+    let position = options.position || 'bottomLeft'
+    let target = options.target || ''
+    iziToast.show({
+        title: key,
+        message: value,
+        position: position,
+        theme: 'dark',
+        backgroundColor: '#293239',
+        zindex: 9999,
+        target: target
+    })
+}
+
 document.addEventListener('turbolinks:load', () => {
     let slider = document.querySelector('.carousel');
     if (slider) {
         initiateSlider('.carousel-inner')
     };
+
 })

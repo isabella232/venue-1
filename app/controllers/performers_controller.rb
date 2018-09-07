@@ -11,8 +11,7 @@ class PerformersController < ApplicationController
         if @performer.persisted?
             redirect_to root_path
         else
-            flash[:error] = "Required field can't be empty."
-            render :_form
+            render json: {message: "Required field can't be empty."}, status: 422
         end
     end
 

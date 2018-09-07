@@ -1,13 +1,14 @@
 @javascript
 Feature: Artist can add information to profile
-    As an Artist, 
+    As an Artist,
     In order to promote my music,
     I would like to create my Artist profile page.
 
     Background:
-        Given the following users exist   
-        | email           | role   |
-        | mikael@venue.se | artist |
+        Given the following users exist
+            | email           | role   |
+            | mikael@venue.se | artist |
+
         And I am logged in as 'mikael@venue.se'
 
     Scenario: Artist successfully create profile page
@@ -35,4 +36,3 @@ Feature: Artist can add information to profile
         And I fill in 'Artist Description' with 'Born in Atalanta, raised in Chicago'
         And I click on 'Create Profile'
         Then I should see "Required field can't be empty."
-        
