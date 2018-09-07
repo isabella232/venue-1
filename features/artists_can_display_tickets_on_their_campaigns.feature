@@ -22,6 +22,7 @@ Feature: Artists can display tickets on their Campaigns
         And I fill in 'Description' with 'Dubbed as having a vocal register similar to Adele'
         And I fill in 'Location' with 'Stockholm'
         And I fill in 'Fixed ticket price' with '100'
+        Then stop
         And I attach an image to the campaign
         And I click on 'Launch Campaign'
         Then there should be a Campaign titled 'Clare Cunningham' in the Database 
