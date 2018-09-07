@@ -11,14 +11,25 @@ class PerformersController < ApplicationController
         if @performer.persisted?
             redirect_to root_path
         else
-            render :new, error: 'Empty field'
+            flash[:error] = "Required field can't be empty."
+            render :_form
         end
     end
 
     private
 
     def performer_params
-        params.require(:performer).permit(:name, :genre, :city, :description, :facebook, :instagram, :twitter, :youtube, :website, :spotify
+        params.require(:performer).permit(
+            :name,
+            :genre,
+            :city,
+            :description,
+            :facebook,
+            :instagram,
+            :twitter,
+            :youtube,
+            :website,
+            :spotify
             )
     end
 end

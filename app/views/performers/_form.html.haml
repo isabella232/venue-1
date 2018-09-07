@@ -51,4 +51,6 @@
     %br/
   .form-group
     = form.submit 'Create Profile', class: 'form-submit'
+    .error  
+      = flash[:error]
     = button_tag 'Cancel', class: 'form-submit', onclick: 'cancelModal(event);' 
