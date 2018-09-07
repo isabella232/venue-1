@@ -11,7 +11,7 @@ RSpec.describe Ticket, type: :model do
 
   describe 'Factory' do
     it 'should have valid Factory' do
-      expect(create(:campaign)).to be_valid 
+      expect(create(:ticket)).to be_valid 
     end
   end
 end
