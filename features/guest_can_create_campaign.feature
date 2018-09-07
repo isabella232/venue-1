@@ -17,6 +17,7 @@ Feature: Guest can create a new Campaign
         And I fill in 'Title' with 'Clare Cunningham'
         And I fill in 'Description' with 'Dubbed as having a vocal register similar to Adele'
         And I fill in 'Location' with 'Stockholm'
+        And I attach an image to the campaign
         And I click on 'Launch Campaign'
         Then there should be a Campaign titled 'Clare Cunningham' in the Database
 
