@@ -21,7 +21,7 @@ Feature: A Campaign can only be created by an Artist
         And I am on the 'Create Campaign' page
         Then I should NOT see 'New Campaign'
 
-    Scenario: Artist tries to access Create Article page
+    Scenario: Artist tries to access Create Campaign page
         Given I am logged in as 'user@artist.se'
         And I am on the 'landing' page
         When I click on 'New Campaign'
