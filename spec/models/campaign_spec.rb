@@ -19,7 +19,7 @@ RSpec.describe Campaign, type: :model do
 
   describe 'Attachment' do
     it 'is valid  ' do
-      subject.image.attach(io: File.open(fixture_path + '/dummy_image.jpg'), filename: 'dummy.jpg', content_type: 'image/jpg')
+      subject.image.attach(io: File.open(fixture_path + '/dummy.jpg'), filename: 'dummy.jpg', content_type: 'image/jpg')
       expect(subject.image).to be_attached
     end
   end
