@@ -15,7 +15,7 @@ class CampaignsController < ApplicationController
     if @campaign.persisted?
       redirect_to campaign_path(@campaign)
     else
-      render :new
+      render json: {message: "Additional input required"}, status: 422
     end
   end
 

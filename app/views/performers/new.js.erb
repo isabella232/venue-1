@@ -3,5 +3,5 @@ showPartialAsModal(html, {width: '90vw', height: '800px'});
 
 var form = document.querySelector('.mui-form')
 form.addEventListener('ajax:error', (event) => {
-    showToast('Error', event.detail[0].message, {target: '#display'});
+    showToast('Error', event.detail[0].message, {target: '#display_error_message'});
 })

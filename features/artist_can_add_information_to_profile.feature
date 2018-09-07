@@ -13,7 +13,7 @@ Feature: Artist can add information to profile
 
     Scenario: Artist successfully create profile page
         When I am on the 'landing' page
-        And I click on 'Edit Profile'
+        And I click on 'Create Artist Profile'
         And I fill in 'Artist name' with 'Kanye West'
         And I fill in 'Genre' with 'Hip-Hop'
         And I fill in 'City' with 'Los Angeles'
@@ -25,14 +25,15 @@ Feature: Artist can add information to profile
         And I fill in 'Website' with 'kanyewest.com'
         And I fill in 'Spotify' with 'https://open.spotify.com/artist/5K4W6rqBFWDnAN6FQUkS6x?si=4zpontE-TrmF46FSVJcNHA'
         And I click on 'Create Profile'
+        Then I wait 1 second
         Then an artist profile page with the name 'Kanye West' should have been created
 
     Scenario: Artist does not fill in all required fields
         When I am on the 'landing' page
-        And I click on 'Edit Profile'
+        And I click on 'Create Artist Profile'
         And I fill in 'Artist name' with ''
         And I fill in 'Genre' with 'Hip-Hop'
         And I fill in 'City' with 'Los Angeles'
         And I fill in 'Artist Description' with 'Born in Atalanta, raised in Chicago'
         And I click on 'Create Profile'
-        Then I should see "Required field can't be empty."
+        Then I should see "Additional input required"

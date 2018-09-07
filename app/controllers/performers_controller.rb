@@ -11,7 +11,7 @@ class PerformersController < ApplicationController
         if @performer.persisted?
             redirect_to root_path
         else
-            render json: {message: "Required field can't be empty."}, status: 422
+            render json: {message: "Additional input required"}, status: 422
         end
     end
 
