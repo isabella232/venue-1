@@ -6,8 +6,8 @@ Feature: Sign out link only visible when logged in
 
     Background: 
         Given the following user exist
-        | email           | password    | role   |
-        | artist@venue.se | my-password | artist |
+        | email           |
+        | artist@venue.se |
 
     Scenario:
         Given I am on the 'landing' page
