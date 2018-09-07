@@ -12,7 +12,7 @@ Feature: Guests need to register to create campaigns
         And I wait 1 second
         Then I should see 'Sign up with Email address'
         And I fill in 'Email address' with 'mikael@venue.com'
-        And I fill in 'Password' with 'my-password'
+        And I fill in 'Password (6 characters minimum)' with 'my-password'
         And I fill in 'Re-Type Password' with 'my-password'
         And I click on 'Sign up for Venue'
         Then I should see 'Welcome! You have signed up successfully.'

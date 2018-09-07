@@ -1,4 +1,8 @@
 $mui-primary-color: #293239;
+$mui-label-font-color: rgba(white, 0.7);
+$mui-input-font-color: rgba(white, 0.7);
+$mui-input-placeholder-color: rgba(white, 0.7);
+$mui-form-legend-font-color: rgba(white, 0.7);
 $mui-btn-primary-bg-color : $mui-primary-color;
 $mui-btn-flat-bg-color-hover: darken($mui-primary-color, 5%);
 $mui-overlay-bg-color: rgba($mui-primary-color, 0.70);
@@ -156,6 +160,19 @@ img.faux {
   }
 /* 1.1 Forms */
 
+.form-submit {
+    background-color: transparent;
+    color: #FFF;
+    font-size: 16px;
+    font-weight: normal;
+    border: 1px solid #f0d75d;
+    border-radius: 50px;
+    display: inline;
+    font-size: 13px;
+    margin: 30px auto 0;
+    padding: 5px 30px;
+}
+
 .form-group {
     .control-label {
         font-size: 16px;
@@ -215,18 +232,7 @@ img.faux {
             }
         }
     }
-    .form-submit {
-        background-color: transparent;
-        color: #FFF;
-        font-size: 16px;
-        font-weight: normal;
-        border: 1px solid #f0d75d;
-        border-radius: 50px;
-        display: table;
-        font-size: 13px;
-        margin: 30px auto 0;
-        padding: 5px 30px;
-    }
+
     .form-checkbox {
         display: table;
         font-size: 12px;
