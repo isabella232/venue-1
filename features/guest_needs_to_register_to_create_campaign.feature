@@ -10,6 +10,8 @@ Feature: Guests need to register to create campaigns
         Given I am on the 'landing' page
         And I click on 'Sign up'
         And I wait 1 second
+        And I click "FAN"
+        And I wait 1 second
         Then I should see 'Sign up with Email address'
         And I fill in 'Email address' with 'mikael@venue.com'
         And I fill in 'Password (6 characters minimum)' with 'my-password'

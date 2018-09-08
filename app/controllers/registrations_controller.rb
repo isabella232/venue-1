@@ -1,6 +1,14 @@
 class RegistrationsController < Devise::RegistrationsController
     respond_to :js 
 
+    def new 
+        if params[:panel] == 'choice'
+
+            render 'choice'
+        else
+            super
+        end
+    end
     def create 
         build_resource(sign_up_params)
         if resource.save
