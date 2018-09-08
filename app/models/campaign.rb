@@ -6,5 +6,5 @@ class Campaign < ApplicationRecord
     has_one_attached :image
 
     has_many :tickets
-    accepts_nested_attributes_for :tickets
+    accepts_nested_attributes_for :ticket
 end
