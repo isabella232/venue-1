@@ -10,7 +10,6 @@ class RegistrationsController < Devise::RegistrationsController
         end
     end
     def create 
-        binding.pry
         build_resource(sign_up_params)
         if resource.save
             flash[:notice] = 'Welcome! You have signed up successfully.'

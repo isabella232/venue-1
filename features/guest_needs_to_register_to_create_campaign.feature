@@ -10,9 +10,9 @@ Feature: Guests need to register to create campaigns
         Given I am on the 'landing' page
         And I click on 'Sign up'
         And I wait 1 second
-        And I click "FAN"
+        And I click "Fan"
         And I wait 1 second
-        Then I should see 'Sign up with Email address'
+        Then I should see "SIGN UP AS A FAN"
         And I fill in 'Email address' with 'mikael@venue.com'
         And I fill in 'Password (6 characters minimum)' with 'my-password'
         And I fill in 'Re-Type Password' with 'my-password'
@@ -24,6 +24,8 @@ Feature: Guests need to register to create campaigns
         Given I am on the 'landing' page
         And I click on 'Sign up'
         And I wait 1 second
-        Then I should see 'Sign up with Email address'
+        And I click "Fan"
+        And I wait 1 second
+        Then I should see "SIGN UP AS A FAN"
         And I click on 'Cancel'
         Then I am on the 'landing' page
