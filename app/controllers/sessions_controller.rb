@@ -10,9 +10,9 @@ class SessionsController < Devise::SessionsController
     if self.resource
       sign_in(resource_name, resource)
       flash[:notice] = 'Signed in successfully.'
-      render js: "Turbolinks.visit(Turbolinks.absoluteURL, {action: 'reload'})"
+      redirect_to root_path
     else
-      render json: {message: 'Could not log you in'}, status: 422
+      render json: {message: 'Could not log you in'}, status: :unauthorized
     end
   end
 

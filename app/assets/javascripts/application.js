@@ -43,22 +43,37 @@ const initiateSlider = (selector) => {
 }
 
 const showPartialAsModal = (html, dimensions) => {
-    let modalEl = document.createElement('div');
-    modalEl.style.width = dimensions.width;
-    modalEl.style.height = dimensions.height;
-    modalEl.style.margin = '60px auto';
-    modalEl.style.padding = '20px 20px';
-    modalEl.style.backgroundColor = '#293239';
-    modalEl.innerHTML = html;
+    let modal = document.createElement('div');
+    modal.style.width = dimensions.width;
+    modal.style.height = dimensions.height;
+    modal.style.margin = '60px auto';
+    modal.style.padding = '20px 20px';
+    modal.style.backgroundColor = '#293239';
+    modal.innerHTML = html;
 
-    mui.overlay('on', modalEl, {
+    mui.overlay('on', modal, {
         static: true
     });
+
+    return modal;
 }
 
-const cancelModal = (event) => {
+const cancelModal = event => {
     event.preventDefault();
     mui.overlay('off');
+}
+
+const resizableModal = (modal, height) => {
+    let originalModelHeight = modal.offsetHeight;
+    document.addEventListener('iziToast-opening', (data) => {
+        setTimeout(null, 500);
+        modal.style.height = `${originalModelHeight + height}px`;
+        modal.style.transition = '0.5s';
+    });
+
+    document.addEventListener('iziToast-closed', () => {
+        modal.style.height = `${originalModelHeight}px`;   
+    });
 }
 
 
