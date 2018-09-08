@@ -9,6 +9,4 @@
         = campaign.location
     
     = button_to 'Reject', '#'
-    = button_to 'Accept', campaign_path(campaign, event: :admin_accepts_campaign), method: :admin_accept, remote: true, id: 'accept'
-    %button{type: "button"} Reject
-    %button{type: "button"} Accept
+    = button_to 'Accept', campaigns_path(@campaign, event: :admin_accepts_campaign), remote: true, method: :put

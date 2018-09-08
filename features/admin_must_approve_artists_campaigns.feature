@@ -17,7 +17,5 @@ Feature: Admin must approve Artists new Campaigns
         And I am on the 'Campaigns' page
         Then I should see 'Veronica Maggio in Stockholm'
         And the state of the campaign 'Veronica Maggio in Stockholm' should be 'pending'
-        And I should see 'Reject'
-        And I should see 'Accept'
         When I click on 'Accept'
         Then the state of the campaign 'Veronica Maggio in Stockholm' should be 'accepted'
