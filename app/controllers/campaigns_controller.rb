@@ -23,10 +23,19 @@ class CampaignsController < ApplicationController
     @campaign = Campaign.find(params[:id])
   end
 
-  def admin_accepts_campaign
-    @campaign = Campaign.find(params[:id])
-    @campaign.admin_accepts_campaign!
+  def update
+    campaign = Campaign.find(params[:id])
+    if params[:event] == 'admin_accepts_campaign'
+      campaign.admin_accepts_campaign!
+    end
   end
+  
+  #def admin_accepts_campaign
+  #  campaign = Campaign.find(params[:id])
+  #  if params[:event] == 'admin_accepts_campaign'
+  #    campaign.admin_accepts_campaign!
+  #  end
+  #end
 
 private
 
