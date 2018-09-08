@@ -6,18 +6,11 @@ class TicketsController < ApplicationController
         authorize @ticket
     end
     
-    def create
-        @ticket = current_user.tickets.create(tickets_params)
-        if @ticket.persisted?
-        redirect_to campaign_path(@campaign)
-        else
-        render json: {message: "Additional input required"}, status: 422
-        end
-    end
+
 
     def show
         @ticket = Ticket.find(params[:id])
-      end
+    end
 
     private 
 

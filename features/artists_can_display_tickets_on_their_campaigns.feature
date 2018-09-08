@@ -18,6 +18,7 @@ Feature: Artists can display tickets on their Campaigns
         And I fill in 'Location' with 'Stockholm'
         And I fill in 'Fixed ticket price' with '100'
         And I fill in 'Ticket name' with 'Sure thing'
+        Then stop
         And I attach an image to the campaign
         And I click on 'Launch Campaign'
-        Then there should be a Campaign titled 'Clare Cunningham' in the Database 
+        Then there should be a Ticket named 'Sure thing' in the Database 
