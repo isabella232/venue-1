@@ -1,7 +1,9 @@
-var html = "<%= escape_javascript(render 'devise/registrations/form')%>"
-showPartialAsModal(html, {width: '60%', height: '50%'});
+var html, modal, form
+html = "<%= escape_javascript(render 'form')%>"
+modal = showPartialAsModal(html, {width: '60vw', height: '65vh'});
+form = document.querySelector('.mui-form')
+resizableModal(modal, 70)
 
-var form = document.querySelector('.mui-form')
 form.addEventListener('ajax:error', (event) => {
-    showToast('Error', event.detail[0].message, {target: '#display_error_message'});
+    showToast('Error', event.detail[0].message, {target: '#<%= dom_id(resource, :errors) %>'});
 })
