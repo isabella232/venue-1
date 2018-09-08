@@ -1,6 +1,6 @@
 .mui-container-fluid
     .mui-row
-        .mui-col-md-8.mui-col-md-offset-2
+        .mui-col-lg-8.mui-col-lg-offset-2.mui-col-md-12
             %h2 Log in with Email address
             = tag :div, id: dom_id(resource, :errors)
             = form_with(model: resource, as: resource_name, url: session_path(resource_name), remote: true, class: 'mui-form') do |f|
@@ -16,3 +16,7 @@
                 %div
                     = f.submit 'Login', class: 'form-submit'
                     = button_tag 'Cancel', class: 'form-submit', onclick: 'cancelModal(event);' 
+            %div{style: 'margin-top: 20px;'} 
+            %h3 Log in using your social media account 
+            = link_to icon('fab', 'facebook-f', t('header.log_in_with_facebook')), user_facebook_omniauth_authorize_path, class: 'form-submit', onclick: "mui.overlay('on')"
+            = link_to icon('fab', 'google-plus-g', t('header.log_in_with_google')), user_google_oauth2_omniauth_authorize_path, class: 'form-submit', onclick: "mui.overlay('on')"

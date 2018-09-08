@@ -3,13 +3,14 @@ $mui-label-font-color: rgba(white, 0.7);
 $mui-input-font-color: rgba(white, 0.7);
 $mui-input-placeholder-color: rgba(white, 0.7);
 $mui-form-legend-font-color: rgba(white, 0.7);
-$mui-btn-primary-bg-color : $mui-primary-color;
+$mui-btn-primary-bg-color: $mui-primary-color;
 $mui-btn-flat-bg-color-hover: darken($mui-primary-color, 5%);
 $mui-overlay-bg-color: rgba($mui-primary-color, 0.70);
 @import url('https://fonts.googleapis.com/css?family=Lato:300,400,700,900');
 @import 'mui';
 @import 'mui_extensions';
 @import 'izitoast/dist/css/iziToast.min.css';
+@import "font-awesome-sprockets";
 @import "font-awesome";
 html {
     margin: 0;
@@ -124,41 +125,41 @@ img.faux {
 
 .carousel {
     .carousel-control {
-      cursor: pointer;
-      background: transparent none;
-      width: 100px;
-      -moz-transition: all 0.3s ease 0s;
-      -webkit-transition: all 0.3s ease 0s;
-      transition: all 0.3s ease 0s;
-      z-index: 999;
-      &:hover {
+        cursor: pointer;
         background: transparent none;
         width: 100px;
         -moz-transition: all 0.3s ease 0s;
         -webkit-transition: all 0.3s ease 0s;
         transition: all 0.3s ease 0s;
-      }
-      svg {
-        height: 40px;
-        width: 40px;
-        -moz-transform: translate(-50%, -50%);
-        -webkit-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
-      }
-      &:nth-of-type(1) {
-        position: absolute;
-        left: 0;
-        top: 50%;
-      }
-      
-      &:nth-of-type(2) {
-        position: absolute;
-        right: 0;
-        top: 50%;
-        transform: translate(+50%);
-      }
+        z-index: 999;
+        &:hover {
+            background: transparent none;
+            width: 100px;
+            -moz-transition: all 0.3s ease 0s;
+            -webkit-transition: all 0.3s ease 0s;
+            transition: all 0.3s ease 0s;
+        }
+        svg {
+            height: 40px;
+            width: 40px;
+            -moz-transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+        &:nth-of-type(1) {
+            position: absolute;
+            left: 0;
+            top: 50%;
+        }
+        &:nth-of-type(2) {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translate(+50%);
+        }
     }
-  }
+}
+
 /* 1.1 Forms */
 
 .form-submit {
@@ -233,7 +234,6 @@ img.faux {
             }
         }
     }
-
     .form-checkbox {
         display: table;
         font-size: 12px;
@@ -284,37 +284,10 @@ img.faux {
 }
 
 .social-login-buttons {
-    padding: 50px 0;
-    a {
-        border-radius: 5px;
-        display: table;
-        font-size: 15px;
-        height: 47px;
-        line-height: 47px;
-        margin: 0 auto;
-        padding-left: 47px;
-        width: 208px;
-        +a {
-            margin-top: 20px;
-        }
-    }
     .facebook {
         background-color: #4267B2;
-        &::before {
-            background: transparent image-url('icon-facebook.jpg') center center no-repeat;
-            background-size: contain;
-            border-radius: 2px;
-            content: '';
-            display: block;
-            height: 26px;
-            left: 13px;
-            width: 26px;
-            position: absolute;
-            top: 50%;
-            -moz-transform: translateY(-50%);
-            -webkit-transform: translateY(-50%);
-            transform: translateY(-50%);
-        }
+        background: transparent image-url('icon-facebook.jpg') no-repeat;
+        background-size: contain;
     }
     .google {
         background-color: #FFF;
