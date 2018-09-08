@@ -1,10 +1,20 @@
 require 'rails_helper'
 
 RSpec.describe Campaign, type: :model do
+  
   describe 'DB table' do
+    it { is_expected.to have_db_column :title }
+    it { is_expected.to have_db_column :description }
+    it { is_expected.to have_db_column :location }
+    it { is_expected.to have_db_column :state }
+  end
+  
+  describe 'Validations' do
     it { is_expected.to validate_presence_of :title }
     it { is_expected.to validate_presence_of :description }
     it { is_expected.to validate_presence_of :location }
+    it { is_expected.to validate_presence_of :state }
+
   end
 
   describe 'Factory' do
@@ -21,6 +31,18 @@ RSpec.describe Campaign, type: :model do
     it 'is valid  ' do
       subject.image.attach(io: File.open(fixture_path + '/dummy.jpg'), filename: 'dummy.jpg', content_type: 'image/jpg')
       expect(subject.image).to be_attached
+    end
+  end
+
+  describe 'Check for states, events and transistions' do
+    subject { create(:campaign) }
+
+    it { is_expected.to have_states :pending, :accepted }
+    it { is_expected.to handle_events :admin_accepts_campaign, when: :pending }
+
+    it ':admin_accepts_campaign transitions from :pending to :accepted' do
+      subject.admin_accepts_campaign
+      expect(subject.accepted?).to eq true
     end
   end
 end
