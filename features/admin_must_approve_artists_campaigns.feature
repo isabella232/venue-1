@@ -15,7 +15,6 @@ Feature: Admin must approve Artists new Campaigns
     Scenario: Artist creates a Campaign and Admin approves it
         Given I am logged in as 'artist@venue.se'
         And I am on the 'Campaigns' page
-        Then stop
         Then I should see 'Veronica Maggio in Stockholm'
         And the state of the campaign 'Veronica Maggio in Stockholm' should be 'pending'
         And I should see 'Reject'
