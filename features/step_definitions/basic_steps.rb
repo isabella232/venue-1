@@ -6,7 +6,7 @@ end
 And ("I click( on) {string} detail box") do |campaign_title|
     campaign = Campaign.find_by(title: campaign_title)
     within "##{ActionView::RecordIdentifier.dom_id(campaign)}" do 
-        click_on link
+        click_on campaign_title
     end
 end
 
