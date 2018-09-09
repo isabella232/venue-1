@@ -6,9 +6,6 @@ Rails.application.routes.draw do
     sessions: :sessions
   }
   root controller: :campaigns, action: :index
-  resources :campaigns, only: [:index, :create, :new, :show, :update] do
-    put 'admin_accepts_campaign'
-  end
-  
-  resources :performers, only: [:new, :create]
+  resources :campaigns, only: [:index, :create, :new, :show]
+  resources :performers, only: [:new, :create, :show]
 end

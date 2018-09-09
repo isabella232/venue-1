@@ -1,12 +1,12 @@
-- @campaigns.each do |campaign|
-    %h1
-        = link_to campaign.title, campaign_path(campaign)
-    - if campaign.image.attached?
-        = image_tag campaign.image
-    %p
-        = truncate(campaign.description, length: 100) { link_to ' (more)', campaign_path(campaign)} 
-    %p
-        = campaign.location
-    
-    = button_to 'Reject', '#'
-    = button_to 'Accept', campaign_path(campaign, event: :admin_accepts_campaign), method: :put, remote: true
+- @campaigns.each do |campaign|    
+        %h1
+            = link_to campaign.title, campaign_path(campaign)
+        - if campaign.image.attached?
+            = image_tag campaign.image
+        %p
+            = truncate(campaign.description, length: 100) { link_to ' (more)', campaign_path(campaign)} 
+        %p
+            = campaign.location
+        
+        = button_to 'Reject', '#'
+        = button_to 'Accept', campaign_path(campaign, event: :admin_accepts_campaign), method: :put, remote: true

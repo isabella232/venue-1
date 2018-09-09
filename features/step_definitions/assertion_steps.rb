@@ -19,9 +19,14 @@ Then("I should be redirected to the {string} page") do |page_name|
     expect(current_path).to eq page_path(page_name)    
 end
 
-Then("I should be redirected to the Campaign page for {string}") do |title|
-    campaign = Campaign.find_by(title: title)
+Then("I should be redirected to the Campaign page for {string}") do |campaign_title|
+    campaign = Campaign.find_by(title: campaign_title)
     expect(current_path).to eq campaign_path(campaign)
+end
+
+Then("I should be redirected to the Artist page for {string}") do |performer_title|
+    performer = Performer.find_by(name: performer_title)
+    expect(current_path).to eq performer_path(performer)
 end
 
 Then("I should be redirected to the landing page") do |string|
