@@ -1,5 +1,5 @@
 .mui-col-md-6
-    %a.event{href: "#{campaign_path(campaign)}"}
+    %a.event{href: "#{campaign_path(campaign)}", id: "#{dom_id(campaign)}"}
         %span.thumb{:style => "background-image: url(#{rails_blob_url campaign.image})"}
         %span.title
             = campaign.title
