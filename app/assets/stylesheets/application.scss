@@ -351,12 +351,12 @@ img.faux {
         background-color: rgba(45, 45, 49, 0.8);
     }
     .logo-venue {
-        height: 78px;
-        width: 216px;
+        height: 55px;
+        width: 100%;
     }
 }
 
-#signup-role-select.modal .role-select {
+.role-select {
     display: flex;
     margin: 8vh 0;
     a {
@@ -380,7 +380,7 @@ img.faux {
     }
 }
 
-.modal.form-modal {
+.modal {
     .modal-body {
         padding: 80px 100px;
     }

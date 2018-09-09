@@ -24,9 +24,23 @@ Then("I should be redirected to the Campaign page for {string}") do |title|
     expect(current_path).to eq campaign_path(campaign)
 end
 
-Then("It should be a user in the database with the email {string}") do |expected_email|
+Then("I should be redirected to the landing page") do |string|
+    expect(current_path).to eq root_path
+end
+
+Then("there should be a user in the database with the email {string}") do |expected_email|
     user = User.find_by(email: expected_email)
     expect(user.email).to eq expected_email
+end
+
+Then("the user {string} should be a/an {string}") do |expected_email, expected_role|
+    user = User.find_by(email: expected_email)
+    expect(user.role).to eq expected_role
+end
+
+Then("the user should be a/an {string}") do |expected_role|
+    user = User.last
+    expect(user.role).to eq expected_role
 end
 
 Then("an artist profile page with the name {string} should have been created") do |artist_name|
