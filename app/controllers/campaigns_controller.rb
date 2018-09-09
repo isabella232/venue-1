@@ -13,6 +13,7 @@ class CampaignsController < ApplicationController
   def create
     @campaign = current_user.campaigns.create(campaign_params)
     if @campaign.persisted?
+      flash[:notice] = 'Campaign successfully launched'
       redirect_to campaign_path(@campaign)
     else
       render json: {message: "Additional input required"}, status: 422

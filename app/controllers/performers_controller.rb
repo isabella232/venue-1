@@ -9,10 +9,15 @@ class PerformersController < ApplicationController
     def create
         @performer = Performer.create(performer_params)
         if @performer.persisted?
-            redirect_to root_path
+            flash[:notice] = 'Artist page successfully created'
+            redirect_to performer_path(@performer)
         else
             render json: {message: "Additional input required"}, status: 422
         end
+    end
+
+    def show
+        @performer = Performer.find(params[:id])
     end
 
     private
