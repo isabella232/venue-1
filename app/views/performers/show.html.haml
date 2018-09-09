@@ -1,0 +1,15 @@
+%h1
+    = @performer.name
+%h4
+    = @performer.genre
+%h4 
+    = @performer.city
+%p
+    = @performer.description
+
+= link_to icon('fab', 'facebook-f', 'Facebook'), @performer.facebook, class: 'form-submit', onclick: "mui.overlay('on')"
+= link_to 'Instagram', @performer.instagram
+= link_to 'Twitter', @performer.twitter
+= link_to 'Youtube', @performer.youtube
+= link_to 'Website', @performer.website
+= link_to 'Spotify', @performer.spotify
