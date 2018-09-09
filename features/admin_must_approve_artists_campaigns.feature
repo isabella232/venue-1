@@ -13,7 +13,7 @@ Feature: Admin must approve Artists new Campaigns
             | Veronica Maggio in Stockholm | Don't miss a fantastic singer in September | Stockholm | pending |
     
     Scenario: Artist creates a Campaign and Admin approves it
-        Given I am logged in as 'artist@venue.se'
+        Given I am logged in as 'admin@venue.se'
         And I am on the 'Campaigns' page
         Then I should see 'Veronica Maggio in Stockholm'
         And the state of the campaign 'Veronica Maggio in Stockholm' should be 'pending'
