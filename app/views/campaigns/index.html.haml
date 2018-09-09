@@ -1,7 +1,5 @@
-- @campaigns.each do |campaign|
-    %h1
-        = link_to campaign.title, campaign_path(campaign)
-    %p
-        = truncate(campaign.description, length: 100) { link_to ' (more)', campaign_path(campaign)} 
-    %p
-        = campaign.location
+.mui-container-fluid#home-events
+    - @campaigns.each_slice(2) do |section|
+        .mui-row
+            - section.each do |campaign|
+                = render partial: 'index_detail', locals: {campaign: campaign}

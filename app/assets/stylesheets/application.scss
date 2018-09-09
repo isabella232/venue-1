@@ -699,6 +699,9 @@ img.faux {
         white-space: nowrap;
         text-overflow: ellipsis;
         top: 10%;
+        .description {
+            font-size: 16px !important;
+        }
     }
     .venue-date {
         bottom: 8%;
