@@ -443,13 +443,13 @@ img.faux {
     }
 }
 
-.home-featured-wrap {
+.tiled-campaigns-wrap {
     height: auto;
     margin: 7vh 0;
     padding-top: 66.66%;
-}
-
-#home-featured {
+  }
+  
+  .tiled-campaigns {
     display: flex;
     height: 100%;
     left: 0;
@@ -457,196 +457,324 @@ img.faux {
     top: 0;
     width: 100%;
     > {
-        .col {
-            display: flex;
-            flex-direction: column;
-        }
-        .col-1 {
-            flex: 3;
-        }
-        .col-2 {
-            flex: 2;
-        }
-        .col-3 {
-            flex: 1;
-        }
+      .col {
+        display: flex;
+        flex-direction: column;
+      }
+      .col-1 {
+        flex: 3;
+      }
+      .col-2 {
+        flex: 2;
+      }
+      .col-3 {
+        flex: 1;
+      }
     }
     .card {
-        background: transparent none center center no-repeat;
-        background-size: cover;
-        flex: 1;
-        &::before {
-            background-color: transparent;
-            content: '';
-            display: block;
-            height: 100%;
-            left: 0;
-            position: absolute;
-            top: 0;
-            width: 100%;
-            z-index: 0;
-            -moz-transition: all 0.3s ease 0s;
-            -webkit-transition: all 0.3s ease 0s;
-            transition: all 0.3s ease 0s;
+      background: transparent none center center no-repeat;
+      background-size: cover;
+      flex: 1;
+      &::before {
+        background-color: transparent;
+        content: '';
+        display: block;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 0;
+        -moz-transition: all 0.3s ease 0s;
+        -webkit-transition: all 0.3s ease 0s;
+        transition: all 0.3s ease 0s;
+      }
+      &:hover::before {
+        background-color: rgba(0, 0, 0, 0.2);
+      }
+      .caption {
+        bottom: 5%;
+        display: block;
+        font-size: 15px;
+        font-weight: 900;
+        left: 5%;
+        padding: 1.8% 6%;
+        position: absolute;
+        right: 5%;
+        width: auto;
+        z-index: 2;
+      }
+      .date-venue + .caption {
+        bottom: 15%;
+      }
+      .details + .date-venue + .caption {
+        bottom: 21%;
+      }
+      .date-venue {
+        bottom: 5%;
+        display: block;
+        font-size: 14px;
+        left: 5%;
+        padding: 1% 3.5%;
+        position: absolute;
+        right: 5%;
+        width: auto;
+        z-index: 2;
+      }
+      .details + .date-venue {
+        bottom: 11%;
+      }
+      .date-venue {
+        .date {
+          font-weight: 900;
         }
-        &:hover::before {
-            background-color: rgba(0, 0, 0, 0.2);
+        .venue {
+          float: right;
+          text-transform: uppercase;
         }
-        .caption {
-            bottom: 5%;
-            display: block;
-            font-size: 15px;
-            font-weight: 900;
-            left: 5%;
-            padding: 1.8% 6%;
-            position: absolute;
-            right: 5%;
-            width: auto;
-            z-index: 2;
-        }
-        .date-venue+.caption {
-            bottom: 15%;
-        }
-        .details+.date-venue+.caption {
-            bottom: 21%;
-        }
-        .date-venue {
-            bottom: 5%;
-            display: block;
-            font-size: 14px;
-            left: 5%;
-            padding: 1% 3.5%;
-            position: absolute;
-            right: 5%;
-            width: auto;
-            z-index: 2;
-        }
-        .details+.date-venue {
-            bottom: 11%;
-        }
-        .date-venue {
-            .date {
-                font-weight: 900;
+      }
+      .details {
+        background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+        background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#80000000',GradientType=0 );
+        bottom: 0;
+        display: flex;
+        font-size: 12px;
+        left: 0;
+        padding: 5% 5.5% 3%;
+        position: absolute;
+        right: 0;
+        width: auto;
+        z-index: 1;
+        .stats {
+          flex-grow: 1;
+          .stat {
+            display: inline-block;
+            + .stat {
+              margin-left: 2%;
             }
-            .venue {
-                float: right;
-                text-transform: uppercase;
-            }
+          }
         }
-        .details {
-            background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
-            background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
-            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#80000000', GradientType=0);
-            bottom: 0;
-            display: flex;
-            font-size: 12px;
-            left: 0;
-            padding: 5% 5.5% 3%;
-            position: absolute;
-            right: 0;
-            width: auto;
-            z-index: 1;
-            .stats {
-                flex-grow: 1;
-                .stat {
-                    display: inline-block;
-                    +.stat {
-                        margin-left: 2%;
-                    }
-                }
-            }
-            .reserve svg {
-                display: inline-block;
-                height: 16px;
-                vertical-align: middle;
-                width: 16px;
-                -moz-transform: translate(20%, -8%);
-                -webkit-transform: translate(20%, -8%);
-                transform: translate(20%, -8%);
-                polygon {
-                    fill: #7ed321;
-                }
-            }
+        .reserve svg {
+          display: inline-block;
+          height: 16px;
+          vertical-align: middle;
+          width: 16px;
+          -moz-transform: translate(20%, -8%);
+          -webkit-transform: translate(20%, -8%);
+          transform: translate(20%, -8%);
+          polygon {
+            fill: #7ed321;
+          }
         }
-        .funded {
-            display: block;
-            font-size: 15px;
-            line-height: 1.4em;
-            position: absolute;
-            right: 5%;
-            text-align: right;
-            top: 5%;
-            strong {
-                color: #f0d75d;
-                display: block;
-                font-size: 20px;
-                font-weight: 900;
-            }
+      }
+      .funded {
+        display: block;
+        font-size: 15px;
+        line-height: 1.4em;
+        position: absolute;
+        right: 5%;
+        text-align: right;
+        top: 5%;
+        strong {
+          color: rgb(240, 215, 93);
+          display: block;
+          font-size: 20px;
+          font-weight: 900;
         }
+      }
     }
     > {
-        .col-1 .card {
-            .date-venue+.caption {
-                bottom: 12%;
-            }
-            .details+.date-venue+.caption {
-                bottom: 15%;
-            }
-            .caption,
-            .date-venue {
-                background-color: #e3c532;
-            }
-            .caption {
-                font-size: 60px;
-                font-weight: normal;
-                line-height: 1.2em;
-                padding: 0 2.5% 1%;
-            }
+      .col-1 .card {
+        .date-venue + .caption {
+          bottom: 12%;
         }
-        .col-2 .card {
-            .caption,
-            .date-venue {
-                background-color: #f09d5d;
+        .details + .date-venue + .caption {
+          bottom: 15%;
+        }
+        .caption, .date-venue {
+          background-color: #e3c532;
+        }
+        .caption {
+          font-size: 60px;
+          font-weight: normal;
+          line-height: 1.2em;
+          padding: 0 2.5% 1%;
+        }
+      }
+      .col-2 .card {
+        .caption, .date-venue {
+          background-color: #f09d5d;
+        }
+        .caption {
+          font-size: 32px;
+          line-height: 1.2em;
+          padding: 1% 3%;
+        }
+      }
+      .col-3 .card .caption {
+        background-color: #39add1;
+      }
+    }
+    > .col-1 .card {
+      .date-venue {
+        font-size: 20px;
+        padding: 1% 2.5%;
+      }
+      .details + .date-venue {
+        bottom: 8%;
+      }
+    }
+    > .col-1 .card .details {
+      background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.55) 100%);
+      background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.55) 100%);
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.55) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#8c000000',GradientType=0 );
+      font-size: 15px;
+      padding: 7% 5.5% 2.5%;
+    }
+    > .col-1 .card .details .reserve svg {
+      height: 24px;
+      width: 24px;
+    }
+    > .col-1 .card .funded {
+      top: 4%;
+    }
+    > .col-1 .card .funded strong {
+      color: #7ed321;
+    }
+  }
+  
+  @media all and (max-width: 1199px) {
+    .tiled-campaigns {
+      .card {
+        .caption {
+          font-size: 14px;
+          line-height: 1em;
+          padding: 3% 6%;
+        }
+        .details + .date-venue {
+          bottom: 16%;
+          + .caption {
+            bottom: 27%;
+            font-size: 28px;
+          }
+        }
+      }
+      > .col-1 .card .details + .date-venue + .caption {
+        bottom: 16%;
+        font-size: 38px;
+      }
+    }
+  }
+  
+  @media all and (max-width: 991px) {
+    .tiled-campaigns-wrap {
+      padding: 0;
+    }
+    .tiled-campaigns {
+      flex-direction: column;
+      position: relative;
+      .card {
+        padding-top: 100%;
+      }
+      > {
+        .col-2 {
+          flex: 1;
+          flex-direction: row;
+          .card {
+            padding-top: 50%;
+            .details + .date-venue {
+              bottom: 11%;
+              + .caption {
+                bottom: 21%;
+              }
             }
-            .caption {
-                font-size: 32px;
-                line-height: 1.2em;
-                padding: 1% 3%;
+          }
+        }
+        .col-3 {
+          flex: 1;
+          flex-direction: row;
+          .card {
+            padding-top: 25%;
+          }
+        }
+      }
+    }
+  }
+  
+  @media all and (max-width: 767px) {
+    .tiled-campaigns > {
+      .col-1 .card .details + .date-venue {
+        bottom: 9%;
+        + .caption {
+          bottom: 18%;
+        }
+      }
+      .col-2 .card .details + .date-venue {
+        bottom: 16%;
+        + .caption {
+          bottom: 27%;
+        }
+      }
+    }
+  }
+  
+  @media all and (max-width: 600px) {
+    .tiled-campaigns > {
+      .col-1 .card .details {
+        font-size: 13px;
+        + .date-venue {
+          bottom: 10%;
+          + .caption {
+            bottom: 20%;
+          }
+        }
+      }
+      .col-2 {
+        flex-direction: column;
+        .card {
+          padding-top: 100%;
+          .details + .date-venue {
+            bottom: 9%;
+            + .caption {
+              bottom: 17%;
             }
+          }
         }
-        .col-3 .card .caption {
-            background-color: #39add1;
+      }
+      .col-3 {
+        flex-wrap: wrap;
+        .card {
+          flex: auto;
+          padding-top: 50%;
+          width: 50%;
         }
+      }
     }
-    >.col-1 .card {
-        .date-venue {
-            font-size: 20px;
-            padding: 1% 2.5%;
+  }
+  
+  @media all and (max-width: 400px) {
+    .tiled-campaigns > {
+      .col-1 .card {
+        padding-top: 140%;
+        .details + .date-venue {
+          bottom: 12%;
+          font-size: 18px;
+          + .caption {
+            bottom: 22%;
+          }
         }
-        .details+.date-venue {
-            bottom: 8%;
+      }
+      .col-2 .card .details + .date-venue {
+        bottom: 10%;
+        + .caption {
+          bottom: 20%;
         }
+      }
     }
-    >.col-1 .card .details {
-        background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.55) 100%);
-        background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.55) 100%);
-        background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.55) 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#8c000000', GradientType=0);
-        font-size: 15px;
-        padding: 7% 5.5% 2.5%;
-    }
-    >.col-1 .card .details .reserve svg {
-        height: 24px;
-        width: 24px;
-    }
-    >.col-1 .card .funded {
-        top: 4%;
-    }
-    >.col-1 .card .funded strong {
-        color: #7ed321;
-    }
-}
+  }
 
 #home-events {
     margin: 7vh -15px;
