@@ -13,3 +13,6 @@
 = link_to 'Youtube', @performer.youtube
 = link_to 'Website', @performer.website
 = link_to 'Spotify', @performer.spotify
+
+= social_share_button_tag('Share to Facebook', :url => performer_path(@performer), desc: @performer.name)
+= social_share_button_tag('Share to Twitter', @performer.name)
