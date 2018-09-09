@@ -1,11 +1,11 @@
 class CampaignPolicy < ApplicationPolicy
 
     def new?
-        user.artist?
+        !user.fan?
     end
 
     def create?
-        user.artist?
+        new?
     end
 
     def index?
@@ -14,6 +14,5 @@ class CampaignPolicy < ApplicationPolicy
 
     def show?
         true
-    end
-    
+    end    
 end
