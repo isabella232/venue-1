@@ -2,7 +2,6 @@ And ("I click( on) {string}") do |link|
     click_on link
 end
 
-
 And ("I click( on) {string} detail box") do |campaign_title|
     campaign = Campaign.find_by(title: campaign_title)
     find("##{ActionView::RecordIdentifier.dom_id(campaign)}").click
