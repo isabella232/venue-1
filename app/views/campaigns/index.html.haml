@@ -1,4 +1,5 @@
 - @campaigns.each do |campaign|    
+    - if campaign.accepted? || current_user.admin?
         %h1
             = link_to campaign.title, campaign_path(campaign)
         - if campaign.image.attached?
@@ -7,6 +8,10 @@
             = truncate(campaign.description, length: 100) { link_to ' (more)', campaign_path(campaign)} 
         %p
             = campaign.location
-        
-        = button_to 'Reject', '#'
-        = button_to 'Accept', campaign_path(campaign, event: :admin_accepts_campaign), method: :put, remote: true
+        - if user_signed_in? && current_user.admin?
+            = button_to 'Reject', '#'
+            = form_with url: admin_accept_path do |form|
+                = form.hidden_field :campaign_id, value: campaign.id
+                = form.submit 'Accept'
+            
+        //= button_to 'Accept', campaign_path(campaign, event: :admin_accepts_campaign), method: :put, remote: true
