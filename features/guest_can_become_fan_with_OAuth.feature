@@ -14,7 +14,7 @@ Feature: A Guest can become a Fan with OAuth authentication
         Then I wait 2 seconds
         Then I should be redirected to the 'landing' page 
         And I should see 'Successfully authenticated from Facebook account'
-        And the user should be a 'Fan'
+        And the user should be a 'fan'
 
     Scenario: Authentication fails with Facebook [Sad Path]
         Given the facebook authentication is not granted
@@ -38,7 +38,7 @@ Feature: A Guest can become a Fan with OAuth authentication
         Then I wait 2 seconds
         Then I should be redirected to the 'landing' page 
         Then I should see 'Successfully authenticated from Google account'
-        And the user should be a 'Fan'
+        And the user should be a 'fan'
 
     Scenario: Authentication fails with Google [Sad Path]
         Given the google authentication is not granted
