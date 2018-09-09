@@ -14,12 +14,12 @@
           = form.text_field :location
           = form.label :location
         .mui-textfield.mui-textfield--float-label
-          = form.fields_for :ticket, Ticket.new do |form|
-            = form.number_field :price 
-            = form.label :price, 'Fixed ticket price'
+          = form.fields_for :ticket do |ticket_form|
+            = ticket_form.number_field :price 
+            = ticket_form.label :price, 'Fixed ticket price'
             .mui-textfield.mui-textfield--float-label 
-            = form.text_field :name  
-            = form.label :name, 'Ticket name'        
+            = ticket_form.text_field :name  
+            = ticket_form.label :name, 'Ticket name'        
         .form-group   
           = form.label :image
           = form.file_field :image 

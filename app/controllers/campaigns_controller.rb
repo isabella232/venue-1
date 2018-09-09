@@ -20,10 +20,13 @@ class CampaignsController < ApplicationController
     end
   end
 
-  def tickets
-    @tickets
+  def campaign_tickets
+    [@tickets, @campaign]
   end
 
+  def campaign_tickets_attributes=(attributes)
+  end
+  
   def show
     @campaign = Campaign.find(params[:id])
   end
