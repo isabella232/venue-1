@@ -27,3 +27,7 @@
 /config/master.key
 
 /coverage
+
+
+# Ignore VS Code files
+.vscode/
