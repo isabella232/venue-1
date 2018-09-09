@@ -1,4 +1,4 @@
-And ("I click on {string}") do |link|
+And ("I click( on) {string}") do |link|
     click_on link
 end
 
