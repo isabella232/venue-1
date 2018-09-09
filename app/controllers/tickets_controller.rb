@@ -22,6 +22,6 @@ class TicketsController < ApplicationController
     private 
 
     def ticket_params
-    params.require(:ticket).permit(:price, :name, tickets_attributes: [:id, :name, :price:])
+        params.require(:ticket).permit(:price, :name, tickets: [])
     end
 end
