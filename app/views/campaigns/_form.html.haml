@@ -18,9 +18,9 @@
           = u.number_field :price 
           = u.label :price, 'Fixed ticket price'
         .mui-textfield.mui-textfield--float-label
-        = form.fields_for :ticket do |u|
-          = u.text_field :name  
-          = u.label :name, 'Ticket name'
+        = form.fields_for :tickets do |tickets_form|
+          = tickets_form.text_field :name  
+          = tickets_form.label :name, 'Ticket name'
         .form-group   
           = form.label :image
           = form.file_field :image 
