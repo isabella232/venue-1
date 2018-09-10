@@ -17,5 +17,6 @@ Feature: Admin must approve Artists new Campaigns
         And I am on the Campaign page for 'Veronica Maggio in Stockholm'
         Then the state of the campaign 'Veronica Maggio in Stockholm' should be 'pending'
         When I click on 'Accept'
-        Then I wait 1 second
+        And I wait 1 second
         Then the state of the campaign 'Veronica Maggio in Stockholm' should be 'accepted'
+        And I should see 'This campaign is now live!'
