@@ -19,6 +19,7 @@ gem 'omniauth-google-oauth2', '~> 0.5.3'
 gem 'mui-sass', '~> 0.9.35'
 gem 'font-awesome-sass', '~> 5.0', '>= 5.0.13'
 gem 'social-share-button'
+gem 'stripe-rails'
 
 group :development, :test do
   gem 'chromedriver-helper'
