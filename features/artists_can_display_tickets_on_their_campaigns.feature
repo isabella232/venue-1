@@ -22,3 +22,4 @@ Feature: Artists can display tickets on their Campaigns
         And I attach an image to the campaign
         And I click on 'Launch Campaign'
         Then there should be a Ticket named 'Sure thing' in the Database 
+        And I should see 'Sure thing: 100' in ticket info

@@ -6,3 +6,7 @@
     = @campaign.location
  
 = image_tag @campaign.image
+
+#tickets 
+    - @campaign.tickets.each do |ticket|
+        = [ticket.name, ticket.price].join(': ')
