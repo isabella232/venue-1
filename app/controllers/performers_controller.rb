@@ -7,7 +7,7 @@ class PerformersController < ApplicationController
     end
     
     def create
-        @performer = current_user.performer.create(performer_params)
+        @performer = current_user.performers.create(performer_params)
         if @performer.persisted?
             flash[:notice] = 'Artist page successfully created'
             redirect_to performer_path(@performer)
