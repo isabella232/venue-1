@@ -4,8 +4,8 @@ FactoryBot.define do
     description { "MyText" }
     location { "MyString" }
     user
-     after(:build) do |campaign|
-       campaign.image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'dummy.jpg')), filename: "image.jpg", content_type: 'image/jpg')
-   end
+    after(:build) do |campaign|
+      campaign.image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'dummy.jpg')), filename: "image.jpg", content_type: 'image/jpg')
+    end
   end
 end
