@@ -776,9 +776,7 @@ img.faux {
     }
   }
 
-#home-events {
-    margin: 7vh -15px;
-}
+
 
 .home-featured-container+.container #home-events {
     margin-top: 4vh;
@@ -827,9 +825,14 @@ img.faux {
         white-space: nowrap;
         text-overflow: ellipsis;
         top: 10%;
-        .description {
-            font-size: 16px !important;
-        }
+ 
+    }
+
+    .description {
+        top: 25%;
+        left: 35%;
+        line-height: 1.8em;
+        position: absolute;
     }
     .venue-date {
         bottom: 8%;
@@ -837,6 +840,7 @@ img.faux {
         line-height: 1.8em;
         position: absolute;
     }
+
     .reserved {
         font-size: 20px;
         font-weight: 900;
