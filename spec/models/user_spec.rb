@@ -16,7 +16,7 @@ RSpec.describe User, type: :model do
 
   describe 'Associations' do
     it { is_expected.to have_many :campaigns }
-    it { is_expected.to have_and_belong_to_many :performer }
+    it { is_expected.to have_and_belong_to_many :performers }
   end
 
   describe 'User roles' do
@@ -30,7 +30,7 @@ RSpec.describe User, type: :model do
     it 'fan responds false if role is not fan' do
       expect(user_fan.artist?).to eq false
     end
-    
+ 
     it 'artist responds true if role is artist' do
       expect(user_artist.artist?).to eq true
     end
