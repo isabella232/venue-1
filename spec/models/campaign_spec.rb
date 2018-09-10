@@ -37,10 +37,10 @@ RSpec.describe Campaign, type: :model do
     subject { create(:campaign) }
 
     it { is_expected.to have_states :pending, :accepted }
-    it { is_expected.to handle_events :admin_accepts_campaign, when: :pending }
+    it { is_expected.to handle_events :accept, when: :pending }
 
     it ':admin_accepts_campaign transitions from :pending to :accepted' do
-      subject.admin_accepts_campaign
+      subject.accept
       expect(subject.accepted?).to eq true
     end
   end

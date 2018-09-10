@@ -7,9 +7,5 @@
         = @campaign.location
 
     = image_tag @campaign.image
-
-    - if user_signed_in? && current_user.admin?
-        = form_with url: admin_accept_path do |form|
-            = form.hidden_field :campaign_id, value: @campaign.id
-            = form.submit 'Accept'
-        = button_to 'Reject', '#'
+    .form-group
+        = link_to 'Accept', campaign_path(@campaign, event: 'accept'), method: :put, class: 'form-submit'

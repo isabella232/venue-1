@@ -1,13 +1,12 @@
 class Campaign < ApplicationRecord
-    validates_presence_of :title, :description, :location, :state
-    
-    belongs_to :user
-    has_one_attached :image
+  validates_presence_of :title, :description, :location, :state
 
-    state_machine :state, initial: :pending do 
+  belongs_to :user
+  has_one_attached :image
 
-        event :admin_accepts_campaign do 
-            transition :pending => :accepted
-        end
+  state_machine :state, initial: :pending do
+    event :accept do
+      transition pending: :accepted
     end
+  end
 end

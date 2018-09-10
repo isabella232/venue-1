@@ -69,5 +69,5 @@ end
 
 Then("the campaign {string} is accepted") do |campaign_title|
     campaign = Campaign.find_by(title: campaign_title)
-    campaign.admin_accepts_campaign!
+    campaign.accept
 end

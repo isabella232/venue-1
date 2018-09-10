@@ -20,5 +20,5 @@ end
 
 Given("I am on the Campaign page for {string}") do |campaign_title|
   campaign_page = Campaign.find_by(title: campaign_title)
-  campaign_path(campaign_page)
+  visit campaign_path(campaign_page)
 end
