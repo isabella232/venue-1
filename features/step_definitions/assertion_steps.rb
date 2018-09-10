@@ -56,3 +56,15 @@ end
 Then("I should see the {string} image") do |file_name|
     expect(page).to have_css "img[src*='#{file_name}']"
 end
+
+Then("there should be a Ticket named {string} in the Database") do |expected_name|
+    sleep 0.5
+    ticket = Ticket.find_by(name: expected_name)
+    expect(ticket).not_to eq nil
+end
+
+Then("I should see {string} in ticket info") do |expected_content| 
+    within("#tickets") do 
+        expect(page).to have_content expected_content
+    end
+end 

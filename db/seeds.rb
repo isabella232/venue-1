@@ -35,6 +35,11 @@ campaigns = Campaign.create([
         location: 'Stockholm',
         user: artist
     }
+    {
+        title: 'Ipsum',
+        description: 'This is a very short description',
+        location: 'Västerås'
+    }
 ])
 Campaign.all.each do |campaign|
     campaign.image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'dummy.jpg')), filename: "image.jpg", content_type: 'image/jpg')
