@@ -32,7 +32,7 @@ Campaign.all.each do |campaign|
     campaign.image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'dummy.jpg')), filename: "image.jpg", content_type: 'image/jpg')
 end
 
-performer_clare = Performer.create(
+artist.performer.create(
     name: 'Clare Cunningham',
     genre: 'Rock',
     city: 'Stockholm',
@@ -42,5 +42,5 @@ performer_clare = Performer.create(
     twitter: 'https://www.twitter.com',
     youtube: 'https://www.youtube.com',
     website: 'https://www.google.com',
-    spotify: 'https://www.spotify.com'
+    spotify: 'https://www.spotify.com'   
 )
