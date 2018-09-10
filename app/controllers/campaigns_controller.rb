@@ -2,7 +2,11 @@ class CampaignsController < ApplicationController
   before_action :authenticate_user!, only: [:create]
 
   def index
-    @campaigns = Campaign.all
+    if user_signed_in? && current_user.admin?
+      @campaigns = Campaign.all
+    else
+      @campaigns = Campaign.with_state(:accepted)
+    end
   end
 
   def new
