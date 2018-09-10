@@ -8,3 +8,6 @@
 = image_tag @campaign.image
 
 = social_share_button_tag(@campaign.title, allow_sites: %w(twitter facebook))
+#tickets 
+    - @campaign.tickets.each do |ticket|
+        = [ticket.name, ticket.price].join(': ')

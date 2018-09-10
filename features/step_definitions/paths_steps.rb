@@ -1,7 +1,7 @@
-Given("I am on the {string} page") do |page_name|
-    visit page_path(page_name)
+Given('I am on the {string} page') do |page_name|
+  visit page_path(page_name)
 end
-  
+
 def page_path(path)
   if path == 'Create Campaign'
     new_campaign_path
@@ -12,6 +12,6 @@ def page_path(path)
   end
 end
 
-Given("I try to access {string} page") do |page_name|
+Given('I try to access {string} page') do |page_name|
   visit page_path(page_name)
 end
