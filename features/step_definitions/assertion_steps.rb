@@ -58,6 +58,7 @@ Then("I should see the {string} image") do |file_name|
 end
 
 Then("there should be a Ticket named {string} in the Database") do |expected_name|
+    sleep 0.5
     ticket = Ticket.find_by(name: expected_name)
     expect(ticket).not_to eq nil
 end
