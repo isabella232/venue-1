@@ -18,7 +18,7 @@ Feature: Guests need to register to create campaigns
         And I fill in 'Re-Type Password' with 'my-password'
         And I click on 'Sign up for Venue'
         Then I should see 'Welcome! You have signed up successfully.'
-        And It should be a user in the database with the email 'mikael@venue.com'
+        And there should be a user in the database with the email 'mikael@venue.com'
         And the user 'mikael@venue.com' should be a 'fan'
 
     Scenario: Guest can register as a fan

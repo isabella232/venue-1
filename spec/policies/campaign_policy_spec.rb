@@ -14,4 +14,9 @@ RSpec.describe CampaignPolicy do
         let(:user) { create(:user, role: 'artist') }
         it { is_expected.to permit_actions [:index, :show, :create, :new] }
     end
+
+    context 'user is an admin' do
+        let(:user) { create(:user, role: 'admin') }
+        it { is_expected.to permit_actions [:index, :show, :create, :new] }
+    end
 end

@@ -2,7 +2,11 @@ class CampaignsController < ApplicationController
   before_action :authenticate_user!, only: [:create]
 
   def index
-    @campaigns = Campaign.all
+    if user_signed_in? && current_user.admin?
+      @campaigns = Campaign.all
+    else
+      @campaigns = Campaign.with_state(:accepted)
+    end
   end
 
   def new
@@ -32,10 +36,19 @@ class CampaignsController < ApplicationController
     @campaign = Campaign.find(params[:id])
   end
 
+  def update
+   campaign = Campaign.find(params[:id])
+   if params[:event] == 'accept'
+     campaign.accept
+     redirect_to campaign, notice: 'This campaign is now live!'
+   end
+  end
+
+
 private
 
   def campaign_params
-    params.require(:campaign).permit(:title, :description, :location, :image)
+    params.require(:campaign).permit(:title, :description, :location, :image, :state)
   end
 
   def ticket_params 

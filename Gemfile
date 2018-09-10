@@ -18,6 +18,7 @@ gem 'pundit'
 gem 'omniauth-google-oauth2', '~> 0.5.3'
 gem 'mui-sass', '~> 0.9.35'
 gem 'font-awesome-sass', '~> 5.0', '>= 5.0.13'
+gem 'state_machines-activerecord'
 gem 'social-share-button'
 
 group :development, :test do
@@ -32,6 +33,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'coveralls', require: false
   gem 'pundit-matchers', '~> 1.6.0'
+  gem 'state_machines-rspec'
 end
 
 group :development do
