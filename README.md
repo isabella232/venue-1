@@ -1,6 +1,7 @@
 Venue
 ------
 Venue is...
+[![Build Status](https://semaphoreci.com/api/v1/craftacademy/venue/branches/development/badge.svg)](https://semaphoreci.com/craftacademy/venue)
 
 ## Getting started
 
@@ -27,6 +28,7 @@ for Acceptance tests, or
 for Unit tests
 
 ## Deployment
+[Venue](https://venue-show.herokuapp.com/ "Deployed with Heroku)
 
 ## Contributing
 
