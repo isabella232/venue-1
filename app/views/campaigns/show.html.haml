@@ -7,9 +7,9 @@
  
 = image_tag @campaign.image
 
-= link_to "Buy your ticket", new_purchase_path
 = social_share_button_tag(@campaign.title, allow_sites: %w(twitter facebook))
 #tickets 
     - @campaign.tickets.each do |ticket|
         = [ticket.name, ticket.price].join(': ')
 
+= link_to "Buy your ticket", new_purchases_path
