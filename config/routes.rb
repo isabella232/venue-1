@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   resources :campaigns, only: [:index, :create, :new, :show]
   resources :performers, only: [:new, :create, :show]
   resources :tickets, only: [:create]
-  resource :purchase, only: [:create, :new]
+  resource :purchases, only: [:create, :new]
+  post '/charges', controller: :purchases, action: :create
 end
