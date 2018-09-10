@@ -32,3 +32,19 @@ And('I fill in ticket fields') do
     And I fill in 'Ticket name' with 'Sure thing'
   )
 end
+
+When("I click on {string} stripe button") do |button|
+  click_button button
+  sleep 2
+  @stripe_iframe all(iframe[name=stripe_checkout_app]).last
+end
+
+When("I fill in the stripe field {string} with {string}") do |field_name, value|
+  within_iframe @stripe_iframe do
+    fill_in field_name, with: value
+  end
+end
+
+When("I submit the stripe form") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
