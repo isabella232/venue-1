@@ -17,6 +17,11 @@ campaigns = Campaign.create([
         description: 'This is a very long description designed to exceed 100 character, so that the truncation sets in and limits the description of the event on the front page. The guest needs to click the title of the campaign to see the full description of the campaign',
         location: 'Karlstad'
     }
+    {
+        title: 'Ipsum',
+        description: 'This is a very short description',
+        location: 'Västerås'
+    }
 ])
 
 fan = User.create(email: 'fan@venue.se', password: 'my-password', role: 'fan')
