@@ -9,4 +9,6 @@ class Campaign < ApplicationRecord
       transition pending: :accepted
     end
   end
+
+  accepts_nested_attributes_for :tickets
 end

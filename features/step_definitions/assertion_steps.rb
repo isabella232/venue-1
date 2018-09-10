@@ -71,3 +71,14 @@ Then("the campaign {string} is accepted") do |campaign_title|
     campaign = Campaign.find_by(title: campaign_title)
     campaign.accept
 end
+Then("there should be a Ticket named {string} in the Database") do |expected_name|
+    sleep 0.5
+    ticket = Ticket.find_by(name: expected_name)
+    expect(ticket).not_to eq nil
+end
+
+Then("I should see {string} in ticket info") do |expected_content| 
+    within("#tickets") do 
+        expect(page).to have_content expected_content
+    end
+end 
