@@ -1,10 +1,11 @@
+%h2 Review and pay 
 %p  
-    You are about to purchase
-    = pluralize(@order.total_unique_items, 'ticket')
-    - @order.items.map {|i| i.item.campaign}.each do |campaign|
-        %span
-            to: 
-            = campaign.title
+    You are about to order: 
+    - @order.items.each do | item |
+        %span= pluralize(item.quantity, 'ticket')
+        %span to
+        %span= item.item.campaign.title
+        
 = form_with url: payments_path, class: 'mui-form' do |form|
     .form-group
         = form.submit 'Finalize', class: 'form-submit'
