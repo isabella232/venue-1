@@ -16,13 +16,32 @@ Feature: Implement the payment method for tickets
         Given the following tickets for 'Veronica Maggio in Stockholm' exist
         | name        | price |
         | Sure thing  | 200   |
-
-        And I am logged in as 'user@artist.se'
         And I am on the 'landing' page
 
-    Scenario:
+    Scenario: Logged in user buys a ticket
+        Given I am logged in as 'user@artist.se'
         When I click on 'Veronica Maggio in Stockholm' detail box
         And I click on 'Buy your ticket'
         Then I wait 1 second
         Then I should see "Your ticket has been added to your order."
         And the last order in the database should include "Sure thing"
+
+    Scenario: Not signed up user buys a ticket
+        When I click on 'Veronica Maggio in Stockholm' detail box
+        And I click on 'Buy your ticket'
+        Then I should see "Sign Up As A Fan"
+        And I fill in 'Email address' with 'thomas@venue.com'
+        And I fill in 'Password' with 'password'
+        And I fill in 'Re-Type Password' with 'password'
+        And I click on 'Sign up for Venue'
+        Then I wait 1 second
+        Then I should see "Your ticket has been added to your order."
+        And the last order in the database should include "Sure thing"
+
+
+
+
+
+
+
+
