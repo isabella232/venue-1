@@ -6,4 +6,8 @@ RSpec.describe Order, type: :model do
       expect(create(:order)).to be_valid 
     end
   end
+
+  describe 'Associations' do
+  it { is_expected.to belong_to :user }
+  end
 end
