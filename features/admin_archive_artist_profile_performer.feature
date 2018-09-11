@@ -16,6 +16,8 @@ Feature: Admin can archove Artist-profile
     Scenario: Admin archives a no longer relevant Performer
         When I am on the Performer page for 'Kanye West'
         And I click on 'Archive'
+        And I click on 'OK' in the confirmation popup
+        Then I wait 1 second
         Then the state of the performer 'Kanye West' should be 'archived'
         And I should see 'Performer has been archived'
         And I should be redirected to the 'Performers' page

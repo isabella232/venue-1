@@ -2,6 +2,10 @@ class PerformersController < ApplicationController
     respond_to :js
     before_action :authenticate_user!, only: [:create]
 
+    def index
+        @performers = Performer.all
+    end
+    
     def new
         @performer = Performer.new
     end
@@ -18,6 +22,14 @@ class PerformersController < ApplicationController
 
     def show
         @performer = Performer.find(params[:id])
+    end
+
+    def update
+        performer = Performer.find(params[:id])
+        if params[:event] == 'archive'
+            performer.archive
+            redirect_to performers_path, notice: 'Performer has been archived'
+        end
     end
 
     private

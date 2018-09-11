@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   }
   root controller: :campaigns, action: :index
   resources :campaigns, only: [:index, :create, :new, :show, :update]
-  resources :performers, only: [:new, :create, :show]
+  resources :performers, only: [:new, :create, :show, :index, :update]
   resources :tickets, only: [:create]
 end

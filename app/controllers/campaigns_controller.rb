@@ -54,7 +54,7 @@ private
     campaign = Campaign.find(params[:id])
     if params[:event] == 'accept'
       campaign.accept
-      redirect_to campaign, notice: 'This campaign is now live!'
+      redirect_to campaigns_path, notice: 'This campaign is now live!'
     elsif
       params[:event] == 'archive'
       campaign.archive
