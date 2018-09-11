@@ -1,35 +1,39 @@
 fan = User.create(email: 'fan@venue.se', password: 'my-password', role: 'fan')
 artist = User.create(email: 'artist@venue.se', password: 'my-password', role: 'artist')
 
+fan = User.create(email: 'fan@venue.se', password: 'my-password', role: 'fan')
+artist = User.create(email: 'artist@venue.se', password: 'my-password', role: 'artist')
+admin = User.create(email: 'admin@venue.se', password: 'my-password', role: 'admin')
+
 campaigns = Campaign.create([
     {
         title: 'Marius Ipsum',
         description: 'This is a very long description designed to exceed 100 character, so that the truncation sets in and limits the description of the event on the front page. The guest needs to click the title of the campaign to see the full description of the campaign',
         location: 'Luleå',
+        state: 'pending',
         user: artist
+
     },
     {
         title: 'Fusce sodales',
         description: 'This is a very long description designed to exceed 100 character, so that the truncation sets in and limits the description of the event on the front page. The guest needs to click the title of the campaign to see the full description of the campaign',
         location: 'Karlstad',
+        state: 'accepted',
         user: artist
     },
     {
         title: 'Someone else',
         description: 'This is a very long description designed to exceed 100 character, so that the truncation sets in and limits the description of the event on the front page. The guest needs to click the title of the campaign to see the full description of the campaign',
         location: 'Stockholm',
+        state: 'accepted',
         user: artist
     },
     {
         title: 'Someone different',
         description: 'This is a very long description designed to exceed 100 character, so that the truncation sets in and limits the description of the event on the front page. The guest needs to click the title of the campaign to see the full description of the campaign',
         location: 'Stockholm',
+        state: 'accepted',
         user: artist
-    },
-    {
-        title: 'Ipsum',
-        description: 'This is a very short description',
-        location: 'Västerås'
     }
 ])
 
@@ -37,7 +41,7 @@ Campaign.all.each do |campaign|
     campaign.image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'dummy.jpg')), filename: "image.jpg", content_type: 'image/jpg')
 end
 
-performer_clare = Performer.create(
+artist.performers.create(
     name: 'Clare Cunningham',
     genre: 'Rock',
     city: 'Stockholm',
@@ -46,6 +50,7 @@ performer_clare = Performer.create(
     instagram: 'https://www.instagram.com',
     twitter: 'https://www.twitter.com',
     youtube: 'https://www.youtube.com',
-    website: 'https://www.google.com',
-    spotify: 'https://www.spotify.com'
-)
+
+    spotify: 'https://www.spotify.com'   
+    )
+

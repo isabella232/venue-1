@@ -12,13 +12,13 @@ Feature: Guests need to register to create campaigns
         And I wait 1 second
         And I click "Fan"
         And I wait 1 second
-        Then I should see "SIGN UP AS A FAN"
+        Then I should see "Sign Up As A Fan"
         And I fill in 'Email address' with 'mikael@venue.com'
         And I fill in 'Password (6 characters minimum)' with 'my-password'
         And I fill in 'Re-Type Password' with 'my-password'
         And I click on 'Sign up for Venue'
         Then I should see 'Welcome! You have signed up successfully.'
-        And It should be a user in the database with the email 'mikael@venue.com'
+        And there should be a user in the database with the email 'mikael@venue.com'
         And the user 'mikael@venue.com' should be a 'fan'
 
     Scenario: Guest can register as a fan
@@ -27,7 +27,7 @@ Feature: Guests need to register to create campaigns
         And I wait 1 second
         And I click "Artist"
         And I wait 1 second
-        Then I should see "SIGN UP AS A ARTIST"
+        Then I should see "Sign Up As A Artist"
         And I fill in 'Email address' with 'thomas@venue.com'
         And I fill in 'Password (6 characters minimum)' with 'password'
         And I fill in 'Re-Type Password' with 'password'
@@ -42,6 +42,6 @@ Feature: Guests need to register to create campaigns
         And I wait 1 second
         And I click "Fan"
         And I wait 1 second
-        Then I should see "SIGN UP AS A FAN"
+        Then I should see "Sign Up As A Fan"
         And I click on 'Cancel'
         Then I am on the 'landing' page

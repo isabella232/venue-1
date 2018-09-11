@@ -16,12 +16,14 @@ RSpec.describe User, type: :model do
 
   describe 'Associations' do
     it { is_expected.to have_many :campaigns }
-    it { is_expected.to have_and_belong_to_many :performer }
+    it { is_expected.to have_and_belong_to_many :performers }
   end
 
   describe 'User roles' do
     let(:user_fan) { create :user, role: :fan }
     let(:user_artist) { create :user, role: :artist }
+    let(:user_admin) { create :user, role: :admin }
+
 
     it 'fan responds true if role is fan' do
       expect(user_fan.fan?).to eq true
@@ -30,13 +32,21 @@ RSpec.describe User, type: :model do
     it 'fan responds false if role is not fan' do
       expect(user_fan.artist?).to eq false
     end
-    
+ 
     it 'artist responds true if role is artist' do
       expect(user_artist.artist?).to eq true
     end
 
     it 'artist responds false if role is not artist' do
       expect(user_artist.fan?).to eq false
+    end
+
+    it 'admin responds true if role is admin' do
+      expect(user_admin.admin?).to eq true
+    end
+
+    it 'admin responds false if role is not artist' do
+      expect(user_admin.fan?).to eq false
     end
   end
 

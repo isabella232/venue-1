@@ -1,0 +1,390 @@
+/* 3.1 Artist Page */
+
+#artist-banner {
+  background: transparent none center center no-repeat;
+  background-size: cover;
+  padding-top: 36%;
+  z-index: 1;
+  .mui-container {
+    bottom: 0;
+    left: 50%;
+    position: absolute;
+    width: 100%;
+    -moz-transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+  }
+  a.artist-bg-edit {
+    display: block;
+    position: absolute;
+    right: 30px;
+    top: 10px;
+    svg {
+      display: block;
+      height: 30px;
+      width: 30px;
+    }
+  }
+  [class*="col-"] {
+    padding-bottom: 25px;
+    padding-left: 275px;
+  }
+  .artist-picture {
+    background: transparent none center center no-repeat;
+    background-size: cover;
+    border: 4px solid #FFF;
+    border-radius: 50%;
+    height: 250px;
+    left: 0;
+    position: absolute;
+    top: 50%;
+    width: 250px;
+    -moz-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  h1 {
+    font-size: 72px;
+    font-weight: 900;
+    margin: 0 0 5px;
+    text-transform: uppercase;
+  }
+  .location, .genre {
+    font-size: 22px;
+  }
+  .follow-request {
+    bottom: 25px;
+    font-size: 15px;
+    position: absolute;
+    right: 0;
+  }
+}
+
+#artist-details {
+  h3 {
+    font-weight: normal;
+    margin: 20px 0;
+    text-align: center;
+    a {
+      display: inline-block;
+      margin: 0 5px;
+      &.active {
+        font-weight: bold;
+      }
+    }
+  }
+  .details-spotify {
+    display: flex;
+    margin-bottom: 100px;
+    margin-top: 50px;
+    h2 {
+      font-size: 32px;
+      font-weight: 900;
+      margin-bottom: 10px;
+      .artist-title-edit {
+        display: inline-block;
+        margin-left: 10px;
+        vertical-align: bottom;
+        svg {
+          display: block;
+          height: 30px;
+          width: 30px;
+        }
+      }
+    }
+    p {
+      font-size: 16px;
+    }
+    ul.artist-social-links {
+      margin: 20px 0;
+      li {
+        display: inline-block;
+        + li {
+          margin-left: 15px;
+        }
+        a {
+          color: rgb(240, 215, 93);
+          font-size: 16px;
+          line-height: 20px;
+          .fa {
+            font-size: 20px;
+            margin-right: 4px;
+            -moz-transform: translateY(3px);
+            -webkit-transform: translateY(3px);
+            transform: translateY(3px);
+          }
+        }
+      }
+    }
+    [class*="container"] iframe {
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+    .youtube-container {
+      height: auto;
+      margin-top: 80px;
+      padding-top: 56.25%;
+    }
+  }
+}
+
+.artist-campaigns-container {
+  .standout-heading + .tiled-campaigns-wrap {
+    margin-top: 3vh;
+  }
+  .tiled-campaigns-wrap {
+    margin-left: 30px;
+    margin-top: 3vh;
+    padding-top: 187%;
+    &.featured {
+      margin-left: 0;
+      padding-top: 160%;
+    }
+  }
+  .tiled-campaigns {
+    .card .details + .date-venue + .caption {
+      bottom: 20.5%;
+    }
+    > .col-1 .card .details + .date-venue {
+      bottom: 7%;
+      + .caption {
+        bottom: 13%;
+      }
+    }
+  }
+}
+
+.tiled-campaigns-wrap.featured .tiled-campaigns > .col-1 .card {
+  .caption {
+    font-size: 75px;
+  }
+  .date-venue {
+    font-size: 25px;
+  }
+  .details {
+    font-size: 19px;
+    .reserve svg {
+      height: 28px;
+      width: 28px;
+    }
+  }
+}
+
+.artists-list {
+  margin-bottom: 60px;
+  margin-top: 20px;
+  .artist-heading {
+    border-bottom: 1px solid rgb(240, 215, 93);
+    color: rgb(240, 215, 93);
+    font-size: 32px;
+    font-weight: 900;
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+  }
+  .has-artists-items {
+    width: 20%;
+  }
+  .artist-item {
+    display: block;
+    margin: 30px 0;
+    .thumb {
+      background: transparent none center center no-repeat;
+      background-size: cover;
+      border-radius: 50%;
+      display: block;
+      padding-top: 100%;
+      &::before {
+        background-color: transparent;
+        border-radius: 50%;
+        content: '';
+        display: block;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1;
+        -moz-transition: all 0.3s ease 0s;
+        -webkit-transition: all 0.3s ease 0s;
+        transition: all 0.3s ease 0s;
+      }
+    }
+    &:hover .thumb::before {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+    .title {
+      display: block;
+      font-size: 23px;
+      font-weight: 700;
+      margin-top: 15px;
+      text-align: center;
+      -moz-transition: all 0.3s ease 0s;
+      -webkit-transition: all 0.3s ease 0s;
+      transition: all 0.3s ease 0s;
+    }
+    &:hover .title {
+      color: rgb(240, 215, 93);
+    }
+  }
+}
+
+.artist-delete-account {
+  border: #D0021B 1px solid;
+  border-radius: 13px;
+  display: table;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 2em;
+  margin: 200px auto 50px;
+  text-align: center;
+  width: 250px;
+}
+
+.farewell-lyrics {
+  display: table;
+  margin: 0 auto;
+}
+
+.modal.account-modal .modal-dialog .farewell-lyrics p.credits {
+  color: rgb(240, 215, 93);
+  display: table;
+  font-size: 12px;
+  font-weight: bold;
+  margin-left: auto;
+}
+
+@media all and (max-width: 1199px) {
+  #artist-banner h1 {
+    font-size: 54px;
+  }
+  .artist-campaigns-container .tiled-campaigns .card .details + .date-venue {
+    bottom: 10%;
+  }
+  .artists-list .has-artists-items {
+    width: 33.33%;
+  }
+}
+
+@media all and (max-width: 991px) {
+  #artist-banner {
+    padding-top: 50%;
+    .mui-container {
+      bottom: auto;
+      top: 50%;
+      -moz-transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+    .follow-request {
+      bottom: auto;
+      margin-top: 5px;
+      position: relative;
+    }
+  }
+  #artist-details .details-spotify {
+    flex-direction: column;
+    .youtube-container {
+      margin-top: 50px;
+      padding-top: 0;
+    }
+    [class*="container"] iframe {
+      height: 50vh;
+      margin-top: 0;
+      position: relative;
+    }
+    .spotify-container iframe {
+      margin-top: 50px;
+    }
+  }
+  .artist-campaigns-container .tiled-campaigns-wrap {
+    &.featured {
+      margin-bottom: 0;
+      padding-top: 0;
+    }
+    margin-left: 0;
+    padding-top: 0;
+  }
+  .artists-list .has-artists-items {
+    float: left;
+    width: 50%;
+  }
+  .artist-campaigns-container .tiled-campaigns > .col-1 .card .details + .date-venue {
+    + .caption {
+      bottom: 18%;
+    }
+    bottom: 9%;
+  }
+}
+
+@media all and (max-width: 767px) {
+  .artists-list .has-artists-items {
+    float: left;
+  }
+  #artist-banner {
+    padding: 50px 0;
+    .mui-container {
+      left: 50%;
+      position: relative;
+      -moz-transform: translateX(-50%);
+      -webkit-transform: translateX(-50%);
+      transform: translateX(-50%);
+    }
+    [class*="col-"] {
+      padding-bottom: 0;
+      padding-left: 15px;
+      text-align: center;
+    }
+    .artist-picture {
+      margin: 0 auto 30px;
+      position: relative;
+      -moz-transform: none;
+      -webkit-transform: none;
+      transform: none;
+    }
+  }
+  .artist-campaigns-container .tiled-campaigns .card .details + .date-venue {
+    bottom: 16%;
+    + .caption {
+      bottom: 27.5%;
+    }
+  }
+}
+
+@media all and (max-width: 600px) {
+  .artist-campaigns-container .tiled-campaigns {
+    .card .details + .date-venue {
+      bottom: 10%;
+      + .caption {
+        bottom: 17.5%;
+      }
+    }
+    > .col-1 .card .details + .date-venue {
+      bottom: 15%;
+      + .caption {
+        bottom: 27%;
+        font-size: 60px;
+      }
+    }
+  }
+  .tiled-campaigns-wrap.featured .tiled-campaigns > .col-1 .card .details {
+    font-size: 16px;
+  }
+  #artist-details .details-spotify ul.artist-social-links li {
+    display: block;
+    + li {
+      margin: 10px 0 0 0;
+    }
+  }
+}
+
+@media all and (max-width: 450px) {
+  .artists-list .has-artists-items {
+    width: 100%;
+  }
+  #artist-banner h1 {
+    font-size: 40px;
+  }
+}
