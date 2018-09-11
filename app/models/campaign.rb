@@ -10,5 +10,9 @@ class Campaign < ApplicationRecord
     event :accept do
       transition pending: :accepted
     end
+
+    event :archive do
+      transition [:pending, :accepted] => :archived
+    end
   end
 end
