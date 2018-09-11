@@ -23,7 +23,7 @@ Given("the google authentication is not granted") do
     OmniAuth.config.mock_auth[:google_oauth2] = :invalid_credentials
 end
 
-Given("the following Performer(s) exist(s)" do |table|
+Given("the following Performer(s) exist(s)") do |table|
     table.hashes.each do |performer_hash|
         create(:performer, performer_hash)
     end

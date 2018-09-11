@@ -33,7 +33,8 @@ class PerformersController < ApplicationController
             :twitter,
             :youtube,
             :website,
-            :spotify
+            :spotify,
+            :state
             )
     end
 end
