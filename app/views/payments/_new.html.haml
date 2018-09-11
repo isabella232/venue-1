@@ -1,0 +1,11 @@
+%p  
+    You are about to purchase
+    = pluralize(@order.total_unique_items, 'ticket')
+    - @order.items.map {|i| i.item.campaign}.each do |campaign|
+        %span
+            to: 
+            = campaign.title
+= form_with url: payments_path, class: 'mui-form' do |form|
+    .form-group
+        = form.submit 'Finalize', class: 'form-submit'
+

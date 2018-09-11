@@ -16,7 +16,8 @@
 
             .mui-col-md-5.mui-col-sm-5.mui-col-xs-5.has-top-right-links
                 %ul#top-right-links.nav
-                    %li#order-info= "#{pluralize(active_order.total_unique_items, 'ticket') if active_order?}"
+                    %li#order-info
+                        = link_to "#{pluralize(active_order.total_unique_items, 'ticket') if active_order?}", new_payment_path, remote: true
                     %li
                         - if user_signed_in?  
                             %li.buttoned

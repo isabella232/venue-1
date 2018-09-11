@@ -1,5 +1,4 @@
 Rails.application.routes.draw do 
-  get 'sessions/new'
   devise_for :users, controllers: {
     registrations: :registrations,
     omniauth_callbacks: :omniauth_callbacks,
@@ -10,5 +9,6 @@ Rails.application.routes.draw do
   resources :performers, only: [:new, :create, :show]
   resources :tickets, only: [:create]
   resources :orders, only: [:create]
+  resources :payments, only: [:new, :create]
   post '/charges', controller: :purchases, action: :create
 end
