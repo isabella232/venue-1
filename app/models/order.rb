@@ -1,10 +1,19 @@
-class Order < ApplicationRecord
-    acts_as_shopping_cart_using :order_item
+# frozen_string_literal: true
 
-    belongs_to :user
-    
-    def order_items 
-        shopping_cart_items
-    end
-    alias_method :items, :order_items
+class Order < ApplicationRecord
+  after_initialize :set_default_state, if: :new_record?
+  acts_as_shopping_cart_using :order_item
+
+  belongs_to :user
+
+  enum state: { pending: 0, paid: 1 }
+
+  def order_items
+    shopping_cart_items
+  end
+  alias items order_items
+
+  def set_default_state
+    self.state ||= :pending
+  end
 end

@@ -58,6 +58,7 @@ const initiateStripe = (pkKey) => {
 
     // Add an instance of the card Element into the `card-element` <div>.
     card.mount('#card-element');
+    
     card.addEventListener('change', function (event) {
         if (event.error) {
             showToast('Error', event.error.message, { target: '#card-errors' });
