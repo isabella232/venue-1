@@ -1,2 +1,8 @@
+
+debugger;
+console.log(`<%= @order.items.count %> tickets`)
+var element = document.getElementById('order-info')
+element.innerHTML = `<%= pluralize(@order.reload.total_unique_items, 'ticket') %>`
 showToast('Notice', '<%= @message %>', {})
+
 

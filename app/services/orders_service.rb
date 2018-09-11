@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module OrdersService
-  def self.add_ticket(ticket, current_user)
-    order = Order.create(user: current_user)
+  def self.add_ticket_to_order(ticket, order)
+    
     message = if order.add(ticket, ticket.price)
                 'Your ticket has been added to your order.'
               else

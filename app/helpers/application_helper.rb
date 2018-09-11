@@ -11,4 +11,13 @@ module ApplicationHelper
   def devise_mapping
     @devise_mapping ||= Devise.mappings[:user]
   end
+
+  def active_order? 
+    session[:order_id]
+  end
+
+  def active_order 
+    Order.find(session[:order_id])
+  end
+
 end
