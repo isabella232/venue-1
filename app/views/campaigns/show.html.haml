@@ -1,15 +1,19 @@
-%h1
-    = @campaign.title
-%p
-    = @campaign.description
-%p
-    = @campaign.location
- 
-= image_tag @campaign.image
+- if @campaign.accepted? || current_user.admin?
+    %h1
+        = @campaign.title
+    %p
+        = @campaign.description
+    %p
+        = @campaign.location
+
+    = image_tag @campaign.image
 
 = social_share_button_tag(@campaign.title, allow_sites: %w(twitter facebook))
 #tickets 
     - @campaign.tickets.each do |ticket|
         = [ticket.name, ticket.price].join(': ')
-
-= link_to "Buy your ticket", new_purchases_path
+        = link_to "Buy your ticket", new_purchases_path
+            
+- if @campaign.pending? && current_user.admin?
+    .form-group
+        = link_to 'Accept', campaign_path(@campaign, event: 'accept'), method: :put, class: 'form-submit'

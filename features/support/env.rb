@@ -17,18 +17,18 @@ Before do
   OmniAuth.config.test_mode = true
   OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new(OmniAuthFixtures.facebook_mock)
   OmniAuth.config.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new(OmniAuthFixtures.google_oauth2_response)
-  3.times {FactoryBot.create(:campaign)}
+  3.times {FactoryBot.create(:campaign, state: :accepted)}
 end
 
 Cucumber::Rails::Database.javascript_strategy = :truncation
 
 Chromedriver.set_version '2.36'
 
- Capybara.register_driver :selenium do |app|
+Capybara.register_driver :selenium do |app|
   options = Selenium::WebDriver::Chrome::Options.new(
       args: %w(disable-popup-blocking disable-infobars)
   )
-   Capybara::Selenium::Driver.new(
+  Capybara::Selenium::Driver.new(
       app,
       browser: :chrome,
       options: options

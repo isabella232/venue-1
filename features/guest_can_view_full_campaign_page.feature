@@ -6,8 +6,8 @@ Feature: Guests can view the full Campaign page
 
     Background:
         Given the following campaign exist
-        | title                        | description                                | location  |
-        | Veronica Maggio in Stockholm | Don't miss a fantastic singer in September | Stockholm |
+        | title                        | description                                | location  | state    |
+        | Veronica Maggio in Stockholm | Don't miss a fantastic singer in September | Stockholm | accepted |
 
     Scenario: Guest can view the full description of Campaign
         Given I am on the 'landing' page

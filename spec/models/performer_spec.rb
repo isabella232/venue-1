@@ -22,7 +22,8 @@ RSpec.describe Performer, type: :model do
   end
   
   describe 'Associations' do
-    it { is_expected.to have_and_belong_to_many :user }
+    it { is_expected.to have_and_belong_to_many :users }
+    it { is_expected.to have_many(:campaigns).through(:users) }
   end
   
   describe "Factory" do
