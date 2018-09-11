@@ -1,13 +1,14 @@
 class OrdersController < ApplicationController
-    before_action :authenticate_user!, only: [:create]
+  # before_action :authenticate_user!, only: [:create]
 
-    def create
-        order = Order.create(user: current_user)
-        ticket = Ticket.find(params[:ticket_id])
-        if order.add(ticket, ticket.price)
-            @message = "Your ticket has been added to your order."
-        else 
-            @message = "Something went wrong. Please try again."
-        end
+  def create
+    ticket = Ticket.find(params[:ticket_id])
+    if current_user
+      @message = OrdersService.add_ticket(ticket, current_user)
+    else
+      session[:ticket_id] = ticket.id
+      @role = 'fan'  
+      render 'devise/registrations/new'
     end
+  end
 end

@@ -6,7 +6,10 @@ class RegistrationsController < Devise::RegistrationsController
             render 'choice'
         else
             @role = params[:role] || 'fan'
-            super
+            build_resource
+            #yield resource if block_given?
+            #respond_with resource
+
         end
     end
     def create 
@@ -14,7 +17,7 @@ class RegistrationsController < Devise::RegistrationsController
         if resource.save
             flash[:notice] = 'Welcome! You have signed up successfully.'
             sign_up(resource_name, resource)
-            redirect_to root_path
+            session[:after_sign_up_path] = after_sign_in_path_for(resource)
         else
             errors = resource.errors.full_messages
             render json: {message: errors}, status: 422
