@@ -89,3 +89,9 @@ Then("I should see {string} in ticket info") do |expected_content|
         expect(page).to have_content expected_content
     end
 end 
+
+Then("I should see {string} in header") do |expected_content|
+  within('#header') do
+    expect(page).to have_content expected_content
+  end
+end

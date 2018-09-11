@@ -22,9 +22,11 @@ Feature: Implement the payment method for tickets
         Given I am logged in as 'user@artist.se'
         When I click on 'Veronica Maggio in Stockholm' detail box
         And I click on 'Buy your ticket'
-        Then I wait 1 second
+        Then I wait 2 seconds
         Then I should see "Your ticket has been added to your order."
         And the last order in the database should include "Sure thing"
+        And I should see "1 ticket" in header 
+
 
     Scenario: Not signed up user buys a ticket
         When I click on 'Veronica Maggio in Stockholm' detail box
