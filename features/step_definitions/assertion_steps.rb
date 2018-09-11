@@ -67,6 +67,11 @@ Then("the state of the campaign {string} should be {string}") do |campaign_title
     expect(campaign.state).to eq campaign_state
 end
 
+Then("the state of the performer {string} should be {string}") do |performer_name, performer_state|
+    performer = Performer.find_by(name: performer_name)
+    expect(performer.state).to eq performer_state
+end
+
 Then("the campaign {string} is accepted") do |campaign_title|
     campaign = Campaign.find_by(title: campaign_title)
     campaign.accept
@@ -81,4 +86,4 @@ Then("I should see {string} in ticket info") do |expected_content|
     within(".mui-row.tickets-by-price") do 
         expect(page).to have_content expected_content
     end
-end 
+end

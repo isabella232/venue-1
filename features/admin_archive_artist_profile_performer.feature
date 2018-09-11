@@ -5,10 +5,10 @@ Feature: Admin can archove Artist-profile
     I would like to be able to edit and delete Artist profile
 
     Background:
-        Given that the following Performer exist
+        Given the following Performer exist
         | name       | state  |
         | Kanye West | active |
-        And that the following user exist
+        And the following user exist
         | email          | role  |
         | admin@venue.se | admin |
         And I am logged in as 'admin@venue.se'
@@ -16,6 +16,6 @@ Feature: Admin can archove Artist-profile
     Scenario: Admin archives a no longer relevant Performer
         When I am on the Performer page for 'Kanye West'
         And I click on 'Archive'
-        Then the state of 'Kanye West' should be 'archived'
+        Then the state of the performer 'Kanye West' should be 'archived'
         And I should see 'Performer has been archived'
         And I should be redirected to the 'Performers' page
