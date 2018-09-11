@@ -27,6 +27,6 @@
       .mui-col-md-3.has-artists-items
         - @performers.each do |performer|
           %a.artist-item{href: "#"}
-            /%span.thumb {style: "background-image: url(web-images/feat-card-3.jpg)"}
+            %span.thumb{style: "background-image: url(#{image_path('feat-card-3.jpg')})"}
             %span.title
               = link_to performer.name, performer_path(performer)
