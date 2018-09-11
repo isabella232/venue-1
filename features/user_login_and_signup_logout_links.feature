@@ -11,15 +11,15 @@ Feature: Sign out link only visible when logged in
 
     Scenario:
         Given I am on the 'landing' page
-        Then I should see 'LOG IN'
-        And I should see 'SIGN UP'
-        And I should NOT see 'LOG OUT'
+        Then I should see 'Log in'
+        And I should see 'Sign up'
+        And I should NOT see 'Log out'
         Then I click on 'Log in'
         And I wait 1 second
         Then I fill in 'Email address' with 'artist@venue.se'
         And I fill in 'Password' with 'my-password'
         And I click on 'Login'
         And I wait 1 second
-        Then I should see 'LOG OUT'
-        And I should NOT see 'LOG IN'
-        And I should NOT see 'SIGN UP'
+        Then I should see 'Log out'
+        And I should NOT see 'Log in'
+        And I should NOT see 'Sign up'

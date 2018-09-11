@@ -78,7 +78,7 @@ Then("there should be a Ticket named {string} in the Database") do |expected_nam
 end
 
 Then("I should see {string} in ticket info") do |expected_content| 
-    within("#tickets") do 
+    within(".mui-row.tickets-by-price") do 
         expect(page).to have_content expected_content
     end
 end 
