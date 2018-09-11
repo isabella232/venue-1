@@ -32,7 +32,7 @@ campaigns = Campaign.create([
         title: 'Someone different',
         description: 'This is a very long description designed to exceed 100 character, so that the truncation sets in and limits the description of the event on the front page. The guest needs to click the title of the campaign to see the full description of the campaign',
         location: 'Stockholm',
-        state: 'pending',
+        state: 'accepted',
         user: artist
     }
 ])
@@ -41,7 +41,7 @@ Campaign.all.each do |campaign|
     campaign.image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'dummy.jpg')), filename: "image.jpg", content_type: 'image/jpg')
 end
 
-performer_clare = Performer.create(
+artist.performers.create(
     name: 'Clare Cunningham',
     genre: 'Rock',
     city: 'Stockholm',
@@ -50,6 +50,7 @@ performer_clare = Performer.create(
     instagram: 'https://www.instagram.com',
     twitter: 'https://www.twitter.com',
     youtube: 'https://www.youtube.com',
-    website: 'https://www.google.com',
-    spotify: 'https://www.spotify.com'
-)
+
+    spotify: 'https://www.spotify.com'   
+    )
+
