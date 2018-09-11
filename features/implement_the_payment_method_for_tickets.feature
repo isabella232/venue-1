@@ -25,8 +25,9 @@ Feature: Implement the payment method for tickets
         Then I wait 2 seconds
         Then I should see "Your ticket has been added to your order."
         And the last order in the database should include "Sure thing"
-        And I should see "1 ticket" in header 
-
+        And I should see "1 ticket" in header
+        When I click on '1 ticket' in header
+        Then I should see 'You are about to order: 1 ticket to Veronica Maggio in Stockholm'
 
     Scenario: Not signed up user buys a ticket
         When I click on 'Veronica Maggio in Stockholm' detail box
@@ -41,8 +42,8 @@ Feature: Implement the payment method for tickets
         And I should see 'Welcome! You have signed up successfully.'
         And the last order in the database should include "Sure thing"
         And I should see "1 ticket" in header 
-
-
+        When I click on '1 ticket' in header
+        Then I should see 'You are about to order: 1 ticket to Veronica Maggio in Stockholm'
 
 
 

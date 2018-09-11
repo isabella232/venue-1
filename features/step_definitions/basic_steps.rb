@@ -53,3 +53,9 @@ end
 And ("I click on {string} in the confirmation popup") do |string|
   page.driver.browser.switch_to.alert.accept
 end
+
+When("I click on {string} in header") do |link|
+  within('#header') do
+    click_on link
+  end
+end
