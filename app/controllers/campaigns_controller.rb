@@ -46,9 +46,9 @@ class CampaignsController < ApplicationController
       campaign.accept
       redirect_to campaign, notice: 'This campaign is now live!'
     else    
-    @campaign = Campaign.find(params[:id])
-    @campaign.update_attributes(campaign_params)
-    redirect_to campaign_path(@campaign), notice: 'Campaign has been successfully updated'
+      @campaign = Campaign.find(params[:id])
+      @campaign.update_attributes(campaign_params)
+      redirect_to campaign_path(@campaign), notice: 'Campaign has been successfully updated'
     end
   end
 
