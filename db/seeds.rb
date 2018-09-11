@@ -7,6 +7,17 @@ artist = User.create(email: 'artist@venue.se', password: 'my-password', role: 'a
 admin = User.create(email: 'admin@venue.se', password: 'my-password', role: 'admin')
 
 rock = Genre.create(name: "rock")
+metal = Genre.create(name: "metal")
+punk = Genre.create(name: "punk")
+indie = Genre.create(name: "indie")
+pop = Genre.create(name: "pop")
+electronic = Genre.create(name: "electronic")
+hip hop = Genre.create(name: "hip hop")
+rap = Genre.create(name: "rap")
+classic = Genre.create(name: "classic")
+country = Genre.create(name: "country")
+jazz = Genre.create(name: "jazz")
+blues = Genre.create(name: "blues")
 
 artist.performers.create(
     name: 'Clare Cunningham',
