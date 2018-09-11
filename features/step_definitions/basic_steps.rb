@@ -25,7 +25,6 @@ And('I attach an image to the campaign') do
   attach_file('campaign_image', "#{::Rails.root}/spec/fixtures/dummy.jpg")
 end
 
-
 And('I fill in ticket fields') do 
   steps %q(
     And I fill in 'Fixed ticket price' with '100'
@@ -49,4 +48,8 @@ When("I submit the stripe form") do
   within_iframe @stripe_iframe do
     find('.Section-button').click
   end
+end
+
+And ("I click on {string} in the confirmation popup") do |string|
+  page.driver.browser.switch_to.alert.accept
 end

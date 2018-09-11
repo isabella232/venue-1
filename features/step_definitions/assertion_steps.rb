@@ -77,15 +77,15 @@ Then('there should be a Ticket named {string} in the Database') do |expected_nam
   expect(ticket).not_to eq nil
 end
 
-Then('I should see {string} in ticket info') do |expected_content|
-  within('#tickets') do
-    expect(page).to have_content expected_content
-  end
-end
-
 Then('the last order in the database should include {string}') do |ticket_name|
     order = Order.last 
     ticket = Ticket.find_by(name: ticket_name)
     item_names = order.items.map {|i| i.item.name}
     expect(item_names).to include ticket.name
 end
+
+Then("I should see {string} in ticket info") do |expected_content| 
+    within(".mui-row.tickets-by-price") do 
+        expect(page).to have_content expected_content
+    end
+end 
