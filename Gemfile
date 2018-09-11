@@ -21,6 +21,7 @@ gem 'font-awesome-sass', '~> 5.0', '>= 5.0.13'
 gem 'state_machines-activerecord'
 gem 'social-share-button'
 gem 'stripe-rails'
+gem 'acts_as_shopping_cart', '~> 0.4.1'
 
 group :development, :test do
   gem 'chromedriver-helper'
