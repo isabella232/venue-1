@@ -38,14 +38,8 @@ When("I click on {string} stripe button") do |button|
   @stripe_iframe= all(iframe[name=stripe_checkout_app]).last
 end
 
-When("I fill in the stripe field {string} with {string}") do |field_name, value|
-  within_iframe @stripe_iframe do
-    fill_in field_name, with: value
-  end
-end
-
 When("I submit the stripe form") do
-  within_iframe @stripe_iframe do
+  within_frame @stripe_iframe do
     find('.Section-button').click
   end
 end
@@ -57,5 +51,11 @@ end
 When("I click on {string} in header") do |link|
   within('#header') do
     click_on link
+  end
+end
+
+Then("I fill in the stripe form field {string} with {string}") do |field_label, content|
+  within_frame @stripe_iframe do
+    fill_in field_label, with: content
   end
 end
