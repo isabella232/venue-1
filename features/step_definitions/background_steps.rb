@@ -10,6 +10,12 @@ Given("the following user(s) exist(s)") do |table|
     end
 end
 
+Given("the following genres exist") do |table|
+    table.hashes.each do |genre_hash|
+        create(:genre, genre_hash)
+    end
+end
+
 Given("I am logged in as {string}") do |email|
     @user = User.find_by(email: email)
     login_as(@user, scope: :user)

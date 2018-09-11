@@ -1,10 +1,16 @@
+Campaign.destroy_all
+Genre.destroy_all
+User.destroy_all
+
 fan = User.create(email: 'fan@venue.se', password: 'my-password', role: 'fan')
 artist = User.create(email: 'artist@venue.se', password: 'my-password', role: 'artist')
 admin = User.create(email: 'admin@venue.se', password: 'my-password', role: 'admin')
 
+rock = Genre.create(name: "rock")
+
 artist.performers.create(
     name: 'Clare Cunningham',
-    genre: 'Rock',
+    genre: rock,
     city: 'Stockholm',
     description: 'Dubbed as having a vocal register similar to Adele (GAFFA) and for having a "Powerfull and killer voice" from Lzzy Hale (Halestorm) and Phil Campell (Motörhead) it is no wonder Clare Cunningham is making waves across the world with her music. Storytelling with unwavering honesty is what Cunningham is best at, and this little country rock/pop chick has proven she is a multi versatile recording and live artist, singing across many genres.',
     facebook: 'https://www.facebook.com',
@@ -13,7 +19,6 @@ artist.performers.create(
     youtube: 'https://www.youtube.com',
     spotify: 'https://www.spotify.com'   
 )
-
 campaigns = Campaign.create([
     {
         title: 'Marius Ipsum',

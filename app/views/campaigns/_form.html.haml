@@ -14,6 +14,10 @@
           = form.text_field :location
           = form.label :location
         %div
+        .mui-textfield.mui-textfield--float-label
+          = form.label :genre
+          = form.collection_select :genre_id, Genre.all, :id, :name
+        %div
           = form.fields_for :tickets, Ticket.new do |ticket_form|
             .mui-textfield.mui-textfield--float-label
               = ticket_form.number_field :price 
