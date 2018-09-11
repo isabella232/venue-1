@@ -12,7 +12,7 @@
 #tickets 
     - @campaign.tickets.each do |ticket|
         = [ticket.name, ticket.price].join(': ')
-        = link_to "Buy your ticket", new_purchases_path
+        = link_to "Buy your ticket", orders_path(ticket_id: ticket.id), method: :post, remote: true, class: 'mui-btn', id: 'purchase'
             
 - if @campaign.pending? && current_user.admin?
     .form-group

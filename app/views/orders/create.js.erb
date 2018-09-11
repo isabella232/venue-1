@@ -1,0 +1,6 @@
+var link = document.getElementById('purchase')
+link.addEventListener('ajax:success', event => {
+    showToast('Notice', event.detail[0].message, {target: '#flashes'})
+})
+<%binding.pry%>
+debugger
