@@ -96,7 +96,7 @@ const showToast = (key, value, options) => {
 document.addEventListener('turbolinks:load', () => {
     let slider = document.querySelector('.carousel');
     if (slider) {
-        initiateSlider('.carousel-inner')
+        initiateSlider('.carousel')
     };
 
 })

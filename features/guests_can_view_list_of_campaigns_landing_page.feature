@@ -12,5 +12,4 @@ Feature: Guests can view the list of Campaigns on the landing page
     Scenario: 
         When I am on the 'landing' page
         Then I should see "Veronica Maggio in Stockholm"
-        And I should see "Don't miss a fantastic singer in September"
         And I should see "Stockholm"
