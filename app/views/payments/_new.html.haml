@@ -7,13 +7,9 @@
         %span= item.item.campaign.title
 
 
-:javascript
-    initiateStripe("#{Rails.application.credentials.stripe[:publishable_key]}");
-
-= form_with url: payments_path, class: 'mui-form', id: '#payment-form' do |form|
+= form_with url: payments_path, class: 'mui-form', id: 'payment-form' do |form|
     .form-row
         %label{for: "card-element"}
-        Credit or debit card
         #card-element
         / A Stripe Element will be inserted here.
         / Used to display Element errors.
