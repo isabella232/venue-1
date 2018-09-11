@@ -41,9 +41,12 @@ class CampaignsController < ApplicationController
    if params[:event] == 'accept'
      campaign.accept
      redirect_to campaign, notice: 'This campaign is now live!'
+   elsif
+     params[:event] == 'archive'
+     campaign.archive
+     redirect_to campaigns_path, notice: 'Campaign has been archived'
    end
   end
-
 
 private
 
