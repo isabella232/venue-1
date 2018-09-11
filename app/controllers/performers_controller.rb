@@ -3,7 +3,11 @@ class PerformersController < ApplicationController
     before_action :authenticate_user!, only: [:create]
 
     def index
-        @performers = Performer.all
+        if user_signed_in? && current_user.admin?
+            @performers = Performer.all
+        else
+            @performers = Performer.with_state(:active)
+        end
     end
     
     def new
