@@ -37,12 +37,25 @@ RSpec.describe Campaign, type: :model do
   describe 'Check for states, events and transistions' do
     subject { create(:campaign) }
 
-    it { is_expected.to have_states :pending, :accepted }
+    it { is_expected.to have_states :pending, :accepted, :archived }
     it { is_expected.to handle_events :accept, when: :pending }
+    it { is_expected.to handle_events :archive, when: :pending }
+    it { is_expected.to handle_events :archive, when: :accepted }
 
-    it ':admin_accepts_campaign transitions from :pending to :accepted' do
+    it ':accept transitions from :pending to :accepted' do
       subject.accept
       expect(subject.accepted?).to eq true
+    end
+
+    it ':archive transitions from :pending to :archive' do
+      subject.archive
+      expect(subject.archived?).to eq true
+    end
+
+    it ':archive transitions from :pending to :archive' do
+      subject.accept
+      subject.archive
+      expect(subject.archived?).to eq true
     end
   end
 end

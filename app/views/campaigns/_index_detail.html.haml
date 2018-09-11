@@ -3,8 +3,6 @@
         %span.thumb{:style => "background-image: url(#{rails_blob_url campaign.image})"}
         %span.title
             = campaign.title
-        %span.description
-            = truncate(campaign.description, length: 100)
         %span.venue-date
             = campaign.location
             %br/
