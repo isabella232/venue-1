@@ -25,3 +25,4 @@ Feature: Implement the payment method for tickets
         And I click on 'Buy your ticket'
         Then I wait 1 second
         Then I should see "Your ticket has been added to your order."
+        And the last order in the database should include "Sure thing"

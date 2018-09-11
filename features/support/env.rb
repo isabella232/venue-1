@@ -26,7 +26,7 @@ Chromedriver.set_version '2.36'
 
 Capybara.register_driver :selenium do |app|
   options = Selenium::WebDriver::Chrome::Options.new(
-      args: %w(disable-popup-blocking disable-infobars)
+      args: %w(disable-popup-blocking disable-infobars auto-open-devtools-for-tabs)
   )
   Capybara::Selenium::Driver.new(
       app,
