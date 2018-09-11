@@ -7,13 +7,13 @@ RSpec.describe Genre, type: :model do
   end
   
   describe 'Associations' do
-  it { is_expected.to belong_to :performer }
+    it { is_expected.to belong_to :performer }
   end
 
-  describe 'Factory' do
-    it 'should have valid Factory' do
-      expect(create(:genre)).to be_valid 
-    end
-  end
-  
+  # describe 'Factory' do
+  #   it 'should have valid Factory' do
+  #     expect(create(:genre)).to be_valid 
+  #   end
+  # end
+
 end
