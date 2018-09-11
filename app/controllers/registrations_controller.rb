@@ -17,7 +17,7 @@ class RegistrationsController < Devise::RegistrationsController
         if resource.save
             flash[:notice] = 'Welcome! You have signed up successfully.'
             sign_up(resource_name, resource)
-            session[:after_sign_up_path] = after_sign_in_path_for(resource)
+            redirect_to after_sign_in_path_for(resource)
         else
             errors = resource.errors.full_messages
             render json: {message: errors}, status: 422
