@@ -9,9 +9,5 @@ RSpec.describe OrderItem, type: :model do
     it { is_expected.to have_db_column :item_type }
     it { is_expected.to have_db_column :price_cents }
     it { is_expected.to have_db_column :price_currency }
-    end
-
-    describe 'Associations' do
-      it { is_expected.to acts_as_shopping_cart_item_for :order }
-    end
   end
+end
