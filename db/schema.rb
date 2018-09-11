@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 2018_09_07_211316) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.bigint "tickets_id"
+    t.string "state"
     t.index ["tickets_id"], name: "index_campaigns_on_tickets_id"
     t.index ["user_id"], name: "index_campaigns_on_user_id"
   end
