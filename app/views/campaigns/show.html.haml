@@ -77,3 +77,5 @@
   - if user_signed_in? && current_user.admin?
     .form-group
       = link_to 'Archive Campaign', campaign_path(@campaign, event: 'archive'), method: :put, data: { confirm: 'Are you sure?' }, class: 'form-submit'
+    .form-group
+      = link_to 'Edit', edit_campaign_path(@campaign), class: 'form-submit'
