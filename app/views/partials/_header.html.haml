@@ -1,25 +1,27 @@
-%header#header.mui-appbar.mui--z1
+#header
     .mui-container
-        %table
-            %tr.mui--appbar-height
-                %td.mui--text-title
-                    %a#logo.logo-venue{href: "#"}
-                %td.mui--text-right
-                    %ul.mui-list--inline.mui--text-body2
+        .mui-row
+            .mui-col-md-7.mui-col-sm-7.mui-col-xs-7
+                %a#logo.logo-venue{href: "#"}
+                %ul#main-nav.nav.top-nav
+                    %li
+                        = link_to 'Campaigns', campaigns_path
+                    %li
+                        %a{href: "#"} Artists
+                    - if user_signed_in? && !current_user.fan?
                         %li
-                            = link_to 'Campaigns', campaigns_path, class: 'mui-btn mui-btn--flat mui-btn--primary'
+                            = link_to 'Create Artist Profile', new_performer_path, remote: true
                         %li
-                            %a{href: "#", class: 'mui-btn mui-btn--flat mui-btn--primary'} Artists
+                            = link_to 'New Campaign', new_campaign_path, remote: true
+
+            .mui-col-md-5.mui-col-sm-5.mui-col-xs-5.has-top-right-links
+                %ul#top-right-links.nav
+                    %li
                         - if user_signed_in?  
-                            - if !current_user.fan?
-                                %li
-                                    = link_to 'Create Artist Profile', new_performer_path, remote: true, class: 'mui-btn mui-btn--flat mui-btn--primary'
-                                %li
-                                    = link_to 'New Campaign', new_campaign_path, remote: true, class: 'mui-btn mui-btn--flat mui-btn--primary'
-                            %li
-                                = link_to 'Log out', destroy_user_session_path, method: :delete, class: 'mui-btn mui-btn--flat mui-btn--primary'
+                            %li.buttoned
+                                = link_to 'Log out', destroy_user_session_path, method: :delete
                         - else 
                             %li
-                                = link_to 'Log in', new_user_session_path, remote: true, class: 'mui-btn mui-btn--flat mui-btn--primary'
-                            %li
-                                = link_to 'Sign up', new_user_registration_path(panel: :choice), remote: true, class: 'mui-btn mui-btn--flat mui-btn--primary'
+                                = link_to 'Log in', new_user_session_path, remote: true
+                            %li.buttoned
+                                = link_to 'Sign up', new_user_registration_path(panel: :choice), remote: true

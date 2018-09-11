@@ -17,10 +17,10 @@
         .mui-textfield.mui-textfield--float-label
           = f.password_field :password_confirmation
           = f.label :password_confirmation, 'Re-Type Password'
-        %div
+        .form-group
           = f.submit "Sign up for Venue", class: 'form-submit'
           = button_tag 'Cancel', class: 'form-submit', onclick: 'cancelModal(event);' 
-      %div{style: 'margin-top: 20px;'} 
+      .form-group{style: 'margin-top: 20px;'} 
         %h3 Prefer to use your social media account? 
         = link_to icon('fab', 'facebook-f', "Sign up with Facebook"), user_facebook_omniauth_authorize_path(role: @role), class: 'form-submit', onclick: "mui.overlay('on')"
         = link_to icon('fab', 'google-plus-g', "Sign up with Google"), user_google_oauth2_omniauth_authorize_path(role: @role), class: 'form-submit', onclick: "mui.overlay('on')"

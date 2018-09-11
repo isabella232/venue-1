@@ -36,14 +36,25 @@ class CampaignsController < ApplicationController
     @campaign = Campaign.find(params[:id])
   end
 
-  def update
-   campaign = Campaign.find(params[:id])
-   if params[:event] == 'accept'
-     campaign.accept
-     redirect_to campaign, notice: 'This campaign is now live!'
-   end
+  def edit
+    @campaign = Campaign.find(params[:id])
   end
 
+  def update
+    campaign = Campaign.find(params[:id])
+    if params[:event] == 'accept'
+      campaign.accept
+      redirect_to campaign, notice: 'This campaign is now live!'
+    elsif
+      params[:event] == 'archive'
+      campaign.archive
+      redirect_to campaigns_path, notice: 'Campaign has been archived'
+    else
+      @campaign = Campaign.find(params[:id])
+      @campaign.update_attributes(campaign_params)
+      redirect_to campaign_path(@campaign), notice: 'Campaign has been successfully updated'
+    end
+  end
 
 private
 
@@ -53,5 +64,17 @@ private
 
   def ticket_params 
     params.require(:campaign).permit(tickets_attributes: [:id, :price, :name])
+  end
+
+  def state_transitions
+    campaign = Campaign.find(params[:id])
+    if params[:event] == 'accept'
+      campaign.accept
+      redirect_to campaign, notice: 'This campaign is now live!'
+    elsif
+      params[:event] == 'archive'
+      campaign.archive
+      redirect_to campaigns_path, notice: 'Campaign has been archived'
+    end
   end
 end
