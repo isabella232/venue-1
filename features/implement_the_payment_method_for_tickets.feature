@@ -36,6 +36,7 @@ Feature: Implement the payment method for tickets
         And I click on 'Sign up for Venue'
         Then I wait 1 second
         Then I should see "Your ticket has been added to your order."
+        And I should see 'Welcome! You have signed up successfully.'
         And the last order in the database should include "Sure thing"
 
 

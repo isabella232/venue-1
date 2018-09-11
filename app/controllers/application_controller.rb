@@ -8,8 +8,9 @@ class ApplicationController < ActionController::Base
     if session[:ticket_id]
       ticket = Ticket.find(session[:ticket_id])
       message = OrdersService.add_ticket(ticket, current_user)
-      session.delete[:ticket_id]
-      redirect_to campaign_path(ticket.campaign), notice: message
+      session.delete(:ticket_id)
+      flash[:success] = "Your ticket has been added to your order."
+      campaign_path(ticket.campaign)
     else
       super
     end
