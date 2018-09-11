@@ -22,4 +22,4 @@ Feature: Admin can edit Artist-profiles
         And I wait 1 second
         Then I should see 'Profile has been successfullu updated'
         And there should be a Artists Profile titled 'Jay-Z' in the Database
-        And I should be redirected to the Artist for 'Jay-Z'
+        And I should be redirected to the Artist page for 'Jay-Z'
