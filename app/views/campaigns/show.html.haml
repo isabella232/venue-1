@@ -74,6 +74,6 @@
   - if @campaign.pending? && current_user.admin?
     .form-group
       = link_to 'Accept', campaign_path(@campaign, event: 'accept'), method: :put, class: 'form-submit'
--#   #tickets 
--#     - @campaign.tickets.each do |ticket|
--#       = [ticket.name, ticket.price].join(': ')
+  - if user_signed_in? && current_user.admin?
+    .form-group
+      = link_to 'Archive Campaign', campaign_path(@campaign, event: 'archive'), method: :put, data: { confirm: 'Are you sure?' }, class: 'form-submit'
