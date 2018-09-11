@@ -15,11 +15,13 @@ Feature: Admin can edit Campaigns
 
     Scenario: Admin can edit Campaign
         When I am on the Campaign page for 'Veronica Maggio in Stockholm'
-        And I click on 'Edit Campaign'
+        And I click on 'Edit'
         Then I should be redirected to the Edit page for 'Veronica Maggio in Stockholm'
         And I fill in 'Title' with 'Veronica Maggio in Oslo'
         And I fill in 'Description' with 'I have moved to Oslo'
         And I fill in 'Location' with 'Oslo'
         And I click 'Update Campaign'
+        And I wait 1 second
+        And I should see 'Campaign has been successfully updated'
         Then there should be a Campaign titled 'Veronica Maggio in Oslo' in the Database
         And I should be redirected to the Campaign page for 'Veronica Maggio in Oslo'
