@@ -1,6 +1,4 @@
-Rails.application.routes.draw do
-  get 'purchase/create'
-  get 'purchase/new'
+Rails.application.routes.draw do 
   get 'sessions/new'
   devise_for :users, controllers: {
     registrations: :registrations,
