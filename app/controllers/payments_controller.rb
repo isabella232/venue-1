@@ -4,6 +4,7 @@ class PaymentsController < ApplicationController
   end
 
   def create
+    binding.pry
     @message = "You rock!"
   end
 end
