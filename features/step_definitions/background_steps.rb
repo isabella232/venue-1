@@ -10,6 +10,12 @@ Given("the following user(s) exist(s)") do |table|
     end
 end
 
+Given("the following Performer exist") do |table|
+    table.hashes.each do |performer_hash|
+        create(:performer, performer_hash)
+    end
+end
+
 Given("I am logged in as {string}") do |email|
     @user = User.find_by(email: email)
     login_as(@user, scope: :user)

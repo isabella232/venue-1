@@ -22,3 +22,8 @@ Given("I am on the Campaign page for {string}") do |campaign_title|
   campaign_page = Campaign.find_by(title: campaign_title)
   visit campaign_path(campaign_page)
 end
+
+When("I am on the Artists Proile page for {string}") do |performer_name|
+  performer = Performer.find_by(name: performer_name)
+  visit performer_path(performer)
+end 

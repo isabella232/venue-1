@@ -15,6 +15,11 @@ Then("there should be a Campaign titled {string} in the Database") do |expected_
     expect(campaign).not_to eq nil
 end
 
+Then("there should be a Artists Profile titled {string} in the Database") do |expected_name|
+    performer = Performer.find_by(name: expected_name)
+    expect(performer).not_to eq nil
+end
+
 Then("I should be redirected to the {string} page") do |page_name|
     expect(current_path).to eq page_path(page_name)    
 end
@@ -86,4 +91,9 @@ end
 Then("I should be redirected to the Edit page for {string}") do |campaign_title|
     campaign = Campaign.find_by(title: campaign_title)
     expect(current_path).to eq edit_campaign_path(campaign)
+end
+
+Then("I should be redirected to the Edit page for Artist {string}") do |performer_name|
+    performer = Performer.find_by(name: performer_name)
+    expect(current_path).to eq edit_performer_path(performer)
 end
