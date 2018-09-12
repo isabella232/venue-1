@@ -45,7 +45,8 @@ end
 Then("I fill in the stripe form") do 
   stripe_iframe = find("iframe[name='__privateStripeFrame4']")
   within_frame stripe_iframe do
-    find_field('cardnumber').send_keys('4242424242424242')
+    card_field = find_field('cardnumber')
+    4.times {card_field.send_keys('4242')}
     find_field('exp-date').send_keys('1221')
     find_field('cvc').send_keys('999')
   end
