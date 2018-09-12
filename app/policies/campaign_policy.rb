@@ -16,7 +16,11 @@ class CampaignPolicy < ApplicationPolicy
         true
     end
     
-    def update?
+    def edit?
         user.admin?
+    end
+    
+    def update?
+        edit?
     end
 end

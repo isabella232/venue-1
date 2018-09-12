@@ -23,6 +23,7 @@ class CampaignsController < ApplicationController
     else
       render json: {message: 'Additional input required'}, status: 422
     end
+    authorize @campaign
   end
 
   def campaign_tickets
@@ -38,6 +39,7 @@ class CampaignsController < ApplicationController
 
   def edit
     @campaign = Campaign.find(params[:id])
+    authorize @campaign
   end
 
   def update
@@ -54,6 +56,7 @@ class CampaignsController < ApplicationController
       @campaign.update_attributes(campaign_params)
       redirect_to campaign_path(@campaign), notice: 'Campaign has been successfully updated'
     end
+    authorize @campaign
   end
 
 private

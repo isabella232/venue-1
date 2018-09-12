@@ -9,8 +9,10 @@ Feature: Admin can edit Campaigns
         | title                        |
         | Veronica Maggio in Stockholm |
         And the following user exist
-        | email         | role  |
-        | admin@venue.se| admin |
+        | email           | role   |
+        | admin@venue.se  | admin  |
+        | artist@venue.se | artist |
+        | fan@venue.se    | fan    |
         And I am logged in as 'admin@venue.se'
 
     Scenario: Admin can edit Campaign
