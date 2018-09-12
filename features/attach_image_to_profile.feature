@@ -24,8 +24,8 @@ Feature: Artist can attach image to her profile
         And I fill in 'Youtube' with 'https://www.youtube.com/'
         And I fill in 'Website' with 'https://www.kanyewest.com/'
         And I fill in 'Spotify' with 'https://open.spotify.com/artist/5K4W6rqBFWDnAN6FQUkS6x?si=4zpontE-TrmF46FSVJcNHA'
-        And I attach an profile_image to the campaign
-        And I attach an background_image to the campaign
+        And I attach a profile_image
+        And I attach a background_image
         And I click on 'Create Profile'
         And I wait 1 second
         Then I should see 'Artist page successfully created'
