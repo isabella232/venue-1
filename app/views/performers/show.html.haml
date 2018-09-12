@@ -5,7 +5,6 @@
         .mui-col-md-12
           .artist-picture{style: "background-image: url(#{image_path('feat-card-1.jpg')}"}
           %h1= @performer.name
-          = image_tag @performer.profile_image
           = image_tag @performer.background_image
           .location Stockholm | Sweden
           .genre Rock
@@ -13,6 +12,7 @@
             %a{href: "#"}> + Follow
               | 
             %a{href: "#"} + Request this artist
+            = image_tag @performer.profile_image
   #artist-details
     .mui-container
       .mui-row

@@ -38,15 +38,15 @@ RSpec.describe Performer, type: :model do
 
   describe 'Attachment' do
     it 'is valid  ' do
-      subject.image.attach(io: File.open(fixture_path + '/profile_image.jpg'), filename: 'profile_image.jpg', content_type: 'image/jpg')
-      expect(subject.image).to be_attached
+      subject.profile_image.attach(io: File.open(fixture_path + '/profile_image.jpg'), filename: 'profile_image.jpg', content_type: 'image/jpg')
+      expect(subject.profile_image).to be_attached
     end
   end
 
   describe 'Attachment' do
     it 'is valid  ' do
-      subject.image.attach(io: File.open(fixture_path + '/background_image.jpg'), filename: 'background_image.jpg', content_type: 'image/jpg')
-      expect(subject.image).to be_attached
+      subject.background_image.attach(io: File.open(fixture_path + '/background_image.jpg'), filename: 'background_image.jpg', content_type: 'image/jpg')
+      expect(subject.background_image).to be_attached
     end
   end
 

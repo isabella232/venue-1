@@ -27,9 +27,10 @@ Feature: Artist can attach image to her profile
         And I attach a profile_image
         And I attach a background_image
         And I click on 'Create Profile'
-        And I wait 1 second
+        And I wait 5 seconds
         Then I should see 'Artist page successfully created'
         And I should be redirected to the Artist page for 'Kanye West'
         And an artist profile page with the name 'Kanye West' should have been created
+        And I wait 2 seconds
         Then I should see the 'profile_image.jpg' image
         Then I should see the 'background_image.jpg' image
