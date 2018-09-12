@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_11_090953) do
+ActiveRecord::Schema.define(version: 2018_09_07_211316) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,25 +47,6 @@ ActiveRecord::Schema.define(version: 2018_09_11_090953) do
     t.string "state"
     t.index ["tickets_id"], name: "index_campaigns_on_tickets_id"
     t.index ["user_id"], name: "index_campaigns_on_user_id"
-  end
-
-  create_table "order_items", force: :cascade do |t|
-    t.integer "owner_id"
-    t.string "owner_type"
-    t.integer "quantity"
-    t.integer "item_id"
-    t.string "item_type"
-    t.integer "price_cents", default: 0, null: false
-    t.string "price_currency", default: "USD", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "orders", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "performers", force: :cascade do |t|
@@ -115,6 +96,5 @@ ActiveRecord::Schema.define(version: 2018_09_11_090953) do
 
   add_foreign_key "campaigns", "tickets", column: "tickets_id"
   add_foreign_key "campaigns", "users"
-  add_foreign_key "orders", "users"
   add_foreign_key "tickets", "campaigns"
 end
