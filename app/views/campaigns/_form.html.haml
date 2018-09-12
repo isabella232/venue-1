@@ -14,10 +14,11 @@
           = form.text_field :location
           = form.label :location
         %br
-        %div#lable-genre
-          = form.label :genre
-          %ul.mui-dropdown__menu.mui-dropdown__menu--right
-          = form.collection_select :genre_id, Genre.all, :id, :name
+        .form.mui-form
+          %legend#genre 
+            = form.label :genre 
+            .mui-select
+              = form.collection_select :genre_id, Genre.all, :id, :name
         %br
         %div
           = form.fields_for :tickets, Ticket.new do |ticket_form|
