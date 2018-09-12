@@ -20,4 +20,8 @@ module ApplicationHelper
     Order.find(session[:order_id])
   end
 
+  def select_genre_options
+    Genre.all.collect {|g| [ g.name, g.id ] }
+end
+
 end

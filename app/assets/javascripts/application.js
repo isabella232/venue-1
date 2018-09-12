@@ -18,6 +18,7 @@
 //= require izitoast/dist/js/iziToast.min.js
 //= require social-share-button
 //= require stripe_payment
+//= require choices.js/assets/scripts/dist/choices.js
 //= require_tree .
 
 

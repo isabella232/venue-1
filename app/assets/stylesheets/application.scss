@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700,900');
 $mui-primary-color: rgb(43, 42, 46);
 $mui-label-font-color: rgba(white, 0.7);
 $mui-input-font-color: rgba(white, 0.7);
@@ -6,13 +7,161 @@ $mui-form-legend-font-color: rgba(white, 0.7);
 $mui-btn-primary-bg-color: $mui-primary-color;
 $mui-btn-flat-bg-color-hover: darken($mui-primary-color, 5%);
 $mui-overlay-bg-color: rgba($mui-primary-color, 0.70);
-@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700,900');
+$choices-selector: 'choices' !default;
+$choices-font-size-lg: 16px !default;
+$choices-font-size-md: 14px !default;
+$choices-font-size-sm: 12px !default;
+$choices-guttering: 24px !default;
+$choices-border-radius: 2.5px !default;
+$choices-border-radius-item: 20px !default;
+$choices-bg-color: #293239 !default;
+$choices-bg-color-disabled: rgba($mui-primary-color, 0.70);
+$choices-bg-color-dropdown: $mui-primary-color !default;
+$choices-text-color: #333333 !default;
+$choices-keyline-color: #333333 !default;
+$choices-primary-color: #293239 !default;
+$choices-disabled-color: rgba($mui-primary-color, 0.70);
+$choices-highlight-color: rgba($mui-primary-color, 0.70);
+$choices-button-icon-path: '../../assets' !default;
+$choices-button-dimension: 8px !default;
+$choices-button-offset: 8px !default;
 @import 'mui';
 @import 'mui_extensions';
 @import 'izitoast/dist/css/iziToast.min.css';
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "social-share-button";
+@import "choices.js/assets/styles/scss/choices.scss";
+
+// Overwriting Choices css
+.#{$choices-selector}[data-type*="select-multiple"], .#{$choices-selector}[data-type*="text"]  {
+    .#{$choices-selector}__inner { cursor: text; }
+    .#{$choices-selector}__button {
+      position: relative;
+      display: inline-block;
+      margin-top: 0;
+      margin-right: -$choices-button-offset/2;
+      margin-bottom: 0;
+      margin-left: $choices-button-offset;
+      padding-left: $choices-button-offset*2;
+      border-left: 1px solid darken($choices-primary-color, 10%);
+      background-image: image_url('cross.svg');
+      background-size: $choices-button-dimension;
+      width: $choices-button-dimension;
+      line-height: 1;
+      opacity: .75;
+      &:hover, &:focus { opacity: 1; }
+    }
+  }
+  .#{$choices-selector}__list--dropdown {
+	display: none;
+	z-index: 1;
+	position: absolute;
+	width: 100%;
+	background-color: $choices-bg-color-dropdown;
+	border: 1px solid $choices-keyline-color;
+	top: 100%;
+	margin-top: -1px;
+	border-bottom-left-radius: $choices-border-radius;
+	border-bottom-right-radius: $choices-border-radius;
+	overflow: hidden;
+	word-break: break-all;
+	&.is-active { display: block; }
+	.is-open & { border-color: darken($choices-keyline-color, 15%); }
+	.is-flipped & {
+	  top: auto;
+	  bottom: 100%;
+	  margin-top: 0;
+	  margin-bottom: -1px;
+	  border-radius: .25rem .25rem 0 0;
+	}
+	.#{$choices-selector}__list {
+	  position: relative;
+	  max-height: 300px;
+	  overflow: auto;
+	  -webkit-overflow-scrolling: touch;
+	  will-change: scroll-position;
+	}
+	.#{$choices-selector}__item {
+	  position: relative;
+	  padding: 10px;
+	  font-size: $choices-font-size-md;
+	  color: $mui-form-legend-font-color;
+	  [dir="rtl"] & { text-align: right; }
+	}
+	.#{$choices-selector}__item--selectable {
+	  @media (min-width: 640px) {
+		padding-right: 100px;
+		&:after {
+		  content: attr(data-select-text);
+		  font-size: $choices-font-size-sm;
+		  opacity: 0;
+		  position: absolute;
+		  right: 10px;
+		  top: 50%;
+		  transform: translateY(-50%);
+		}
+		[dir="rtl"] & {
+		  text-align: right;
+		  padding-left: 100px;
+		  padding-right: 10px;
+		  &:after {
+			right: auto;
+			left: 10px;
+		  }
+		}
+	  }
+	  &.is-highlighted {
+		  background-color: #293239;
+		// background-color: mix(#000000, #FFFFFF, 5%);
+		&:after { opacity: .5; }
+	  }
+	}
+  }
+
+  .#{$choices-selector}__list--multiple {
+	display: inline;
+	.#{$choices-selector}__item {
+	  display: inline-block;
+	  vertical-align: middle;
+	  border-radius: $choices-border-radius-item;
+	  padding: 4px 10px;
+	  font-size: $choices-font-size-sm;
+	  font-weight: 500;
+	  margin-right: 3.75px;
+	  margin-bottom: 3.75px;
+	  background-color: $choices-primary-color;
+	  border: 1px solid darken($choices-primary-color, 5%);
+	  color: $mui-input-placeholder-color;
+	  word-break: break-all;
+	  &[data-deletable] { padding-right: 5px; }
+	  [dir="rtl"] & {
+		margin-right: 0;
+		margin-left: 3.75px;
+	  }
+	  &.is-highlighted {
+		background-color: darken($choices-primary-color, 5%);
+		border: 1px solid darken($choices-primary-color, 10%);
+	  }
+	  .is-disabled & {
+		background-color: darken($choices-disabled-color, 25%);
+		border: 1px solid darken($choices-disabled-color, 35%);
+	  }
+	}
+  }
+  .choices__input {
+    display: inline-block;
+    vertical-align: baseline;
+    background-color: transparent;
+    font-size: 14px;
+    margin-bottom: 5px;
+    border: 0;
+    border-radius: 0;
+    max-width: 100%;
+    padding: 4px 0 4px 2px;
+  }
+//  End Coices 
+
 
 /* 1.0 General */
 
