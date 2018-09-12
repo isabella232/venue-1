@@ -9,16 +9,17 @@ Feature: Artists can display tickets on their Campaigns
         | email          | role   | password   |
         | user@artist.se | artist | my-pasword |
         And I am logged in as 'user@artist.se'
-        And I am on the 'landing' page
+        And I am on 'landing' page
         
     Scenario:
         When I click on 'New Campaign'
         And I fill in 'Title' with 'Clare Cunningham'
         And I fill in 'Description' with 'Dubbed as having a vocal register similar to Adele'
         And I fill in 'Location' with 'Stockholm'
-        And I fill in 'Fixed ticket price' with '100'
+        And I fill in 'Fixed ticket price' with '200'
         And I fill in 'Ticket name' with 'Sure thing'
         And I attach an image to the campaign
         And I click on 'Launch Campaign'
         Then there should be a Ticket named 'Sure thing' in the Database 
-        And I should see 'Sure thing: 100' in ticket info
+        And I should see 'Sure thing' in ticket info
+        And I should see '200' in ticket info
