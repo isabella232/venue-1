@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class PaymentsController < ApplicationController
   def new
     @order = Order.find(session[:order_id])
@@ -8,20 +6,17 @@ class PaymentsController < ApplicationController
   def create
     begin
       order = Order.find(session[:order_id])
-
-      # Get first customer with matching email to cardholder-email
       customers = Stripe::Customer.list(limit: 1, email: order.user.email)
 
       customer = if customers.data.empty?
-                   Stripe::Customer.create(
-                     email: order.user.email,
-                     source: params[:stripeToken],
-                     description: 'Venue fan'
-                   )
-                 # If matching customer found, get from stripe
-                 else
-                   Stripe::Customer.retrieve(customers.data.first.id)
-                 end
+                  Stripe::Customer.create(
+                    email: order.user.email,
+                    source: params[:stripeToken],
+                    description: 'Venue fan'
+                    )
+                  else
+                    Stripe::Customer.retrieve(customers.data.first.id)
+                  end
 
       charge = Stripe::Charge.create(
         customer: customer.id,
@@ -36,7 +31,6 @@ class PaymentsController < ApplicationController
 
     if charge.paid?
       order.state = :paid
-      # TODO: Lover the stock of available tickets
       session.delete(:order_id)
       @message = 'You rock!'
     else

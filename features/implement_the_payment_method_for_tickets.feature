@@ -57,11 +57,3 @@ Feature: Implement the payment method for tickets
         And I click on 'Submit Payment'
         And I wait 5 seconds
         Then I should see "You rock!"
-
-
-
-
-
-
-
-

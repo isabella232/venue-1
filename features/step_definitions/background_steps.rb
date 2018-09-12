@@ -28,4 +28,4 @@ Given("the following tickets for {string} exist") do |campaign_title, table|
     table.hashes.each do |ticket_hash|
         create(:ticket, ticket_hash.merge(campaign: campaign))
     end
-  end
+end

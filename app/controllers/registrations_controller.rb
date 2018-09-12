@@ -7,9 +7,6 @@ class RegistrationsController < Devise::RegistrationsController
         else
             @role = params[:role] || 'fan'
             build_resource
-            #yield resource if block_given?
-            #respond_with resource
-
         end
     end
     def create 

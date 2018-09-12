@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Order < ApplicationRecord
   after_initialize :set_default_state, if: :new_record?
   acts_as_shopping_cart_using :order_item
