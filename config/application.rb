@@ -29,5 +29,8 @@ module Venue
       generate.controller_specs false
       generate.system_tests false
     end
+    config.stripe.secret_key = Rails.application.credentials.stripe[:secret_key]
+    config.stripe.publishable_key = Rails.application.credentials.stripe[:publishable_key]
+    config.stripe.endpoint = '/payment/stripe-integration'
   end
 end

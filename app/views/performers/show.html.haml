@@ -21,6 +21,9 @@
             - if user_signed_in? && current_user.admin?
               .form-group
                 = link_to 'Edit', edit_performer_path(@performer), remote: true, class: 'form-submit'
+            - if @performer.active? && current_user.admin?
+              .form-group
+                = link_to 'Archive', performer_path(@performer, event: 'archive'), method: :put, data: { confirm: 'Are you sure?' }, class: 'form-submit'
       .mui-row.details-spotify
         .mui-col-md-12.mui-col-lg-8
           %h2= @performer.name

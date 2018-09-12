@@ -9,6 +9,8 @@ def page_path(path)
     campaigns_path
   elsif path == 'Create Artist Profile'
     new_performer_path
+  elsif path == 'Performers'
+    performers_path
   else
     root_path
   end
@@ -31,4 +33,9 @@ end
 Given("I try to access the Edit Performer page for {string}") do |performer_name|
   performer = Performer.find_by(name: performer_name)
   visit edit_performer_path(performer)
+end
+
+When("I am on the Performer page for {string}") do |performer_name|
+  performer = Performer.find_by(name: performer_name)
+  visit performer_path(performer)
 end

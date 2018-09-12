@@ -1,0 +1,19 @@
+%h2 Review and pay 
+%p  
+    You are about to order: 
+    - @order.items.each do | item |
+        %span= pluralize(item.quantity, 'ticket')
+        %span to
+        %span= item.item.campaign.title
+
+
+= form_with url: payments_path, local: true, class: 'mui-form', id: 'payment-form' do |form|
+    .form-row
+        %label{for: "card-element"}
+        #card-element
+        / A Stripe Element will be inserted here.
+        / Used to display Element errors.
+        #card-errors{role: "alert"}
+    .form-group
+        %button{class: 'form-submit'} Submit Payment
+

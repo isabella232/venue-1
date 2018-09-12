@@ -10,7 +10,7 @@ Given("the following user(s) exist(s)") do |table|
     end
 end
 
-Given("the following Performer exist") do |table|
+Given("the following Performer(s) exist(s)") do |table|
     table.hashes.each do |performer_hash|
         create(:performer, performer_hash)
     end
@@ -27,4 +27,11 @@ end
 
 Given("the google authentication is not granted") do
     OmniAuth.config.mock_auth[:google_oauth2] = :invalid_credentials
+end
+
+Given("the following tickets for {string} exist") do |campaign_title, table|
+    campaign = Campaign.find_by(title: campaign_title)
+    table.hashes.each do |ticket_hash|
+        create(:ticket, ticket_hash.merge(campaign: campaign))
+    end
 end
