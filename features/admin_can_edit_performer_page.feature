@@ -16,9 +16,17 @@ Feature: Admin can edit Artist-profiles
     Scenario: Admin edits Artists Profile page
         When I am on the Artists Proile page for 'Kanye West'
         And I click on 'Edit'
-        Then I should be redirected to the Edit page for Artist 'Kanye West'
-        And I fill in 'Title' with 'Jay-Z'
-        And I click 'Update profile'
+        And I fill in 'Artist name' with 'Jay-Z'
+        And I fill in 'Genre' with 'Hip-Hop'
+        And I fill in 'City' with 'New York City'
+        And I fill in 'Artist Description' with 'Born in Atalanta, raised in Chicago'
+        And I fill in 'Facebook' with 'https://www.facebook.com/Jay-Z/'
+        And I fill in 'Instagram' with 'https://www.instagram.com/Jay-Z'
+        And I fill in 'Twitter' with 'https://twitter.com/Jay-Z'
+        And I fill in 'Youtube' with 'https://www.youtube.com/'
+        And I fill in 'Website' with 'https://www.Jay-Z.com/'
+        And I fill in 'Spotify' with 'https://open.spotify.com/artist/Jay-Z'
+        And I click 'Update Profile'
         And I wait 1 second
         Then I should see 'Profile has been successfullu updated'
         And there should be a Artists Profile titled 'Jay-Z' in the Database

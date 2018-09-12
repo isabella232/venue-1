@@ -20,6 +20,16 @@ class PerformersController < ApplicationController
         @performer = Performer.find(params[:id])
     end
 
+    def edit
+        @performer = Performer.find(params[:id])
+    end
+
+    def update
+        @performer = Performer.find(params[:id])
+        @performer.update_attributes(performer_params)
+        redirect_to performer_path(@performer), notice: 'Profile has been successfullu updated'
+    end
+
     private
 
     def performer_params
