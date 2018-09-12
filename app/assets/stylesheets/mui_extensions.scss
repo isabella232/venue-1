@@ -36,6 +36,20 @@
       right: 0;
       top: 50%;
     }
+
   }
-  
+}
+
+.form-group {
+  .form-submit { 
+    background-color: transparent;
+    color: #FFFF;
+    border: 1px solid rgb(240,215,93);
+    border-radius: 50px; 
+    display: table; 
+    font-size: 13px; 
+    font-weight: bold; 
+    margin: 30px auto 0; 
+    padding: 5px 30px 
+  }
 }
