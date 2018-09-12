@@ -78,4 +78,4 @@
     .form-group
       = link_to 'Archive Campaign', campaign_path(@campaign, event: 'archive'), method: :put, data: { confirm: 'Are you sure?' }, class: 'form-submit'
     .form-group
-      = link_to 'Edit', edit_campaign_path(@campaign), class: 'form-submit'
+      = link_to 'Edit', edit_campaign_path(@campaign), remote: true, class: 'form-submit'
