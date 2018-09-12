@@ -93,6 +93,26 @@ const showToast = (key, value, options) => {
         target: target
     })
 }
+// General method to display selector using choices.js
+const showMultiSelect = (elementId, placeholder) => {
+    var element = document.getElementById(elementId)
+    if (element) {
+        var multiSelect = new Choices(element, {
+            removeItemButton: true,
+            placeholder: true,
+            placeholderValue: placeholder,
+        });
+
+        multiSelect.passedElement.addEventListener('addItem', function (event) {
+            console.log('You just added "' + event.detail.label + '"');
+        });
+
+        multiSelect.passedElement.addEventListener('removeItem', function (event) {
+            console.log('You just removed "' + event.detail.label + '"');
+        });
+    }
+
+}
 
 document.addEventListener('turbolinks:load', () => {
     let slider = document.querySelector('.carousel');
