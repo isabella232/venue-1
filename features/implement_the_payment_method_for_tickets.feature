@@ -1,4 +1,5 @@
 @javascript
+@stripe
 Feature: Implement the payment method for tickets
     As a system owner
     In order to increase the revenue flow
@@ -56,6 +57,8 @@ Feature: Implement the payment method for tickets
         And I click on 'Submit Payment'
         And I wait 5 seconds
         Then I should see "You rock!"
+
+
 
 
 
