@@ -27,3 +27,8 @@ When("I am on the Artists Proile page for {string}") do |performer_name|
   performer = Performer.find_by(name: performer_name)
   visit performer_path(performer)
 end 
+
+Given("I try to access the Edit Performer page for {string}") do |performer_name|
+  performer = Performer.find_by(name: performer_name)
+  visit edit_performer_path(performer)
+end

@@ -8,9 +8,11 @@ Feature: Admin can edit Artist-profiles
         Given the following Performer exist
         | name       |
         | Kanye West |
-        Given the following user exist
-        | email          | role  |
-        | admin@venue.se | admin |
+        Given the following users exist
+        | email           | role   |
+        | admin@venue.se  | admin  |
+        | artist@venue.se | artist |
+        | fan@venue.se    | fan    |
         And I am logged in as 'admin@venue.se'
 
     Scenario: Admin edits Artists Profile page
@@ -31,3 +33,15 @@ Feature: Admin can edit Artist-profiles
         Then I should see 'Profile has been successfullu updated'
         And there should be a Artists Profile titled 'Jay-Z' in the Database
         And I should be redirected to the Artist page for 'Jay-Z'
+
+    Scenario: Fan tries to access Create Performer page via link
+        Given I am logged in as 'fan@venue.se'
+        And I try to access 'Create Artist Profile' page
+        Then I should see 'Access denied'
+        And I should be redirected to the 'landing' page
+
+    Scenario: Fan tries to access Edit Performer page via link
+        Given I am logged in as 'fan@venue.se'
+        And I try to access the Edit Performer page for 'Kanye West'
+        Then I should see 'Access denied'
+        And I should be redirected to the 'landing' page
