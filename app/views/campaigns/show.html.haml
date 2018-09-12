@@ -71,11 +71,13 @@
               %ul
                 %li
                   = social_share_button_tag(@campaign.title, allow_sites: %w(twitter facebook))
-  - if @campaign.pending? && current_user.admin?
-    .form-group
-      = link_to 'Accept', campaign_path(@campaign, event: 'accept'), method: :put, class: 'form-submit'
-  - if user_signed_in? && current_user.admin?
-    .form-group
-      = link_to 'Archive Campaign', campaign_path(@campaign, event: 'archive'), method: :put, data: { confirm: 'Are you sure?' }, class: 'form-submit'
-    .form-group
-      = link_to 'Edit', edit_campaign_path(@campaign), remote: true, class: 'form-submit'
+      .form-group
+        %ul.admin-links
+          - if @campaign.pending? && current_user.admin?
+            %li  
+              = link_to 'Accept', campaign_path(@campaign, event: 'accept'), method: :put, class: 'form-submit'
+          - if user_signed_in? && current_user.admin?
+            %li  
+              = link_to 'Archive Campaign', campaign_path(@campaign, event: 'archive'), method: :put, data: { confirm: 'Are you sure?' }, class: 'form-submit'
+            %li  
+              = link_to 'Edit', edit_campaign_path(@campaign), remote: true, class: 'form-submit'
