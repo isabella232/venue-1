@@ -1,5 +1,4 @@
-@javascript
-@stripe
+@javascript @stripe
 Feature: Implement the payment method for tickets
     As a system owner
     In order to increase the revenue flow

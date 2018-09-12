@@ -11,7 +11,7 @@ class PaymentsController < ApplicationController
       customer = if customers.data.empty?
                   Stripe::Customer.create(
                     email: order.user.email,
-                    source: params[:stripeToken],
+                    source: stripe_token(params),
                     description: 'Venue fan'
                     )
                   else
