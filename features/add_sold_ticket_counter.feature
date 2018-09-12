@@ -1,4 +1,4 @@
-Feature: Add sold ticket counter
+Feature: Add sold ticket counter to Campaign page
     As an Artist
     In order to know how many Tickets that has been sold
     I would like to have a sold ticket-counter on the Campaign page
