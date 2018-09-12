@@ -32,6 +32,22 @@ And('I fill in ticket fields') do
   )
 end
 
-And ("I click on {string} in the confirmation popup") do |string|
+And ("I click on {string} in the confirmation popup") do |browser|
   page.driver.browser.switch_to.alert.accept
+end
+
+When("I click on {string} in header") do |link|
+  within('#header') do
+    click_on link
+  end
+end
+
+Then("I fill in the stripe form") do 
+  stripe_iframe = find("iframe[name='__privateStripeFrame4']")
+  within_frame stripe_iframe do
+    card_field = find_field('cardnumber')
+    4.times {card_field.send_keys('4242')}
+    find_field('exp-date').send_keys('1221')
+    find_field('cvc').send_keys('999')
+  end
 end

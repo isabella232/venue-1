@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_11_195906) do
+
+ActiveRecord::Schema.define(version: 2018_09_11_193231) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +58,7 @@ ActiveRecord::Schema.define(version: 2018_09_11_195906) do
     t.bigint "performers_id"
     t.index ["performer_id"], name: "index_genres_on_performer_id"
     t.index ["performers_id"], name: "index_genres_on_performers_id"
+
   end
 
   create_table "performers", force: :cascade do |t|
@@ -75,6 +77,7 @@ ActiveRecord::Schema.define(version: 2018_09_11_195906) do
     t.bigint "genres_id"
     t.string "genre_id"
     t.index ["genres_id"], name: "index_performers_on_genres_id"
+    t.string "state"
   end
 
   create_table "performers_users", id: false, force: :cascade do |t|
@@ -112,5 +115,6 @@ ActiveRecord::Schema.define(version: 2018_09_11_195906) do
   add_foreign_key "genres", "performers"
   add_foreign_key "genres", "performers", column: "performers_id"
   add_foreign_key "performers", "genres", column: "genres_id"
+
   add_foreign_key "tickets", "campaigns"
 end
