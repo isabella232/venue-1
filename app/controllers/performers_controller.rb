@@ -4,6 +4,7 @@ class PerformersController < ApplicationController
 
     def new
         @performer = Performer.new
+        authorize @performer
     end
     
     def create
@@ -14,6 +15,7 @@ class PerformersController < ApplicationController
         else
             render json: {message: "Additional input required"}, status: 422
         end
+        authorize @performer
     end
 
     def show
@@ -22,12 +24,14 @@ class PerformersController < ApplicationController
 
     def edit
         @performer = Performer.find(params[:id])
+        authorize @performer
     end
 
     def update
         @performer = Performer.find(params[:id])
         @performer.update_attributes(performer_params)
         redirect_to performer_path(@performer), notice: 'Profile has been successfullu updated'
+        authorize @performer
     end
 
     private
