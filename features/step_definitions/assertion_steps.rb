@@ -114,3 +114,7 @@ end
 And("I attach a background_image") do
   attach_file('performer_background_image', "#{::Rails.root}/spec/fixtures/background_image.jpg")
 end
+
+Then("I choose {string} from {string} field") do |option, dropdown|
+    select(option, from: dropdown)
+end
