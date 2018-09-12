@@ -55,9 +55,11 @@
               .date 30 Days left
         .mui-row.tickets-by-price
           - @campaign.tickets.each do |ticket|  
-            %input#artcamp_tick_01{checked: "checked", name: "artcamp_tick", type: "radio", value: "150 SEK"}/
+            %input#artcamp_tick_01{checked: "checked", name: "artcamp_tick", type: "radio", value: "#{ticket.price}"}/
             %label.mui-col-xs-4.ticket{for: "artcamp_tick_01"}
               = [ticket.name, ticket.price].join(': ')
+              = link_to "Buy your ticket", orders_path(ticket_id: ticket.id), method: :post, remote: true, class: 'mui-btn', id: 'purchase'
+
         .mui-row
           .mui-col-md-12
             %a.campaign-book-a-ticket{"data-target" => "#purchase-ticket", "data-toggle" => "modal", href: "#"}
