@@ -6,7 +6,7 @@
           .artist-picture{style: "background-image: url(#{image_path('feat-card-1.jpg')}"}
           %h1= @performer.name
           .location Stockholm | Sweden
-          .genre Rock
+          .genre= @performer.genre
           .follow-request
             %a{href: "#"}> + Follow
               | 
