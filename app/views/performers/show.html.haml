@@ -20,7 +20,7 @@
             %a{href: "#"} Shows
             - if user_signed_in? && current_user.admin?
               .form-group
-                = link_to 'Edit', edit_performer_path(@performer), class: 'form-submit'
+                = link_to 'Edit', edit_performer_path(@performer), remote: true, class: 'form-submit'
       .mui-row.details-spotify
         .mui-col-md-12.mui-col-lg-8
           %h2= @performer.name
