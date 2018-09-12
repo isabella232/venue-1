@@ -106,3 +106,11 @@ Then("I should be redirected to the Edit page for {string}") do |campaign_title|
     campaign = Campaign.find_by(title: campaign_title)
     expect(current_path).to eq edit_campaign_path(campaign)
 end
+
+And("I attach an profile_image to the campaign") do
+  attach_file('profile_image', "#{::Rails.root}/spec/fixtures/profile_image.jpg")
+end
+
+And("I attach an background_image to the campaign") do
+  attach_file('background_image', "#{::Rails.root}/spec/fixtures/background_image.jpg")
+end

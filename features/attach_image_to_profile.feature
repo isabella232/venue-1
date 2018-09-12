@@ -12,6 +12,7 @@ Feature: Artist can attach image to her profile
 
     Scenario:
         When I am on the 'landing' page
+        Then I wait 2 seconds 
         And I click on 'Create Artist Profile'
         And I fill in 'Artist name' with 'Kanye West'
         And I fill in 'Genre' with 'Hip-Hop'
