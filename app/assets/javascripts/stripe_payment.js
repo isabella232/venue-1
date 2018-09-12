@@ -35,7 +35,6 @@ const initiateStripe = (pkKey) => {
     var stripe = Stripe(pkKey);
     var elements = stripe.elements();
 
-    // Custom styling can be passed to options when creating an Element.
     var style = {
         base: {
             color: '#fff',
