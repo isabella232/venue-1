@@ -67,15 +67,20 @@ Then('the state of the campaign {string} should be {string}') do |campaign_title
   expect(campaign.state).to eq campaign_state
 end
 
-Then('the campaign {string} is accepted') do |campaign_title|
-  campaign = Campaign.find_by(title: campaign_title)
-  campaign.accept
+Then("the state of the performer {string} should be {string}") do |performer_name, performer_state|
+    performer = Performer.find_by(name: performer_name)
+    expect(performer.state).to eq performer_state
 end
 
-Then('there should be a Ticket named {string} in the Database') do |expected_name|
-  sleep 0.5
-  ticket = Ticket.find_by(name: expected_name)
-  expect(ticket).not_to eq nil
+Then("the campaign {string} is accepted") do |campaign_title|
+    campaign = Campaign.find_by(title: campaign_title)
+    campaign.accept
+end
+
+Then("there should be a Ticket named {string} in the Database") do |expected_name|
+    sleep 0.5
+    ticket = Ticket.find_by(name: expected_name)
+    expect(ticket).not_to eq nil
 end
 
 Then('the last order in the database should include {string}') do |ticket_name|
@@ -100,4 +105,8 @@ end
 Then("I should be redirected to the Edit page for {string}") do |campaign_title|
     campaign = Campaign.find_by(title: campaign_title)
     expect(current_path).to eq edit_campaign_path(campaign)
+end
+
+Then("I choose {string} from {string} field") do |option, dropdown|
+    select(option, from: dropdown)
 end

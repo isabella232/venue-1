@@ -18,6 +18,9 @@
           %h3
             %a.active{href: "#"} Overview
             %a{href: "#"} Shows
+            - if @performer.active? && current_user.admin?
+              .form-group
+                = link_to 'Archive', performer_path(@performer, event: 'archive'), method: :put, data: { confirm: 'Are you sure?' }, class: 'form-submit'
       .mui-row.details-spotify
         .mui-col-md-12.mui-col-lg-8
           %h2= @performer.name

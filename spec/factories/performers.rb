@@ -10,5 +10,6 @@ FactoryBot.define do
     youtube { "MyString" }
     website { "MyString" }
     spotify { "MyString" }
+    state { "active" }
   end
 end
