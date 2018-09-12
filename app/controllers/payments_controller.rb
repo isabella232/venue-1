@@ -5,7 +5,7 @@ class PaymentsController < ApplicationController
 
   def create
     begin
-      ticket = Ticket.find(params[:ticket_id])
+      @ticket = Ticket.find(params[:ticket_id])
       order = Order.find(session[:order_id])
       customers = Stripe::Customer.list(limit: 1, email: order.user.email)
 
@@ -31,7 +31,7 @@ class PaymentsController < ApplicationController
     end
 
     if charge.paid?
-      @ticket.increasing_count += 1
+      ticket.increasing_count += 1
       order.state = :paid
       session.delete(:order_id)
       @message = 'You rock!'
