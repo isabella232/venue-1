@@ -13,7 +13,7 @@
                 %polygon{fill: "rgb(240,215,93)", points: "24,12 13.5,1.5 11.1,3.8 17.9,10.6 0,10.6 0,13.9 17.4,13.9 11.1,20.2 13.5,22.5 21.7,14.3 21.7,14.3"}
       .mui-col-md-3.has-artists-items
         - @performers.each do |performer|
-          %a.artist-item{href: "#"}
+          %a.artist-item{href: performer_path(performer)}
             %span.thumb{style: "background-image: url(#{image_path('feat-card-3.jpg')})"}
             %span.title
               = link_to performer.name, performer_path(performer)
