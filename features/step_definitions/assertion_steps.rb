@@ -114,7 +114,3 @@ end
 And("I attach a background_image") do
   attach_file('performer_background_image', "#{::Rails.root}/spec/fixtures/background_image.jpg")
 end
-
-Then('I should see the {string} image') do |file_name|
-  expect(page).to have_css "img[src*='#{file_name}']"
-end

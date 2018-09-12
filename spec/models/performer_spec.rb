@@ -36,6 +36,22 @@ RSpec.describe Performer, type: :model do
     end
   end
 
+  describe 'Attachment' do
+    it 'is valid  ' do
+      subject.image.attach(io: File.open(fixture_path + '/profile_image.jpg'), filename: 'profile_image.jpg', content_type: 'image/jpg')
+      expect(subject.image).to be_attached
+    end
+  end
+
+  describe 'Attachment' do
+    it 'is valid  ' do
+      subject.image.attach(io: File.open(fixture_path + '/background_image.jpg'), filename: 'background_image.jpg', content_type: 'image/jpg')
+      expect(subject.image).to be_attached
+    end
+  end
+
+
+
   describe 'Check for states, events and transistions' do
     subject { create(:performer) }
 
