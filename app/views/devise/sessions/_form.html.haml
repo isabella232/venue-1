@@ -15,6 +15,7 @@
                     = f.check_box :remember_me
                     = f.label :remember_me
                 %div
+                .form-group
                     = f.submit 'Login', class: 'form-submit'
                     = button_tag 'Cancel', class: 'form-submit', onclick: 'cancelModal(event);' 
             %div{style: 'margin-top: 20px;'} 
