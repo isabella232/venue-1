@@ -2,7 +2,7 @@
     .mui-container
         .mui-row
             .mui-col-md-7.mui-col-sm-7.mui-col-xs-7
-                %a#logo.logo-venue{href: "#"}
+                = link_to '', root_path, id: 'logo', class: 'logo-venue'
                 %ul#main-nav.nav.top-nav
                     %li
                         = link_to 'Campaigns', campaigns_path
