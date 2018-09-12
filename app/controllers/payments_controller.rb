@@ -6,27 +6,43 @@ class PaymentsController < ApplicationController
   end
 
   def create
+    begin
+      order = Order.find(session[:order_id])
 
-    order = Order.find(session[:order_id])
-    customer = Stripe::Customer.create(
-      email: order.user.email,
-      source: params[:stripeToken]
-    )
+      # Get first customer with matching email to cardholder-email
+      customers = Stripe::Customer.list(limit: 1, email: order.user.email)
 
-    charge = Stripe::Charge.create(
-      customer: customer.id,
-      amount: (order.total * 100).to_i,
-      description: 'Venue tickets',
-      currency: 'sek'
-    )
+      customer = if customers.data.empty?
+                   Stripe::Customer.create(
+                     email: order.user.email,
+                     source: params[:stripeToken],
+                     description: 'Venue fan'
+                   )
+                 # If matching customer found, get from stripe
+                 else
+                   Stripe::Customer.retrieve(customers.data.first.id)
+                 end
+
+      charge = Stripe::Charge.create(
+        customer: customer.id,
+        amount: (order.total * 100).to_i,
+        description: 'Venue tickets',
+        currency: 'sek'
+      )
+    rescue Stripe::CardError => e
+      flash[:error] = e.message
+      redirect_to root_path and return
+    end
+
     if charge.paid?
       order.state = :paid
       # TODO: Lover the stock of available tickets
       session.delete(:order_id)
       @message = 'You rock!'
     else
-      @message = "We could not process your payment!"
+      @message = 'We could not process your payment!'
     end
+
     redirect_back(fallback_location: root_path, notice: @message)
   end
 end

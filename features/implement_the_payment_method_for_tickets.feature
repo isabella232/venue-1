@@ -16,6 +16,7 @@ Feature: Implement the payment method for tickets
         Given the following tickets for 'Veronica Maggio in Stockholm' exist
         | name        | price |
         | Sure thing  | 200   |
+
         And I am on the 'landing' page
 
     Scenario: Logged in user buys a ticket
@@ -28,13 +29,11 @@ Feature: Implement the payment method for tickets
         And I should see "1 ticket" in header
         When I click on '1 ticket' in header
         Then I should see 'You are about to order: 1 ticket to Veronica Maggio in Stockholm'
-        Then stop
-        And I fill in the stripe form field "Card number" with "4242 4242 4242 4242"
-        And I fill in the stripe form field "CVC" with "123"
-        And I fill in the stripe form field "MM/YY" with "11/20"
+        And I fill in the stripe form
+        Then I wait 2 seconds
         And I click on 'Submit Payment'
-        And I wait 3 seconds
-
+        And I wait 5 seconds
+        Then I should see "You rock!"
 
 
     Scenario: Not signed up user buys a ticket
@@ -52,6 +51,11 @@ Feature: Implement the payment method for tickets
         And I should see "1 ticket" in header 
         When I click on '1 ticket' in header
         Then I should see 'You are about to order: 1 ticket to Veronica Maggio in Stockholm'
+        And I fill in the stripe form
+        Then I wait 2 seconds
+        And I click on 'Submit Payment'
+        And I wait 5 seconds
+        Then I should see "You rock!"
 
 
 

@@ -32,18 +32,6 @@ And('I fill in ticket fields') do
   )
 end
 
-When("I click on {string} stripe button") do |button|
-  click_button button
-  sleep 2
-  @stripe_iframe= all(iframe[name=stripe_checkout_app]).last
-end
-
-When("I submit the stripe form") do
-  within_frame @stripe_iframe do
-    find('.Section-button').click
-  end
-end
-
 And ("I click on {string} in the confirmation popup") do |string|
   page.driver.browser.switch_to.alert.accept
 end
@@ -54,8 +42,11 @@ When("I click on {string} in header") do |link|
   end
 end
 
-Then("I fill in the stripe form field {string} with {string}") do |field_label, content|
-  within_frame @stripe_iframe do
-    fill_in field_label, with: content
+Then("I fill in the stripe form") do 
+  stripe_iframe = find("iframe[name='__privateStripeFrame4']")
+  within_frame stripe_iframe do
+    find_field('cardnumber').send_keys('4242424242424242')
+    find_field('exp-date').send_keys('1221')
+    find_field('cvc').send_keys('999')
   end
 end
