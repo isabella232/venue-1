@@ -14,7 +14,9 @@ artist.performers.create(
     instagram: 'https://www.instagram.com',
     twitter: 'https://www.twitter.com',
     youtube: 'https://www.youtube.com',
-    spotify: 'https://www.spotify.com'   
+    website: 'https://www.google.com',
+    spotify: 'https://www.spotify.com',
+    state: 'active'  
 )
 
 campaigns = Campaign.create([
