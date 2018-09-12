@@ -22,8 +22,8 @@ class CampaignsController < ApplicationController
       redirect_to campaign_path(@campaign)
     else
       render json: {message: 'Additional input required'}, status: 422
+      authorize @campaign
     end
-    authorize @campaign
   end
 
   def show
@@ -48,8 +48,8 @@ class CampaignsController < ApplicationController
       @campaign = Campaign.find(params[:id])
       @campaign.update_attributes(campaign_params)
       redirect_to campaign_path(@campaign), notice: 'Campaign has been successfully updated'
+      authorize @campaign
     end
-    authorize @campaign
   end
 
 private
