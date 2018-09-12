@@ -1,5 +1,5 @@
 var html, modal, form
-html = "<%= escape_javascript(render 'form')%>"
+html = "<%= escape_javascript(render 'devise/registrations/form')%>"
 modal = showPartialAsModal(html, {width: '60vw', height: '75vh'});
 form = document.querySelector('.mui-form')
 resizableModal(modal, 70)

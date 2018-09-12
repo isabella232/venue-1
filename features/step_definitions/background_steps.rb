@@ -28,3 +28,10 @@ Given("the following Performer(s) exist(s)") do |table|
         create(:performer, performer_hash)
     end
 end
+
+Given("the following tickets for {string} exist") do |campaign_title, table|
+    campaign = Campaign.find_by(title: campaign_title)
+    table.hashes.each do |ticket_hash|
+        create(:ticket, ticket_hash.merge(campaign: campaign))
+    end
+end

@@ -17,6 +17,7 @@
 //= require siema/dist/siema.min.js
 //= require izitoast/dist/js/iziToast.min.js
 //= require social-share-button
+//= require stripe_payment
 //= require_tree .
 
 

@@ -1,3 +1,6 @@
+Campaign.destroy_all
+User.destroy_all
+
 fan = User.create(email: 'fan@venue.se', password: 'my-password', role: 'fan')
 artist = User.create(email: 'artist@venue.se', password: 'my-password', role: 'artist')
 admin = User.create(email: 'admin@venue.se', password: 'my-password', role: 'admin')
@@ -51,3 +54,8 @@ campaigns = Campaign.create([
 Campaign.all.each do |campaign|
     campaign.image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'dummy.jpg')), filename: "image.jpg", content_type: 'image/jpg')
 end
+
+
+campaign = Campaign.with_state(:accepted).first
+campaign.tickets.create(name: 'Sure thing', price: 200)
+
