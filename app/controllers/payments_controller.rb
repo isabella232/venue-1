@@ -39,4 +39,13 @@ class PaymentsController < ApplicationController
 
     redirect_back(fallback_location: root_path, notice: @message)
   end
+
+  private
+  def stripe_token(params)
+    Rails.env.test? ? generate_test_token : params[:stripeToken]
+  end
+
+  def generate_test_token
+    StripeMock.create_test_helper.generate_card_token
+  end
 end
