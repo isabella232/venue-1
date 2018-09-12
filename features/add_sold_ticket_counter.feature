@@ -10,8 +10,8 @@ Feature: Add sold ticket counter to Campaign page
         | Veronica Maggio in Stockholm | Don't miss a fantastic singer in September | Stockholm | accepted |
 
         Given the following tickets for 'Veronica Maggio in Stockholm' exist
-        | name        | price |
-        | Sure thing  | 200   |
+        | name        | price | count | increasing_count |
+        | Sure thing  | 200   | 200   | 0                |
 
         Given the following users exist
         | email           | role   |

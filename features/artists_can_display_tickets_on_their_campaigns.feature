@@ -9,7 +9,7 @@ Feature: Artists can display tickets on their Campaigns
         | email          | role   | password   |
         | user@artist.se | artist | my-pasword |
         And I am logged in as 'user@artist.se'
-        And I am on 'landing' page
+        And I am on the 'landing' page
         
     Scenario:
         When I click on 'New Campaign'
