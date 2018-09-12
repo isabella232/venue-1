@@ -1,0 +1,5 @@
+var html = "<%= escape_javascript(render 'payments/new')%>"
+showPartialAsModal(html, {width: '70vw', height: '80vh'});
+
+
+initiateStripe("<%= Rails.application.credentials.stripe[:publishable_key]%>");

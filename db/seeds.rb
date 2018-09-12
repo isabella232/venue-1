@@ -14,7 +14,9 @@ artist.performers.create(
     instagram: 'https://www.instagram.com',
     twitter: 'https://www.twitter.com',
     youtube: 'https://www.youtube.com',
-    spotify: 'https://www.spotify.com'   
+    website: 'https://www.google.com',
+    spotify: 'https://www.spotify.com',
+    state: 'active'  
 )
 
 campaigns = Campaign.create([
@@ -52,3 +54,8 @@ campaigns = Campaign.create([
 Campaign.all.each do |campaign|
     campaign.image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'dummy.jpg')), filename: "image.jpg", content_type: 'image/jpg')
 end
+
+
+campaign = Campaign.with_state(:accepted).first
+campaign.tickets.create(name: 'Sure thing', price: 200)
+

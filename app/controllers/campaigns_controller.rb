@@ -26,13 +26,6 @@ class CampaignsController < ApplicationController
     authorize @campaign
   end
 
-  def campaign_tickets
-    [@tickets, @campaign]
-  end
-
-  def campaign_tickets_attributes=(attributes)
-  end
-  
   def show
     @campaign = Campaign.find(params[:id])
   end
@@ -73,7 +66,7 @@ private
     campaign = Campaign.find(params[:id])
     if params[:event] == 'accept'
       campaign.accept
-      redirect_to campaign, notice: 'This campaign is now live!'
+      redirect_to campaigns_path, notice: 'This campaign is now live!'
     elsif
       params[:event] == 'archive'
       campaign.archive

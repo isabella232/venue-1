@@ -7,9 +7,11 @@
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    %script{src: "https://js.stripe.com/v3/"}
 
   %body
     = render partial: 'partials/header'
+    #flashes
     - flash.each do |key, value|
       :javascript
         showToast("#{key.humanize}", "#{value}", {});

@@ -2,12 +2,12 @@
     .mui-container
         .mui-row
             .mui-col-md-7.mui-col-sm-7.mui-col-xs-7
-                %a#logo.logo-venue{href: "#"}
+                = link_to '', root_path, id: 'logo', class: 'logo-venue'
                 %ul#main-nav.nav.top-nav
                     %li
                         = link_to 'Campaigns', campaigns_path
                     %li
-                        %a{href: "#"} Artists
+                        = link_to 'Artists', performers_path
                     - if user_signed_in? && !current_user.fan?
                         %li
                             = link_to 'Create Artist Profile', new_performer_path, remote: true
@@ -16,6 +16,8 @@
 
             .mui-col-md-5.mui-col-sm-5.mui-col-xs-5.has-top-right-links
                 %ul#top-right-links.nav
+                    %li#order-info
+                        = link_to "#{pluralize(active_order.total_unique_items, 'ticket') if active_order?}", new_payment_path, remote: true
                     %li
                         - if user_signed_in?  
                             %li.buttoned
