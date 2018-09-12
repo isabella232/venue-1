@@ -9,11 +9,11 @@ RSpec.describe Genre, type: :model do
    before :each do
    @performer = FactoryBot.create(:performer)
       
-  it 'should have valid Factory' do
-    expect(create(:genre)).to be_valid
+    it 'should have valid Factory' do
+      expect(create(:genre)).to be_valid
+      end
     end
   end
-end
 
   describe 'Associations' do
     it { is_expected.to have_many(:performers) }
