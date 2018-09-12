@@ -28,6 +28,19 @@ Feature: A Guest can become a Fan with OAuth authentication
         Then I should be redirected to the 'landing' page
         And I should see 'Could not authenticate you!'
 
+    Scenario: Email is missing from Facebook response [Sad Path]
+        Given the facebook response is missing email
+        And I am on the 'landing' page
+        And I click on 'Log in'
+        And I wait 1 second
+        And I click 'Login with Facebook'
+        And I fill in 'Email' with 'dear_pablo@venue.se'
+        And I fill in 'Password (6 characters minimum)' with 'pablospass'
+        And I fill in 'Re-Type Password' with 'pablospass'
+        And I click 'Sign up for Venue'
+        Then I should see 'Welcome! You have signed up successfully.'
+        And I should be redirected to the 'landing' page
+
     Scenario: Guest can authenticate with Google
         Given I am on the 'landing' page
         And I click on 'Sign up'
@@ -51,3 +64,16 @@ Feature: A Guest can become a Fan with OAuth authentication
         Then I wait 2 seconds
         Then I should be redirected to the 'landing' page
         And I should see 'Could not authenticate you!'
+
+    # Scenario: Email is missing from Google response [Sad Path]
+    #     Given the google response is missing email
+    #     And I am on the 'landing' page
+    #     And I click on 'Log in'
+    #     And I wait 1 second
+    #     And I click 'Login with Google'
+    #     And I fill in 'Email' with 'dear_pablo@venue.se'
+    #     And I fill in 'Password (6 characters minimum)' with 'pablospass'
+    #     And I fill in 'Re-Type Password' with 'pablospass'
+    #     And I click 'Sign up for Venue'
+    #     Then I should see 'Welcome! You have signed up successfully.'
+    #     And I should be redirected to the 'landing' page

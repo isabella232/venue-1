@@ -41,3 +41,11 @@ Given("the following tickets for {string} exist") do |campaign_title, table|
         create(:ticket, ticket_hash.merge(campaign: campaign))
     end
 end
+
+Given("the facebook response is missing email") do
+    OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new(OmniAuthFixtures.facebook_response_without_email)
+end
+
+Given("the google response is missing email") do
+    OmniAuth.config.mock_auth[:google] = OmniAuth::AuthHash.new(OmniAuthFixtures.google_oauth2_response_without_email)
+end
