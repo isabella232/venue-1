@@ -69,11 +69,3 @@ const initiateStripe = (pkKey) => {
     activateForm(stripe, card);
 
 }
-
-
-
-
-
-
-
-

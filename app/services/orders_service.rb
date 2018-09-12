@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module OrdersService
   def self.add_ticket_to_order(ticket, order)
     

@@ -2,5 +2,3 @@
 var element = document.getElementById('order-info').firstElementChild
 element.text = `<%= pluralize(@order.reload.total_unique_items, 'ticket') %>`
 showToast('Notice', '<%= @message %>', {})
-
-
