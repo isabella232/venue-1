@@ -7,20 +7,26 @@ const stripeTokenHandler = (token) => {
     hiddenInput.setAttribute('value', token.id);
     form.appendChild(hiddenInput);
 
-    // Submit the form
+    // Submit the form using JS
     form.submit();
+    // or The Rails way
+    // Rails.fire(form, 'submit');
 }
 
 // Create a token or display an error when the form is submitted.
 const activateForm = (stripe, card) => {
     var form = document.getElementById('payment-form');
     if (form) {
-        form.addEventListener('submit', function (event) {
+        form.addEventListener('submit', event => {
             event.preventDefault();
-            stripe.createToken(card).then(function (result) {
+            stripe.createToken(card).then((result) => {
                 if (result.error) {
                     // Inform the customer that there was an error.
-                    showToast('Error', result.error.message, { target: '#card-errors' });
+                    var toast = document.querySelector('.iziToast');
+                    if (toast) {
+                        iziToast.hide({}, toast);
+                        showToast('Error', result.error.message, { target: '#card-errors' });
+                    }
                 } else {
                     // Send the token to your server.
                     stripeTokenHandler(result.token);
@@ -58,12 +64,12 @@ const initiateStripe = (pkKey) => {
 
     // Add an instance of the card Element into the `card-element` <div>.
     card.mount('#card-element');
-    
-    card.addEventListener('change', function (event) {
+
+    card.addEventListener('change', (event) => {
         if (event.error) {
             showToast('Error', event.error.message, { target: '#card-errors' });
         } else {
-            var toast = document.querySelector('.iziToast'); // Selector of your toast
+            var toast = document.querySelector('.iziToast');
             if (toast) {
                 iziToast.hide({}, toast);
             }

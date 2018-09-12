@@ -6,6 +6,7 @@ class PaymentsController < ApplicationController
   end
 
   def create
+
     order = Order.find(session[:order_id])
     customer = Stripe::Customer.create(
       email: order.user.email,
@@ -20,13 +21,12 @@ class PaymentsController < ApplicationController
     )
     if charge.paid?
       order.state = :paid
-      # Lover the stock of available tickets
+      # TODO: Lover the stock of available tickets
       session.delete(:order_id)
-      message = 'You rock!'
+      @message = 'You rock!'
     else
-      message = "We could not process your payment!"
+      @message = "We could not process your payment!"
     end
-
-    redirect_back(fallback_location: root_path, notice: message)
+    redirect_back(fallback_location: root_path, notice: @message)
   end
 end
