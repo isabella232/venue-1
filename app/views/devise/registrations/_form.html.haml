@@ -22,6 +22,9 @@
           = button_tag 'Cancel', class: 'form-submit', onclick: 'cancelModal(event);' 
       .form-group{style: 'margin-top: 20px;'} 
         %h3 Prefer to use your social media account? 
-        = link_to icon('fab', 'facebook-f', "Sign up with Facebook"), user_facebook_omniauth_authorize_path(role: @role), class: 'form-submit', onclick: "mui.overlay('on')"
-        = link_to icon('fab', 'google-plus-g', "Sign up with Google"), user_google_oauth2_omniauth_authorize_path(role: @role), class: 'form-submit', onclick: "mui.overlay('on')"
+      .social-login-buttons
+        .facebook  
+          = link_to icon('fab', 'facebook-f', "Sign up with Facebook"), user_facebook_omniauth_authorize_path(role: @role), class: 'form-submit', onclick: "mui.overlay('on')"
+        .google
+          = link_to icon('fab', 'google-plus-g', "Sign up with Google"), user_google_oauth2_omniauth_authorize_path(role: @role), class: 'form-submit', onclick: "mui.overlay('on')"
 
