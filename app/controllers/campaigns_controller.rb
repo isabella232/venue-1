@@ -16,13 +16,11 @@ class CampaignsController < ApplicationController
   end
 
   def create
-    binding.pry
-
     @campaign = current_user.campaigns.create(campaign_params)
     if @campaign.persisted?
       @ticket = @campaign.tickets.create(ticket_params[:tickets_attributes]['0'])
-      ticket_variants = params[:campaign][:ticket_variants].to_h.values
 
+      ticket_variants = params[:campaign][:ticket_variants].to_h.values
       ticket_variants.each {|values| TicketVariant.create(values.merge(ticket: @ticket))}
       flash[:notice] = 'Campaign successfully launched'
       redirect_to campaign_path(@campaign)

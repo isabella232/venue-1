@@ -24,8 +24,7 @@ Feature: Artists can display tickets on their Campaigns
         And I fill in "Ticket name" with "Sure thing" for ticket variant 3
         And I fill in "Percentage" with "100" for ticket variant 3
         And I attach an image to the campaign
-        Then stop
         And I click on 'Launch Campaign'
-        Then there should be a Ticket named 'Sure thing' in the Database
+        Then there should be a Ticket Variant named 'Sure thing' in the Database
         And I should see 'Sure thing' in ticket info
         And I should see '200' in ticket info
