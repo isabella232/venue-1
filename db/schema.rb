@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2018_09_11_193231) do
+ActiveRecord::Schema.define(version: 2018_09_13_041619) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,22 +49,50 @@ ActiveRecord::Schema.define(version: 2018_09_11_193231) do
     t.index ["user_id"], name: "index_campaigns_on_user_id"
   end
 
+  create_table "campaigns_genres", id: false, force: :cascade do |t|
+    t.bigint "campaign_id"
+    t.bigint "genre_id"
+    t.index ["campaign_id"], name: "index_campaigns_genres_on_campaign_id"
+    t.index ["genre_id"], name: "index_campaigns_genres_on_genre_id"
+  end
+
   create_table "genres", force: :cascade do |t|
     t.string "name"
-    t.bigint "performer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "performers_id"
-    t.index ["performer_id"], name: "index_genres_on_performer_id"
-    t.index ["performers_id"], name: "index_genres_on_performers_id"
+  end
 
+  create_table "genres_performers", id: false, force: :cascade do |t|
+    t.bigint "performer_id"
+    t.bigint "genre_id"
+    t.index ["genre_id"], name: "index_genres_performers_on_genre_id"
+    t.index ["performer_id"], name: "index_genres_performers_on_performer_id"
+  end
+
+  create_table "order_items", force: :cascade do |t|
+    t.integer "owner_id"
+    t.string "owner_type"
+    t.integer "quantity"
+    t.integer "item_id"
+    t.string "item_type"
+    t.integer "price_cents", default: 0, null: false
+    t.string "price_currency", default: "USD", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.integer "state"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "performers", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
-    t.string "genre"
     t.string "city"
     t.text "description"
     t.string "facebook"
@@ -74,9 +101,6 @@ ActiveRecord::Schema.define(version: 2018_09_11_193231) do
     t.string "website"
     t.string "spotify"
     t.string "youtube"
-    t.bigint "genres_id"
-    t.string "genre_id"
-    t.index ["genres_id"], name: "index_performers_on_genres_id"
     t.string "state"
   end
 
@@ -112,9 +136,6 @@ ActiveRecord::Schema.define(version: 2018_09_11_193231) do
 
   add_foreign_key "campaigns", "tickets", column: "tickets_id"
   add_foreign_key "campaigns", "users"
-  add_foreign_key "genres", "performers"
-  add_foreign_key "genres", "performers", column: "performers_id"
-  add_foreign_key "performers", "genres", column: "genres_id"
-
+  add_foreign_key "orders", "users"
   add_foreign_key "tickets", "campaigns"
 end
