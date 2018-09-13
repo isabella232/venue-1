@@ -24,7 +24,7 @@
               %ul.admin-links
                 %ul
                   %li
-                    - if user_signed_in? && current_user.admin?
+                    - if user_signed_in? && policy(@performer).edit?
                       = link_to 'Edit', edit_performer_path(@performer), remote: true, class: 'form-submit'
                     - if user_signed_in? && current_user.admin? 
                       - if @performer.active?
