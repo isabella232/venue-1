@@ -70,3 +70,12 @@ end
 And("I attach a background image") do
   attach_file('performer_background_image', "#{::Rails.root}/spec/fixtures/background_image.jpg")
 end
+
+
+When("I fill in {string} with {string} for ticket variant {int}") do |field, value, int|
+  # locate the first child of the sub form
+  section_parent = all('.ticket-details')
+  section = section_parent[int -1]
+  # within that section fill in field with value
+  within(section) { fill_in field, with: value }
+end
