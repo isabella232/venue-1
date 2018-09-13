@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe Performer, type: :model do
   describe 'DB table' do
     it { is_expected.to have_db_column :name }
-    it { is_expected.to have_db_column :genre }
     it { is_expected.to have_db_column :city }
     it { is_expected.to have_db_column :description }
     it { is_expected.to have_db_column :facebook }
@@ -18,7 +17,6 @@ RSpec.describe Performer, type: :model do
 
   describe 'Validates' do
     it { is_expected.to validate_presence_of :name }
-    it { is_expected.to validate_presence_of :genre }
     it { is_expected.to validate_presence_of :city }
     it { is_expected.to validate_presence_of :description }
     it { is_expected.to validate_presence_of :state }
@@ -27,6 +25,7 @@ RSpec.describe Performer, type: :model do
   
   describe 'Associations' do
     it { is_expected.to have_and_belong_to_many :users }
+    it { is_expected.to have_and_belong_to_many :genres }
     it { is_expected.to have_many(:campaigns).through(:users) }
   end
   

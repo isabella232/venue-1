@@ -14,9 +14,11 @@ In order to get the platform running you need the following:
 
 ### Installation
 After cloning run:
+
 `$ bundle install`
 Setup the database:
-`$ rails db:create db:migrate``
+
+`$ rails db:create db:migrate`
 
 ## Running the tests
 Cucumber is used for Acceptance tests and RSpec for Unit tests

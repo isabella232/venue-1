@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_11_193231) do
+ActiveRecord::Schema.define(version: 2018_09_13_041619) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,26 @@ ActiveRecord::Schema.define(version: 2018_09_11_193231) do
     t.index ["user_id"], name: "index_campaigns_on_user_id"
   end
 
+  create_table "campaigns_genres", id: false, force: :cascade do |t|
+    t.bigint "campaign_id"
+    t.bigint "genre_id"
+    t.index ["campaign_id"], name: "index_campaigns_genres_on_campaign_id"
+    t.index ["genre_id"], name: "index_campaigns_genres_on_genre_id"
+  end
+
+  create_table "genres", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "genres_performers", id: false, force: :cascade do |t|
+    t.bigint "performer_id"
+    t.bigint "genre_id"
+    t.index ["genre_id"], name: "index_genres_performers_on_genre_id"
+    t.index ["performer_id"], name: "index_genres_performers_on_performer_id"
+  end
+
   create_table "order_items", force: :cascade do |t|
     t.integer "owner_id"
     t.string "owner_type"
@@ -73,7 +93,6 @@ ActiveRecord::Schema.define(version: 2018_09_11_193231) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
-    t.string "genre"
     t.string "city"
     t.text "description"
     t.string "facebook"

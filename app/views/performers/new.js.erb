@@ -2,6 +2,12 @@ var html = "<%= escape_javascript(render '/performers/form')%>"
 showPartialAsModal(html, {width: '90vw', height: '800px'});
 
 var form = document.querySelector('.mui-form')
+options = {
+    placeholder: true,
+    maxItemCount: 5,
+    placeholderValue: 'Genre'
+}
+showMultiSelect('performer_genre_ids', options);
 form.addEventListener('ajax:error', (event) => {
     showToast('Error', event.detail[0].message, {target: '#display_error_message'});
 })

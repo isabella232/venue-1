@@ -13,6 +13,12 @@
         .mui-textfield.mui-textfield--float-label
           = form.text_field :location
           = form.label :location
+        
+        
+        .mui-textfield#genre
+          = form.label :genre 
+        = form.select(:genre_ids, options_for_select(select_genre_options), {}, {multiple: true})
+
         %div
           = form.fields_for :tickets, Ticket.new do |ticket_form|
             .mui-textfield.mui-textfield--float-label

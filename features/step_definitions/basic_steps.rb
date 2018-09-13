@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 And ('I click( on) {string}') do |link|
   click_on link
 end
@@ -50,4 +48,11 @@ Then("I fill in the stripe form") do
     find_field('exp-date').send_keys('1221')
     find_field('cvc').send_keys('999')
   end
+end
+
+
+Given("(I )select {string} as genre") do |option|
+  genre = Genre.find_by(name: option.downcase)
+  select = page.find('.choices').click
+  page.find("div[data-value='#{genre.id}']").click
 end

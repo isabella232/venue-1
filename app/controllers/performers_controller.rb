@@ -1,20 +1,23 @@
 class PerformersController < ApplicationController
     respond_to :js
     before_action :authenticate_user!, only: [:create]
+    before_action :get_performer, only: [:show, :edit, :update]
 
     def index
-        if user_signed_in? && current_user.admin?
-            @performers = Performer.all
-        else
-            @performers = Performer.with_state(:active)
-        end
+        @performers = if user_signed_in? && current_user.admin?
+                        Performer.all
+                      else
+                        Performer.with_state(:active)
+                      end
     end
     
     def new
         @performer = Performer.new
+        authorize @performer
     end
     
     def create
+        authorize Performer.create
         @performer = current_user.performers.create(performer_params)
         if @performer.persisted?
             flash[:notice] = 'Artist page successfully created'
@@ -25,14 +28,20 @@ class PerformersController < ApplicationController
     end
 
     def show
-        @performer = Performer.find(params[:id])
+    end
+
+    def edit
+        authorize @performer
     end
 
     def update
-        performer = Performer.find(params[:id])
         if params[:event] == 'archive'
-            performer.archive
+            @performer.archive
             redirect_to performers_path, notice: 'Performer has been archived'
+        else
+            @performer.update_attributes(performer_params)
+            redirect_to performer_path(@performer), notice: 'Profile has been successfullu updated'
+            authorize @performer
         end
     end
 
@@ -41,7 +50,6 @@ class PerformersController < ApplicationController
     def performer_params
         params.require(:performer).permit(
             :name,
-            :genre,
             :city,
             :description,
             :facebook,
@@ -54,5 +62,11 @@ class PerformersController < ApplicationController
             :profile_image,
             :background_image
             )
+            genre_ids: []
+        )
+    end
+
+    def get_performer
+        @performer = Performer.find(params[:id])
     end
 end
