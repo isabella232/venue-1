@@ -1,6 +1,7 @@
 class PerformersController < ApplicationController
     respond_to :js
     before_action :authenticate_user!, only: [:create]
+    before_action :get_performer, only: [:show, :edit, :update]
 
     def index
         if user_signed_in? && current_user.admin?
@@ -27,21 +28,17 @@ class PerformersController < ApplicationController
     end
 
     def show
-        @performer = Performer.find(params[:id])
     end
 
     def edit
-        @performer = Performer.find(params[:id])
         authorize @performer
     end
 
     def update
         if params[:event] == 'archive'
-            performer = Performer.find(params[:id])
-            performer.archive
+            @performer.archive
             redirect_to performers_path, notice: 'Performer has been archived'
         else
-            @performer = Performer.find(params[:id])
             @performer.update_attributes(performer_params)
             redirect_to performer_path(@performer), notice: 'Profile has been successfullu updated'
             authorize @performer
@@ -64,5 +61,9 @@ class PerformersController < ApplicationController
             :spotify,
             :state
             )
+    end
+
+    def get_performer
+        @performer = Performer.find(params[:id])
     end
 end
