@@ -92,8 +92,8 @@ ActiveRecord::Schema.define(version: 2018_09_12_153131) do
     t.string "website"
     t.string "spotify"
     t.string "youtube"
-    t.string "state"
     t.bigint "genres_id"
+    t.string "state"
     t.string "genre_id"
     t.index ["genres_id"], name: "index_performers_on_genres_id"
   end
@@ -111,7 +111,7 @@ ActiveRecord::Schema.define(version: 2018_09_12_153131) do
     t.bigint "campaign_id"
     t.string "name"
     t.integer "count", default: 200
-    t.integer "increasing_count", default: 0
+    t.integer "sold_count", default: 0
     t.index ["campaign_id"], name: "index_tickets_on_campaign_id"
   end
 

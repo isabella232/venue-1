@@ -30,7 +30,10 @@ class PaymentsController < ApplicationController
     end
 
     if charge.paid?
-      ticket.increasing_count += 1
+      order.items.each do |item|
+        ticket = item.item
+        ticket.increase_sold_count(item.quantity)
+      end
       order.state = :paid
       session.delete(:order_id)
       @message = 'You rock!'

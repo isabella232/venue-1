@@ -6,16 +6,16 @@ Feature: Add sold ticket counter to Campaign page
 
     Background:
         Given the following campaign exist
-        | title                        | description                                | location  | state    |
-        | Veronica Maggio in Stockholm | Don't miss a fantastic singer in September | Stockholm | accepted |
+            | title                        | description                                | location  | state    |
+            | Veronica Maggio in Stockholm | Don't miss a fantastic singer in September | Stockholm | accepted |
 
         Given the following tickets for 'Veronica Maggio in Stockholm' exist
-        | name        | price | count | increasing_count |
-        | Sure thing  | 200   | 200   | 0                |
+            | name       | price | count |
+            | Sure thing | 200   | 200   |
 
         Given the following users exist
-        | email           | role   |
-        | mikael@venue.se | artist |
+            | email           | role   |
+            | mikael@venue.se | artist |
         And I am logged in as 'mikael@venue.se'
         And I am on the 'landing' page
 
@@ -29,6 +29,6 @@ Feature: Add sold ticket counter to Campaign page
         Then I fill in the stripe form
         And I wait 2 seconds
         And I click on 'Submit Payment'
-        And I wait 5 seconds
+        And I wait 3 seconds
         Then I should see "You rock!"
         And I should see '1/200'

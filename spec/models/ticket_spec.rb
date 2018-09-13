@@ -5,7 +5,7 @@ RSpec.describe Ticket, type: :model do
   it { is_expected.to validate_presence_of :price }
   it { is_expected.to validate_presence_of :name }
   it { is_expected.to validate_presence_of :count }
-  it { is_expected.to validate_presence_of :increasing_count }
+  it { is_expected.to validate_presence_of :sold_count }
 end
 
   describe 'Associations' do

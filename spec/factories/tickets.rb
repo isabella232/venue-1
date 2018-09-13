@@ -4,6 +4,6 @@ FactoryBot.define do
     campaign
     name { 'MyString' }
     count { 200 }
-    increasing_count { 0 }
+    sold_count { 0 }
   end
 end
