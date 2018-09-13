@@ -1,5 +1,6 @@
 class CampaignsController < ApplicationController
   before_action :authenticate_user!, only: [:create]
+  before_action :get_campaign, only: [:show, :edit, :update]
 
   def index
     if user_signed_in? && current_user.admin?
@@ -27,25 +28,21 @@ class CampaignsController < ApplicationController
   end
 
   def show
-    @campaign = Campaign.find(params[:id])
   end
 
   def edit
-    @campaign = Campaign.find(params[:id])
     authorize @campaign
   end
 
   def update
-    campaign = Campaign.find(params[:id])
     if params[:event] == 'accept'
-      campaign.accept
-      redirect_to campaign, notice: 'This campaign is now live!'
+      @campaign.accept
+      redirect_to @campaign, notice: 'This campaign is now live!'
     elsif
       params[:event] == 'archive'
-      campaign.archive
+      @campaign.archive
       redirect_to campaigns_path, notice: 'Campaign has been archived'
     else
-      @campaign = Campaign.find(params[:id])
       @campaign.update_attributes(campaign_params)
       redirect_to campaign_path(@campaign), notice: 'Campaign has been successfully updated'
       authorize @campaign
@@ -60,5 +57,9 @@ private
 
   def ticket_params 
     params.require(:campaign).permit(tickets_attributes: [:id, :price, :name])
+  end
+
+  def get_campaign
+    @campaign = Campaign.find(params[:id])
   end
 end
