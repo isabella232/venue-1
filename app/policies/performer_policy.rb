@@ -1,4 +1,4 @@
-class CampaignPolicy < ApplicationPolicy
+class PerformerPolicy < ApplicationPolicy
 
     def new?
         !user.fan?
@@ -19,7 +19,7 @@ class CampaignPolicy < ApplicationPolicy
     def edit?
         user.admin?
     end
-    
+
     def update?
         edit?
     end

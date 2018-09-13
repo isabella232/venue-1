@@ -1,8 +1,8 @@
 require 'rails_helper'
  
-RSpec.describe CampaignPolicy do
-    subject { described_class.new(user, campaign) }
-    let(:campaign) { create(:campaign) }
+RSpec.describe PerformerPolicy do
+    subject { described_class.new(user, performer) }
+    let(:performer) { create(:performer) }
      
     context 'user is a fan' do
         let(:user) { create(:user, role: 'fan') }
