@@ -2,7 +2,6 @@ FactoryBot.define do
   factory :ticket do
     price { 0 }
     campaign
-    name { 'MyString' }
     count { 200 }
     sold_count { 0 }
   end
