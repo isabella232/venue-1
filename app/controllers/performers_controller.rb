@@ -4,11 +4,11 @@ class PerformersController < ApplicationController
     before_action :get_performer, only: [:show, :edit, :update]
 
     def index
-        if user_signed_in? && current_user.admin?
-            @performers = Performer.all
-        else
-            @performers = Performer.with_state(:active)
-        end
+        @performers = if user_signed_in? && current_user.admin?
+                        Performer.all
+                      else
+                        Performer.with_state(:active)
+                      end
     end
     
     def new
@@ -50,7 +50,6 @@ class PerformersController < ApplicationController
     def performer_params
         params.require(:performer).permit(
             :name,
-            :genre,
             :city,
             :description,
             :facebook,
@@ -63,6 +62,8 @@ class PerformersController < ApplicationController
             :profile_image,
             :background_image
             )
+            genre_ids: []
+        )
     end
 
     def get_performer

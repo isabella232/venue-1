@@ -25,6 +25,8 @@ RSpec.describe Campaign, type: :model do
   describe 'Associations' do
     it { is_expected.to belong_to :user }
     it { is_expected.to have_many :tickets }
+    it { is_expected.to have_and_belong_to_many :genres }
+
   end
 
   describe 'Attachment' do

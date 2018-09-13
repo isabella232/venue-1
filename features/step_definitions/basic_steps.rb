@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 And ('I click( on) {string}') do |link|
   click_on link
 end
@@ -52,10 +50,9 @@ Then("I fill in the stripe form") do
   end
 end
 
-Then("I should see the background image") do
-  expect(page).to have_css ("#artist-banner")
-end
 
-Then("I should see the profile image") do
-  expect(page).to have_css (".artist-picture")
+Given("(I )select {string} as genre") do |option|
+  genre = Genre.find_by(name: option.downcase)
+  select = page.find('.choices').click
+  page.find("div[data-value='#{genre.id}']").click
 end

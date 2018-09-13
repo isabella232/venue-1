@@ -1,7 +1,6 @@
 FactoryBot.define do
   factory :performer do
     name { "MyString" }
-    genre { "MyString" }
     city { "MyString" }
     description { 'Mytext' }
     facebook { "MyString" }

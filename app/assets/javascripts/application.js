@@ -18,6 +18,7 @@
 //= require izitoast/dist/js/iziToast.min.js
 //= require social-share-button
 //= require stripe_payment
+//= require choices.js/assets/scripts/dist/choices.js
 //= require_tree .
 
 
@@ -92,6 +93,19 @@ const showToast = (key, value, options) => {
         zindex: 9999,
         target: target
     })
+}
+// General method to display selector using choices.js
+const showMultiSelect = (elementId, options) => {
+    defaultOptions = {
+        removeItemButton: true
+    }
+
+    mergedOptions = Object.assign(defaultOptions, options)
+    var element = document.getElementById(elementId)
+    if (element) {
+        var multiSelect = new Choices(element, mergedOptions);
+    }
+
 }
 
 document.addEventListener('turbolinks:load', () => {
