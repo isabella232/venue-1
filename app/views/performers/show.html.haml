@@ -1,5 +1,5 @@
 #content
-  #artist-banner{style: "background-image: url(#{rails_blob_path(@performer.background_image) unless @performer.background_image.attachment.nil?}"}
+  #artist-banner{style: "background: linear-gradient(rgba(255,255,255,0.1), rgba(62,70,76,0.5)), url(#{rails_blob_path(@performer.background_image) unless @performer.background_image.attachment.nil?}"}
     .mui-container
       .mui-row
         .mui-col-md-12

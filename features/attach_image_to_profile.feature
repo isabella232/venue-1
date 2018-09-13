@@ -25,12 +25,12 @@ Feature: Artist can attach image to her profile
         And I fill in 'Youtube' with 'https://www.youtube.com/'
         And I fill in 'Website' with 'https://www.kanyewest.com/'
         And I fill in 'Spotify' with 'https://open.spotify.com/artist/5K4W6rqBFWDnAN6FQUkS6x?si=4zpontE-TrmF46FSVJcNHA'
-        And I attach a profile_image
-        And I attach a background_image
+        And I attach a profile image
+        And I attach a background image
         And I click on 'Create Profile'
-        And I wait 5 seconds
+        And I wait 2 seconds
         Then I should see 'Artist page successfully created'
         And I should be redirected to the Artist page for 'Kanye West'
-        And an artist profile page with the name 'Kanye West' should have been created
-        Then I should see the background image
-        And I should see the profile image
+        And there should be a Performer titled 'Kanye West' in the Database
+        Then I should see a background image
+        And I should see a profile image

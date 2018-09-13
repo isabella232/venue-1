@@ -50,9 +50,16 @@ Then("I fill in the stripe form") do
   end
 end
 
-
 Given("(I )select {string} as genre") do |option|
   genre = Genre.find_by(name: option.downcase)
   select = page.find('.choices').click
   page.find("div[data-value='#{genre.id}']").click
+end
+
+And("I attach a profile image") do
+  attach_file('performer_profile_image', "#{::Rails.root}/spec/fixtures/profile_image.jpg")
+end
+
+And("I attach a background image") do
+  attach_file('performer_background_image', "#{::Rails.root}/spec/fixtures/background_image.jpg")
 end
