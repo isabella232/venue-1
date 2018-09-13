@@ -9,8 +9,10 @@ Feature: Admin can edit Campaigns
         | title                        |
         | Veronica Maggio in Stockholm |
         And the following user exist
-        | email         | role  |
-        | admin@venue.se| admin |
+        | email           | role   |
+        | admin@venue.se  | admin  |
+        | artist@venue.se | artist |
+        | fan@venue.se    | fan    |
         And I am logged in as 'admin@venue.se'
 
     Scenario: Admin can edit Campaign
@@ -24,3 +26,15 @@ Feature: Admin can edit Campaigns
         And I should see 'Campaign has been successfully updated'
         Then there should be a Campaign titled 'Veronica Maggio in Oslo' in the Database
         And I should be redirected to the Campaign page for 'Veronica Maggio in Oslo'
+
+    Scenario: Artist tries to access Edit Campaign page via link
+        Given I am logged in as 'artist@venue.se'
+        And I try to access the Edit Campaign page for 'Veronica Maggio in Stockholm'
+        Then I should see 'Access denied'
+        And I should be redirected to the 'landing' page
+
+    Scenario: Fan tries to access Edit Campaign page via link
+        Given I am logged in as 'fan@venue.se'
+        And I try to access the Edit Campaign page for 'Veronica Maggio in Stockholm'
+        Then I should see 'Access denied'
+        And I should be redirected to the 'landing' page
