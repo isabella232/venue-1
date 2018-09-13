@@ -10,6 +10,7 @@ Feature: Artist can attach image to her profile
         | artist@venue.se | my-pasword |
         And I am logged in as 'artist@venue.se'
 
+
     Scenario:
         When I am on the 'landing' page
         And I wait 2 seconds 
