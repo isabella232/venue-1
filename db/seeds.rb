@@ -12,7 +12,7 @@ punk = Genre.create(name: "punk")
 indie = Genre.create(name: "indie")
 pop = Genre.create(name: "pop")
 electronic = Genre.create(name: "electronic")
-hip hop = Genre.create(name: "hip hop")
+hiphop = Genre.create(name: "hip hop")
 rap = Genre.create(name: "rap")
 classic = Genre.create(name: "classic")
 country = Genre.create(name: "country")
@@ -21,7 +21,7 @@ blues = Genre.create(name: "blues")
 
 artist.performers.create(
     name: 'Clare Cunningham',
-    genre: rock,
+    genres: [rock],
     city: 'Stockholm',
     description: 'Dubbed as having a vocal register similar to Adele (GAFFA) and for having a "Powerfull and killer voice" from Lzzy Hale (Halestorm) and Phil Campell (Motörhead) it is no wonder Clare Cunningham is making waves across the world with her music. Storytelling with unwavering honesty is what Cunningham is best at, and this little country rock/pop chick has proven she is a multi versatile recording and live artist, singing across many genres.',
     facebook: 'https://www.facebook.com',
@@ -30,6 +30,14 @@ artist.performers.create(
     youtube: 'https://www.youtube.com',
     website: 'https://www.google.com',
     spotify: 'https://www.spotify.com',
+    state: 'active'  
+)
+
+artist.performers.create(
+    name: 'AC/DC',
+    genres: [rock, pop],
+    city: 'Stockholm',
+    description: "Classic rock'n'roll",
     state: 'active'  
 )
 campaigns = Campaign.create([

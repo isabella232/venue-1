@@ -12,7 +12,9 @@
             .location-genre
               .location
                 = @campaign.location
-              .genre Rock
+              .genre
+                - @campaign.genres.map {|genre| genre.name}.each do |genre|
+                  %span= genre.humanize
           .mui-col-xs-6
             %a.visit-profile{href: "artist-profile.html"} Visit Profile
         .campaign-description
