@@ -1,4 +1,3 @@
-
 module ApplicationHelper
   def resource_name
     :user
@@ -12,12 +11,15 @@ module ApplicationHelper
     @devise_mapping ||= Devise.mappings[:user]
   end
 
-  def active_order? 
+  def active_order?
     session[:order_id]
   end
 
-  def active_order 
+  def active_order
     Order.find(session[:order_id])
   end
 
+  def select_genre_options
+    Genre.all.order("id ASC").collect { |g| [g.name.humanize, g.id] }
+  end
 end

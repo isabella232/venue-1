@@ -111,7 +111,3 @@ Then("I should be redirected to the Edit page for {string}") do |campaign_title|
     campaign = Campaign.find_by(title: campaign_title)
     expect(current_path).to eq edit_campaign_path(campaign)
 end
-
-Then("I choose {string} from {string} field") do |option, dropdown|
-    select(option, from: dropdown)
-end

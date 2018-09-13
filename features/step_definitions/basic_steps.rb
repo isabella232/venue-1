@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 And ('I click( on) {string}') do |link|
   click_on link
 end
@@ -57,4 +55,10 @@ Then("I click on {string} 3 times") do |link|
     sleep 0.5
     click_on link
   end
+end
+
+Given("(I )select {string} as genre") do |option|
+  genre = Genre.find_by(name: option.downcase)
+  select = page.find('.choices').click
+  page.find("div[data-value='#{genre.id}']").click
 end
