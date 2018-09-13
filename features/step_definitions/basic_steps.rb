@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 And ('I click( on) {string}') do |link|
   click_on link
 end
