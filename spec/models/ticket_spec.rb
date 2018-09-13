@@ -10,6 +10,11 @@ end
 
   describe 'Associations' do
   it { is_expected.to belong_to :campaign }
+  it { is_expected.to have_many :ticket_variants }
+  end
+
+  describe 'Validates length of' do
+    it { is_expected.to validate_length_of :ticket_variants }
   end
 
   describe 'Factory' do

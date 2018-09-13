@@ -11,3 +11,5 @@ Feature: Artists can assign different values to different tickets
         Given the following tickets for 'Veronica Maggio in Stockholm' exist
             | name       | price | count |
             | Sure thing | 200   | 200   |
+
+            
