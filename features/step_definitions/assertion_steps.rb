@@ -87,14 +87,14 @@ Then("the campaign {string} is accepted") do |campaign_title|
     campaign.accept
 end
 
-Then("there should be a Ticket named {string} in the Database") do |expected_name|
+Then("there should be a Ticket Variant named {string} in the Database") do |expected_name|
     sleep 0.5
-    ticket = Ticket.find_by(name: expected_name)
-    expect(ticket).not_to eq nil
+    ticket_variants = TicketVariant.find_by(name: expected_name)
+    expect(ticket_variants).not_to eq nil
 end
 
 Then('the last order in the database should include {string}') do |ticket_name|
-    order = Order.last 
+    order = Order.last
     ticket = Ticket.find_by(name: ticket_name)
     item_names = order.items.map {|i| i.item.name}
     expect(item_names).to include ticket.name
