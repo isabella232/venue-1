@@ -5,7 +5,6 @@ class PaymentsController < ApplicationController
 
   def create
     begin
-      @ticket = Ticket.find(params[:ticket_id])
       order = Order.find(session[:order_id])
       customers = Stripe::Customer.list(limit: 1, email: order.user.email)
 
