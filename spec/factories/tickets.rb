@@ -3,7 +3,7 @@ FactoryBot.define do
     price { 0 }
     campaign
     name { 'MyString' }
-    count 200
-    increasing_count 0
+    count { 200 }
+    increasing_count { 0 }
   end
 end
