@@ -9,7 +9,7 @@ Feature: Artist can only edit own Artist profile
         | email          | role   |
         | kanye@venue.se | artist |
         | jay@venue.se   | artist |
-        And the following Performer exist
+        And the following Performer with name exist
         | name  | user         |
         | Jay-Z | jay@venue.se |
 
