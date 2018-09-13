@@ -12,7 +12,8 @@ end
 
 Given("the following Performer(s) exist(s)") do |table|
     table.hashes.each do |performer_hash|
-        create(:performer, performer_hash)
+        user = User.find_by(email: performer_hash[:user])
+        create(:performer, performer_hash.except('user').merge(users: [user]))
     end
 end
 

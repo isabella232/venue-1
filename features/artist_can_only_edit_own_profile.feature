@@ -10,8 +10,8 @@ Feature: Artist can only edit own Artist profile
         | kanye@venue.se | artist |
         | jay@venue.se   | artist |
         And the following Performer exist
-        | name       | user           |
-        | Jay-Z      | jay@venue.se   |
+        | name  | user         |
+        | Jay-Z | jay@venue.se |
 
     Scenario: Jay can edit Jay's artist profile
         Given I am logged in as 'jay@venue.se'
