@@ -12,6 +12,7 @@ RSpec.describe Genre, type: :model do
   end
 
   describe 'Associations' do
-    it { is_expected.to have_many(:performers) }
+    it { is_expected.to have_and_belong_to_many :performers }
+    it { is_expected.to have_and_belong_to_many :campaigns }
   end
 end
