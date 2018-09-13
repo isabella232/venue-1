@@ -59,8 +59,9 @@ class PerformersController < ApplicationController
             :website,
             :spotify,
             :state,
-            genre_ids: []
-        )
+            :profile_image,
+            :background_image,
+            genre_ids: [])
     end
 
     def get_performer
