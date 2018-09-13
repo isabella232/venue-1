@@ -1,7 +1,6 @@
 class AddAttributesToPerformer < ActiveRecord::Migration[5.2]
   def change
     add_column :performers, :name, :string
-    add_column :performers, :genre, :string
     add_column :performers, :city, :string
     add_column :performers, :description, :text
     add_column :performers, :facebook, :string

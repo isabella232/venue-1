@@ -49,3 +49,10 @@ Then("I fill in the stripe form") do
     find_field('cvc').send_keys('999')
   end
 end
+
+
+Given("(I )select {string} as genre") do |option|
+  genre = Genre.find_by(name: option.downcase)
+  select = page.find('.choices').click
+  page.find("div[data-value='#{genre.id}']").click
+end
