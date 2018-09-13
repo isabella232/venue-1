@@ -19,6 +19,7 @@ Feature: Artist can only edit own Artist profile
         And I click on 'Edit'
         And I fill in 'Artist name' with 'Beyonce'
         And I click 'Update Profile'
+        And I wait 1 second
         Then I should see 'Profile has been successfully updated'
         And there should be a Artists Profile titled 'Beyonce' in the Database
         And I should be redirected to the Artist page for 'Beyonce'
