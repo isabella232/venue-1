@@ -25,6 +25,16 @@ Given("I am on the Campaign page for {string}") do |campaign_title|
   visit campaign_path(campaign_page)
 end
 
+When("I am on the Artists Proile page for {string}") do |performer_name|
+  performer = Performer.find_by(name: performer_name)
+  visit performer_path(performer)
+end 
+
+Given("I try to access the Edit Performer page for {string}") do |performer_name|
+  performer = Performer.find_by(name: performer_name)
+  visit edit_performer_path(performer)
+end
+
 When("I am on the Performer page for {string}") do |performer_name|
   performer = Performer.find_by(name: performer_name)
   visit performer_path(performer)
