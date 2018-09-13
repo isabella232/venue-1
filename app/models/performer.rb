@@ -21,7 +21,7 @@ class Performer < ApplicationRecord
         return if profile_image.blob.content_type.start_with? 'image/'
         profile_image.purge_later
         errors.add(:profile_image, 'needs to be an image')
-      end
+    end
 
     def background_image_format
         return unless background_image.attached?
@@ -29,5 +29,4 @@ class Performer < ApplicationRecord
         background_image.purge_later
         errors.add(:background_image, 'needs to be an image')
     end
-end
- 
+end  
