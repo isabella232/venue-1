@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2018_09_12_153131) do
-
+ActiveRecord::Schema.define(version: 2018_09_13_165254) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,8 +58,12 @@ ActiveRecord::Schema.define(version: 2018_09_12_153131) do
 
   create_table "genres", force: :cascade do |t|
     t.string "name"
+    t.bigint "performer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "performers_id"
+    t.index ["performer_id"], name: "index_genres_on_performer_id"
+    t.index ["performers_id"], name: "index_genres_on_performers_id"
   end
 
   create_table "genres_performers", id: false, force: :cascade do |t|
@@ -95,6 +97,7 @@ ActiveRecord::Schema.define(version: 2018_09_12_153131) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
+    t.string "genre"
     t.string "city"
     t.text "description"
     t.string "facebook"
@@ -103,13 +106,25 @@ ActiveRecord::Schema.define(version: 2018_09_12_153131) do
     t.string "website"
     t.string "spotify"
     t.string "youtube"
+    t.bigint "genres_id"
     t.string "state"
+    t.string "genre_id"
+    t.index ["genres_id"], name: "index_performers_on_genres_id"
   end
 
   create_table "performers_users", id: false, force: :cascade do |t|
     t.bigint "performer_id", null: false
     t.bigint "user_id", null: false
     t.index ["performer_id", "user_id"], name: "index_performers_users_on_performer_id_and_user_id"
+  end
+
+  create_table "ticket_variants", force: :cascade do |t|
+    t.string "name"
+    t.float "base_price_percentage"
+    t.bigint "ticket_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ticket_id"], name: "index_ticket_variants_on_ticket_id"
   end
 
   create_table "tickets", force: :cascade do |t|
@@ -140,6 +155,10 @@ ActiveRecord::Schema.define(version: 2018_09_12_153131) do
 
   add_foreign_key "campaigns", "tickets", column: "tickets_id"
   add_foreign_key "campaigns", "users"
+  add_foreign_key "genres", "performers"
+  add_foreign_key "genres", "performers", column: "performers_id"
   add_foreign_key "orders", "users"
+  add_foreign_key "performers", "genres", column: "genres_id"
+  add_foreign_key "ticket_variants", "tickets"
   add_foreign_key "tickets", "campaigns"
 end
