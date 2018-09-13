@@ -18,10 +18,8 @@ class CampaignsController < ApplicationController
   def create
     @campaign = current_user.campaigns.create(campaign_params)
     if @campaign.persisted?
-      @ticket = @campaign.tickets.create(ticket_params[:tickets_attributes]['0'])
-
-      ticket_variants = params[:campaign][:ticket_variants].to_h.values
-      ticket_variants.each {|values| TicketVariant.create(values.merge(ticket: @ticket))}
+      ticket = @campaign.tickets.create(ticket_params) 
+      ticket_variants.each {|values| TicketVariant.create(values.merge(ticket: ticket))}
       flash[:notice] = 'Campaign successfully launched'
       redirect_to campaign_path(@campaign)
     else
@@ -59,7 +57,11 @@ private
   end
 
   def ticket_params 
-    params.require(:campaign).permit(tickets_attributes: [:id, :price])
+    params[:campaign][:ticket].permit(:price)
+  end
+
+  def ticket_variants
+    params[:campaign][:ticket_variants].permit!.to_h.symbolize_keys.values 
   end
 
   def get_campaign

@@ -60,7 +60,7 @@
             %input#artcamp_tick_01{checked: "checked", name: "artcamp_tick", type: "radio", value: "#{ticket.price}"}/
             %label.mui-col-xs-4.ticket{for: "artcamp_tick_01"}
               %span
-                =link_to ticket.name, orders_path(ticket_id: ticket.id), method: :post, remote: true
+                =#link_to ticket.name, orders_path(ticket_id: ticket.id), method: :post, remote: true
                 %p=link_to ticket.price, orders_path(ticket_id: ticket.id), method: :post, remote: true
                 =link_to "#{ticket.sold_count}/#{ticket.count}", orders_path(ticket_id: ticket.id), method: :post, remote: true
                 = link_to "Buy your ticket", orders_path(ticket_id: ticket.id), method: :post, remote: true, class: 'mui-btn', id: 'purchase'
