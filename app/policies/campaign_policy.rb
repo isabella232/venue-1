@@ -8,14 +8,6 @@ class CampaignPolicy < ApplicationPolicy
         new?
     end
 
-    def index?
-        true
-    end
-
-    def show?
-        true
-    end
-    
     def edit?
         user.admin?
     end
