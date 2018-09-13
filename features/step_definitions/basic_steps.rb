@@ -56,5 +56,5 @@ end
 Given("(I )select {string} as genre") do |option|
   genre = Genre.find_by(name: option.downcase)
   select = page.find('.choices').click
-  find("#choices-campaign_genres_ids-item-choice-#{genre.id}").click
+  find("#choices-campaign_genre_ids-item-choice-#{genre.id}").click
 end

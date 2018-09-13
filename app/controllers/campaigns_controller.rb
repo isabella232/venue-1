@@ -15,7 +15,6 @@ class CampaignsController < ApplicationController
   end
 
   def create
-    binding.pry
     @campaign = current_user.campaigns.create(campaign_params)
     if @campaign.persisted?
       @ticket = @campaign.tickets.create(ticket_params[:tickets_attributes]['0'])
@@ -53,7 +52,7 @@ class CampaignsController < ApplicationController
 private
 
   def campaign_params
-    params.require(:campaign).permit(:title, :description, :location, :image, :state, genres_ids: [])
+    params.require(:campaign).permit(:title, :description, :location, :image, :state, genre_ids: [])
   end
 
   def ticket_params 

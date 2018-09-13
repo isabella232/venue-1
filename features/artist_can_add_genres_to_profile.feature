@@ -14,7 +14,7 @@ Feature: Artist has genres
         | pop  |
         And I am logged in as 'artist@venue.se'
      
-     Scenario: Artist has genres
+     Scenario: Campaign has genres
         And I am on the 'landing' page
         And I click on 'New Campaign'
         Then I should see the 'Create a New Campaign' form
@@ -27,5 +27,5 @@ Feature: Artist has genres
         And I click on 'Launch Campaign'
         When I wait 1 second
         Then I should be on 'Clare Cunningham' campaign page
-        Then stop
         And I should see 'Pop'
+        And I should see 'Rock'

@@ -7,7 +7,7 @@ options = {
     maxItemCount: 5,
     placeholderValue: 'Genre'
 }
-showMultiSelect('campaign_genres_ids', options);
+showMultiSelect('campaign_genre_ids', options);
 
 form.addEventListener('ajax:error', (event) => {
     showToast('Error', event.detail[0].message, {target: '#display_error_message'});
