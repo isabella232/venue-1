@@ -7,17 +7,9 @@ class PerformerPolicy < ApplicationPolicy
     def create?
         new?
     end
-
-    def index?
-        true
-    end
-
-    def show?
-        true
-    end
     
     def edit?
-        user.admin?
+        user.artist? && record.users.ids.include?(user.id) || user.admin?
     end
 
     def update?

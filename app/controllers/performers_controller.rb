@@ -40,7 +40,7 @@ class PerformersController < ApplicationController
             redirect_to performers_path, notice: 'Performer has been archived'
         else
             @performer.update_attributes(performer_params)
-            redirect_to performer_path(@performer), notice: 'Profile has been successfullu updated'
+            redirect_to performer_path(@performer), notice: 'Profile has been successfully updated'
             authorize @performer
         end
     end
