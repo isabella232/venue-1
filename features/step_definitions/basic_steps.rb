@@ -51,3 +51,10 @@ Then("I fill in the stripe form") do
     find_field('cvc').send_keys('999')
   end
 end
+
+Then("I click on {string} 3 times") do |link|
+  3.times do
+    sleep 0.5
+    click_on link
+  end
+end
