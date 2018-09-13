@@ -44,15 +44,29 @@ Then("I fill in the stripe form") do
   stripe_iframe = find("iframe[name='__privateStripeFrame4']")
   within_frame stripe_iframe do
     card_field = find_field('cardnumber')
-    4.times {card_field.send_keys('4242')}
+    4.times { sleep 0.2; card_field.send_keys('4242')}
     find_field('exp-date').send_keys('1221')
     find_field('cvc').send_keys('999')
   end
 end
 
+Then("I click on {string} 3 times") do |link|
+  3.times do
+    sleep 0.5
+    click_on link
+  end
+end
 
 Given("(I )select {string} as genre") do |option|
   genre = Genre.find_by(name: option.downcase)
   select = page.find('.choices').click
   page.find("div[data-value='#{genre.id}']").click
+end
+
+And("I attach a profile image") do
+  attach_file('performer_profile_image', "#{::Rails.root}/spec/fixtures/profile_image.jpg")
+end
+
+And("I attach a background image") do
+  attach_file('performer_background_image', "#{::Rails.root}/spec/fixtures/background_image.jpg")
 end

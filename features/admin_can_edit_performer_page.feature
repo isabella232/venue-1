@@ -30,7 +30,7 @@ Feature: Admin can edit Artist-profiles
         And I fill in 'Spotify' with 'https://open.spotify.com/artist/Jay-Z'
         And I click 'Update Profile'
         And I wait 1 second
-        Then I should see 'Profile has been successfullu updated'
+        Then I should see 'Profile has been successfully updated'
         And there should be a Artists Profile titled 'Jay-Z' in the Database
         And I should be redirected to the Artist page for 'Jay-Z'
 

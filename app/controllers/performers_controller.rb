@@ -40,7 +40,7 @@ class PerformersController < ApplicationController
             redirect_to performers_path, notice: 'Performer has been archived'
         else
             @performer.update_attributes(performer_params)
-            redirect_to performer_path(@performer), notice: 'Profile has been successfullu updated'
+            redirect_to performer_path(@performer), notice: 'Profile has been successfully updated'
             authorize @performer
         end
     end
@@ -59,8 +59,9 @@ class PerformersController < ApplicationController
             :website,
             :spotify,
             :state,
-            genre_ids: []
-        )
+            :profile_image,
+            :background_image,
+            genre_ids: [])
     end
 
     def get_performer

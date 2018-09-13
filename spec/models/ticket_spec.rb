@@ -4,6 +4,8 @@ RSpec.describe Ticket, type: :model do
   describe 'DB table' do
   it { is_expected.to validate_presence_of :price }
   it { is_expected.to validate_presence_of :name }
+  it { is_expected.to validate_presence_of :count }
+  it { is_expected.to validate_presence_of :sold_count }
 end
 
   describe 'Associations' do
