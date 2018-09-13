@@ -17,6 +17,7 @@ class PerformersController < ApplicationController
     end
     
     def create
+        authorize Performer.create
         @performer = current_user.performers.create(performer_params)
         if @performer.persisted?
             flash[:notice] = 'Artist page successfully created'
@@ -24,7 +25,6 @@ class PerformersController < ApplicationController
         else
             render json: {message: "Additional input required"}, status: 422
         end
-        authorize @performer
     end
 
     def show
