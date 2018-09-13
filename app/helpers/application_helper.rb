@@ -20,6 +20,6 @@ module ApplicationHelper
   end
 
   def select_genre_options
-    Genre.all.collect { |g| [g.name.humanize, g.id] }
+    Genre.all.order("id ASC").collect { |g| [g.name.humanize, g.id] }
   end
 end

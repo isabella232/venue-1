@@ -6,7 +6,9 @@
           .artist-picture{style: "background-image: url(#{image_path('feat-card-1.jpg')}"}
           %h1= @performer.name
           .location Stockholm | Sweden
-          .genre= @performer.genre
+          .genre
+            - @performer.genres.map {|genre| genre.name}.each do |genre|
+              %span= genre.humanize
           .follow-request
             %a{href: "#"}> + Follow
               | 

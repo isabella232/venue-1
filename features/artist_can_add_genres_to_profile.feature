@@ -3,21 +3,20 @@ Feature: Artist has genres
     As an Artist
     In order to promote myself
     I would like to be able to add Genres to my profile
-     
-     Background:
+
+    Background:
         Given the following user exist
-        | email           | role   | password   |
-        | artist@venue.se | artist | my-pasword |
+            | email           | role   | password   |
+            | artist@venue.se | artist | my-pasword |
         And the following genres exist
-        | name |
-        | rock |
-        | pop  |
+            | name |
+            | rock |
+            | pop  |
         And I am logged in as 'artist@venue.se'
-     
-     Scenario: Campaign has genres
+
+    Scenario: Campaign has genres
         And I am on the 'landing' page
         And I click on 'New Campaign'
-        Then I should see the 'Create a New Campaign' form
         And I fill in 'Title' with 'Clare Cunningham'
         And I fill in 'Description' with 'Dubbed as having a vocal register similar to Adele'
         And I fill in 'Location' with 'Stockholm'
@@ -29,3 +28,15 @@ Feature: Artist has genres
         Then I should be on 'Clare Cunningham' campaign page
         And I should see 'Pop'
         And I should see 'Rock'
+
+    Scenario: Performer has genres
+        And I am on the 'landing' page
+        And I click on 'Create Artist Profile'
+        And I fill in 'Artist name' with 'Kanye West'
+        And I fill in 'City' with 'Los Angeles'
+        And I fill in 'Artist Description' with 'Born in Atalanta, raised in Chicago'
+        And I select 'Pop' as genre
+        And I click on 'Create Profile'
+        And I wait 1 second
+        Then I should be redirected to the Artist page for 'Kanye West'
+        And I should see 'Pop'
