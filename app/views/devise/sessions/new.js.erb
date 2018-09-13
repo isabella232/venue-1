@@ -1,12 +1,9 @@
 var html, modal, form
 html = "<%= escape_javascript(render 'form')%>"
-modal = showPartialAsModal(html, {width: '60vw', height: '60vh'});
+modal = showPartialAsModal(html, {width: '500px', height: '675px'});
 form = document.querySelector('.mui-form')
 resizableModal(modal, 70)
 
 form.addEventListener('ajax:error', (event) => {
     showToast('Error', event.detail[0].message, {target: '#<%= dom_id(resource, :errors) %>'});
 })
-
-
-
