@@ -55,8 +55,9 @@
                       %path{d: "M431.878,46.66c-7.367-8.229-20.012-8.929-28.241-1.562s-8.929,20.011-1.562,28.241\r\n\t\t\t\t\t\t\t\t\t\t\t\t\tC434.27,109.304,452,155.708,452,204.006c0,11.046,8.954,20,20,20c11.046,0,20-8.954,20-20\r\n\t\t\t\t\t\t\t\t\t\t\t\t\tC492,145.85,470.648,89.97,431.878,46.66z"}
                 .label Days to go
               .date 30 Days left
-        .mui-row.tickets-by-price
-          = render partial: 'tickets_section', locals: {tickets: @campaign.tickets}
+        - unless @campaign.tickets.empty?
+          .mui-row.tickets-by-price
+            = render partial: 'tickets_section', locals: {tickets: @campaign.tickets}
         .mui-row
           .mui-col-md-12
             %a.campaign-book-a-ticket{"data-target" => "#purchase-ticket", "data-toggle" => "modal", href: "#"}
