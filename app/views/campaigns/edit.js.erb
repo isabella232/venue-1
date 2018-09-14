@@ -1,7 +1,14 @@
 var html = "<%= escape_javascript(render partial: 'campaigns/form', locals: {action: 'Edit'})%>"
-showPartialAsModal(html, {width: '70vw', height: '80vh'});
+showPartialAsModal(html, {width: '600px', height: '800px'});
 
 var form = document.querySelector('.mui-form')
+customUpload('campaign_image', 'image-uploader', 100);
+options = {
+    placeholder: true,
+    maxItemCount: 5,
+    placeholderValue: 'Genre'
+}
+showMultiSelect('campaign_genre_ids', options);
 form.addEventListener('ajax:error', (event) => {
     showToast('Error', event.detail[0].message, {target: '#display_error_message'});
 })
