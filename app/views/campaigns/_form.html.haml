@@ -26,13 +26,15 @@
             = form.number_field 'ticket[price]' 
             = form.label 'ticket[price]', 'Fixed ticket price'           
           - 3.times do |i|
-            .ticket-details 
-              .mui-textfield.mui-textfield--float-label
-                = form.text_field "ticket_variants[#{i + 1}][name]"  
-                = form.label "ticket_variants[#{i + 1}][name]", 'Ticket name'  
-              .mui-textfield.mui-textfield--float-label
-                = form.number_field "ticket_variants[#{i + 1}][base_price_percentage]"  
-                = form.label "ticket_variants[#{i + 1}][base_price_percentage]", 'Percentage'
+            .ticket-details.mui-row
+              .mui-col-lg-6
+                .mui-textfield.mui-textfield--float-label
+                  = form.text_field "ticket_variants[#{i + 1}][name]"  
+                  = form.label "ticket_variants[#{i + 1}][name]", 'Ticket name' 
+              .mui-col-lg-6
+                .mui-textfield.mui-textfield--float-label
+                  = form.number_field "ticket_variants[#{i + 1}][base_price_percentage]"  
+                  = form.label "ticket_variants[#{i + 1}][base_price_percentage]", 'Percentage'
         .form-group   
           = form.label :image
           = form.file_field :image 
