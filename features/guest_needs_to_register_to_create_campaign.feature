@@ -21,7 +21,7 @@ Feature: Guests need to register to create campaigns
         And there should be a user in the database with the email 'mikael@venue.com'
         And the user 'mikael@venue.com' should be a 'fan'
 
-    Scenario: Guest can register as a fan
+    Scenario: Guest can register as a Artist
         Given I am on the 'landing' page
         And I click on 'Sign up'
         And I wait 1 second
@@ -45,3 +45,16 @@ Feature: Guests need to register to create campaigns
         Then I should see "Sign Up As A Fan"
         And I click on 'Cancel'
         Then I am on the 'landing' page
+
+    Scenario: Guest provides non matching passwords
+        Given I am on the 'landing' page
+        And I click on 'Sign up'
+        And I wait 1 second
+        And I click "Fan"
+        And I wait 1 second
+        Then I should see "Sign Up As A Fan"
+        And I fill in 'Email address' with 'mikael@venue.com'
+        And I fill in 'Password (6 characters minimum)' with 'My-password'
+        And I fill in 'Re-Type Password' with 'my-password'
+        And I click on 'Sign up for Venue'
+        Then I should see "Password confirmation doesn't match Password"
