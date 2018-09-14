@@ -1,7 +1,9 @@
 .mui-container-fluid
   .mui-row
     .mui-col-md-8.mui-col-md-offset-2
-      %h2 Create your Artist profile
+      %h2 
+        = action.to_s.humanize
+        your Artist profile
       #display_error_message
       = form_with model: @performer, class: 'mui-form' do |form|
         .mui-textfield.mui-textfield--float-label
@@ -46,14 +48,34 @@
             .mui-textfield.mui-textfield--float-label   
               = form.text_field :spotify 
               = form.label :spotify 
-        .field#profile_image
-          = form.label :profile_image
-          = form.file_field :profile_image
-        .field#background_image
-          = form.label :background_image
-          = form.file_field :background_image    
+        .mui-row
+          .mui-col-lg-6
+            .form-group
+              - if Rails.env.test? 
+                .field#profile_image
+                  = form.label :profile_image
+                  = form.file_field :profile_image
+              - else
+                %input#profile-image-uploader.form-submit{type: 'button', value: 'Upload profile image'}
+                = form.file_field :profile_image, style: 'opacity: 0;'
+          .mui-col-lg-6
+            #profile-image-uploader-upload-message
+            #profile-image-uploader-preview
+        .mui-row
+          .mui-col-lg-6
+            .form-group
+              - if Rails.env.test? 
+                .field#background_image 
+                  = form.file_field :background_image 
+              - else
+                .field#background_image
+                  %input#backgrount-image-uploader.form-submit{type: 'button', value: 'Upload background image'}
+                  = form.file_field :background_image, style: 'opacity: 0;'
+          .mui-col-lg-6
+            #backgrount-image-uploader-upload-message
+            #backgrount-image-uploader-preview
         .form-group
-          = form.submit 'Create Profile', class: 'form-submit'
+          = form.submit [action.to_s.humanize, 'Profile'].join(' '), class: 'form-submit'
           = button_tag 'Cancel', class: 'form-submit', onclick: 'cancelModal(event);' 
 
 
