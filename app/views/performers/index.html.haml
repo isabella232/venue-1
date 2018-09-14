@@ -2,10 +2,19 @@
   .mui-container
     #search-artists-results.mui-row.item-listing.artists-list
       .mui-col-lg-12
+        %h1.search-heading Search Artist
+      %form.mui-form
+        .mui-col-lg-12
+          .search-row
+            .mui-textfield
+              %input.form-control{placeholder: "Search for Artist Name, Genre or City", type: "text"}/
+      .mui-col-lg-12.pre-artists-items
+      .mui-col-lg-12  
         %h1.search-heading Artists
       - @performers.each do |performer|
         .mui-col-md-3.has-artists-items
           %a.artist-item{href: performer_path(performer)}
             %span.thumb{style: "background-image: url(#{image_path('feat-card-3.jpg')})"}
-            %span.title
-              = link_to performer.name, performer_path(performer)
+            = link_to performer.name, performer_path(performer), class: 'title'
+
+

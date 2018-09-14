@@ -26,7 +26,7 @@
                                         = f.submit 'Log in', class: 'form-submit'
                                 %div{style: 'margin-top: 20px;'} 
                                 .social-login-buttons
-                                    = link_to icon('fab', 'facebook-f', "Log in with Facebook"), user_facebook_omniauth_authorize_path, class: 'facebook', onclick: "mui.overlay('on')"
-                                    = link_to icon('fab', 'google-plus-g', "Log in with Google"), user_google_oauth2_omniauth_authorize_path, class: 'google', onclick: "mui.overlay('on')"
+                                    = link_to "Log in with Facebook", user_facebook_omniauth_authorize_path, class: 'facebook', onclick: "mui.overlay('on')"
+                                    = link_to "Log in with Google", user_google_oauth2_omniauth_authorize_path, class: 'google', onclick: "mui.overlay('on')"
                                 .form-group
                                     = button_tag 'Cancel', class: 'form-submit', onclick: 'cancelModal(event);' 
