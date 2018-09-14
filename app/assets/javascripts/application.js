@@ -51,7 +51,8 @@ const showPartialAsModal = (html, dimensions) => {
     modal.style.height = dimensions.height;
     modal.style.margin = '60px auto';
     modal.style.padding = '20px 20px';
-    modal.style.backgroundColor = '#293239';
+    modal.style.backgroundColor = '#222020';
+    modal.style.opacity = 0.85;
     modal.innerHTML = html;
 
     mui.overlay('on', modal, {
@@ -89,7 +90,7 @@ const showToast = (key, value, options) => {
         message: value,
         position: position,
         theme: 'dark',
-        backgroundColor: '#293239',
+        backgroundColor: '#222020',
         zindex: 9999,
         target: target
     })

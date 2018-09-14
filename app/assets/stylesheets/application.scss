@@ -14,12 +14,12 @@ $choices-font-size-sm: 12px !default;
 $choices-guttering: 24px !default;
 $choices-border-radius: 2.5px !default;
 $choices-border-radius-item: 20px !default;
-$choices-bg-color: #293239 !default;
+$choices-bg-color: #222020 !default;
 $choices-bg-color-disabled: rgba($mui-primary-color, 0.70);
 $choices-bg-color-dropdown: $mui-primary-color !default;
 $choices-text-color: #333333 !default;
 $choices-keyline-color: #333333 !default;
-$choices-primary-color: #293239 !default;
+$choices-primary-color: #222020 !default;
 $choices-disabled-color: rgba($mui-primary-color, 0.70);
 $choices-highlight-color: rgba($mui-primary-color, 0.70);
 $choices-button-icon-path: '../../assets' !default;
@@ -189,7 +189,7 @@ img.faux { display: none !important }
 
 /* 1.2 Modals */
 
-.modal-backdrop.in { background-color: rgb(34,32,32); opacity: 0.85 }
+.modal-backdrop.in { background-color: #222020; opacity: 0.85 }
 .modal .modal-content { background-color: rgb(43,42,46) }
 .modal.vcentered .modal-dialog { display: flex; height: 100vh; flex-direction: column; justify-content: center; margin-top: 0; margin-bottom: 0 }
 .modal.vcentered.fade .modal-dialog { transform: translate(0, -10%) }
