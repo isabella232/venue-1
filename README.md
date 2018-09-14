@@ -59,7 +59,7 @@ Venue is licensed under the [MIT License](https://github.com/CraftAcademy/venue/
 ## Acknowledgments
 [Thomas Ochman](https://github.com/tochman "Thank you for your valuable help and support during this project")
 
-And a bit thank you to all the coaches at [CraftAcedemy](https://craftacademy.se/english/) for help, support and making the the Bootcamp at [CraftAcedemy](https://craftacademy.se/english/) an absolutely fantastic experience:
+And a big thank you to all the coaches at [CraftAcedemy](https://craftacademy.se/english/) for help, support and making the the Bootcamp at [CraftAcedemy](https://craftacademy.se/english/) an absolutely fantastic experience:
 [Magnus](https://github.com/magnus-thor), 
 [Faraz](https://github.com/faraznaeem), 
 [Oliver](https://github.com/oliverochman) and 

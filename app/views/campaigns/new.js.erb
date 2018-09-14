@@ -1,4 +1,4 @@
-var html = "<%= escape_javascript(render 'campaigns/form')%>"
+var html = "<%= escape_javascript(render partial: 'campaigns/form', locals: {action: 'Create'})%>"
 showPartialAsModal(html, {width: '70vw', height: '80vh'});
 
 var form = document.querySelector('.mui-form')

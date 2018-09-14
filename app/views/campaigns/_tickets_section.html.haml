@@ -1,0 +1,9 @@
+- @campaign.tickets.first.ticket_variants.each do |ticket|
+    %div{id: "#{dom_id(ticket)}"}
+        %input#artcamp_tick_01{checked: "checked", name: "artcamp_tick", type: "radio", value: "#{(ticket.price.to_i / 100)}"}/
+        %label.mui-col-xs-4.ticket{for: "artcamp_tick_01"}
+            %span
+                %p= ticket.name
+                %p= [(ticket.price.to_i / 100),  'kr'].join(' ')
+                %p= [ticket.sold_count, ticket.count].join('/')
+                = link_to "Buy your ticket", orders_path(ticket_id: ticket.id), method: :post, remote: true, class: 'mui-btn', id: 'purchase'

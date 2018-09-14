@@ -13,7 +13,7 @@ Feature: Guest can create a new Campaign
         Given I am logged in as 'mikael@venue.se'
         And I am on the 'landing' page
         And I click on 'New Campaign'
-        Then I should see the 'Create a New Campaign' form
+        Then I should see the 'Create Campaign' form
         And I fill in 'Title' with 'Clare Cunningham'
         And I fill in 'Description' with 'Dubbed as having a vocal register similar to Adele'
         And I fill in 'Location' with 'Stockholm'
@@ -28,7 +28,7 @@ Feature: Guest can create a new Campaign
         Given I am logged in as 'mikael@venue.se'
         And I am on the 'landing' page
         And I click on 'New Campaign'
-        Then I should see the 'Create a New Campaign' form
+        Then I should see the 'Create Campaign' form
         And I fill in 'Title' with ''
         And I fill in 'Description' with 'Dubbed as having a vocal register similar to Adele'
         And I fill in 'Location' with 'Stockholm'

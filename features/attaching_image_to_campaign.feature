@@ -13,7 +13,6 @@ Feature: Attaching image to the campaign
     Scenario: Attaching image to the campaign
         And I am on the 'landing' page
         And I click on 'New Campaign'
-        Then I should see the 'Create a New Campaign' form
         And I fill in 'Title' with 'Clare Cunningham'
         And I fill in 'Description' with 'Dubbed as having a vocal register similar to Adele'
         And I fill in 'Location' with 'Stockholm'

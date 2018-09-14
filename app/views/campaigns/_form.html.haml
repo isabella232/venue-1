@@ -1,7 +1,9 @@
 .mui-container-fluid
   .mui-row
     .mui-col-md-8.mui-col-md-offset-2
-      %h2 Create a New Campaign
+      %h2
+        = action
+        Campaign
       #display_error_message
       = form_with model: @campaign, class: 'mui-form' do |form|
         .mui-textfield.mui-textfield--float-label
@@ -19,17 +21,23 @@
           = form.label :genre 
         = form.select(:genre_ids, options_for_select(select_genre_options), {}, {multiple: true})
 
-        %div
-          = form.fields_for :tickets, Ticket.new do |ticket_form|
-            .mui-textfield.mui-textfield--float-label
-              = ticket_form.number_field :price 
-              = ticket_form.label :price, 'Fixed ticket price'
-            .mui-textfield.mui-textfield--float-label 
-              = ticket_form.text_field :name  
-              = ticket_form.label :name, 'Ticket name'       
+        %div#ticket-info
+          .mui-textfield.mui-textfield--float-label
+            = form.number_field 'ticket[price]' 
+            = form.label 'ticket[price]', 'Fixed ticket price'           
+          - 3.times do |i|
+            .ticket-details.mui-row
+              .mui-col-lg-6
+                .mui-textfield.mui-textfield--float-label
+                  = form.text_field "ticket_variants[#{i + 1}][name]"  
+                  = form.label "ticket_variants[#{i + 1}][name]", 'Ticket name' 
+              .mui-col-lg-6
+                .mui-textfield.mui-textfield--float-label
+                  = form.number_field "ticket_variants[#{i + 1}][base_price_percentage]"  
+                  = form.label "ticket_variants[#{i + 1}][base_price_percentage]", 'Percentage'
         .form-group   
           = form.label :image
           = form.file_field :image 
         .form-group
-          = form.submit 'Launch Campaign', class: 'form-submit'
+          = form.submit action == 'Create' ? 'Launch Campaign' : 'Update Campaign', class: 'form-submit'
           = button_tag 'Cancel', class: 'form-submit', onclick: 'cancelModal(event);' 

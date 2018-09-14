@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_13_041619) do
+ActiveRecord::Schema.define(version: 2018_09_14_084600) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -110,6 +110,16 @@ ActiveRecord::Schema.define(version: 2018_09_13_041619) do
     t.index ["performer_id", "user_id"], name: "index_performers_users_on_performer_id_and_user_id"
   end
 
+  create_table "ticket_variants", force: :cascade do |t|
+    t.string "name"
+    t.float "base_price_percentage"
+    t.bigint "ticket_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "sold_count", default: 0
+    t.index ["ticket_id"], name: "index_ticket_variants_on_ticket_id"
+  end
+
   create_table "tickets", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -139,5 +149,6 @@ ActiveRecord::Schema.define(version: 2018_09_13_041619) do
   add_foreign_key "campaigns", "tickets", column: "tickets_id"
   add_foreign_key "campaigns", "users"
   add_foreign_key "orders", "users"
+  add_foreign_key "ticket_variants", "tickets"
   add_foreign_key "tickets", "campaigns"
 end
