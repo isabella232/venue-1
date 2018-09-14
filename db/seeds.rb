@@ -78,5 +78,5 @@ end
 
 
 campaign = Campaign.with_state(:accepted).first
-campaign.tickets.create(name: 'Sure thing', price: 200)
+campaign.tickets.create(price: 200)
 
