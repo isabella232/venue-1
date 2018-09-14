@@ -125,6 +125,7 @@ ActiveRecord::Schema.define(version: 2018_09_14_084600) do
     t.datetime "updated_at", null: false
     t.integer "price"
     t.bigint "campaign_id"
+    t.string "name"
     t.integer "count", default: 200
     t.integer "sold_count", default: 0
     t.index ["campaign_id"], name: "index_tickets_on_campaign_id"
