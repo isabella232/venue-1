@@ -2,11 +2,9 @@
   .mui-row
     .mui-col-lg-10.mui-col-lg-offset-1.mui-col-md-12.modal
       %span.logo-venue
-      %br/
-      %h4
+      %h4{style: 'margin: 25px;'}
         Sign Up As A 
         = @role.humanize
-      %br/
       = tag :div, id: dom_id(resource, :errors)
       = form_with(model: resource, as: resource_name, url: registration_path(resource_name), remote: true, class: 'mui-form') do |f|
         = f.hidden_field :role, value: @role

@@ -7,9 +7,7 @@
                         .mui-row
                             .mui-col-lg-8.mui-col-lg-offset-2.mui-col-md-12.modal
                                 %span.logo-venue
-                                %br/
-                                %h4 Log in with Email address
-                                %br/
+                                %h4{style: 'margin: 25px;'} Log in with Email address
                                 = tag :div, id: dom_id(resource, :errors)
                                 = form_with(model: resource, as: resource_name, url: session_path(resource_name), remote: true, class: 'mui-form') do |f|
                                     .mui-textfield.mui-textfield--float-label
@@ -25,8 +23,8 @@
                                     .form-group
                                         = f.submit 'Login', class: 'form-submit'
                                 %div{style: 'margin-top: 20px;'} 
-                                .social-login-buttons
-                                    = link_to "Login with Facebook", user_facebook_omniauth_authorize_path, remote: true, class: 'facebook', onclick: "mui.overlay('on')"
-                                    = link_to "Login with Google", user_google_oauth2_omniauth_authorize_path, remote: true, class: 'google', onclick: "mui.overlay('on')"
-                                .form-group
-                                    = button_tag 'Cancel', class: 'form-submit', onclick: 'cancelModal(event);' 
+                                    .social-login-buttons
+                                        = link_to "Login with Facebook", user_facebook_omniauth_authorize_path, remote: true, class: 'facebook', onclick: "mui.overlay('on')"
+                                        = link_to "Login with Google", user_google_oauth2_omniauth_authorize_path, remote: true, class: 'google', onclick: "mui.overlay('on')"
+                                    .form-group
+                                        = button_tag 'Cancel', class: 'form-submit', onclick: 'cancelModal(event);' 
