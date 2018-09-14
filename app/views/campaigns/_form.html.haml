@@ -1,7 +1,8 @@
 .mui-container-fluid
   .mui-row
-    .mui-col-md-8.mui-col-md-offset-2
-      %h2
+    .mui-col-md-4.mui-col-md-12.modal
+      %span.logo-venue
+      %h2{style: 'margin-top: 10px'}
         = action
         Campaign
       #display_error_message
@@ -10,7 +11,7 @@
           = form.text_field :title
           = form.label :title
         .mui-textfield.mui-textfield--float-label
-          = form.text_area :description, rows: 10
+          = form.text_area :description, rows: 7
           = form.label :description
         .mui-textfield.mui-textfield--float-label
           = form.text_field :location
