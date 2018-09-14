@@ -6,21 +6,28 @@ Feature: Admin can edit Artist-profiles
 
     Background:
         Given the following Performer exist
-        | name       |
-        | Kanye West |
+            | name       |
+            | Kanye West |
+
+        And the following genres exist
+            | name    |
+            | hip hop |
+            | pop     |
+
         Given the following users exist
-        | email           | role   |
-        | admin@venue.se  | admin  |
-        | artist@venue.se | artist |
-        | fan@venue.se    | fan    |
+            | email           | role   |
+            | admin@venue.se  | admin  |
+            | artist@venue.se | artist |
+            | fan@venue.se    | fan    |
+            
         And I am logged in as 'admin@venue.se'
 
     Scenario: Admin edits Artists Profile page
         When I am on the Artists Proile page for 'Kanye West'
         And I click on 'Edit'
         And I fill in 'Artist name' with 'Jay-Z'
-        And I fill in 'Genre' with 'Hip-Hop'
         And I fill in 'City' with 'New York City'
+        And I select 'Hip hop' as genre
         And I fill in 'Artist Description' with 'Born in Atalanta, raised in Chicago'
         And I fill in 'Facebook' with 'https://www.facebook.com/Jay-Z/'
         And I fill in 'Instagram' with 'https://www.instagram.com/Jay-Z'

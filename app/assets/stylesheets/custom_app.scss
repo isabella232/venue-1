@@ -112,9 +112,9 @@ img.faux { display: none !important }
 .social-login-buttons a { border-radius: 5px; display: table; font-size: 15px; height: 47px; line-height: 47px; margin: 0 auto; padding-left: 47px; width: 208px }
 .social-login-buttons a + a { margin-top: 20px }
 .social-login-buttons .facebook { background-color: #4267B2 }
-.social-login-buttons .facebook::before { background: transparent url('../images/icon-facebook.jpg') center center no-repeat; background-size: contain; border-radius: 2px; content: ''; display: block; height: 26px; left: 13px; width: 26px; position: absolute; top: 50%; -moz-transform: translateY(-50%); -webkit-transform: translateY(-50%); transform: translateY(-50%) }
+.social-login-buttons .facebook::before { background: transparent image-url('icon-facebook.jpg') center center no-repeat; background-size: contain; border-radius: 2px; content: ''; display: block; height: 26px; left: 13px; width: 26px; position: absolute; top: 50%; -moz-transform: translateY(-50%); -webkit-transform: translateY(-50%); transform: translateY(-50%) }
 .social-login-buttons .google { background-color: #FFF; color: #666 }
-.social-login-buttons .google::before { background: transparent url('../images/icon-google.jpg') center center no-repeat; background-size: contain; content: ''; display: block; height: 26px; left: 13px; width: 26px; position: absolute; top: 50%; -moz-transform: translateY(-50%); -webkit-transform: translateY(-50%); transform: translateY(-50%) }
+.social-login-buttons .google::before { background: transparent image-url('icon-google.jpg') center center no-repeat; background-size: contain; content: ''; display: block; height: 26px; left: 13px; width: 26px; position: absolute; top: 50%; -moz-transform: translateY(-50%); -webkit-transform: translateY(-50%); transform: translateY(-50%) }
 
 [data-formstep] { display: none }
 .active[data-formstep] { display: block }
