@@ -26,6 +26,7 @@ Feature: Add sold ticket counter to Campaign page
     Scenario: Buy 1 ticket
         When I click on 'Veronica Maggio in Stockholm' detail box
         Then I should see '0/83'
+        Then stop
         And I click on 'Buy your ticket' for "Gig Starter"
         And I should see "1 ticket" in header
         Then I click on '1 ticket' in header

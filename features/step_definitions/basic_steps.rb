@@ -73,10 +73,8 @@ And('I attach a background image') do
 end
 
 When('I fill in {string} with {string} for ticket variant {int}') do |field, value, int|
-  # locate the first child of the sub form
   section_parent = all('.ticket-details')
   section = section_parent[int - 1]
-  # within that section fill in field with value
   within(section) { fill_in field, with: value }
 end
 
