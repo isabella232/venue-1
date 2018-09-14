@@ -16,4 +16,4 @@
         #card-errors{role: "alert"}
     .form-group
         %button{class: 'form-submit'} Submit Payment
-
+        = button_tag 'Cancel', class: 'form-submit', onclick: 'cancelModal(event);' 
