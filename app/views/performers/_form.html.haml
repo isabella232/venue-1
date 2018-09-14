@@ -1,6 +1,7 @@
 .mui-container-fluid
   .mui-row
-    .mui-col-md-8.mui-col-md-offset-2
+    .mui-col-md-8.mui-col-md-12.modal
+      %span.logo-venue
       %h2 Create your Artist profile
       #display_error_message
       = form_with model: @performer, class: 'mui-form' do |form|
