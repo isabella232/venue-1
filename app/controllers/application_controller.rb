@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource_or_scope)
     if session[:ticket_id]
-      ticket = Ticket.find(session[:ticket_id])
+      ticket = TicketVariant.find(session[:ticket_id])
 
       order = Order.find_or_create_by(id: session[:order_id]) do |new_order|
         new_order.user = current_user

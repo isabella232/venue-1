@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   def create
-    ticket = Ticket.find(params[:ticket_id])
+
+    ticket = TicketVariant.find(params[:ticket_id])
     if current_user
       @order = Order.find_or_create_by(id: session[:order_id]) do |order|
         order.user = current_user

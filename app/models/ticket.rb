@@ -5,10 +5,7 @@ class Ticket < ApplicationRecord
 
     belongs_to :campaign
 
-    def increase_sold_count(amount)
-        self.sold_count += amount
-        self.save
-    end
+    
 end
 
 

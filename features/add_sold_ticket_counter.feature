@@ -11,7 +11,7 @@ Feature: Add sold ticket counter to Campaign page
 
         Given the following tickets for 'Veronica Maggio in Stockholm' exist
             | price | count |
-            | 200   | 200   |
+            | 200   | 250   |
 
         And the following ticket variants for 'Veronica Maggio in Stockholm' exist
             | name    | base_price_percentage |
@@ -25,7 +25,7 @@ Feature: Add sold ticket counter to Campaign page
 
     Scenario: Buy 1 ticket
         When I click on 'Veronica Maggio in Stockholm' detail box
-        Then I should see '0/200'
+        Then I should see '0/83'
         And I click on 'Buy your ticket'
         And I should see "1 ticket" in header
         Then I click on '1 ticket' in header
@@ -35,7 +35,7 @@ Feature: Add sold ticket counter to Campaign page
         And I click on 'Submit Payment'
         And I wait 3 seconds
         Then I should see "You rock!"
-        And I should see '1/200'
+        And I should see '1/83'
 
     Scenario: Buy 3 tickets
         When I click on 'Veronica Maggio in Stockholm' detail box

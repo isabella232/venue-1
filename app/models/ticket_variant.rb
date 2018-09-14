@@ -9,7 +9,12 @@ class TicketVariant < ApplicationRecord
   end
 
   def count
-    (self.ticket.price * 0.33).round.to_i
+    (self.ticket.count * 0.33).round.to_i
+  end
+
+  def increase_sold_count(amount)
+    self.sold_count += amount
+    self.save
   end
 
 end
