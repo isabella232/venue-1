@@ -10,15 +10,16 @@ Feature: Admin can edit Artist-profiles
             | Kanye West |
 
         And the following genres exist
-            | name |
+            | name    |
             | hip hop |
-            | pop  |
+            | pop     |
 
         Given the following users exist
             | email           | role   |
             | admin@venue.se  | admin  |
             | artist@venue.se | artist |
             | fan@venue.se    | fan    |
+            
         And I am logged in as 'admin@venue.se'
 
     Scenario: Admin edits Artists Profile page
