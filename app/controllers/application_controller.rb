@@ -4,16 +4,16 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource_or_scope)
     if session[:ticket_id]
-      ticket = Ticket.find(session[:ticket_id])
+      ticket_variant = TicketVariant.find(session[:ticket_id])
 
       order = Order.find_or_create_by(id: session[:order_id]) do |new_order|
         new_order.user = current_user
       end
       session[:order_id] = order.id
-      message = OrdersService.add_ticket_to_order(ticket, order)
+      message = OrdersService.add_ticket_to_order(ticket_variant, order)
       session.delete(:ticket_id)
       flash[:success] = "Your ticket has been added to your order."
-      campaign_path(ticket.campaign)
+      campaign_path(ticket_variant.ticket.campaign)
     else
       super
     end

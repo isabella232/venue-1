@@ -1,5 +1,6 @@
 .logo-venue { background: transparent image-url('logo-venue.svg') center center no-repeat; background-size: contain; display: table; margin-left: auto; margin-right: auto }
 .form-group .form-submit { color: white; background-color: transparent; border: 1px solid rgb(240,215,93); border-radius: 50px; display: table; font-size: 13px; font-weight: bold; margin: 30px auto 0; padding: 5px 30px }
+.mui-textfield > input { background-color: transparent; border: 0 none; /*border-color: #1E1E22; border-width: 3px 0 0; border-style: solid;*/ border-radius: 0; color: #FFF; height: 40px; padding: 8px 12px }
 
 
 .carousel-wrapper {
