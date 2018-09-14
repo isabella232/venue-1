@@ -19,7 +19,7 @@ class CampaignsController < ApplicationController
     @campaign = current_user.campaigns.create(campaign_params)
     if @campaign.persisted?
       ticket = @campaign.tickets.create(ticket_params) 
-      @ticket_variant = ticket_variants.each {|values| TicketVariant.create(values.merge(ticket: ticket))}
+      ticket_variants.each {|values| TicketVariant.create(values.merge(ticket: ticket))}
       flash[:notice] = 'Campaign successfully launched'
       redirect_to campaign_path(@campaign)
     else

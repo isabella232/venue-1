@@ -52,3 +52,10 @@ end
 Given("the facebook response is missing email") do
     OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new(OmniAuthFixtures.facebook_response_without_email)
 end
+
+Given("the following ticket variants for {string} exist") do |table| 
+    table.hashes.each do |ticket_hash, ticket|
+        ticket = Ticket.find_by(count: ticket_hash[:campaign])
+        create(:ticket_variant, ticket_hash.merge(ticket: ticket))
+    end
+end
