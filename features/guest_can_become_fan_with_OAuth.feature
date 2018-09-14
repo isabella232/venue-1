@@ -33,7 +33,7 @@ Feature: A Guest can become a Fan with OAuth authentication
         And I am on the 'landing' page
         And I click on 'Log in'
         And I wait 1 second
-        And I click 'Log in with Facebook'
+        And I click 'Login with Facebook'
         And I fill in 'Email' with 'dear_pablo@venue.se'
         And I fill in 'Password (6 characters minimum)' with 'pablospass'
         And I fill in 'Re-Type Password' with 'pablospass'

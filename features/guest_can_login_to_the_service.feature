@@ -17,6 +17,6 @@ Feature: Guest can login to the service
         And I wait 1 second
         And I fill in 'Email address' with 'thomas@venue.se'
         And I fill in 'Password' with 'password'
-        And I click on 'Log in'
+        And I click on 'Login'
         Then I should see 'Signed in successfully.'
 

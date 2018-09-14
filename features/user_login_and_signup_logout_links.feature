@@ -18,7 +18,7 @@ Feature: Sign out link only visible when logged in
         And I wait 1 second
         Then I fill in 'Email address' with 'artist@venue.se'
         And I fill in 'Password' with 'my-password'
-        And I click on 'Log in'
+        And I click on 'Login'
         And I wait 1 second
         Then I should see 'Log out'
         And I should NOT see 'Log in'
