@@ -3,6 +3,7 @@
 
 Venue
 ------
+Venue is an open source platform to crowdfund *Artists*. *Artists* can submit a *Campaign* to start funding an *Event* in a specific city. *Fans* can show their interest by buying 'early bird' tickets the *Event* and thereby help funding the *Event*.   
 
 ## Getting started
 
@@ -10,32 +11,56 @@ Venue
 In order to get the platform running you need the following:
 * Rails versoin 5.2.0
 * Ruby version 2.4.1
-* Bundle
+* Bundler
 
 ### Installation
-After cloning run:
+After cloning the repository, find your way into your project folder and in the terminal run:
 
 `$ bundle install`
+
+and 
+
+`$ yarn install`
+
 Setup the database:
 
 `$ rails db:create db:migrate`
 
 ## Running the tests
-Cucumber is used for Acceptance tests and RSpec for Unit tests
+Venue uses **Cucumber** for *acceptance tests* and **RSpec** for *unit tests*
 To run all the tests use:
-`$ rake``
+
+`$ rake`
+
 To run the test individually run:
+
 `$ cucumber`
-for Acceptance tests, or
+
+for acceptance tests, or
+
 `$ rspec`
-for Unit tests
+
+for unit tests
 
 ## Deployment
-[Venue](https://venue-show.herokuapp.com/ "Deployed with Heroku)
+Deployment has been implemented using Heroku:
+
+[Venue](https://venue-show.herokuapp.com/ "Deployed with Heroku")
 
 ## Contributing
+Feel free to fork and submit pull requests
+
+Current contributers:
+[Contributers](https://github.com/CraftAcademy/venue/graphs/contributors)
 
 ## Licens
-MIT License
+Venue is licensed under the [MIT License](https://github.com/CraftAcademy/venue/blob/development/LICENSE.md)
 
 ## Acknowledgments
+[Thomas Ochman](https://github.com/tochman "Thank you for your valuable help and support during this project")
+
+And a bit thank you to all the coaches at [CraftAcedemy](https://craftacademy.se/english/) for help, support and making the the Bootcamp at [CraftAcedemy](https://craftacademy.se/english/) an absolutely fantastic experience:
+[Magnus](https://github.com/magnus-thor), 
+[Faraz](https://github.com/faraznaeem), 
+[Oliver](https://github.com/oliverochman) and 
+[Sophie](https://github.com/SophieSjoberg)
