@@ -6,6 +6,7 @@ Venue
 Venue is an open source platform to crowdfund *Artists*. *Artists* can submit a *Campaign* to start funding an *Event* in a specific city. *Fans* can show their interest by buying 'early bird' tickets the *Event* and thereby help funding the *Event*.   
 
 ## Getting started
+These instructions will get your copy of the project running on your local machine.
 
 ### Preequisites
 In order to get the platform running you need the following:
