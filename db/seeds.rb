@@ -32,24 +32,8 @@ clare = artist.performers.create(
     spotify: 'https://www.spotify.com',
     state: 'active'
 )
-
 clare.profile_image.(io: File.open(Rails.root.join('spec', 'fixtures', 'dummy_logo.png')), filename: "logo-#{sp.name.underscore}.png", content_type: 'image/png')
-    
-artist.performers.create(
-    name: 'Jamie Cullum',
-    genres: [pop, jazz],
-    city: 'Stockholm',
-    state: 'active', 
-    profile_image: File.open(Rails.root.join('spec', 'fixtures', 'jamie_cullum.jpg')),  
-    background_image: File.open(Rails.root.join('spec', 'fixtures', 'jamie_cullum.jpg')),  
-    description: "An English jazz-pop singer-songwriter. Although he is primarily a vocalist and pianist, he also accompanies himself on other instruments, including guitar and drums. Since April 2010, he has presented a weekly evening jazz show on BBC Radio 2",
-    facebook: 'https://www.facebook.com',
-    instagram: 'https://www.instagram.com',
-    twitter: 'https://www.twitter.com',
-    youtube: 'https://www.youtube.com',
-    website: 'https://www.google.com',
-    spotify: 'https://www.spotify.com',
-    )  
+
 
 campaigns = Campaign.create([
     {
