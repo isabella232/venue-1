@@ -96,5 +96,5 @@ end
 
 When("I set the date to {string}") do |date|
   date_arr = date.split('-')
-  page.find('#campaign_date').send_keys(date_arr[0], :tab, [date_arr[1], date_arr[2]].join(''))
+  page.find('#campaign_event_date').send_keys(date_arr[0], :tab, [date_arr[1], date_arr[2]].join(''))
 end
