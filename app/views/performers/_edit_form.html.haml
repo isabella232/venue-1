@@ -1,0 +1,52 @@
+.mui-container-fluid
+  .mui-row
+    .mui-col-md-8.mui-col-md-offset-2
+      %span.logo-venue
+      %h2 Edit Artist Profile
+      #display_error_message
+      = form_with model: @performer, method: :patch, class: 'mui-form' do |form|
+        .mui-textfield.mui-textfield--float-label
+          = form.text_field :name
+          = form.label :name, 'Artist name' 
+        .mui-row
+          .mui-col-md-6
+            .mui-textfield.mui-textfield--float-label
+              = form.text_field :genre
+              = form.label :genre 
+          .mui-col-md-6  
+            .mui-textfield.mui-textfield--float-label
+              = form.text_field :city 
+              = form.label :city 
+        .mui-textfield.mui-textfield--float-label
+          = form.text_area :description 
+          = form.label :description, 'Artist Description'  
+        .mui-row  
+          .mui-col-md-6
+            .mui-textfield.mui-textfield--float-label
+              = form.text_field :facebook 
+              = form.label :facebook 
+          .mui-col-md-6
+            .mui-textfield.mui-textfield--float-label
+              = form.text_field :instagram 
+              = form.label :instagram
+        .mui-row  
+          .mui-col-md-6
+            .mui-textfield.mui-textfield--float-label
+              = form.text_field :twitter 
+              = form.label :twitter 
+          .mui-col-md-6
+            .mui-textfield.mui-textfield--float-label
+              = form.text_field :youtube 
+              = form.label :youtube 
+        .mui-row  
+          .mui-col-md-6
+            .mui-textfield.mui-textfield--float-label
+              = form.text_field :website 
+              = form.label :website 
+          .mui-col-md-6
+            .mui-textfield.mui-textfield--float-label   
+              = form.text_field :spotify 
+              = form.label :spotify 
+        .form-group
+          = form.submit 'Update Profile', class: 'form-submit'
+          = button_tag 'Cancel', class: 'form-submit', onclick: 'cancelModal(event);' 

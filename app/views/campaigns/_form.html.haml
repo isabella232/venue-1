@@ -1,7 +1,8 @@
 .mui-container-fluid
   .mui-row
-    .mui-col-md-8.mui-col-md-offset-2
-      %h2
+    .mui-col-md-4.mui-col-md-12.modal
+      %span.logo-venue
+      %h2{style: 'margin-top: 10px'}
         = action
         Campaign
       #display_error_message
@@ -48,3 +49,4 @@
         .form-group
           = form.submit action == 'Create' ? 'Launch Campaign' : 'Update Campaign', class: 'form-submit'
           = button_tag 'Cancel', class: 'form-submit', onclick: 'cancelModal(event);' 
+          
