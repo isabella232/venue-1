@@ -1,4 +1,5 @@
 [![Build Status](https://semaphoreci.com/api/v1/craftacademy/venue/branches/development/badge.svg)](https://semaphoreci.com/craftacademy/venue)
+[![Coverage Status](https://coveralls.io/repos/github/CraftAcademy/venue/badge.svg?branch=development)](https://coveralls.io/github/CraftAcademy/venue?branch=development)
 
 Venue
 ------
