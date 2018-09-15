@@ -53,6 +53,7 @@ beyonce = artist.performers.create(
   spotify: 'https://www.spotify.com',
   state: 'active'
 )
+
 beyonce.profile_image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'beyonce.jpg')), filename: 'image.jpg', content_type: 'image/jpg')
 beyonce.background_image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'beyonce_background.jpg')), filename: 'image.jpg', content_type: 'image/jpg')
 
@@ -72,6 +73,7 @@ stevie_wonder = artist.performers.create(
 stevie_wonder.profile_image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'stevie_wonder.jpg')), filename: 'image.jpg', content_type: 'image/jpg')
 stevie_wonder.background_image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'stevie_wonder_background.jpg')), filename: 'image.jpg', content_type: 'image/jpg')
 
+
 michael_buble = artist.performers.create(
   name: 'Michael Buble',
   genres: [jazz],
@@ -85,6 +87,7 @@ michael_buble = artist.performers.create(
   spotify: 'https://www.spotify.com',
   state: 'active'
 )
+
 michael_buble.profile_image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'michael_buble.png')), filename: 'image.jpg', content_type: 'image/png')
 michael_buble.background_image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'michael_buble_background.jpg')), filename: 'image.jpg', content_type: 'image/jpg')
 
@@ -101,6 +104,7 @@ katy_perry = artist.performers.create(
   spotify: 'https://www.spotify.com',
   state: 'active'
 )
+
 katy_perry.profile_image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'katy_perry.jpg')), filename: 'image.jpg', content_type: 'image/jpg')
 katy_perry.background_image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'katy_perry_background.jpg')), filename: 'image.jpg', content_type: 'image/jpg')
 
