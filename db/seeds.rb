@@ -34,6 +34,66 @@ clare = artist.performers.create(
 )
 clare.profile_image.(io: File.open(Rails.root.join('spec', 'fixtures', 'dummy_logo.png')), filename: "logo-#{sp.name.underscore}.png", content_type: 'image/png')
 
+beyonce = artist.performers.create(
+    name: 'Beyonce',
+    genres: [pop],
+    city: 'Los Angeles',
+    description: "Beyoncé Giselle Knowles-Carter is an American singer, songwriter, performer, and actress. Born and raised in Houston, Texas, Beyoncé performed in various singing and dancing competitions as a child. She rose to fame in the late 1990s as lead singer of the R&B girl-group Destiny's Child.",
+    facebook: 'https://www.facebook.com',
+    instagram: 'https://www.instagram.com',
+    twitter: 'https://www.twitter.com',
+    youtube: 'https://www.youtube.com',
+    website: 'https://www.google.com',
+    spotify: 'https://www.spotify.com',
+    state: 'active'
+)
+boyonce.profile_image.(io: File.open(Rails.root.join('spec', 'fixtures', 'beyonce.jpg')), filename: "logo-#{sp.name.underscore}.jpg", content_type: 'image/jpg')
+
+stevie = artist.performers.create(
+    name: 'Stevie Wonder',
+    genres: [rock],
+    city: 'Stockholm',
+    description: 'Stevie Wonder is an American singer, songwriter, record producer, and multi-instrumentalist. A child prodigy, he is considered to be one of the most critically and commercially successful musical performers of the late 20th century.',
+    facebook: 'https://www.facebook.com',
+    instagram: 'https://www.instagram.com',
+    twitter: 'https://www.twitter.com',
+    youtube: 'https://www.youtube.com',
+    website: 'https://www.google.com',
+    spotify: 'https://www.spotify.com',
+    state: 'active'
+)
+stevie.profile_image.(io: File.open(Rails.root.join('spec', 'fixtures', 'stevie_wonder.jpg')), filename: "logo-#{sp.name.underscore}.png", content_type: 'image/jpg')
+
+michael = artist.performers.create(
+    name: 'Michael Buble',
+    genres: [jazz],
+    city: 'Burnaby',
+    description: "Michael Steven Bublé is a Canadian-Italian singer, songwriter, actor and record producer. He has won several awards, including four Grammy Awards and multiple Juno Awards. His first album reached the top ten in Canada and the UK.",
+    facebook: 'https://www.facebook.com',
+    instagram: 'https://www.instagram.com',
+    twitter: 'https://www.twitter.com',
+    youtube: 'https://www.youtube.com',
+    website: 'https://www.google.com',
+    spotify: 'https://www.spotify.com',
+    state: 'active'
+)
+michael.profile_image.(io: File.open(Rails.root.join('spec', 'fixtures', 'michael_buble.png')), filename: "logo-#{sp.name.underscore}.jpg", content_type: 'image/png')
+
+katy = artist.performers.create(
+    name: 'Katy Perry',
+    genres: [pop],
+    city: 'New York',
+    description: "Katheryn Elizabeth Hudson, known professionally as Katy Perry, is an American singer, songwriter, and television personality. After singing in church during her childhood, she pursued a career in gospel music as a teenager.",
+    facebook: 'https://www.facebook.com',
+    instagram: 'https://www.instagram.com',
+    twitter: 'https://www.twitter.com',
+    youtube: 'https://www.youtube.com',
+    website: 'https://www.google.com',
+    spotify: 'https://www.spotify.com',
+    state: 'active'
+)
+katy.profile_image.(io: File.open(Rails.root.join('spec', 'fixtures', 'katy_perry.jpg')), filename: "logo-#{sp.name.underscore}.jpg", content_type: 'image/jpg')
+
 
 campaigns = Campaign.create([
     {
