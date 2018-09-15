@@ -20,7 +20,6 @@ Feature: Artist has genres
         And I fill in 'Title' with 'Clare Cunningham'
         And I fill in 'Description' with 'Dubbed as having a vocal register similar to Adele'
         And I fill in 'Location' with 'Stockholm'
-        And I set the date to '2019-05-05'
         And I select 'Pop' as genre
         And I select 'Rock' as genre
         And I attach an image to the campaign
