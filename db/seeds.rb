@@ -21,6 +21,8 @@ country = Genre.create(name: 'country')
 jazz = Genre.create(name: 'jazz')
 blues = Genre.create(name: 'blues')
 
+
+# Artists
 clare = artist.performers.create(
   name: 'Clare Cunningham',
   genres: [rock],
@@ -35,30 +37,95 @@ clare = artist.performers.create(
   state: 'active'
 )
 
-clare.profile_image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'dummy.jpg')), filename: "image.jpg", content_type: 'image/jpg')
-clare.background_image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'dummy.jpg')), filename: "image.jpg", content_type: 'image/jpg')
+clare.profile_image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'dummy.jpg')), filename: 'image.jpg', content_type: 'image/jpg')
+clare.background_image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'background_image.jpg')), filename: 'image.jpg', content_type: 'image/jpg')
 
-marius = Campaign.create(
-  title: 'Marius Ipsum',
-  description: 'This is a very long description designed to exceed 100 character, so that the truncation sets in and limits the description of the event on the front page. The guest needs to click the title of the campaign to see the full description of the campaign',
-  location: 'Luleå',
+beyonce = artist.performers.create(
+  name: 'Beyonce',
+  genres: [pop],
+  city: 'Los Angeles',
+  description: "Beyoncé Giselle Knowles-Carter is an American singer, songwriter, performer, and actress. Born and raised in Houston, Texas, Beyoncé performed in various singing and dancing competitions as a child. She rose to fame in the late 1990s as lead singer of the R&B girl-group Destiny's Child.",
+  facebook: 'https://www.facebook.com',
+  instagram: 'https://www.instagram.com',
+  twitter: 'https://www.twitter.com',
+  youtube: 'https://www.youtube.com',
+  website: 'https://www.google.com',
+  spotify: 'https://www.spotify.com',
+  state: 'active'
+)
+boyonce.profile_image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'beyonce.jpg')), filename: 'image.jpg', content_type: 'image/jpg')
+boyonce.background_image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'beyonce_background.jpg')), filename: 'image.jpg', content_type: 'image/jpg')
+
+stevie = artist.performers.create(
+  name: 'Stevie Wonder',
+  genres: [rock],
+  city: 'Stockholm',
+  description: 'Stevie Wonder is an American singer, songwriter, record producer, and multi-instrumentalist. A child prodigy, he is considered to be one of the most critically and commercially successful musical performers of the late 20th century.',
+  facebook: 'https://www.facebook.com',
+  instagram: 'https://www.instagram.com',
+  twitter: 'https://www.twitter.com',
+  youtube: 'https://www.youtube.com',
+  website: 'https://www.google.com',
+  spotify: 'https://www.spotify.com',
+  state: 'active'
+)
+stevie.profile_image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'stevie.jpg')), filename: 'image.jpg', content_type: 'image/jpg')
+stevie.background_image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'stevie_background.jpg')), filename: 'image.jpg', content_type: 'image/jpg')
+
+michael = artist.performers.create(
+  name: 'Michael Buble',
+  genres: [jazz],
+  city: 'Burnaby',
+  description: 'Michael Steven Bublé is a Canadian-Italian singer, songwriter, actor and record producer. He has won several awards, including four Grammy Awards and multiple Juno Awards. His first album reached the top ten in Canada and the UK.',
+  facebook: 'https://www.facebook.com',
+  instagram: 'https://www.instagram.com',
+  twitter: 'https://www.twitter.com',
+  youtube: 'https://www.youtube.com',
+  website: 'https://www.google.com',
+  spotify: 'https://www.spotify.com',
+  state: 'active'
+)
+michael.profile_image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'michael.jpg')), filename: 'image.jpg', content_type: 'image/jpg')
+michael.background_image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'michael_background.jpg')), filename: 'image.jpg', content_type: 'image/jpg')
+
+katy = artist.performers.create(
+  name: 'Katy Perry',
+  genres: [pop],
+  city: 'New York',
+  description: 'Katheryn Elizabeth Hudson, known professionally as Katy Perry, is an American singer, songwriter, and television personality. After singing in church during her childhood, she pursued a career in gospel music as a teenager.',
+  facebook: 'https://www.facebook.com',
+  instagram: 'https://www.instagram.com',
+  twitter: 'https://www.twitter.com',
+  youtube: 'https://www.youtube.com',
+  website: 'https://www.google.com',
+  spotify: 'https://www.spotify.com',
+  state: 'active'
+)
+katy.profile_image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'katy.jpg')), filename: 'image.jpg', content_type: 'image/jpg')
+katy.background_image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'katy_background.jpg')), filename: 'image.jpg', content_type: 'image/jpg')
+
+# Campaigns
+kim_larsen_campaign = Campaign.create(
+  title: 'Kim Larsen',
+  genres: [rock, pop],
+  description: 'Larsen has many times voiced his opposition to the established society and instead advocated the right to be different from the mainstream: The album and movie Midt om natten revolves around this subject - in fact you can compare the movie action to the real Danish BZ movement da:BZ, Sorte Hest and also Freetown Christiania, located in Copenhagen. The same opposition is also shown by the album 231045-0637 - the title is Kim Larsen’s social security number which is strictly personal. Larsen was against the big database of every citizen, implied by this title.',
+  location: 'Copenhagen',
   state: 'accepted',
   user: artist
 )
 
-marius.image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'dummy.jpg')), filename: "image.jpg", content_type: 'image/jpg')
+kim_larsen_campaign.image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'kim_larsen.jpg')), filename: 'image.jpg', content_type: 'image/jpg')
 
-
-fuscade = Campaign.create(
-  title: 'Fusce sodales',
-  description: 'This is a very long description designed to exceed 100 character, so that the truncation sets in and limits the description of the event on the front page. The guest needs to click the title of the campaign to see the full description of the campaign',
-  location: 'Karlstad',
+clare_campaign = Campaign.create(
+  title: 'Clare Cunningham',
+  genres: [pop],
+  description: 'Dubbed as having a vocal register similar to Adele (GAFFA) and for having a "Powerfull and killer voice" from Lzzy Hale (Halestorm) and Phil Campell (Motörhead) it is no wonder Clare Cunningham is making waves across the world with her music. Storytelling with unwavering honesty is what Cunningham is best at, and this little country rock/pop chick has proven she is a multi versatile recording and live artist, singing across many genres.',
+  location: 'Stockholm',
   state: 'accepted',
   user: artist
 )
 
-fuscade.image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'dummy.jpg')), filename: "image.jpg", content_type: 'image/jpg')
-
+clare_campaign.image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'dummy.jpg')), filename: 'image.jpg', content_type: 'image/jpg')
 
 Campaign.all.each do |campaign|
   campaign.image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'dummy.jpg')), filename: 'image.jpg', content_type: 'image/jpg')
