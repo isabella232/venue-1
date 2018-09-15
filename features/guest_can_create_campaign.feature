@@ -18,7 +18,6 @@ Feature: Guest can create a new Campaign
         And I fill in 'Description' with 'Dubbed as having a vocal register similar to Adele'
         And I fill in 'Location' with 'Stockholm'
         And I fill in 'date' with '2019-05-05'
-        Then stop
         And I attach an image to the campaign
         And I fill in ticket fields
         And I click on 'Launch Campaign'
