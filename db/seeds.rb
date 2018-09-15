@@ -111,7 +111,8 @@ kim_larsen_campaign = Campaign.create(
   description: 'Larsen has many times voiced his opposition to the established society and instead advocated the right to be different from the mainstream: The album and movie Midt om natten revolves around this subject - in fact you can compare the movie action to the real Danish BZ movement da:BZ, Sorte Hest and also Freetown Christiania, located in Copenhagen. The same opposition is also shown by the album 231045-0637 - the title is Kim Larsen’s social security number which is strictly personal. Larsen was against the big database of every citizen, implied by this title.',
   location: 'Copenhagen',
   state: 'accepted',
-  user: artist
+  user: artist,
+  event_date: '2019-03-10'
 )
 
 kim_larsen_campaign.image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'kim_larsen.jpg')), filename: 'kim_larsen.jpg', content_type: 'image/jpg')
@@ -122,7 +123,8 @@ clare_campaign = Campaign.create(
   description: 'Dubbed as having a vocal register similar to Adele (GAFFA) and for having a "Powerfull and killer voice" from Lzzy Hale (Halestorm) and Phil Campell (Motörhead) it is no wonder Clare Cunningham is making waves across the world with her music. Storytelling with unwavering honesty is what Cunningham is best at, and this little country rock/pop chick has proven she is a multi versatile recording and live artist, singing across many genres.',
   location: 'Stockholm',
   state: 'accepted',
-  user: artist
+  user: artist,
+  event_date: '2019-01-10'
 )
 
 clare_campaign.image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'dummy.jpg')), filename: 'clare_campaign.jpg', content_type: 'image/jpg')
