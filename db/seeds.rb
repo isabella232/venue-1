@@ -19,7 +19,7 @@ country = Genre.create(name: "country")
 jazz = Genre.create(name: "jazz")
 blues = Genre.create(name: "blues")
 
-artist.performers.create(
+clare = artist.performers.create(
     name: 'Clare Cunningham',
     genres: [rock],
     city: 'Stockholm',
@@ -32,6 +32,8 @@ artist.performers.create(
     spotify: 'https://www.spotify.com',
     state: 'active'
 )
+
+clare.profile_image.(io: File.open(Rails.root.join('spec', 'fixtures', 'dummy_logo.png')), filename: "logo-#{sp.name.underscore}.png", content_type: 'image/png')
     
 artist.performers.create(
     name: 'Jamie Cullum',
