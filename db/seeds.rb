@@ -53,10 +53,10 @@ beyonce = artist.performers.create(
   spotify: 'https://www.spotify.com',
   state: 'active'
 )
-boyonce.profile_image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'beyonce.jpg')), filename: 'image.jpg', content_type: 'image/jpg')
-boyonce.background_image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'beyonce_background.jpg')), filename: 'image.jpg', content_type: 'image/jpg')
+beyonce.profile_image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'beyonce.jpg')), filename: 'image.jpg', content_type: 'image/jpg')
+beyonce.background_image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'beyonce_background.jpg')), filename: 'image.jpg', content_type: 'image/jpg')
 
-stevie = artist.performers.create(
+stevie_wonder = artist.performers.create(
   name: 'Stevie Wonder',
   genres: [rock],
   city: 'Stockholm',
@@ -69,10 +69,10 @@ stevie = artist.performers.create(
   spotify: 'https://www.spotify.com',
   state: 'active'
 )
-stevie.profile_image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'stevie.jpg')), filename: 'image.jpg', content_type: 'image/jpg')
-stevie.background_image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'stevie_background.jpg')), filename: 'image.jpg', content_type: 'image/jpg')
+stevie_wonder.profile_image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'stevie_wonder.jpg')), filename: 'image.jpg', content_type: 'image/jpg')
+stevie_wonder.background_image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'stevie_wonder_background.jpg')), filename: 'image.jpg', content_type: 'image/jpg')
 
-michael = artist.performers.create(
+michael_buble = artist.performers.create(
   name: 'Michael Buble',
   genres: [jazz],
   city: 'Burnaby',
@@ -85,10 +85,10 @@ michael = artist.performers.create(
   spotify: 'https://www.spotify.com',
   state: 'active'
 )
-michael.profile_image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'michael.jpg')), filename: 'image.jpg', content_type: 'image/jpg')
-michael.background_image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'michael_background.jpg')), filename: 'image.jpg', content_type: 'image/jpg')
+michael_buble.profile_image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'michael_buble.png')), filename: 'image.jpg', content_type: 'image/png')
+michael_buble.background_image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'michael_buble_background.jpg')), filename: 'image.jpg', content_type: 'image/jpg')
 
-katy = artist.performers.create(
+katy_perry = artist.performers.create(
   name: 'Katy Perry',
   genres: [pop],
   city: 'New York',
@@ -101,8 +101,8 @@ katy = artist.performers.create(
   spotify: 'https://www.spotify.com',
   state: 'active'
 )
-katy.profile_image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'katy.jpg')), filename: 'image.jpg', content_type: 'image/jpg')
-katy.background_image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'katy_background.jpg')), filename: 'image.jpg', content_type: 'image/jpg')
+katy_perry.profile_image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'katy_perry.jpg')), filename: 'image.jpg', content_type: 'image/jpg')
+katy_perry.background_image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'katy_perry_background.jpg')), filename: 'image.jpg', content_type: 'image/jpg')
 
 # Campaigns
 kim_larsen_campaign = Campaign.create(
@@ -114,7 +114,7 @@ kim_larsen_campaign = Campaign.create(
   user: artist
 )
 
-kim_larsen_campaign.image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'kim_larsen.jpg')), filename: 'image.jpg', content_type: 'image/jpg')
+kim_larsen_campaign.image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'kim_larsen.jpg')), filename: 'kim_larsen.jpg', content_type: 'image/jpg')
 
 clare_campaign = Campaign.create(
   title: 'Clare Cunningham',
@@ -125,10 +125,9 @@ clare_campaign = Campaign.create(
   user: artist
 )
 
-clare_campaign.image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'dummy.jpg')), filename: 'image.jpg', content_type: 'image/jpg')
+clare_campaign.image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'dummy.jpg')), filename: 'clare_campaign.jpg', content_type: 'image/jpg')
 
 Campaign.all.each do |campaign|
-  campaign.image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'dummy.jpg')), filename: 'image.jpg', content_type: 'image/jpg')
   ticket = campaign.tickets.create(price: 200)
   ticket.ticket_variants.create(name: 'Gig Starter', base_price_percentage: 50)
   ticket.ticket_variants.create(name: 'Game Changer', base_price_percentage: 75)

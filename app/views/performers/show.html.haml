@@ -3,7 +3,6 @@
     .mui-container
       .mui-row
         .mui-col-md-12
-          - binding.pry
           .artist-picture{style: "background-image: url(#{rails_blob_path(@performer.profile_image) unless @performer.profile_image.attachment.nil? }"}
           %h1= @performer.name
           .location Stockholm | Sweden
