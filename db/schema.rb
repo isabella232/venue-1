@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2018_09_15_072155) do
     t.bigint "user_id"
     t.bigint "tickets_id"
     t.string "state"
-    t.date "venue_date"
+    t.date "event_date"
     t.index ["tickets_id"], name: "index_campaigns_on_tickets_id"
     t.index ["user_id"], name: "index_campaigns_on_user_id"
   end
