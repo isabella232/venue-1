@@ -5,7 +5,7 @@
         .mui-col-md-12
           .artist-picture{style: "background-image: url(#{rails_blob_path(@performer.profile_image) unless @performer.profile_image.attachment.nil? }"}
           %h1= @performer.name
-          .location Stockholm | Sweden
+          .location= @performer.city
           .genre
             - @performer.genres.map {|genre| genre.name}.each do |genre|
               %span= genre.humanize
@@ -35,15 +35,15 @@
           %p= @performer.description 
           %ul.artist-social-links
             %li
-              %a{href: "#"}
+              %a
                 = icon('fab', 'twitter')
                 = link_to "Twitter", @performer.twitter 
             %li
-              %a{href: "#"}
+              %a
                 = icon('fab', 'facebook')
                 = link_to "Facebook", @performer.facebook
             %li
-              %a{href: "#"}
+              %a
                 = icon('fab', 'instagram')
                 = link_to "Instagram", @performer.instagram
           .youtube-container
