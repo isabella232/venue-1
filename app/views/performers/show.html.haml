@@ -37,15 +37,15 @@
             %li
               %a{href: "#"}
                 = icon('fab', 'twitter')
-                = @performer.twitter
+                = link_to "Twitter", @performer.twitter 
             %li
               %a{href: "#"}
                 = icon('fab', 'facebook')
-                = @performer.facebook
+                = link_to "Facebook", @performer.facebook
             %li
               %a{href: "#"}
                 = icon('fab', 'instagram')
-                = @performer.instagram
+                = link_to "Instagram", @performer.instagram
           .youtube-container
             %iframe{allow: "autoplay; encrypted-media", allowfullscreen: "", frameborder: "0", height: "315", src: "https://www.youtube.com/embed/-1uGdOHMXiI?rel=0&showinfo=0", width: "560"}
         .mui-col-md-12.mui-col-lg-4.spotify-container
