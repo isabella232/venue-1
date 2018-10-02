@@ -37,7 +37,7 @@ group :development, :test do
   gem 'coveralls', require: false
   gem 'pundit-matchers', '~> 1.6.0'
   gem 'state_machines-rspec'
-  gem 'stripe-ruby-mock', '~> 2.5.4', :require => 'stripe_mock'
+  gem 'stripe-ruby-mock', '~> 2.5.4', require: 'stripe_mock'
 end
 
 group :development do
