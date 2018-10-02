@@ -59,6 +59,14 @@
   ul.admin-links li { display: inline-block; }
 }
 
+.terms_of_use {
+  color: #FFFF;
+  font-size: 16px;
+  margin: 30px auto 0; 
+  margin-left: 160px;
+  margin-right: 160px;
+}
+
 #footer {
     background-color: #3C3D44; 
     left: 0; 
@@ -79,7 +87,6 @@
   .mui-row > * { 
     display: flex
   }
-  
   #logo { 
     display: inline-block;
     justify-content: center; 
