@@ -33,10 +33,7 @@ class PaymentsController < ApplicationController
       order.items.each do |item|
         ticket = item.item
         ticket.increase_sold_count(item.quantity)
-        # This could be refactored into a service or concern
-        item.quantity.times do
-          current_user.event_tickets.create(campaign: item.item.ticket.campaign)
-        end
+        OrdersService.generate_ticket(current_user, item)
       end
       order.state = :paid   
       session.delete(:order_id)

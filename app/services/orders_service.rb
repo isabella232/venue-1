@@ -8,4 +8,10 @@ module OrdersService
               end
     message
   end
+
+  def self.generate_ticket(user, item)
+    item.quantity.times do
+      user.event_tickets.create(campaign: item.item.ticket.campaign)
+    end
+  end
 end
