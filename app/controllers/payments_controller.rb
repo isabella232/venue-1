@@ -35,6 +35,9 @@ class PaymentsController < ApplicationController
         ticket.increase_sold_count(item.quantity)
       end
       order.state = :paid
+      # Here, we want to make sure that an instance of a Ticket is added to a joint table tickets orders
+      # so that we can track each ticket to a user, order and event/campaign
+      # a user should have many tickets through orders
       session.delete(:order_id)
       @message = 'You have successfully completed your payment!'
     else
