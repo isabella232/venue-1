@@ -1,5 +1,5 @@
 %h1= current_user.email
 
-%h2 Purchased Tickets
+%h2 My tickets
 - current_user.event_tickets.each do |event_ticket| 
     %p= event_ticket.campaign.title
