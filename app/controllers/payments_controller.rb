@@ -33,11 +33,12 @@ class PaymentsController < ApplicationController
       order.items.each do |item|
         ticket = item.item
         ticket.increase_sold_count(item.quantity)
+        # This could be refactored into a service or concern
+        item.quantity.times do
+          current_user.event_tickets.create(uuid: 12, campaign: item.item.ticket.campaign)
+        end
       end
-      order.state = :paid
-      # Here, we want to make sure that an instance of a Ticket is added to a joint table tickets orders
-      # so that we can track each ticket to a user, order and event/campaign
-      # a user should have many tickets through orders
+      order.state = :paid   
       session.delete(:order_id)
       @message = 'You have successfully completed your payment!'
     else

@@ -3,6 +3,7 @@ class User < ApplicationRecord
 
   has_many :campaigns
   has_many :orders
+  has_many :event_tickets
   has_and_belongs_to_many :performers
 
   devise :database_authenticatable, :registerable,

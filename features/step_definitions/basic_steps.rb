@@ -49,6 +49,7 @@ When('I click on {string} in header') do |link|
 end
 
 And('I fill in the stripe form') do
+  sleep 1
   stripe_iframe = find("iframe[name='__privateStripeFrame4']")
   within_frame stripe_iframe do
     card_field = find_field('cardnumber')

@@ -128,3 +128,10 @@ Then('I should see a profile image') do
   image_string = find('div[class="artist-picture"]').native.css_value('background-image')
   expect(image_string).to include 'rails/active_storage/blobs'
 end
+
+Then("a ticket to {string} should be created for {string}") do |campaign_title, user_email|
+  user = User.find_by_email user_email
+  campaign = Campaign.find_by_title campaign_title
+  actual_ticket_campaign_ids = user.event_tickets.map {|ticket| ticket.campaign.id }
+  expect(actual_ticket_campaign_ids).to include campaign.id
+end
