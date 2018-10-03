@@ -35,7 +35,7 @@ class PaymentsController < ApplicationController
         ticket.increase_sold_count(item.quantity)
         # This could be refactored into a service or concern
         item.quantity.times do
-          current_user.event_tickets.create(uuid: 12, campaign: item.item.ticket.campaign)
+          current_user.event_tickets.create(campaign: item.item.ticket.campaign)
         end
       end
       order.state = :paid   
