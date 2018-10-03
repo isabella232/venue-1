@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 Given('there are {int} campaings') do |_int|
   steps %(
@@ -25,4 +26,17 @@ Given('there are {int} campaings') do |_int|
         | KISS Sure thing  | 50                    |
 
   )
+end
+
+Given('I purchase a ticket to {string}') do |campaign_nmae|
+    steps %Q{
+        When I click on '#{campaign_nmae}' detail box
+        And I click on 'Buy your ticket' for "Sure thing"
+        And I click on '1 ticket' in header
+        And I wait 1 second
+        And I fill in the stripe form
+        Then I wait 1 second
+        And I click on 'Submit Payment'
+        And I wait 2 seconds
+    }
 end

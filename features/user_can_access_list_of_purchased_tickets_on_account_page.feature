@@ -18,11 +18,9 @@ Feature: User can access list of purchased tickets on account page
         And I am on the 'landing' page
 
     Scenario: User can see list of purchased tickets
-        Given I purchase a ticket to "KISS in Stockholm"
         And I purchase a ticket to "Veronica Maggio in Stockholm"
         And I visit my account page
         Then I should see "Purchased tickets"
-        And I should see "KISS in Stockholm"
         And I should see "Veronica Maggio in Stockholm"
 
         
