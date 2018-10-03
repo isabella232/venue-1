@@ -1,8 +1,9 @@
 @javascript
 Feature: Visitor can read Terms of use 
-    As a Visitor
-    In order to know more about Venue
-    I would like to be able to read some more information
+    As a system owner
+    In order to provide more information about my service
+    I would like to have a About-page
+
     Scenario: 
         Given I am on the 'landing' page
         And I click on 'About Venue'
