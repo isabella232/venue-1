@@ -62,7 +62,6 @@ Feature: Implement the payment method for tickets
         When I am on the 'landing' page
         And I click on 'KISS in Stockholm' detail box
         And I click on 'Buy your ticket' for "KISS Sure thing"
-        Then stop
         When I click on '2 tickets' in header
         Then I should see 'You are about to order: 1 ticket to Veronica Maggio in Stockholm'
         And I fill in the stripe form
