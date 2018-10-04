@@ -5,6 +5,7 @@ class Campaign < ApplicationRecord
   has_and_belongs_to_many :genres
   has_one_attached :image
   has_many :tickets
+  has_many :event_tickets
   accepts_nested_attributes_for :tickets
 
   state_machine :state, initial: :pending do

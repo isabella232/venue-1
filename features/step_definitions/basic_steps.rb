@@ -49,6 +49,7 @@ When('I click on {string} in header') do |link|
 end
 
 And('I fill in the stripe form') do
+  sleep 1
   stripe_iframe = find("iframe[name='__privateStripeFrame4']")
   within_frame stripe_iframe do
     card_field = find_field('cardnumber')
@@ -98,3 +99,4 @@ When("I set the date to {string}") do |date|
   date_arr = date.split('-')
   page.find('#campaign_event_date').send_keys(date_arr[0], :tab, [date_arr[1], date_arr[2]].join(''))
 end
+
