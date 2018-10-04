@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     sessions: :sessions
   }
   root controller: :campaigns, action: :index
+  resources :users, only: [:show]
   resources :campaigns, only: [:index, :create, :new, :show, :update, :edit]
   resources :performers, only: [:new, :create, :show, :index, :update, :edit]
   resources :tickets, only: [:create]

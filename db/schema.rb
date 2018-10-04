@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_15_072155) do
+ActiveRecord::Schema.define(version: 2018_10_03_135822) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "uuid-ossp"
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -55,6 +56,16 @@ ActiveRecord::Schema.define(version: 2018_09_15_072155) do
     t.bigint "genre_id"
     t.index ["campaign_id"], name: "index_campaigns_genres_on_campaign_id"
     t.index ["genre_id"], name: "index_campaigns_genres_on_genre_id"
+  end
+
+  create_table "event_tickets", force: :cascade do |t|
+    t.bigint "user_id"
+    t.uuid "uuid", default: -> { "uuid_generate_v4()" }, null: false
+    t.bigint "campaign_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["campaign_id"], name: "index_event_tickets_on_campaign_id"
+    t.index ["user_id"], name: "index_event_tickets_on_user_id"
   end
 
   create_table "genres", force: :cascade do |t|
@@ -148,6 +159,8 @@ ActiveRecord::Schema.define(version: 2018_09_15_072155) do
 
   add_foreign_key "campaigns", "tickets", column: "tickets_id"
   add_foreign_key "campaigns", "users"
+  add_foreign_key "event_tickets", "campaigns"
+  add_foreign_key "event_tickets", "users"
   add_foreign_key "orders", "users"
   add_foreign_key "ticket_variants", "tickets"
   add_foreign_key "tickets", "campaigns"
