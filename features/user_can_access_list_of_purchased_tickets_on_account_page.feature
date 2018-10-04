@@ -20,8 +20,5 @@ Feature: User can access list of purchased tickets on account page
     Scenario: User can see list of purchased tickets
         And I purchase a ticket to "Veronica Maggio in Stockholm"
         And I visit my account page
-        Then I should see "My tickets"
+        Then I should see "Your tickets"
         And I should see "Veronica Maggio in Stockholm"
-
-        
-
