@@ -135,3 +135,9 @@ Then("a ticket to {string} should be created for {string}") do |campaign_title, 
   actual_ticket_campaign_ids = user.event_tickets.map {|ticket| ticket.campaign.id }
   expect(actual_ticket_campaign_ids).to include campaign.id
 end
+
+Then("I should see {string} in embed Spotify-player") do |expected_content|
+  within(iframe) do
+    expect(page).to have_content expected_content
+  end
+end
