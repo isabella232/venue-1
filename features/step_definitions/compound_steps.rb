@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-Given('there are {int} campaings') do |_int|
+Given('there are {int} campaigns') do |_int|
   steps %(
     Given the following campaign exist
     | title                        | description                                | location  | state    |
