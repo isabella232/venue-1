@@ -136,8 +136,6 @@ Then("a ticket to {string} should be created for {string}") do |campaign_title, 
   expect(actual_ticket_campaign_ids).to include campaign.id
 end
 
-Then("I should see {string} in embed Spotify-player") do |expected_content|
-  within(iframe) do
-    expect(page).to have_content expected_content
-  end
+Then("I should see a embed Spotify-player") do
+    expect(page).to have_css('.spotify-container')
 end

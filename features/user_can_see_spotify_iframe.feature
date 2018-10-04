@@ -11,4 +11,4 @@ Feature: Display Spotify Artist-page on Artist Profile page
 
     Scenario:
         When I am on the Performer page for 'Oasis'
-        Then I should see 'Top tracks for Oasis' in embed Spotify-player
+        Then I should see a embed Spotify-player
