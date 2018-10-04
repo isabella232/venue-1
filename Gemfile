@@ -40,6 +40,7 @@ group :development, :test do
   gem 'state_machines-rspec'
   gem 'stripe-ruby-mock', '~> 2.5.4', require: 'stripe_mock'
   gem 'uuidtools'
+  gem 'email_spec'
 end
 
 group :development do

@@ -13,5 +13,6 @@ module OrdersService
     item.quantity.times do
       user.event_tickets.create(campaign: item.item.ticket.campaign)
     end
+    EventTicketMailer.with(user: user).deliver_ticket.deliver_later
   end
 end
