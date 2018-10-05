@@ -130,10 +130,16 @@ Then('I should see a profile image') do
 end
 
 Then("a ticket to {string} should be created for {string}") do |campaign_title, user_email|
-  user = User.find_by_email user_email
+  user = @user || User.find_by_email(user_email)
   campaign = Campaign.find_by_title campaign_title
   actual_ticket_campaign_ids = user.event_tickets.map {|ticket| ticket.campaign.id }
   expect(actual_ticket_campaign_ids).to include campaign.id
+end
+
+Then("the (pdf/ticket) should contain {string}") do |content|
+  file = open(ActiveStorage::Blob.service.send(:path_for, @user.event_tickets.last.pdf.key))
+  pdf = PDF::Inspector::Text.analyze_file(file)
+  expect(pdf.strings).to include content
 end
 
 Then("I should see a embed Spotify-player") do
