@@ -49,7 +49,7 @@
           .youtube-container
             %iframe{allow: "autoplay; encrypted-media", allowfullscreen: "", frameborder: "0", height: "315", src: "https://www.youtube.com/embed/-1uGdOHMXiI?rel=0&showinfo=0", width: "560"}
         .mui-col-md-12.mui-col-lg-4.spotify-container
-          %iframe{allow: "encrypted-media", allowtransparency: "true", frameborder: "0", height: "380", src: "https://open.spotify.com/embed/user/ozze/playlist/3dxUfHVBNwwyNbsaTMYmPb", width: "300"}
+          %iframe{allow: "encrypted-media", allowtransparency: "true", frameborder: "0", height: "380", src: "https://open.spotify.com/embed/artist/#{@performer.spotify}".split("spotify:artist:").join, width: "300"}
   .mui-container.artist-campaigns-container
     .mui-row
       .mui-col-lg-12
