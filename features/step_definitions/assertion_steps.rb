@@ -135,3 +135,7 @@ Then("a ticket to {string} should be created for {string}") do |campaign_title, 
   actual_ticket_campaign_ids = user.event_tickets.map {|ticket| ticket.campaign.id }
   expect(actual_ticket_campaign_ids).to include campaign.id
 end
+
+Then("I should see a embed Spotify-player") do
+    expect(page).to have_css('.spotify-container')
+end
