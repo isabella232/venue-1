@@ -139,3 +139,7 @@ end
 Then("I should see a embed Youtube-player") do
   expect(page).to have_css('.youtube-container')
 end 
+
+Then("I should see a embed Spotify-player") do
+    expect(page).to have_css('.spotify-container')
+end

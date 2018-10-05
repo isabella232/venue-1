@@ -46,7 +46,7 @@
           .mui-col-md-6
             .mui-textfield.mui-textfield--float-label   
               = form.text_field :spotify 
-              = form.label :spotify 
+              = form.label :spotify, 'Spotify URI'
         .form-group
           = form.submit 'Update Profile', class: 'form-submit'
           = button_tag 'Cancel', class: 'form-submit', onclick: 'cancelModal(event);' 
