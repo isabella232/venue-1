@@ -136,6 +136,10 @@ Then("a ticket to {string} should be created for {string}") do |campaign_title, 
   expect(actual_ticket_campaign_ids).to include campaign.id
 end
 
+Then("I should see a embed Youtube-player") do
+  expect(page).to have_css('.youtube-container')
+end 
+
 Then("the (pdf/ticket) should contain {string}") do |content|
   file = open(ActiveStorage::Blob.service.send(:path_for, @user.event_tickets.last.pdf.key))
   pdf = PDF::Inspector::Text.analyze_file(file)
