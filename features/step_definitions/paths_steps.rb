@@ -11,6 +11,8 @@ def page_path(path)
     new_performer_path
   elsif path == 'Performers'
     performers_path
+  elsif path = 'Admin'
+    admin_dashboard_path
   else
     root_path
   end
