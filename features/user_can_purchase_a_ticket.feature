@@ -51,7 +51,9 @@ Feature: Implement the payment method for tickets
         And I wait 5 seconds
         Then I should see "You have successfully completed your payment!"
         And a ticket to 'Veronica Maggio in Stockholm' should be created for 'user@artist.se'
-        Then stop
+        And the ticket should contain "YOUR TICKET"
+        And the ticket should contain "Venue proudly presents:"
+        And the ticket should contain "Veronica Maggio in Stockholm"
         And "user@artist.se" should receive an email
 
 

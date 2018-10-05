@@ -28,6 +28,9 @@ gem 'prawn-svg', '~> 0.28.0'
 gem 'prawn-rails'
 gem 'rqrcode'
 gem 'barby', require: true
+# Temporary in production group untill we set up SendGrid on Heroku
+gem "letter_opener"
+
 
 group :development, :test do
   gem 'chromedriver-helper'
@@ -45,7 +48,8 @@ group :development, :test do
   gem 'stripe-ruby-mock', '~> 2.5.4', require: 'stripe_mock'
   gem 'uuidtools'
   gem 'email_spec'
-  gem "letter_opener"
+  gem 'pdf-inspector', require: 'pdf/inspector'
+
 end
 
 group :development do
