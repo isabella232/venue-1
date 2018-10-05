@@ -45,6 +45,7 @@ group :development, :test do
   gem 'stripe-ruby-mock', '~> 2.5.4', require: 'stripe_mock'
   gem 'uuidtools'
   gem 'email_spec'
+  gem "letter_opener"
 end
 
 group :development do

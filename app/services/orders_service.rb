@@ -17,13 +17,12 @@ module OrdersService
   def self.generate_ticket(user, item)
     item.quantity.times do
       ticket = user.event_tickets.create(campaign: item.item.ticket.campaign)
-      generate_pdf(user, ticket.reload)
+      generate_attach_distribute_pdf(user, ticket.reload)
       EventTicketMailer.with(user: user, ticket: ticket).deliver_ticket.deliver_later
-
     end
   end
 
-  def self.generate_pdf(user, ticket)
+  def self.generate_attach_distribute_pdf(user, ticket)
     barcode = Barby::QrCode.new(ticket.uuid).to_svg
     logo_path = File.expand_path(Rails.root.join('app', 'assets', 'images', 'venue_logo_small.png'))
 
