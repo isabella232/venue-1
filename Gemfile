@@ -24,6 +24,13 @@ gem 'stripe-rails'
 gem 'acts_as_shopping_cart', '~> 0.4.1'
 gem 'aws-sdk-s3', '~> 1.0.0.rc2'
 gem 'high_voltage', '~> 3.1'
+gem 'prawn-svg', '~> 0.28.0'  
+gem 'prawn-rails'
+gem 'rqrcode'
+gem 'barby', require: true
+# Temporary in production group untill we set up SendGrid on Heroku
+gem "letter_opener"
+
 
 group :development, :test do
   gem 'chromedriver-helper'
@@ -40,6 +47,9 @@ group :development, :test do
   gem 'state_machines-rspec'
   gem 'stripe-ruby-mock', '~> 2.5.4', require: 'stripe_mock'
   gem 'uuidtools'
+  gem 'email_spec'
+  gem 'pdf-inspector', require: 'pdf/inspector'
+
 end
 
 group :development do
