@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-Given('I am/navigate on/to the {string} page') do |page_name|
+Given('I (try )to/am/navigate access/on/to (the ){string} page') do |page_name|
   visit page_path_helper(page_name)
 end
 
@@ -17,11 +17,7 @@ def page_path_helper(path)
     admin_root_path
   else
     root_path
-end
-end
-
-Given('I try to access {string} page') do |page_name|
-  visit page_path(page_name)
+  end
 end
 
 Given('I am on the Campaign page for {string}') do |campaign_title|
