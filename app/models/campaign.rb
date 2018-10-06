@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Campaign < ApplicationRecord
   validates_presence_of :title, :description, :location, :state, :event_date
 
@@ -14,11 +16,16 @@ class Campaign < ApplicationRecord
     end
 
     event :archive do
-      transition [:pending, :accepted] => :archived
+      transition %i[pending accepted] => :archived
     end
   end
 
   def featured?
-    self.featured
+    featured
+  end
+
+  def update_featured_status(new_status)
+    update_attribute(:featured,
+                     ActiveModel::Type::Boolean.new.cast(new_status))
   end
 end

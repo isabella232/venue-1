@@ -149,3 +149,10 @@ end
 Then("I should see a embed Spotify-player") do
   expect(page).to have_css('.spotify-container')
 end
+
+Then("I should see a {string} button for the {string} campaign") do |element_text, campaign_title|
+  campaign = Campaign.find_by_title(campaign_title)
+  within("#campaign_#{campaign.id}") do 
+    expect(find_all('a').detect {|e| e.native.text == element_text.upcase}).to be_truthy
+  end
+end
