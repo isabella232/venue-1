@@ -1,4 +1,4 @@
-Given('I am on the {string} page') do |page_name|
+Given('I am/navigate on/to the {string} page') do |page_name|
   visit page_path(page_name)
 end
 
