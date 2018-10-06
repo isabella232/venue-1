@@ -16,7 +16,6 @@
 //= require mui
 //= require siema/dist/siema.min.js
 //= require izitoast/dist/js/iziToast.min.js
-//= require social-share-button
 //= require choices.js/assets/scripts/dist/choices.js
 //= require cable
 //= require transform_menu
