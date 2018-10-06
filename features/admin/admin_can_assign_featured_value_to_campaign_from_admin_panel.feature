@@ -1,7 +1,7 @@
 @javascript
 Feature: Access to admin dashboard is restricted using policies
-    As an system owner
-    In order to make sure that only administrators can access the administrative daschboard
+    As a system owner
+    In order to make sure that only administrators can access the administrative dashboard
     I would like to be able to restrict access to that part of the application
     ´
 

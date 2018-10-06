@@ -31,10 +31,6 @@ gem 'barby', require: true
 # Temporary in production group untill we set up SendGrid on Heroku
 gem "letter_opener"
 
-# Experimenting with Gon - allowing us to access ruby variables in js
-gem 'gon'
-
-
 group :development, :test do
   gem 'chromedriver-helper'
   gem 'selenium-webdriver'
