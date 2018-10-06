@@ -100,3 +100,10 @@ When("I set the date to {string}") do |date|
   page.find('#campaign_event_date').send_keys(date_arr[0], :tab, [date_arr[1], date_arr[2]].join(''))
 end
 
+Then("I click the {string} button for the {string} campaign") do |element_text, campaign_title|
+  campaign = Campaign.find_by_title(campaign_title)
+  within("#campaign_#{campaign.id}") do 
+    click_on element_text
+  end
+end
+

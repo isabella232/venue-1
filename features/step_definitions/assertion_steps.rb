@@ -147,5 +147,5 @@ Then("the (pdf/ticket) should contain {string}") do |content|
 end
 
 Then("I should see a embed Spotify-player") do
-    expect(page).to have_css('.spotify-container')
+  expect(page).to have_css('.spotify-container')
 end

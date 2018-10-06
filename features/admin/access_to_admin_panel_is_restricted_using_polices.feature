@@ -6,12 +6,6 @@ Feature: Access to admin dashboard is restricted using policies
     ´
 
     Background:
-        Given the following campaign exist
-            | title                        | state    | featured |
-            | Veronica Maggio in Stockholm | accepted | false    |
-            | Another Artist in Stockholm  | pending  | false    |
-            | Special Campaign             | pending  | false    |
-
         Given the following users exist
             | email           | role   |
             | admin@venue.se  | admin  |

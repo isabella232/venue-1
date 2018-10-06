@@ -17,4 +17,8 @@ class Campaign < ApplicationRecord
       transition [:pending, :accepted] => :archived
     end
   end
+
+  def featured?
+    self.featured
+  end
 end
