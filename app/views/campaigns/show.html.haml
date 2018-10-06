@@ -65,8 +65,8 @@
               %label= "Share:"
               %ul.artist-social-share
                 %li
-                  %a{href: "http://twitter.com/home?status=", target: "_blank ", title: "Share on Twitter"}= icon('fab', 'twitter')
-                  %a{href: "https://www.facebook.com/sharer/sharer.php?u=", target: "_blank", title: "Share on Facebook"}= icon('fab', 'facebook')
+                  %a{href: "http://twitter.com/home?status=#{campaign_path}", target: "_blank ", title: "Share on Twitter", image: @campaign.image}= icon('fab', 'twitter')
+                  %a{href: "https://www.facebook.com/sharer/sharer.php?u=venue-show.herokuapp.com/#{campaign_path}", target: "_blank", title: "Share on Facebook", image: @campaign.image}= icon('fab', 'facebook')
       .form-group
         %ul.admin-links
           - if @campaign.pending? && current_user.admin?
