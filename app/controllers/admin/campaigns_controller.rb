@@ -10,11 +10,11 @@ class Admin::CampaignsController < ApplicationController
 
   def update
     campaign = Campaign.find(params[:id])
-    if params[:featured]
+    if params[:featured].present?
       campaign.update_attribute(:featured,
                                  ActiveModel::Type::Boolean.new.cast(params[:featured]))
 
-      html = render_to_string('_campaign_table_row', formats: :html, layout: false, locals: { campaign: campaign })
+      html = render_to_string('_campaign_table_row', formats: :html, layout: false, locals: { campaign: campaign.reload })
       render json: { message: "Updated #{campaign.title}", html: html }
     end
   end
