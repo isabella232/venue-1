@@ -10,6 +10,8 @@ class Campaign < ApplicationRecord
   has_many :event_tickets
   accepts_nested_attributes_for :tickets
 
+  scope :featured, -> { where(featured: true) }
+
   state_machine :state, initial: :pending do
     event :accept do
       transition pending: :accepted

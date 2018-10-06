@@ -46,7 +46,8 @@ module OrdersService
     pdf.text "No: #{ticket.uuid}", size: 6, align: :center
 
     filename = "#{ticket.campaign.title}-#{Time.now.to_i}"
-    pdf.render_file("#{filename}.pdf")
-    ticket.pdf.attach(io: File.open("#{filename}.pdf"), filename: 'ticket.pdf', content_type: 'application/pdf')
+    pdf.render_file("tmp/#{filename}.pdf")
+    ticket.pdf.attach(io: File.open("tmp/#{filename}.pdf"), filename: 'ticket.pdf', content_type: 'application/pdf')
+    File.delete("tmp/#{filename}.pdf")
   end
 end
