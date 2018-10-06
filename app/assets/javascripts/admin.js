@@ -8,7 +8,6 @@
 //= require_tree ./admin
 
 document.addEventListener('turbolinks:load', () => {
-    console.log('Hello from AdminLand')
     transformMenu()
 
 
