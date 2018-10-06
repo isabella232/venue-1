@@ -10,8 +10,6 @@
     = javascript_include_tag 'admin', 'data-turbolinks-track': 'reload'
 
   %body{style: 'background-color: white;'}
-    = include_gon
-    = Gon::Base.render_data
     = render partial: 'partials/header'
     #flashes
     - flash.each do |key, value|

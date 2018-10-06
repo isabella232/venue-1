@@ -21,16 +21,16 @@ Feature: Access to admin dashboard is restricted using policies
 
     Scenario: Admin can access dashboard
         Given I am logged in as 'admin@venue.se'
-        When I navigate to the 'admin' page
+        When I navigate to the 'Dashboard' page
         And I click "List campaigns"
         Then I should see "Testing to render"
 
     Scenario: Artist can't access dashboard
         Given I am logged in as 'artist@venue.se'
-        When I navigate to the 'admin' page
+        When I navigate to the 'Dashboard' page
         Then I should see "Access denied"
 
     Scenario: Fan can't access dashboard
         Given I am logged in as 'fan@venue.se'
-        When I navigate to the 'admin' page
+        When I navigate to the 'Dashboard' page
         Then I should see "Access denied"
