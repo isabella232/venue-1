@@ -16,8 +16,8 @@ Feature: Access to admin dashboard is restricted using policies
     Scenario: Admin can access dashboard
         Given I am logged in as 'admin@venue.se'
         When I navigate to the 'Dashboard' page
-        And I click "List campaigns"
-        Then I should see "Testing to render"
+        And I click "Manage campaigns"
+        Then I should see "Campaigns"
 
     Scenario: Artist can't access dashboard
         Given I am logged in as 'artist@venue.se'
