@@ -23,7 +23,7 @@ Then('there should be a Artists Profile titled {string} in the Database') do |ex
 end
 
 Then('I should be redirected to the {string} page') do |page_name|
-  expect(current_path).to eq page_path(page_name)
+  expect(current_path).to eq page_path_helper(page_name)
 end
 
 Then('I should be redirected to the Campaign page for {string}') do |campaign_title|

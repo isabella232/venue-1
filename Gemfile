@@ -31,7 +31,6 @@ gem 'barby', require: true
 # Temporary in production group untill we set up SendGrid on Heroku
 gem "letter_opener"
 
-
 group :development, :test do
   gem 'chromedriver-helper'
   gem 'selenium-webdriver'

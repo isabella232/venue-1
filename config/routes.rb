@@ -1,4 +1,6 @@
 Rails.application.routes.draw do 
+
+
   devise_for :users, controllers: {
     registrations: :registrations,
     omniauth_callbacks: :omniauth_callbacks,
@@ -12,4 +14,10 @@ Rails.application.routes.draw do
   resources :orders, only: [:create]
   resources :payments, only: [:new, :create]
   post '/charges', controller: :purchases, action: :create
+
+  namespace :admin do
+    
+    root controller: :dashboard, action: :index
+    resources :campaigns, only: [:index, :update]
+  end
 end
