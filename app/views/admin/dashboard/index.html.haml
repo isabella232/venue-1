@@ -1,2 +1,5 @@
-%h1 Admin::Dashboard#index
-%p Find me in app/views/admin/dashboard/index.html.haml
+.mui-container
+    #show
+        %h1 Admin dashboard
+        = link_to 'List campaigns', admin_campaigns_path, remote: true
+    #content

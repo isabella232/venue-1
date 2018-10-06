@@ -1,7 +1,8 @@
 Rails.application.routes.draw do 
 
   namespace :admin do
-    get :dashboard, controller: :dashboard, action: :index
+    
+    root controller: :dashboard, action: :index
     resources :campaigns, only: [:index, :update]
   end
   devise_for :users, controllers: {

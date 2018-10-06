@@ -14,4 +14,5 @@ Feature: Guests can view the list of Campaigns on the landing page
 
     Scenario:
         When I am on the 'admin' page
-        Then stop
+        And I click "List campaigns"
+        Then I should see "Testing to render"

@@ -12,7 +12,7 @@ def page_path(path)
   elsif path == 'Performers'
     performers_path
   elsif path = 'Admin'
-    admin_dashboard_path
+    admin_root_path
   else
     root_path
   end
