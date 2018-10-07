@@ -18,6 +18,13 @@ class Admin::SlidersController < ApplicationController
     @slider = Slider.new
   end
 
+  def destroy 
+    slider = Slider.find(params[:id])
+    slider.destroy
+    @sliders = Slider.all
+    flash[:notice] = 'Your slider has been deleted'
+  end
+
   private 
   def slider_params
     params.require(:slider).permit(:title, :content, :image, :state)

@@ -119,3 +119,13 @@ Then("I click the {string} button for the {string} campaign") do |element_text, 
   end
 end
 
+Given("I click on {string} on the {string} slider") do |element_text, slider_title|
+  slider = Slider.find_by_title(slider_title)
+  within("#slider_#{slider.id}") do 
+    click_on element_text
+  end
+end
+
+Given("I confirm the popup") do
+  page.accept_alert
+end

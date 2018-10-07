@@ -1,5 +1,5 @@
 @javascript
-Feature: Admin can create a slider from admin dashboard
+Feature: Admin can create/destroy/update a slider from admin dashboard
 
     As an admin
     In order to always display relevant content to our visitors
@@ -36,5 +36,14 @@ Feature: Admin can create a slider from admin dashboard
         And I click on "Create Slider"
         And I should see "Title can't be blank"
         And I should see "Content can't be blank"
+
+    Scenario: Admin can delete a slider
+        Given a slider titled "My awesome slider"
+        And I visit the "Dashboard" page
+        And I click on "Manage sliders"
+        And I click on "Delete" on the "My awesome slider" slider
+        And I confirm the popup
+        Then I should see "Your slider has been deleted"
+
 
 

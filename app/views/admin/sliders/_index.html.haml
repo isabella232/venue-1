@@ -8,6 +8,7 @@
             %th Slider
             %th Content
             %th State
+            %th Actions
     %tbody
         - @sliders.each do |slider|
             = render partial: 'slider_table_row', locals: {slider: slider}
