@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_05_150739) do
+ActiveRecord::Schema.define(version: 2018_10_07_074650) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -121,6 +121,14 @@ ActiveRecord::Schema.define(version: 2018_10_05_150739) do
     t.bigint "performer_id", null: false
     t.bigint "user_id", null: false
     t.index ["performer_id", "user_id"], name: "index_performers_users_on_performer_id_and_user_id"
+  end
+
+  create_table "sliders", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.integer "state"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "ticket_variants", force: :cascade do |t|
