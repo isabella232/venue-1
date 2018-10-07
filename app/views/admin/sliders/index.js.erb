@@ -1,8 +1,7 @@
 if ( typeof sliderModalHtml === undefined || typeof sliderModalHtml === null ){
-    let sliderModalHtml, sliderModalOptions, sliderForm
+    let sliderModalHtml, sliderModalOptions, sliderForm, showElement
 
 }
-
 sliderModalHtml = ("<%= escape_javascript(render partial: 'index') %>")
-var showElement = document.getElementById("show")
+showElement = document.getElementById("show")
 showElement.innerHTML = sliderModalHtml

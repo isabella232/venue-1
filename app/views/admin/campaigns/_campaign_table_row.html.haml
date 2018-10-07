@@ -8,7 +8,7 @@
             - if campaign.featured?
                 = link_to 'Unfeature', admin_campaign_path(campaign, featured: false), method: :patch, remote: true, class: 'mui-btn mui-btn--primary mui-btn--flat feature-btn' 
             - else
-                = link_to 'Feature', admin_campaign_path(campaign, featured: true), method: :patch, remote: true, class: 'mui-btn mui-btn--primary mui-btn--flatfeature-btn' 
+                = link_to 'Feature', admin_campaign_path(campaign, featured: true), method: :patch, remote: true, class: 'mui-btn mui-btn--primary mui-btn--flat feature-btn' 
 
 
 
