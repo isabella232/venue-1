@@ -1,4 +1,4 @@
-Given("the following campaign(s) exist(s)") do |table|
+Given("(if )the following campaign(s) exist(s)") do |table|
     table.hashes.each do |campaign_hash|
         create(:campaign, campaign_hash)
     end

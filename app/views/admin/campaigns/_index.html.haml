@@ -1,0 +1,11 @@
+.mui--text-dark-secondary.mui--text-display1
+    = "Campaigns (#{@campaigns.count})"
+%table.mui-table.mui-table--bordered#campaign-list
+    %thead
+        %tr
+            %th Campaign
+            %th Status
+            %th Action
+    %tbody
+        - @campaigns.each do |campaign|
+            = render partial: 'campaign_table_row', locals: {campaign: campaign}

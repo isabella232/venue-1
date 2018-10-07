@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-Given('I (try )to/am/navigate access/on/to (the ){string} page') do |page_name|
+Given('I (try )to/am/navigate/visit (access/on/to )(the ){string} page') do |page_name|
   visit page_path_helper(page_name)
 end
 

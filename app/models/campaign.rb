@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Campaign < ApplicationRecord
   validates_presence_of :title, :description, :location, :state, :event_date
 
@@ -8,13 +10,24 @@ class Campaign < ApplicationRecord
   has_many :event_tickets
   accepts_nested_attributes_for :tickets
 
+  scope :featured, -> { where(featured: true) }
+
   state_machine :state, initial: :pending do
     event :accept do
       transition pending: :accepted
     end
 
     event :archive do
-      transition [:pending, :accepted] => :archived
+      transition %i[pending accepted] => :archived
     end
+  end
+
+  def featured?
+    featured
+  end
+
+  def update_featured_status(new_status)
+    update_attribute(:featured,
+                     ActiveModel::Type::Boolean.new.cast(new_status))
   end
 end
