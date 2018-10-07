@@ -8,9 +8,6 @@ class Admin::SlidersController < ApplicationController
    end
   end
 
-  def update
-  end
-
   def index
     @sliders = Slider.all
   end

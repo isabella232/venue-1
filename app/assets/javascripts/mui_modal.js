@@ -1,10 +1,11 @@
-const showPartialAsModal = (html, dimensions) => {
+const showPartialAsModal = (html, options) => {
     let modal = document.createElement('div');
-    modal.style.width = dimensions.width;
-    modal.style.height = dimensions.height;
+    let color = options.backgroundColor || '#222020'
+    modal.style.width = options.width;
+    modal.style.height = options.height;
     modal.style.margin = '60px auto';
     modal.style.padding = '20px 20px';
-    modal.style.backgroundColor = '#222020';
+    modal.style.backgroundColor = color;
     modal.style.opacity = 0.85;
     modal.innerHTML = html;
 
