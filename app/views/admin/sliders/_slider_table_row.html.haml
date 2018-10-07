@@ -7,3 +7,4 @@
         = slider.state.humanize
     %td 
         = link_to 'Delete', admin_slider_path(slider), method: :delete, remote: true,  data: {confirm: 'Are you sure?'}
+        = link_to 'Edit', edit_admin_slider_path(slider), remote: true

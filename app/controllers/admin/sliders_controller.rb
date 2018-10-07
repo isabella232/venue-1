@@ -18,6 +18,18 @@ class Admin::SlidersController < ApplicationController
     @slider = Slider.new
   end
 
+  def edit
+    @slider = Slider.find(params[:id])
+  end
+
+  def update
+    @slider = Slider.find(params[:id])
+    if @slider.update_attributes(slider_params)
+      @sliders = Slider.all
+      flash[:notice] = 'Your slider has been updated'
+    end
+  end
+
   def destroy 
     slider = Slider.find(params[:id])
     slider.destroy

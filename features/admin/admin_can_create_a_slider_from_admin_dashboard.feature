@@ -37,6 +37,18 @@ Feature: Admin can create/destroy/update a slider from admin dashboard
         And I should see "Title can't be blank"
         And I should see "Content can't be blank"
 
+    Scenario: Admin can update a slider
+        Given a slider titled "My awesome slider"
+        And I visit the "Dashboard" page
+        And I click on "Manage sliders"
+        And I click on "Edit" on the "My awesome slider" slider
+        And I fill in 'Title' with 'New title'
+        And I fill in 'Content' with 'We love new bands'
+        And I click on "Update Slider"
+        Then I should see "Your slider has been updated"
+        And there should be a Slider titled 'New title' in the Database
+        And the sliders 'Content' should be 'We love new bands'
+
     Scenario: Admin can delete a slider
         Given a slider titled "My awesome slider"
         And I visit the "Dashboard" page
