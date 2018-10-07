@@ -1,0 +1,21 @@
+mui.overlay('off');
+<% if @slider.errors.any? %>
+    <% @slider.errors.full_messages.each do |error|%>
+        iziToast.warning({
+            title: "Error!",
+            message: `<%= error %>`,
+            position: 'bottomLeft',
+            theme: 'dark',
+            backgroundColor: '#293239'
+        });
+    <% end %>
+    
+<% else %>
+    iziToast.success({
+        title: "Thank you!",
+        message: `<%= flash.notice %>`,
+        position: 'bottomLeft',
+        theme: 'dark',
+        backgroundColor: '#293239'
+    });
+<% end %>
