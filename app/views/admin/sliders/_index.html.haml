@@ -1,5 +1,7 @@
 .mui--text-dark-secondary.mui--text-display1
     = "Sliders (#{@sliders.count})"
+%div
+    = link_to 'New Slider', new_admin_slider_path, remote: true
 %table.mui-table.mui-table--bordered#campaign-list
     %thead
         %tr

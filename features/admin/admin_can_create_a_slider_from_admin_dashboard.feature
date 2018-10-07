@@ -11,3 +11,13 @@ Feature: Admin can create a slider from admin dashboard
     Scenario:
         Given I click on "Manage sliders"
         Then I should see "Sliders (0)"
+        When I click on "New Slider"
+        And I wait 1 second
+        And I fill in 'Title' with 'Band promo 1'
+        And I fill in 'Content' with 'The Bands We Love'
+        And I select "Visible" in "State"
+        And I attach an image to the slider
+        And I click on "Create Slider"
+        Then there should be a Slider titled 'Band promo 1' in the Database
+        And the sliders 'Content' should be 'The Bands We Love'
+
