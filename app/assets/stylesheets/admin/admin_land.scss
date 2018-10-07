@@ -1,3 +1,7 @@
-#show a {
-    color: $mui-primary-color;
+#show {
+    color: $mui-primary-color;;
+    a {
+        color: $mui-primary-color;
+    }
 }
+
