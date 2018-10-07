@@ -62,10 +62,11 @@
         .mui-row
           .mui-col-md-12
             .share-campaign
-              %label Share:
-              %ul
+              %label= "Share:"
+              %ul.artist-social-share
                 %li
-                  = social_share_button_tag(@campaign.title, allow_sites: %w(twitter facebook))
+                  %a{href: "https://twitter.com/intent/tweet?url=http://venue-show.herokuapp.com#{campaign_path}&text=#{@campaign.title}&via=venue_sthlm", target: "_blank ", title: "Share on Twitter"}= icon('fab', 'twitter')
+                  %a{href: "https://www.facebook.com/sharer/sharer.php?u=venue-show.herokuapp.com/#{campaign_path}", target: "_blank", title: "Share on Facebook", image: @campaign.image}= icon('fab', 'facebook')
       .form-group
         %ul.admin-links
           - if @campaign.pending? && current_user.admin?
