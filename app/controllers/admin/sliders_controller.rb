@@ -3,7 +3,9 @@ class Admin::SlidersController < ApplicationController
 
   def create
    @slider = Slider.create(slider_params)
+   @sliders = Slider.all
    if @slider.persisted?
+    @sliders = Slider.all
     flash[:notice] = 'Your slider has been created'
    end
   end

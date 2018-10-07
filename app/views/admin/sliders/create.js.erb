@@ -1,4 +1,8 @@
 mui.overlay('off');
+let sliderIndexHtml = ("<%= escape_javascript(render partial: 'index') %>");
+var showElement = document.getElementById("show");
+showElement.innerHTML = sliderIndexHtml;
+
 <% if @slider.errors.any? %>
     <% @slider.errors.full_messages.each do |error|%>
         iziToast.warning({
