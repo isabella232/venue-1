@@ -3,7 +3,6 @@ Feature: Admin can feature approved capmaigns
     As an Admin
     In order to promote certain Campaigns
     I would like to be able to choose specific feature campaigns
-    ´
 
     Background:
         Given the following campaign exist
@@ -38,3 +37,5 @@ Feature: Admin can feature approved capmaigns
         And I click the "Feature" button for the "Another Artist in Stockholm" campaign
         And I wait 2 second
         Then I should see a "Unfeature" button for the "Another Artist in Stockholm" campaign
+    
+

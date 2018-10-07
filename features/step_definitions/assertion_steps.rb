@@ -156,3 +156,11 @@ Then("I should see a {string} button for the {string} campaign") do |element_tex
     expect(find_all('a').detect {|e| e.native.text == element_text.upcase}).to be_truthy
   end
 end
+
+Then("I should not see the {string} section") do |section_identifier|
+  expect(page).not_to have_css section_identifier
+end
+
+Then("I should see the {string} section") do |section_identifier|
+  expect(page).to have_css section_identifier
+end
