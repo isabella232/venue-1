@@ -4,9 +4,7 @@ class Admin::SlidersController < ApplicationController
   def create
    @slider = Slider.create(slider_params)
    if @slider.persisted?
-    render json: {message: 'Slider successfully launched' } 
-   else
-    render json: {message: 'Something went wrong' }
+    flash[:notice] = 'Your slider has been created'
    end
   end
 

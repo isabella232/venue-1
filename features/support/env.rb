@@ -18,6 +18,10 @@ Before do
   OmniAuth.config.test_mode = true
   OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new(OmniAuthFixtures.facebook_mock)
   OmniAuth.config.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new(OmniAuthFixtures.google_oauth2_response)
+  3.times do |index|
+    slider = FactoryBot.create(:slider)
+    slider.image.attach(io: File.open(Rails.root.join('spec', 'fixtures', "hero-carousel-#{index + 1}.jpg")), filename: "image.jpg", content_type: 'image/jpg')
+  end
 end
 
 Cucumber::Rails::Database.javascript_strategy = :truncation
