@@ -1,0 +1,11 @@
+.mui--text-dark-secondary.mui--text-display1
+    = "Sliders (#{@sliders.count})"
+%table.mui-table.mui-table--bordered#campaign-list
+    %thead
+        %tr
+            %th Slider
+            %th Status
+            %th Action
+    %tbody
+        - @sliders.each do |slider|
+            = render partial: 'slider_table_row', locals: {slider: slider}
