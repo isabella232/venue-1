@@ -1,4 +1,7 @@
-let html = ("<%= escape_javascript(render partial: 'index') %>")
+if ( typeof html === undefined || typeof html === null ){
+    let html;
+}
+html = ("<%= escape_javascript(render partial: 'index') %>")
 var showElement = document.getElementById("show")
 showElement.innerHTML = html
 observeFeatureButtons();
