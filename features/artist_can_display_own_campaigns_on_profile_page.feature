@@ -25,14 +25,21 @@ Feature: Artist can display own campaigns on Performers profile/show page
         And campaign "Veronica Maggio in Gothenburg" is connected to "Veronica Maggio"
         And campaign "KISS in Kiruna" is connected to "KISS"
 
-
-    Scenario:
         Given I navigate to 'landing' page
-        And I click on "Artists"
+
+
+    Scenario: Campaign info can be accessed from Performer's page
+        Given I click on "Artists"
         And I click on "Veronica Maggio"
         Then I should see "Veronica Maggio in Stockholm"
         And I should see "Veronica Maggio in Gothenburg"
         And I should NOT see "KISS in Kiruna"
+
+    Scenario: Performer info can be accessed from Campaign page
+        Given I click on "Campaigns"
+        And I click on "KISS in Kiruna"
+        And I click on "KISS Profile"
+        Then I should be redirected to the performer page for "KISS"
 
 
 

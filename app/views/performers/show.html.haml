@@ -56,8 +56,7 @@
         %h2.standout-heading Campaigns
         %div
           - @performer.campaigns.each do |campaign|
-            %p
-              = campaign.title
+            = link_to campaign.title, campaign_path(campaign)
       .mui-col-md-12.mui-col-lg-7
         .tiled-campaigns-wrap.featured
           .tiled-campaigns
