@@ -48,8 +48,6 @@ ActiveRecord::Schema.define(version: 2018_10_08_094216) do
     t.string "state"
     t.date "event_date"
     t.boolean "featured", default: false
-    t.bigint "performer_id"
-    t.index ["performer_id"], name: "index_campaigns_on_performer_id"
     t.index ["tickets_id"], name: "index_campaigns_on_tickets_id"
     t.index ["user_id"], name: "index_campaigns_on_user_id"
   end
@@ -76,6 +74,20 @@ ActiveRecord::Schema.define(version: 2018_10_08_094216) do
     t.datetime "updated_at", null: false
     t.index ["campaign_id"], name: "index_event_tickets_on_campaign_id"
     t.index ["user_id"], name: "index_event_tickets_on_user_id"
+  end
+
+  create_table "follows", force: :cascade do |t|
+    t.string "followable_type", null: false
+    t.bigint "followable_id", null: false
+    t.string "follower_type", null: false
+    t.bigint "follower_id", null: false
+    t.boolean "blocked", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["followable_id", "followable_type"], name: "fk_followables"
+    t.index ["followable_type", "followable_id"], name: "index_follows_on_followable_type_and_followable_id"
+    t.index ["follower_id", "follower_type"], name: "fk_follows"
+    t.index ["follower_type", "follower_id"], name: "index_follows_on_follower_type_and_follower_id"
   end
 
   create_table "genres", force: :cascade do |t|
@@ -175,7 +187,6 @@ ActiveRecord::Schema.define(version: 2018_10_08_094216) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "campaigns", "performers"
   add_foreign_key "campaigns", "tickets", column: "tickets_id"
   add_foreign_key "campaigns", "users"
   add_foreign_key "event_tickets", "campaigns"
