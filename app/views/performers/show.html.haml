@@ -1,18 +1,18 @@
 #content
-  #artist-banner{style: "background: linear-gradient(rgba(255,255,255,0.1), rgba(62,70,76,0.5)), url(#{rails_blob_path(@performer.background_image) unless @performer.background_image.attachment.nil?}"}
+  #artist-banner{style: "background: linear-gradient(rgba(255,255,255,0.1), rgba(62,70,76,0.5)), url(#{rails_blob_path(@performer.background_image) unless @performer.background_image.attachment.nil?}) center no-repeat"}
     .mui-container
       .mui-row
         .mui-col-md-12
-          .artist-picture{style: "background-image: url(#{rails_blob_path(@performer.profile_image) unless @performer.profile_image.attachment.nil? }"}
+          .artist-picture{style: "background-image: url(#{rails_blob_path(@performer.profile_image) unless @performer.profile_image.attachment.nil? })"}
           %h1= @performer.name
           .location= @performer.city
           .genre
             - @performer.genres.map {|genre| genre.name}.each do |genre|
               %span= genre.humanize
-          .follow-request
-            %a{href: "#"}> + Follow
-              |
-            %a{href: "#"} + Request this artist
+          -# .follow-request
+          -#   %a{href: "#"}> + Follow
+          -#     |
+          -#   %a{href: "#"} + Request this artist
   #artist-details
     .mui-container
       .mui-row
