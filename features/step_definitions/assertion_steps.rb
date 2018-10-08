@@ -129,38 +129,48 @@ Then('I should see a profile image') do
   expect(image_string).to include 'rails/active_storage/blobs'
 end
 
-Then("a ticket to {string} should be created for {string}") do |campaign_title, user_email|
+Then('a ticket to {string} should be created for {string}') do |campaign_title, user_email|
   user = @user || User.find_by_email(user_email)
   campaign = Campaign.find_by_title campaign_title
-  actual_ticket_campaign_ids = user.event_tickets.map {|ticket| ticket.campaign.id }
+  actual_ticket_campaign_ids = user.event_tickets.map { |ticket| ticket.campaign.id }
   expect(actual_ticket_campaign_ids).to include campaign.id
 end
 
-Then("I should see a embed Youtube-player") do
+Then('I should see a embed Youtube-player') do
   expect(page).to have_css('.youtube-container')
-end 
+end
 
-Then("the (pdf/ticket) should contain {string}") do |content|
+Then('the (pdf/ticket) should contain {string}') do |content|
   file = open(ActiveStorage::Blob.service.send(:path_for, @user.event_tickets.last.pdf.key))
   pdf = PDF::Inspector::Text.analyze_file(file)
   expect(pdf.strings).to include content
 end
 
-Then("I should see a embed Spotify-player") do
+Then('I should see a embed Spotify-player') do
   expect(page).to have_css('.spotify-container')
 end
 
-Then("I should see a {string} button for the {string} campaign") do |element_text, campaign_title|
+Then('I should see a {string} button for the {string} campaign') do |element_text, campaign_title|
   campaign = Campaign.find_by_title(campaign_title)
-  within("#campaign_#{campaign.id}") do 
-    expect(find_all('a').detect {|e| e.native.text == element_text.upcase}).to be_truthy
+  within("#campaign_#{campaign.id}") do
+    expect(find_all('a').detect { |e| e.native.text == element_text.upcase }).to be_truthy
   end
 end
 
-Then("I should not see the {string} section") do |section_identifier|
+Then('I should not see the {string} section') do |section_identifier|
   expect(page).not_to have_css section_identifier
 end
 
-Then("I should see the {string} section") do |section_identifier|
+Then('I should see the {string} section') do |section_identifier|
   expect(page).to have_css section_identifier
+end
+
+Then('there should be a Slider titled {string} in the Database') do |expected_title|
+  sleep 2
+  @slider = Slider.find_by(title: expected_title)
+  expect(@slider).not_to eq nil
+end
+
+Then('the sliders {string} should be {string}') do |attribute, expected_value|
+  expect(@slider.send(attribute.downcase.to_sym)).to eq expected_value
 end

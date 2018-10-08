@@ -19,5 +19,6 @@ Rails.application.routes.draw do
     
     root controller: :dashboard, action: :index
     resources :campaigns, only: [:index, :update]
+    resources :sliders, except: [:show]
   end
 end

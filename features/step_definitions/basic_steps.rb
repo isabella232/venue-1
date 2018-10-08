@@ -25,6 +25,10 @@ And('I attach an image to the campaign') do
   attach_file('campaign_image', "#{::Rails.root}/spec/fixtures/dummy.jpg")
 end
 
+And('I attach an image to the slider') do
+  attach_file('slider_image', "#{::Rails.root}/spec/fixtures/dummy.jpg")
+end
+
 And('I fill in ticket fields') do
   steps "
     And I fill in 'Fixed ticket price' with '200'
@@ -63,6 +67,14 @@ Given('(I )select {string} as genre') do |option|
   genre = Genre.find_by(name: option.downcase)
   select = page.find('.choices').click
   page.find("div[data-value='#{genre.id}']").click
+end
+
+Given("I select {string} in {string}") do |option, select_tag|
+  begin
+    select option, from: select_tag
+  rescue
+    select option, from: select_tag.downcase
+  end
 end
 
 And('I attach a profile image') do
@@ -107,3 +119,13 @@ Then("I click the {string} button for the {string} campaign") do |element_text, 
   end
 end
 
+Given("I click on {string} on the {string} slider") do |element_text, slider_title|
+  slider = Slider.find_by_title(slider_title)
+  within("#slider_#{slider.id}") do 
+    click_on element_text
+  end
+end
+
+Given("I confirm the popup") do
+  page.accept_alert
+end
