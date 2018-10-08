@@ -8,6 +8,7 @@ class Campaign < ApplicationRecord
   has_one_attached :image
   has_many :tickets
   has_many :event_tickets
+  has_and_belongs_to_many :performers
   accepts_nested_attributes_for :tickets
 
   scope :featured, -> { where(featured: true) }

@@ -13,8 +13,7 @@ end
 Given('campaign {string} is connected to {string}') do |campaign_title, performer_name|
   performer = Performer.find_by_name(performer_name)
   campaign = Campaign.find_by_title(campaign_title)
-  binding.pry
-  campaign.performer = performer
+  campaign.performers << performer
   campaign.save
 end
 

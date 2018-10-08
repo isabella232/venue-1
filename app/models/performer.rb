@@ -6,7 +6,8 @@ class Performer < ApplicationRecord
   validate :background_image_format
   has_and_belongs_to_many :users
   has_and_belongs_to_many :genres
-  has_many :campaigns, through: :users
+  has_and_belongs_to_many :campaigns
+  # has_many :campaigns, through: :users
   has_one_attached :profile_image
   has_one_attached :background_image
 

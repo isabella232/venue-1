@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_07_074650) do
+ActiveRecord::Schema.define(version: 2018_10_08_094216) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,8 @@ ActiveRecord::Schema.define(version: 2018_10_07_074650) do
     t.string "state"
     t.date "event_date"
     t.boolean "featured", default: false
+    t.bigint "performer_id"
+    t.index ["performer_id"], name: "index_campaigns_on_performer_id"
     t.index ["tickets_id"], name: "index_campaigns_on_tickets_id"
     t.index ["user_id"], name: "index_campaigns_on_user_id"
   end
@@ -57,6 +59,13 @@ ActiveRecord::Schema.define(version: 2018_10_07_074650) do
     t.bigint "genre_id"
     t.index ["campaign_id"], name: "index_campaigns_genres_on_campaign_id"
     t.index ["genre_id"], name: "index_campaigns_genres_on_genre_id"
+  end
+
+  create_table "campaigns_performers", id: false, force: :cascade do |t|
+    t.bigint "campaign_id", null: false
+    t.bigint "performer_id", null: false
+    t.index ["campaign_id", "performer_id"], name: "index_campaigns_performers_on_campaign_id_and_performer_id"
+    t.index ["performer_id", "campaign_id"], name: "index_campaigns_performers_on_performer_id_and_campaign_id"
   end
 
   create_table "event_tickets", force: :cascade do |t|
@@ -166,6 +175,7 @@ ActiveRecord::Schema.define(version: 2018_10_07_074650) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "campaigns", "performers"
   add_foreign_key "campaigns", "tickets", column: "tickets_id"
   add_foreign_key "campaigns", "users"
   add_foreign_key "event_tickets", "campaigns"
