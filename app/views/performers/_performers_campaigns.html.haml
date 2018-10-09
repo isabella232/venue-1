@@ -2,7 +2,8 @@
   .mui-row
     .mui-col-lg-12
       %h2.standout-heading Campaigns
-    - @performer.campaigns.each do |campaign|  
+    - @performer.campaigns.each do |campaign| 
+    - # take the first campaign and display _big_box_partial
       .mui-col-md-12.mui-col-lg-7
         .tiled-campaigns-wrap.featured
           .tiled-campaigns
@@ -30,3 +31,4 @@
                   %span.date= campaign.event_date
                   %span.venue= campaign.location
                 %span.caption= campaign.title
+    - # take campaign 2 and 3 if they exist and display _medium_box_partial
