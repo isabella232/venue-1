@@ -1,19 +1,23 @@
-%h2 Review and pay 
-%p  
-    You are about to order: 
-    - @order.items.each do | item |
-        %span= pluralize(item.quantity, 'ticket')
-        %span to
-        %span= item.item.ticket.campaign.title
-
-
-= form_with url: payments_path, local: true, class: 'mui-form', id: 'payment-form' do |form|
-    .form-row
-        %label{for: "card-element"}
-        #card-element
-        / A Stripe Element will be inserted here.
-        / Used to display Element errors.
-        #card-errors{role: "alert"}
-    .form-group
-        %button{class: 'form-submit'} Submit Payment
-        = button_tag 'Cancel', class: 'form-submit', onclick: 'cancelModal(event);' 
+.mui-container-fluid
+    .mui-row
+        .mui-col-md-8.mui-col-md-offset-2
+            %h2 Review and pay 
+            %p  
+                You are about to order: 
+                - @order.items.each do | item |
+                    %span= pluralize(item.quantity, 'ticket')
+                    %span to
+                    %span= item.item.ticket.campaign.title
+            = form_with url: payments_path, local: true, class: 'mui-form', id: 'payment-form' do |form|
+                .form-row
+                    %label{for: "card-element"}
+                    #card-element
+                .form-row
+                    %label{for: "card-element"}
+                    #card-element
+                    / A Stripe Element will be inserted here.
+                    / Used to display Element errors.
+                    #card-errors{role: "alert"}
+                .form-group
+                    %button{class: 'form-submit'} Submit Payment
+                    = button_tag 'Cancel', class: 'form-submit', onclick: 'cancelModal(event);' 
