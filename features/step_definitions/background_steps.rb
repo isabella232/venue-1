@@ -2,8 +2,19 @@
 
 Given('(if )the following campaign(s) exist(s)') do |table|
   table.hashes.each do |campaign_hash|
+    if campaign_hash[:user]
+      user = User.find_by_email(campaign_hash[:user])
+      campaign_hash.except!(campaign_hash[:user])[:user] = user
+    end
     create(:campaign, campaign_hash)
   end
+end
+
+Given('campaign {string} is connected to {string}') do |campaign_title, performer_name|
+  performer = Performer.find_by_name(performer_name)
+  campaign = Campaign.find_by_title(campaign_title)
+  campaign.performers << performer
+  campaign.save
 end
 
 Given('the following user(s) exist(s)') do |table|
@@ -12,13 +23,13 @@ Given('the following user(s) exist(s)') do |table|
   end
 end
 
-Given('the following Performer exist') do |table|
+Given('the following (P/p)erformer(s) exist') do |table|
   table.hashes.each do |performer_hash|
     create(:performer, performer_hash)
   end
 end
 
-Given('the following Performer with name exist') do |table|
+Given('the following (P/p)erformer(s) with name/user exist') do |table|
   table.hashes.each do |performer_hash|
     user = User.find_by(email: performer_hash[:user])
     create(:performer, performer_hash.except('user').merge(users: [user]))
@@ -68,5 +79,5 @@ Given('the following ticket variants for {string} exist') do |campaign_title, ta
 end
 
 Given('a slider titled {string}') do |slide_title|
-    create(:slider, title: slide_title)
+  create(:slider, title: slide_title)
 end

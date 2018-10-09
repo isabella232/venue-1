@@ -94,7 +94,11 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  # Letter opener settings - temporary solution before we set up SendGrid for Heroku
-  config.action_mailer.delivery_method = :letter_opener
+  # SendGrid for Heroku https://github.com/eddiezane/sendgrid-actionmailer
+  config.action_mailer.delivery_method = :sendgrid_actionmailer
+  config.action_mailer.sendgrid_actionmailer_settings = {
+    api_key: Rails.application.credentials.send_grid[:api_key],
+    raise_delivery_errors: true
+  }
   config.action_mailer.perform_deliveries = true
 end

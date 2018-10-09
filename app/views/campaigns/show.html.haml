@@ -16,7 +16,8 @@
                 - @campaign.genres.map {|genre| genre.name}.each do |genre|
                   %span= genre.humanize
           .mui-col-xs-6
-            %a.visit-profile{href: "artist-profile.html"} Visit Profile
+            - @campaign.performers.each do |performer|
+              = link_to "#{performer.name} Profile", performer_path(performer), class: 'visit-profile'
         .campaign-description
           %p
             = @campaign.description
