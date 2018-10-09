@@ -153,6 +153,7 @@ ul.artist-social-share {
 
 .example.example2 .field.half-width {
   width: 50%;
+  position: center;
 }
 
 .example.example2 .field.quarter-width {
@@ -164,7 +165,7 @@ ul.artist-social-share {
   height: 1px;
   left: 0;
   bottom: 0;
-  background-color: #cfd7df;
+  background-color: rgba(255,255,255,0.5);
   transition: background-color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
@@ -182,16 +183,6 @@ ul.artist-social-share {
   transition-property: color, transform;
   transition-duration: 0.3s;
   transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-.example.example2 .input {
-  position: absolute;
-  width: 100%;
-  left: 0;
-  bottom: 0;
-  padding-bottom: 7px;
-  color: #32325d;
-  background-color: transparent;
 }
 
 .example.example2 .input::-webkit-input-placeholder {
@@ -333,3 +324,11 @@ ul.artist-social-share {
 .example.example2 .success .reset path {
   fill: #24b47e;
 }
+
+.artists-list .payment { 
+  border-bottom: 1px solid rgb(240,215,93); 
+  color: rgb(240,215,93); 
+  font-size: 32px; 
+  font-weight: 900; 
+  margin-bottom: 20px; 
+  padding-bottom: 15px }

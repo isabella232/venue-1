@@ -1,30 +1,37 @@
 .mui-container-fluid
     .mui-row
         .mui-col-md-8.mui-col-md-offset-2
-            %h2 Review and pay 
-            %p  
-                You are about to order: 
-                - @order.items.each do | item |
-                    %span= pluralize(item.quantity, 'ticket')
-                    %span to
-                    %span= item.item.ticket.campaign.title
-            = form_with url: payments_path, local: true, class: 'mui-form', id: 'payment-form' do |form|
-                .cell.example.example2
-                    %form
-                        %div{"data-locale-reversible" => ""}
-                        .row
-                            .field
-                                #card-number-element
-                                    %label{"data-tid" => "elements_examples.form.card_number_label", :for => "#card-number-element"} Card number
-                                .baseline
-                        .row
-                            .field.half-width
-                                #card-expiry-element
-                                    %label{"data-tid" => "elements_examples.form.card_expiry_label", :for => "#card-expiry-element"} Expiration
-                                .baseline
-                            .field.half-width
-                                #card-cvc-element
-                                    %label{"data-tid" => "elements_examples.form.card_cvc_label", :for => "#card-cvc-element"} CVC
-                                .baseline
-                        %button{class: 'form-submit'} Submit Payment
-                        = button_tag 'Cancel', class: 'form-submit', onclick: 'cancelModal(event);' 
+            #similar-artists.mui-row.artists-list
+                .mui-col-lg-12
+                    %h3.payment 
+                        You are about to order:
+                    %h3 
+                        - @order.items.each do | item |
+                            %span= pluralize(item.quantity, 'ticket')
+                            %span to
+                            %span= item.item.ticket.campaign.title
+                            %br/
+                            %br/
+                            %br/
+                    = form_with url: payments_path, local: true, class: 'mui-form', id: 'payment-form' do |form|
+                        .cell.example.example2
+                            %form
+                                %div{"data-locale-reversible" => ""}
+                                .row
+                                    .field
+                                        #card-number-element
+                                            %label{"data-tid" => "elements_examples.form.card_number_label", :for => "#card-number-element"} Card number
+                                        .baseline
+                                .row
+                                    .field.half-width
+                                        #card-expiry-element
+                                            %label{"data-tid" => "elements_examples.form.card_expiry_label", :for => "#card-expiry-element"} Expiration
+                                        .baseline
+                                    .field.half-width
+                                        #card-cvc-element
+                                            %label{"data-tid" => "elements_examples.form.card_cvc_label", :for => "#card-cvc-element"} CVC
+                                        .baseline
+                                        %br/
+                                        %br/
+                                %button{class: 'form-submit'} Submit Payment
+                                = button_tag 'Cancel', class: 'form-submit', onclick: 'cancelModal(event);' 

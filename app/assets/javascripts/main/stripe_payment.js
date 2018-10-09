@@ -42,8 +42,9 @@ const initiateStripe = (pkKey) => {
             fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
             fontSmoothing: 'antialiased',
             fontSize: '16px',
+            fontWeight: 'normal',
             '::placeholder': {
-                color: '#fff'
+                color: 'rgb(240,215,93)'
             }
         },
         invalid: {
