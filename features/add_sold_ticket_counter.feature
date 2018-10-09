@@ -29,7 +29,7 @@ Feature: Add sold ticket counter to Campaign page
         And I click on 'Buy your ticket' for "Gig Starter"
         And I should see "1 ticket" in header
         Then I click on '1 ticket' in header
-        And I should see 'You are about to order: 1 ticket to Veronica Maggio in Stockholm'
+        And I should see '1 ticket to Veronica Maggio in Stockholm'
         # Then stop
         # Then I fill in the stripe form
         # And I wait 2 seconds
@@ -43,7 +43,7 @@ Feature: Add sold ticket counter to Campaign page
         Then I should see '0/83'
         And I click on 'Buy your ticket' for "Gig Starter" 3 times
         Then I click on '3 ticket' in header
-        And I should see 'You are about to order: 3 tickets to Veronica Maggio in Stockholm'
+        And I should see '3 tickets to Veronica Maggio in Stockholm'
         # Then I fill in the stripe form
         # And I wait 2 seconds
         # And I click on 'Submit Payment'

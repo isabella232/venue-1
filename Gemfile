@@ -27,8 +27,7 @@ gem 'prawn-svg', '~> 0.28.0'
 gem 'prawn-rails'
 gem 'rqrcode'
 gem 'barby', require: true
-# Temporary in production group untill we set up SendGrid on Heroku
-gem "letter_opener"
+gem 'sendgrid-actionmailer', github: 'eddiezane/sendgrid-actionmailer'
 
 group :development, :test do
   gem 'chromedriver-helper'
