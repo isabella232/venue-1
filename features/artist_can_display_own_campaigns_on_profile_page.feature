@@ -35,7 +35,7 @@ Feature: Artist can display own campaigns on Performers profile/show page
         And I click on "Veronica Maggio"
         Then I should see "Veronica Maggio in Stockholm"
         And I should see "Veronica Maggio in Gothenburg"
-        Then stop
+        And I should see "Veronica Maggio in Kiruna"
         And I should NOT see "KISS in Kiruna"
 
     Scenario: Performer info can be accessed from Campaign page
