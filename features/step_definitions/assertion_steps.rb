@@ -8,7 +8,7 @@ Then('I should see the {string} form') do |content|
   expect(page).to have_content content
 end
 
-Then('I should NOT see {string}') do |content|
+Then('I should NOT/not see {string}') do |content|
   expect(page).not_to have_content content
 end
 
@@ -31,7 +31,7 @@ Then('I should be redirected to the Campaign page for {string}') do |campaign_ti
   expect(current_path).to eq campaign_path(campaign)
 end
 
-Then('I should be redirected to the Artist page for {string}') do |performer_title|
+Then('I should be redirected to the Artist/performer page for {string}') do |performer_title|
   performer = Performer.find_by(name: performer_title)
   expect(current_path).to eq performer_path(performer)
 end

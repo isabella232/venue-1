@@ -30,6 +30,7 @@ RSpec.describe Campaign, type: :model do
     it { is_expected.to belong_to :user }
     it { is_expected.to have_many :tickets }
     it { is_expected.to have_and_belong_to_many :genres }
+    it { is_expected.to have_and_belong_to_many :performers }
     it { is_expected.to have_many :event_tickets }
   end
 
