@@ -51,9 +51,17 @@ const initiateStripe = (pkKey) => {
             iconColor: '#fa755a'
         }
     };
-    var card = elements.create('card', { style: style, hidePostalCode: true });
+    var cardNumber = elements.create('cardNumber', { style: style, hidePostalCode: true });
 
-    card.mount('#card-element');
+    cardNumber.mount('#card-number-element');
+
+    var cardExpiry = elements.create('cardExpiry', { style: style, hidePostalCode: true });
+
+    cardExpiry.mount('#card-expiry-element');
+
+    var cardCvc = elements.create('cardCvc', { style: style, hidePostalCode: true });
+
+    cardCvc.mount('#card-cvc-element');
 
     card.addEventListener('change', (event) => {
         if (event.error) {
