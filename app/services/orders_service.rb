@@ -35,8 +35,6 @@ module OrdersService
     pdf.fill_color "000000"
     pdf.image logo_path, at: [pdf.bounds.left + 100, pdf.bounds.bottom - 15], align: :right, scale: 0.15
 
-    pdf.text_box "???", at: [pdf.bounds.left, 0], size: 12, style: :bold, align: :center  
-
     pdf.move_down(65)
     pdf.text 'Venue proudly presents:', align: :center
     pdf.move_down(10)
