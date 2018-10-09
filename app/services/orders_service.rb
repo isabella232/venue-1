@@ -22,17 +22,16 @@ module OrdersService
     end
   end
 
-  def self.generate_attach_distribute_pdf(user, ticket)
+  def self.generate_attach_distribute_pdf(_user, ticket)
     barcode = Barby::QrCode.new(ticket.uuid).to_svg
     logo_path = File.expand_path(Rails.root.join('app', 'assets', 'images', 'venue_logo_small.png'))
 
     pdf = Prawn::Document.new(page_size: [250, 400], top_margin: 0, bottom_margin: 50, left_margin: 0, right_margin: 0)
-    pdf.fill_color "000000"
+    pdf.fill_color '000000'
     pdf.fill_rectangle [pdf.bounds.left, pdf.bounds.top], pdf.bounds.width, 50
-    # pdf.fill_rectangle [pdf.bounds.left, pdf.bounds.bottom], pdf.bounds.width, 50
-    pdf.fill_color "FFFFFF"
-    pdf.text_box "YOUR TICKET", at: [pdf.bounds.left, pdf.bounds.top - 15], size: 20, style: :bold, align: :center
-    pdf.fill_color "000000"
+    pdf.fill_color 'FFFFFF'
+    pdf.text_box 'YOUR TICKET', at: [pdf.bounds.left, pdf.bounds.top - 15], size: 20, style: :bold, align: :center
+    pdf.fill_color '000000'
     pdf.image logo_path, at: [pdf.bounds.left + 100, pdf.bounds.bottom - 15], align: :right, scale: 0.15
 
     pdf.move_down(65)
