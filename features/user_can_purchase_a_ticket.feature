@@ -5,6 +5,7 @@ Feature: Implement the payment method for tickets
     I would like to charge money for tickets
 
     Background:
+
         Given the following user exist
             | email          | role | password   |
             | user@artist.se | fan  | my-pasword |
@@ -33,6 +34,8 @@ Feature: Implement the payment method for tickets
             | KISS Gig Starter | 50                    |
             | KISS Sure thing  | 50                    |
 
+        And no emails have been sent
+
         And I am on the 'landing' page
 
     Scenario: Logged in user buys a ticket
@@ -44,7 +47,8 @@ Feature: Implement the payment method for tickets
         And the last order in the database should include "Sure thing"
         And I should see "1 ticket" in header
         When I click on '1 ticket' in header
-        Then I should see 'You are about to order: 1 ticket to Veronica Maggio in Stockholm'
+        Then I should see 'You are about to order:'
+        Then I should see '1 ticket to Veronica Maggio in Stockholm'
         And I fill in the stripe form
         Then I wait 2 seconds
         And I click on 'Submit Payment'
@@ -54,7 +58,7 @@ Feature: Implement the payment method for tickets
         And the ticket should contain "YOUR TICKET"
         And the ticket should contain "Venue proudly presents:"
         And the ticket should contain "Veronica Maggio in Stockholm"
-        And "user@artist.se" should receive an email
+        And "user@artist.se" should receive an email with subject "Here's your Ticket!"
 
 
     Scenario: Logged in user buys several tickets
@@ -67,7 +71,9 @@ Feature: Implement the payment method for tickets
         And I click on 'KISS in Stockholm' detail box
         And I click on 'Buy your ticket' for "KISS Sure thing"
         When I click on '2 tickets' in header
-        Then I should see 'You are about to order: 1 ticket to Veronica Maggio in Stockholm'
+        Then I should see 'You are about to order:'
+        Then I should see '1 ticket to Veronica Maggio in Stockholm'
+        Then I should see '1 ticket to KISS in Stockholm'
         And I fill in the stripe form
         Then I wait 2 seconds
         And I click on 'Submit Payment'
@@ -75,6 +81,8 @@ Feature: Implement the payment method for tickets
         Then I should see "You have successfully completed your payment!"
         And a ticket to 'Veronica Maggio in Stockholm' should be created for 'user@artist.se'
         And a ticket to 'KISS in Stockholm' should be created for 'user@artist.se'
+        And "user@artist.se" should receive 2 emails
+
 
 
     Scenario: Not signed up user buys a ticket
@@ -91,7 +99,8 @@ Feature: Implement the payment method for tickets
         And the last order in the database should include "Sure thing"
         And I should see "1 ticket" in header
         When I click on '1 ticket' in header
-        Then I should see 'You are about to order: 1 ticket to Veronica Maggio in Stockholm'
+        Then I should see 'You are about to order:'
+        Then I should see '1 ticket to Veronica Maggio in Stockholm'
         And I fill in the stripe form
         Then I wait 2 seconds
         And I click on 'Submit Payment'

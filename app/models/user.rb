@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   after_initialize :set_default_role, if: :new_record?
   after_create :send_welcome_mail
+    
   has_many :campaigns
   has_many :orders
   has_many :event_tickets
