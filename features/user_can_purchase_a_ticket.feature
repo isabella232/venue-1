@@ -49,6 +49,7 @@ Feature: Implement the payment method for tickets
         When I click on '1 ticket' in header
         Then I should see 'You are about to order:'
         Then I should see '1 ticket to Veronica Maggio in Stockholm'
+        Then stop
         And I fill in the stripe form
         Then I wait 2 seconds
         And I click on 'Submit Payment'
