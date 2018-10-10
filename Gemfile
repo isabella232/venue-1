@@ -47,7 +47,7 @@ group :development, :test do
   gem 'email_spec'
   gem 'pdf-inspector', require: 'pdf/inspector'
   gem 'timecop'
-
+  gem 'letter_opener'
 
 end
 

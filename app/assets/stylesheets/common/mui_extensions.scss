@@ -134,3 +134,18 @@ ul.artist-social-share {
   }
 }
 
+.avatar {
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  -o-object-fit: cover;
+  object-fit: fill;
+
+}
+
+.avatar-link {
+  top: -24px;
+  position: absolute;
+  right: -15px;
+}
+

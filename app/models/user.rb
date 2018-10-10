@@ -39,6 +39,6 @@ class User < ApplicationRecord
   end
 
   def add_basic_avatar
-    self.avatar.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'dummy_avatar.png')), filename: "avatar-#{self.email}.png", content_type: 'image/png')
+    self.avatar.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'dummy_avatar.jpg')), filename: "avatar-#{self.email}.jpg", content_type: 'image/jpg')
   end
 end
