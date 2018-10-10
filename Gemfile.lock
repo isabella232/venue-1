@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/eddiezane/sendgrid-actionmailer.git
-  revision: e76945db2189daaa542a6656cf20348c59486361
+  revision: dd3999b24fa9e4cb82106ded488665814d727284
   specs:
     sendgrid-actionmailer (2.0.1)
       mail (~> 2.5)
@@ -331,7 +331,7 @@ GEM
       rspec-mocks (~> 3.8.0)
     rspec-core (3.8.0)
       rspec-support (~> 3.8.0)
-    rspec-expectations (3.8.1)
+    rspec-expectations (3.8.2)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.8.0)
     rspec-mocks (3.8.0)
