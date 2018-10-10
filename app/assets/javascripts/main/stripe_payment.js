@@ -29,6 +29,22 @@ const activateForm = (stripe, card) => {
     }
 }
 
+var inputs = document.querySelectorAll('.cell.example.example2 .input');
+Array.prototype.forEach.call(inputs, function(input) {
+    input.addEventListener('focus', function() {
+        input.classList.add('focused');
+    });
+    input.addEventListener('blur', function() {
+        input.classList.remove('focused');
+    });
+    input.addEventListener('keyup', function() {
+        if (input.value.length === 0) {
+        input.classList.add('empty');
+        } else {
+        input.classList.remove('empty');
+    }
+    });
+});
 
 
 const initiateStripe = (pkKey) => {
@@ -52,16 +68,32 @@ const initiateStripe = (pkKey) => {
             iconColor: '#fa755a'
         }
     };
-    var cardNumber = elements.create('cardNumber', { style: style, hidePostalCode: true });
 
+    var elementClasses = {
+        focus: 'focused',
+        empty: 'empty',
+        invalid: 'invalid',
+    };
+
+    var cardNumber = elements.create('cardNumber', { 
+        style: style, 
+        classes: elementClasses, 
+        hidePostalCode: true 
+    });
     cardNumber.mount('#card-number-element');
 
-    var cardExpiry = elements.create('cardExpiry', { style: style, hidePostalCode: true });
-
+    var cardExpiry = elements.create('cardExpiry', { 
+        style: style, 
+        classes: elementClasses, 
+        hidePostalCode: true 
+    });
     cardExpiry.mount('#card-expiry-element');
 
-    var cardCvc = elements.create('cardCvc', { style: style, hidePostalCode: true });
-
+    var cardCvc = elements.create('cardCvc', { 
+        style: style,
+        classes: elementClasses, 
+        hidePostalCode: true 
+    });
     cardCvc.mount('#card-cvc-element');
 
     card.addEventListener('change', (event) => {

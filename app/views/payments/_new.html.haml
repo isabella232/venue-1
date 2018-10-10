@@ -13,41 +13,41 @@
                             %br/
                             %br/
                             %br/
-                    = form_with url: payments_path, local: true, class: 'mui-form', id: 'payment-form' do |form|
+                    = form_with url: payments_path, local: true, id: 'payment-form' do |form|
                         .cell.example.example2
                             %div{"data-locale-reversible" => ""}
                                 .row
                                     .field
                                         %label{"data-tid" => "elements_examples.form.name_label", for: "example2-name"} Name on card
-                                        %input#example2-name.input.empty{autocomplete: "name", "data-tid" => "elements_examples.form.name_placeholder", required: "", type: "text"}
+                                        %input#example2-name{autocomplete: "name", "data-tid" => "elements_examples.form.name_placeholder", required: "", type: "text"}
                                         .baseline
                                 .row
                                     .field
-                                        %input#example2-address.input.empty{autocomplete: "address-line1", "data-tid" => "elements_examples.form.address_placeholder", required: "", type: "text"}/
+                                        %input#example2-address{class: "input", "data-tid" => "elements_examples.form.address_placeholder", required: "", type: "text"}/
                                         %label{"data-tid" => "elements_examples.form.address_label", for: "example2-address"} Address
                                         .baseline
                                 .row
                                     .field.half-width
-                                        %input#example2-city.input.empty{autocomplete: "address-level2", "data-tid" => "elements_examples.form.city_placeholder", required: "", type: "text"}/
-                                        %label{"data-tid" => "elements_examples.form.city_label", for: "example2-city"} City
+                                        %input#example2-city.input{autocomplete: "address-level2", "data-tid" => "elements_examples.form.city_placeholder", required: "", type: "text"}/
+                                        %label{for: "example2-city", "data-tid" => "elements_examples.form.city_label", } City
                                         .baseline
                                     .field.half-width
-                                        %input#example2-zip.input.empty{autocomplete: "postal-code", "data-tid" => "elements_examples.form.postal_code_placeholder", required: "", type: "text"}/
+                                        %input#example2-zip.input{autocomplete: "postal-code", "data-tid" => "elements_examples.form.postal_code_placeholder", required: "", type: "text"}/
                                         %label{"data-tid" => "elements_examples.form.postal_code_label", for: "example2-zip"} Postal code
                                         .baseline
                                 .row
                                     .field
-                                        #card-number-element
-                                            %label{"data-tid" => "elements_examples.form.card_number_label", for: "#card-number-element"} Card number
+                                        %input#card-number-element.input{autocomplete: "postal-code", "data-tid" => "elements_examples.form.postal_code_placeholder", required: "", type: "text"}/
+                                        %label{"data-tid" => "elements_examples.form.card_number_label", for: "#card-number-element"} Card number
                                         .baseline
                                 .row
                                     .field.half-width
-                                        #card-expiry-element
-                                            %label{"data-tid" => "elements_examples.form.card_expiry_label", for: "#card-expiry-element"} Expiration
+                                        %input#card-expiry-element.input{autocomplete: "postal-code", "data-tid" => "elements_examples.form.postal_code_placeholder", required: "", type: "text"}/
+                                        %label{"data-tid" => "elements_examples.form.card_expiry_label", for: "#card-expiry-element"} Expiration
                                         .baseline
                                     .field.half-width
-                                        #card-cvc-element
-                                            %label{"data-tid" => "elements_examples.form.card_cvc_label", for: "#card-cvc-element"} CVC
+                                        %input#card-cvc-element.input{autocomplete: "postal-code", "data-tid" => "elements_examples.form.postal_code_placeholder", required: "", type: "text"}/
+                                        %label{"data-tid" => "elements_examples.form.card_cvc_label", for: "#card-cvc-element"} CVC
                                         .baseline
                                         %br/
                                         %br/
