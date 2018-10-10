@@ -64,6 +64,7 @@
     }
     &.focused, &:not(.empty) {
       opacity: 1;
+      background-color: rgb(39, 38, 38);
     }
     &.focused::-webkit-input-placeholder, &:not(.empty)::-webkit-input-placeholder, &.focused::-moz-placeholder, &:not(.empty)::-moz-placeholder, &.focused:-ms-input-placeholder, &:not(.empty):-ms-input-placeholder {
       color: #cfd7df;
@@ -74,14 +75,14 @@
       cursor: default;
     }
     &.focused + label {
-      color: #24b47e;
+      color: white;
     }
     &.invalid + label {
       color: #ffa27b;
     }
     &.focused {
       + label + .baseline {
-        background-color: #24b47e;
+        background-color: white;
       }
       &.invalid + label + .baseline {
         background-color: #e25950;
@@ -119,7 +120,7 @@
     cursor: pointer;
   }
   input:active {
-    background-color: #159570;
+    background-color: white;
   }
   .error {
     svg {
