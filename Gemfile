@@ -46,6 +46,7 @@ group :development, :test do
   gem 'uuidtools'
   gem 'email_spec'
   gem 'pdf-inspector', require: 'pdf/inspector'
+  gem 'letter_opener'
 
 end
 

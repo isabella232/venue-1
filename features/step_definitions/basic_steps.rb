@@ -54,11 +54,23 @@ end
 
 And('I fill in the stripe form') do
   sleep 1
-  stripe_iframe = find("iframe[name='__privateStripeFrame4']")
-  within_frame stripe_iframe do
+  find_field('example2-name').send_keys('Thomas')
+  find_field('example2-address').send_keys('Some street 1')
+  find_field('example2-city').send_keys('Ghotenburg')
+  find_field('example2-zip').send_keys('123 43')
+  stripe_iframe_4 = find("iframe[name='__privateStripeFrame4']", visible: false)
+  stripe_iframe_5 = find("iframe[name='__privateStripeFrame5']", visible: false)
+  stripe_iframe_6 = find("iframe[name='__privateStripeFrame6']", visible: false)
+
+  within_frame stripe_iframe_4 do
     card_field = find_field('cardnumber')
-    4.times { sleep 0.2; card_field.send_keys('4242'); sleep 0.2; }
-    find_field('exp-date').send_keys('1221')
+    4.times { sleep 0.3; card_field.send_keys(right: '4242'); sleep 0.2; }
+  end
+  within_frame stripe_iframe_5 do
+    find_field('exp-date').send_keys('12')
+    find_field('exp-date').send_keys('21')
+  end
+  within_frame stripe_iframe_6 do
     find_field('cvc').send_keys('999')
   end
 end
