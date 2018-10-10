@@ -52,7 +52,7 @@ Feature: Implement the payment method for tickets
         And I fill in the stripe form
         Then I wait 2 seconds
         And I click on 'Submit Payment'
-        And I wait 5 seconds
+        And I wait 2 seconds
         Then I should see "You have successfully completed your payment!"
         And a ticket to 'Veronica Maggio in Stockholm' should be created for 'user@artist.se'
         And the ticket should contain "YOUR TICKET"
