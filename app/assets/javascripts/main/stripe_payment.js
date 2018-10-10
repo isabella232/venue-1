@@ -29,44 +29,83 @@ const activateForm = (stripe, card) => {
     }
 }
 
-var inputs = document.querySelectorAll('.cell.example.example2 .input');
-Array.prototype.forEach.call(inputs, function(input) {
-    input.addEventListener('focus', function() {
-        input.classList.add('focused');
+const addEventListenersToStripeForm = () => {
+    var inputs = document.querySelectorAll('.cell.example.example2 .input');
+    Array.prototype.forEach.call(inputs, function (input) {
+        input.addEventListener('focus', function () {
+            input.classList.add('focused');
+        });
+        input.addEventListener('blur', function () {
+            input.classList.remove('focused');
+        });
+        input.addEventListener('keyup', function () {
+            if (input.value.length === 0) {
+                input.classList.add('empty');
+            } else {
+                input.classList.remove('empty');
+            }
+        });
     });
-    input.addEventListener('blur', function() {
-        input.classList.remove('focused');
-    });
-    input.addEventListener('keyup', function() {
-        if (input.value.length === 0) {
-        input.classList.add('empty');
-        } else {
-        input.classList.remove('empty');
-    }
-    });
-});
+}
+
+
 
 
 const initiateStripe = (pkKey) => {
     var stripe = Stripe(pkKey);
-    var elements = stripe.elements();
 
-    var style = {
-        base: {
-            color: '#fff',
-            lineHeight: '18px',
-            fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
-            fontSmoothing: 'antialiased',
-            fontSize: '16px',
-            fontWeight: 'normal',
-            '::placeholder': {
-                color: 'rgb(240,215,93)'
+    var elements = stripe.elements({
+        fonts: [
+            {
+                cssSrc: 'https://fonts.googleapis.com/css?family=Source+Code+Pro',
+            },
+        ],
+        // Stripe's examples are localized to specific languages, but if
+        // you wish to have Elements automatically detect your user's locale,
+        // use `locale: 'auto'` instead.
+        locale: window.auto
+    });
+
+    // Floating labels
+    var inputs = document.querySelectorAll('.cell.example.example2 .input');
+    Array.prototype.forEach.call(inputs, function (input) {
+        input.addEventListener('focus', function () {
+            input.classList.add('focused');
+        });
+        input.addEventListener('blur', function () {
+            input.classList.remove('focused');
+        });
+        input.addEventListener('keyup', function () {
+            if (input.value.length === 0) {
+                input.classList.add('empty');
+            } else {
+                input.classList.remove('empty');
             }
+        });
+    });
+
+    var elementStyles = {
+        base: {
+            color: '#32325D',
+            fontWeight: 500,
+            fontFamily: 'Source Code Pro, Consolas, Menlo, monospace',
+            fontSize: '16px',
+            fontSmoothing: 'antialiased',
+
+            '::placeholder': {
+                color: '#CFD7DF',
+            },
+            ':-webkit-autofill': {
+                color: '#e39f48',
+            },
         },
         invalid: {
-            color: '#fa755a',
-            iconColor: '#fa755a'
-        }
+            color: '#E25950',
+
+            '::placeholder': {
+                color: '#FFCCA5',
+            },
+        },
     };
 
     var elementClasses = {
@@ -75,38 +114,24 @@ const initiateStripe = (pkKey) => {
         invalid: 'invalid',
     };
 
-    var cardNumber = elements.create('cardNumber', { 
-        style: style, 
-        classes: elementClasses, 
-        hidePostalCode: true 
+    var cardNumber = elements.create('cardNumber', {
+        style: elementStyles,
+        classes: elementClasses,
     });
-    cardNumber.mount('#card-number-element');
+    cardNumber.mount('#example2-card-number');
 
-    var cardExpiry = elements.create('cardExpiry', { 
-        style: style, 
-        classes: elementClasses, 
-        hidePostalCode: true 
+    var cardExpiry = elements.create('cardExpiry', {
+        style: elementStyles,
+        classes: elementClasses,
     });
-    cardExpiry.mount('#card-expiry-element');
+    cardExpiry.mount('#example2-card-expiry');
 
-    var cardCvc = elements.create('cardCvc', { 
-        style: style,
-        classes: elementClasses, 
-        hidePostalCode: true 
+    var cardCvc = elements.create('cardCvc', {
+        style: elementStyles,
+        classes: elementClasses,
     });
-    cardCvc.mount('#card-cvc-element');
+    cardCvc.mount('#example2-card-cvc');
 
-    card.addEventListener('change', (event) => {
-        if (event.error) {
-            showToast('Error', event.error.message, { target: '#card-errors' });
-        } else {
-            var toast = document.querySelector('.iziToast');
-            if (toast) {
-                iziToast.hide({}, toast);
-            }
-        }
-    });
-
-    activateForm(stripe, card);
+    registerElements([cardNumber, cardExpiry, cardCvc], 'example2');
 
 }
