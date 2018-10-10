@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   def create
+    binding.pry
 
     ticket_variant = TicketVariant.find(params[:ticket_id])
     if current_user
