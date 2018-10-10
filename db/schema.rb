@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_08_094216) do
+ActiveRecord::Schema.define(version: 2018_10_10_211635) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -168,7 +168,6 @@ ActiveRecord::Schema.define(version: 2018_10_08_094216) do
     t.integer "price"
     t.bigint "campaign_id"
     t.integer "count", default: 200
-    t.integer "sold_count", default: 0
     t.index ["campaign_id"], name: "index_tickets_on_campaign_id"
   end
 
