@@ -64,10 +64,11 @@ And('I fill in the stripe form') do
 
   within_frame stripe_iframe_4 do
     card_field = find_field('cardnumber')
-    4.times { sleep 0.2; card_field.send_keys('4242'); sleep 0.2; }
+    4.times { sleep 0.3; card_field.send_keys(right: '4242'); sleep 0.2; }
   end
   within_frame stripe_iframe_5 do
-    find_field('exp-date').send_keys('1221')
+    find_field('exp-date').send_keys('12')
+    find_field('exp-date').send_keys('21')
   end
   within_frame stripe_iframe_6 do
     find_field('cvc').send_keys('999')

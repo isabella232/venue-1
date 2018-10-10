@@ -26,11 +26,11 @@ end
 
 Cucumber::Rails::Database.javascript_strategy = :truncation
 
-Chromedriver.set_version '2.36'
+Chromedriver.set_version '2.42'
 
 Capybara.register_driver :selenium do |app|
   options = Selenium::WebDriver::Chrome::Options.new(
-      args: %w(disable-popup-blocking disable-infobars window-size=1900,1400 auto-open-devtools-for-tabs)
+      args: %w(disable-popup-blocking disable-infobars window-size=1900,1400 headless)
   )
   # Use auto-open-devtools-for-tabs to open dev tools if you want to use a debugger
   Capybara::Selenium::Driver.new(
