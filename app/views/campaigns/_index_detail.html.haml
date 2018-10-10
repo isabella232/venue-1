@@ -8,12 +8,15 @@
             %br/
             = campaign.event_date
             %br/
-            %strong 150
-            Price
+            %strong 
+                = number_to_currency(campaign.tickets.first.price, unit: "kr", format: "%n %u") 
+                Price
             %br/
-            %strong 141
-            Tickets Sold
-        %span.reserved 80%
+            %strong 
+                = campaign.tickets.first.sold_count
+                Tickets Sold
+        %span.reserved 
+            -# 80%
         %span.reserve
             - if campaign.pending?
                 NOT ACCEPTED
