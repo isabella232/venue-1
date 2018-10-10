@@ -47,6 +47,8 @@ Feature: Implement the payment method for tickets
         And the last order in the database should include "Sure thing"
         And I should see "1 ticket" in header
         When I click on '1 ticket' in header
+                Then I wait 2 seconds
+
         Then I should see 'You are about to order:'
         Then I should see '1 ticket to Veronica Maggio in Stockholm'
         And I fill in the stripe form

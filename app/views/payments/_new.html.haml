@@ -17,25 +17,25 @@
                     .cell.example.example2
                         = form_with url: payments_path, local: true, id: 'payment-form' do |form|
                             %div{"data-locale-reversible" => ""}
-                            %row
-                                .field
-                                    %input#example2-name.input.empty{autocomplete: "address-name", "data-tid" => "elements_examples.form.name_placeholder", placeholder: "John Doe", required: "", type: "text"}/
-                                    %label{"data-tid" => "elements_examples.form.address_label", for: "example2-address"} Address
-                                    .baseline
-                            .row
-                                .field
-                                    %input#example2-address.input.empty{autocomplete: "address-line1", "data-tid" => "elements_examples.form.address_placeholder", placeholder: "185 Berry St", required: "", type: "text"}/
-                                    %label{"data-tid" => "elements_examples.form.address_label", for: "example2-address"} Address
-                                    .baseline
-                            .row{"data-locale-reversible" => ""}
-                                .field.half-width
-                                    %input#example2-city.input.empty{autocomplete: "address-level2", "data-tid" => "elements_examples.form.city_placeholder", placeholder: "San Francisco", required: "", type: "text"}/
-                                    %label{"data-tid" => "elements_examples.form.city_label", for: "example2-city"} City
-                                    .baseline
-                                .field.half-width
-                                    %input#example2-zip.input.empty{autocomplete: "postal-code", "data-tid" => "elements_examples.form.postal_code_placeholder", placeholder: "94107", required: "", type: "text"}/
-                                    %label{"data-tid" => "elements_examples.form.postal_code_label", for: "example2-zip"} ZIP
-                                    .baseline
+                                .row
+                                    .field
+                                        %input#example2-name.input.empty{autocomplete: "address-name", "data-tid" => "elements_examples.form.name_placeholder", placeholder: "John Doe", required: "", type: "text"}/
+                                        %label{"data-tid" => "elements_examples.form.name_label", for: "example2-address"} Name on card
+                                        .baseline
+                                .row
+                                    .field
+                                        %input#example2-address.input.empty{autocomplete: "address-line1", data: {tid: "elements_examples.form.address_placeholder"} , placeholder: "185 Berry St", required: "", type: "text"}/
+                                        %label{"data-tid" => "elements_examples.form.address_label", for: "example2-address"} Address
+                                        .baseline
+                                .row{"data-locale-reversible" => ""}
+                                    .field.half-width
+                                        %input#example2-city.input.empty{autocomplete: "address-level2", "data-tid" => "elements_examples.form.city_placeholder", placeholder: "San Francisco", required: "", type: "text"}/
+                                        %label{"data-tid" => "elements_examples.form.city_label", for: "example2-city"} City
+                                        .baseline
+                                    .field.half-width
+                                        %input#example2-zip.input.empty{autocomplete: "postal-code", "data-tid" => "elements_examples.form.postal_code_placeholder", placeholder: "94107", required: "", type: "text"}/
+                                        %label{"data-tid" => "elements_examples.form.postal_code_label", for: "example2-zip"} ZIP
+                                        .baseline
                             .row
                                 .field
                                     #example2-card-number.input.empty

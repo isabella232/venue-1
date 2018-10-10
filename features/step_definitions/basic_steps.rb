@@ -58,10 +58,9 @@ And('I fill in the stripe form') do
   find_field('example2-address').send_keys('Some street 1')
   find_field('example2-city').send_keys('Ghotenburg')
   find_field('example2-zip').send_keys('123 43')
-  binding.pry
-  stripe_iframe_4 = find("iframe[name='__privateStripeFrame4']")
-  stripe_iframe_5 = find("iframe[name='__privateStripeFrame5']")
-  stripe_iframe_6 = find("iframe[name='__privateStripeFrame6']")
+  stripe_iframe_4 = find("iframe[name='__privateStripeFrame4']", visible: false)
+  stripe_iframe_5 = find("iframe[name='__privateStripeFrame5']", visible: false)
+  stripe_iframe_6 = find("iframe[name='__privateStripeFrame6']", visible: false)
 
   within_frame stripe_iframe_4 do
     card_field = find_field('cardnumber')
