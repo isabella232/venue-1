@@ -10,6 +10,9 @@
     = stylesheet_link_tag    'admin', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'admin', 'data-turbolinks-track': 'reload'
 
+    = favicon_link_tag asset_path('venue_favicon.png'), rel: 'icon', type:  'image/png'
+
+
   %body{style: 'background-color: white;'}
     = render partial: 'partials/header'
     #flashes
