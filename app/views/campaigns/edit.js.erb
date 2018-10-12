@@ -9,6 +9,7 @@ options = {
     placeholderValue: 'Genre'
 }
 showMultiSelect('campaign_genre_ids', options);
+showMultiSelect('campaign_performer', options);
 form.addEventListener('ajax:error', (event) => {
     showToast('Error', event.detail[0].message, {target: '#display_error_message'});
 })
