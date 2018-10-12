@@ -8,6 +8,8 @@ options = {
     maxItemCount: 5,
     placeholderValue: 'Genre'
 }
+
+showMultiSelect('campaign_performer', options);
 showMultiSelect('campaign_genre_ids', options);
 
 form.addEventListener('ajax:error', (event) => {
