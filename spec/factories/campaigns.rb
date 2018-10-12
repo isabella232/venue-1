@@ -7,7 +7,7 @@ FactoryBot.define do
     user
     after :build do |campaign|
       campaign.image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'dummy.jpg')), filename: "image.jpg", content_type: 'image/jpg')
-      campaigns.performers << create(:performer)
+      campaign.performers << create(:performer)
     end
     event_date { '2019-05-05' }
   end
