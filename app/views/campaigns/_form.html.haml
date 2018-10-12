@@ -9,7 +9,7 @@
       = form_with model: @campaign, class: 'mui-form' do |form|
         %br/
         .mui-textfield#performer
-          = form.label :performer
+          = form.label :performer, "Artist"
         = form.select(:performer, options_for_select(select_performers_options))
         .mui-textfield.mui-textfield--float-label
           = form.text_field :title
