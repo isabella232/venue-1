@@ -13,11 +13,15 @@ Feature: Admin can edit Campaigns
         | admin@venue.se  | admin  |
         | artist@venue.se | artist |
         | fan@venue.se    | fan    |
+        And the following Performer with name exist
+            | name             | user            |
+            | Veronica Maggio  | artist@venue.se |
         And I am logged in as 'admin@venue.se'
 
     Scenario: Admin can edit Campaign
         When I am on the Campaign page for 'Veronica Maggio in Stockholm'
         And I click on 'Edit'
+        And I select 'Veronica Maggio' as performer
         And I fill in 'Title' with 'Veronica Maggio in Oslo'
         And I fill in 'Description' with 'I have moved to Oslo'
         And I fill in 'Location' with 'Oslo'
