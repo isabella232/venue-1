@@ -81,6 +81,12 @@ Given('(I )select {string} as genre') do |option|
   page.find("div[data-value='#{genre.id}']").click
 end
 
+Given("I select {string} as performer") do |option|
+  performer = Performer.find_by(name: option.downcase)
+  select = page.find('.choices[data-type="select-one"]').click
+  page.find("div[select=name='campaign[performer]']").click
+end
+
 Given("I select {string} in {string}") do |option, select_tag|
   begin
     select option, from: select_tag
