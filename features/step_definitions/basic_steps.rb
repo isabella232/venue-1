@@ -77,14 +77,14 @@ end
 
 Given('(I )select {string} as genre') do |option|
   genre = Genre.find_by(name: option.downcase)
-  select = page.find('.choices').click
-  page.find("div[data-value='#{genre.id}']").click
+  select = page.find('.choices[data-type="select-multiple"]').click
+  page.find(".choices__item--selectable.is-highlighted").click
 end
 
 Given("I select {string} as performer") do |option|
   performer = Performer.find_by(name: option.downcase)
   select = page.find('.choices[data-type="select-one"]').click
-  page.find("div[data=value='#{performer}']").click
+  page.find(".choices__item--selectable.is-highlighted").click
 end
 
 Given("I select {string} in {string}") do |option, select_tag|
