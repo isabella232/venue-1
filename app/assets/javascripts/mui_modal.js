@@ -28,11 +28,13 @@ const resizableModal = (modal, height) => {
     modal.style.height = `${conteinerHeight + height}px`;
     document.addEventListener('iziToast-opening', (data) => {
         setTimeout(null, 500);
-        modal.style.height = `${originalModelHeight + height}px`;
+        modal.style.height = `${modal.style.height + height}px`;
         modal.style.transition = '0.5s';
     });
 
     document.addEventListener('iziToast-closed', () => {
         modal.style.height = `${originalModelHeight}px`;
     });
+
+    return;
 }

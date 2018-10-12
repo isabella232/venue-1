@@ -3,13 +3,21 @@ showPartialAsModal(html, {width: '600px', height: '800px'});
 
 var form = document.querySelector('.mui-form')
 customUpload('campaign_image', 'image-uploader', 100);
-options = {
+optionsGenre = {
     placeholder: true,
     maxItemCount: 5,
     placeholderValue: 'Genre'
 }
-showMultiSelect('campaign_genre_ids', options);
-showMultiSelect('campaign_performer', options);
+
+optionsPerformer = {
+    placeholder: true,
+    maxItemCount: 1,
+    placeholderValue: 'Performer'
+}
+
+showMultiSelect('campaign_performer_ids', optionsPerformer);
+showMultiSelect('campaign_genre_ids', optionsGenre);
+
 form.addEventListener('ajax:error', (event) => {
     showToast('Error', event.detail[0].message, {target: '#display_error_message'});
 })

@@ -83,7 +83,7 @@ end
 
 Given("I select {string} as performer") do |option|
   performer = Performer.find_by(name: option.downcase)
-  select = page.find('.choices[data-type="select-one"]').click
+  select = page.find('.choices[aria-activedescendant="choices-campaign_performer_ids-item-choice-1"]').click
   page.find(".choices__item--selectable.is-highlighted").click
 end
 
