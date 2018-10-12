@@ -7,9 +7,10 @@
         Campaign
       #display_error_message
       = form_with model: @campaign, class: 'mui-form' do |form|
+        %br/
         .mui-textfield#performer
           = form.label :performer
-        = form.select(:performer, options_for_select(select_performers_options), {})
+        = form.select(:performer, options_for_select(select_performers_options))
         .mui-textfield.mui-textfield--float-label
           = form.text_field :title
           = form.label :title
