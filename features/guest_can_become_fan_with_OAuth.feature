@@ -17,6 +17,19 @@ Feature: A Guest can become a Fan with OAuth authentication
         And the user should be a 'fan'
         And "thomas@craftacademy.se" should receive an email
 
+    Scenario: Guest can authenticate with Facebook as an artist
+        Given I am on the 'landing' page
+        And I click on 'Sign up'
+        And I wait 1 second
+        And I click "Artist"
+        And I wait 1 second
+        And I click on 'Sign up with Facebook'
+        Then I wait 2 seconds
+        Then I should be redirected to the 'landing' page
+        And I should see 'Successfully authenticated from Facebook account'
+        And the user should be a 'artist'
+        And "thomas@craftacademy.se" should receive an email
+
     Scenario: Authentication fails with Facebook [Sad Path]
         Given the facebook authentication is not granted
         And I am on the 'landing' page
