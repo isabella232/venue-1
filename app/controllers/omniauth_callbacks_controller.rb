@@ -7,7 +7,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     if @user.persisted?
       @user.update_attribute(:role, params['role']) if params['role']
       sign_in_and_redirect @user, event: :authentication
-      set_flash_message(:notice, :success, kind: 'Facebook') if is_navigational_format?
+      set_flash_message!(:welcome, :success, kind: __callee__.to_s.split('_').first.titleize) if is_navigational_format?
     else
       session["devise.#{__callee__.to_s.split('_')}_data"] = resquest.env('omniauth.auth')
       redirect_to new_user_registration_path
