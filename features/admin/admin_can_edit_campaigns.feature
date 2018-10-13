@@ -5,14 +5,11 @@ Feature: Admin can edit Campaigns
     I would like to be able to Edit existing Campaigns
 
     Background:
+
+
         Given the following campaign exist
             | title                        |
             | Veronica Maggio in Stockholm |
-
-        Given the following Performer exist
-            | name             | state  |
-            | Veronica Maggio  | active |
-            | Clare Cunningham | active |
 
         And the following user exist
             | email           | role   |
@@ -20,11 +17,16 @@ Feature: Admin can edit Campaigns
             | artist@venue.se | artist |
             | fan@venue.se    | fan    |
 
+        And the following Performer with name exist
+            | name            | user            |
+            | Veronica Maggio | artist@venue.se |
+        
         And I am logged in as 'admin@venue.se'
 
     Scenario: Admin can edit Campaign
         When I am on the Campaign page for 'Veronica Maggio in Stockholm'
         And I click on 'Edit'
+        And I select 'Veronica Maggio' as performer
         And I fill in 'Title' with 'Veronica Maggio in Oslo'
         And I select 'Veronica Maggio' as performer
         And I fill in 'Description' with 'I have moved to Oslo'
