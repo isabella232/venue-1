@@ -58,8 +58,18 @@ const showMultiSelect = (elementId, options) => {
     var element = document.getElementById(elementId)
     if (element) {
         var multiSelect = new Choices(element, mergedOptions);
+        return multiSelect;
     }
+}
 
+// setPresets({element: performerChoices, presets: performers})
+
+const setPresets = options => {
+    let presets = options.element.presetChoices.filter(obj => options.presets.includes(obj.label))
+    presets.forEach(obj => {
+        obj.selected = true;
+    })
+    options.element.setChoices(presets, 'value', 'label', false)
 }
 
 
