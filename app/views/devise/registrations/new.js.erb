@@ -1,8 +1,6 @@
 var html, modal, form
 html = "<%= escape_javascript(render 'devise/registrations/form')%>"
 modal = showPartialAsModal(html, {width: '500px', height: '775px'});
-    debugger;
-
 resizableModal(modal, 70)
 form = document.querySelector('.mui-form')
 

@@ -4,7 +4,6 @@ modal = showPartialAsModal(html, {width: '500px', height: '675px'});
 resizableModal(modal, 70)
 form = document.querySelector('.mui-form')
 
-
 form.addEventListener('ajax:error', (event) => {
     showToast('Error', event.detail[0].message, {target: '#<%= dom_id(resource, :errors) %>'});
 })

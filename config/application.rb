@@ -36,7 +36,7 @@ module Venue
       config.stripe.secret_key = Rails.application.credentials.stripe_development[:secret_key]
       config.stripe.publishable_key = Rails.application.credentials.stripe_development[:publishable_key]
     end
-    
+
     config.stripe.endpoint = '/payment/stripe-integration'
   end
 end
