@@ -78,19 +78,23 @@ end
 Given('(I )select {string} as performer genre') do |option|
   genre = Genre.find_by(name: option.downcase)
   select = page.find('.choices[aria-activedescendant="choices-performer_genre_ids-item-choice-1"]').click
-  page.find(".choices__item--selectable.is-highlighted").click
+  page.find("[data-id='#{genre.id}']").click
 end
 
 Given('(I )select {string} as genre') do |option|
   genre = Genre.find_by(name: option.downcase)
-  select = page.find('.choices[aria-activedescendant="choices-campaign_genre_ids-item-choice-1"]').click
-  page.find(".choices__item--selectable.is-highlighted").click
+  @select = @select || page.find('.choices[aria-activedescendant="choices-campaign_genre_ids-item-choice-1"]')
+  @select.click
+  within @select do 
+    page.find("#choices-campaign_genre_ids-item-choice-#{genre.id}").click
+  end
 end
 
+
 Given("I select {string} as performer") do |option|
-  performer = Performer.find_by(name: option.downcase)
-  select = page.find('.choices[aria-activedescendant="choices-campaign_performer_ids-item-choice-1"]').click
-  page.find(".choices__item--selectable.is-highlighted").click
+  performer = Performer.find_by(name: option)
+  page.find('.choices[aria-activedescendant="choices-campaign_performer_ids-item-choice-1"]').click
+  page.find("[data-id='#{performer.id}']").click
 end
 
 Given("I select {string} in {string}") do |option, select_tag|

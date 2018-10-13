@@ -15,15 +15,16 @@ Feature: Artist has genres
             | pop  |
 
         And the following Performer with name exist
-            | name  | user            |
-            | Jay-Z | artist@venue.se |
+            | name             | user            |
+            | Jay-Z            | artist@venue.se |
+            | Clare Cunningham | artist@venue.se |
 
         And I am logged in as 'artist@venue.se'
 
     Scenario: Campaign has genres
         And I am on the 'landing' page
         And I click on 'New Campaign'
-        And I select 'Jay-z' as performer
+        And I select 'Clare Cunningham' as performer
         And I fill in 'Title' with 'Clare Cunningham'
         And I fill in 'Description' with 'Dubbed as having a vocal register similar to Adele'
         And I fill in 'Location' with 'Stockholm'
