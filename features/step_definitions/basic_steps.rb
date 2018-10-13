@@ -75,10 +75,30 @@ And('I fill in the stripe form') do
   end
 end
 
+Given('(I )select {string} as performer genre') do |option|
+  genre = Genre.find_by(name: option.downcase)
+  @select_performer_genre = @select_performer_genre || page.find('.choices[aria-activedescendant="choices-performer_genre_ids-item-choice-1"]')
+  @select_performer_genre.click
+  within @select_performer_genre do 
+    page.find("[data-value='#{genre.id}']").click
+  end
+
+end
+
 Given('(I )select {string} as genre') do |option|
   genre = Genre.find_by(name: option.downcase)
-  select = page.find('.choices').click
-  page.find("div[data-value='#{genre.id}']").click
+  @select_genre = @select_genre || page.find('.choices[aria-activedescendant="choices-campaign_genre_ids-item-choice-1"]')
+  @select_genre.click
+  within @select_genre do 
+    page.find("#choices-campaign_genre_ids-item-choice-#{genre.id}").click
+  end
+end
+
+
+Given("I select {string} as performer") do |option|
+  performer = Performer.find_by(name: option)
+  page.find('.choices[aria-activedescendant="choices-campaign_performer_ids-item-choice-1"]').click
+  page.find("[data-value='#{performer.id}']").click
 end
 
 Given("I select {string} in {string}") do |option, select_tag|

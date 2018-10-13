@@ -7,6 +7,10 @@
         Campaign
       #display_error_message
       = form_with model: @campaign, class: 'mui-form' do |form|
+        %br/
+        .mui-textfield#performer
+          = form.label :performer_ids, "Artist"
+        = form.select(:performer_ids, options_for_select(select_performers_options), {}, {multiple: true})
         .mui-textfield.mui-textfield--float-label
           = form.text_field :title
           = form.label :title
@@ -18,7 +22,6 @@
           = form.label :location     
         .mui-textfield.mui-textfield--float-label
           = form.date_field :event_date
-          = form.label :event_date, 'Proposed date for Event'
         .mui-textfield#genre
           = form.label :genre 
         = form.select(:genre_ids, options_for_select(select_genre_options), {}, {multiple: true})
