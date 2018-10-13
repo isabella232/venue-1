@@ -8,13 +8,16 @@ Feature: Artist has genres
         Given the following user exist
             | email           | role   | password   |
             | artist@venue.se | artist | my-pasword |
+
         And the following genres exist
             | name |
             | rock |
             | pop  |
+
         And the following Performer with name exist
-            | name             | user            | 
+            | name  | user            |
             | Jay-Z | artist@venue.se |
+
         And I am logged in as 'artist@venue.se'
 
     Scenario: Campaign has genres
@@ -40,7 +43,7 @@ Feature: Artist has genres
         And I fill in 'Artist name' with 'Kanye West'
         And I fill in 'City' with 'Los Angeles'
         And I fill in 'Artist Description' with 'Born in Atalanta, raised in Chicago'
-        And I select 'Pop' as genre
+        And I select 'Pop' as performer genre
         And I click on 'Create Profile'
         And I wait 1 second
         Then I should be redirected to the Artist page for 'Kanye West'

@@ -75,9 +75,15 @@ And('I fill in the stripe form') do
   end
 end
 
+Given('(I )select {string} as performer genre') do |option|
+  genre = Genre.find_by(name: option.downcase)
+  select = page.find('.choices[aria-activedescendant="choices-performer_genre_ids-item-choice-1"]').click
+  page.find(".choices__item--selectable.is-highlighted").click
+end
+
 Given('(I )select {string} as genre') do |option|
   genre = Genre.find_by(name: option.downcase)
-  select = page.find('.choices[data-type="select-multiple"]').click
+  select = page.find('.choices[aria-activedescendant="choices-campaign_genre_ids-item-choice-1"]').click
   page.find(".choices__item--selectable.is-highlighted").click
 end
 

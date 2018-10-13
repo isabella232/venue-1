@@ -5,7 +5,6 @@ Feature: User can create a new Campaign
     I would like to create a Campaign
 
     Background:
-
         Given the following Performer exist
             | name             | state  |
             | Kanye West       | active |
