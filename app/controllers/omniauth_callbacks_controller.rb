@@ -9,7 +9,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       sign_in_and_redirect @user, event: :authentication
       set_flash_message!(:welcome, :success, kind: __callee__.to_s.split('_').first.titleize) if is_navigational_format?
     else
-      session["devise.#{__callee__.to_s.split('_')}_data"] = resquest.env('omniauth.auth')
+      session["devise.#{__callee__.to_s.split('_').first}_data"] = request.env['omniauth.auth']
       redirect_to new_user_registration_path
     end
   end
