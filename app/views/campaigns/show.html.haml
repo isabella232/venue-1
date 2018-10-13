@@ -68,8 +68,8 @@
               %label= "Share:"
               %ul.artist-social-share
                 %li
-                  %a{href: "https://twitter.com/intent/tweet?url=http://venue-production.herokuapp.com#{campaign_path}&text=#{@campaign.title}&via=venue_sthlm", target: "_blank ", title: "Share on Twitter"}= icon('fab', 'twitter')
-                  %a{href: "https://www.facebook.com/sharer/sharer.php?u=venue-production.herokuapp.com#{campaign_path}", target: "_blank", title: "Share on Facebook", image: @campaign.image}= icon('fab', 'facebook')
+                  %a{href: "https://twitter.com/intent/tweet?url=http://www.venue.show/#{campaign_path}&text=#{@campaign.title}&via=venue_sthlm", target: "_blank ", title: "Share on Twitter"}= icon('fab', 'twitter')
+                  %a{href: "https://www.facebook.com/sharer/sharer.php?u=venue.show#{campaign_path}", target: "_blank", title: "Share on Facebook", image: @campaign.image}= icon('fab', 'facebook')
       .form-group
         %ul.admin-links
           - if @campaign.pending? && current_user.admin?
