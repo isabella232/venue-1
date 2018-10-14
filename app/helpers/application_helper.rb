@@ -24,6 +24,6 @@ module ApplicationHelper
   end
 
   def select_performers_options
-    Performer.all.order("id ASC").collect { |g| [g.name.humanize, g.id] }
+    Performer.all.order("id ASC").collect { |g| [g.name, g.id] }
   end
 end
