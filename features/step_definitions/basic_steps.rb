@@ -77,34 +77,33 @@ end
 
 Given('(I )select {string} as performer genre') do |option|
   genre = Genre.find_by(name: option.downcase)
-  @select_performer_genre = @select_performer_genre || page.find('.choices[aria-activedescendant="choices-performer_genre_ids-item-choice-1"]')
+  @select_performer_genre ||= page.find('.choices[aria-activedescendant="choices-performer_genre_ids-item-choice-1"]')
   @select_performer_genre.click
-  within @select_performer_genre do 
+  within @select_performer_genre do
     page.find("[data-value='#{genre.id}']").click
   end
-
 end
 
 Given('(I )select {string} as genre') do |option|
   genre = Genre.find_by(name: option.downcase)
-  @select_genre = @select_genre || page.find('.choices[aria-activedescendant="choices-campaign_genre_ids-item-choice-1"]')
+  @select_genre ||= page.find('.choices[aria-activedescendant="choices-campaign_genre_ids-item-choice-1"]')
   @select_genre.click
-  within @select_genre do 
+  within @select_genre do
     page.find("#choices-campaign_genre_ids-item-choice-#{genre.id}").click
   end
 end
 
-
-Given("I select {string} as performer") do |option|
+Given('I select {string} as performer') do |option|
+  find_all('.choices__button')&.each { |s| s.click }
   performer = Performer.find_by(name: option)
   page.find('.choices[aria-activedescendant="choices-campaign_performer_ids-item-choice-1"]').click
   page.find("[data-value='#{performer.id}']").click
 end
 
-Given("I select {string} in {string}") do |option, select_tag|
+Given('I select {string} in {string}') do |option, select_tag|
   begin
     select option, from: select_tag
-  rescue
+  rescue StandardError
     select option, from: select_tag.downcase
   end
 end
@@ -139,25 +138,25 @@ When('I click on {string} for {string} 3 times') do |element_text, ticket_name|
   end
 end
 
-When("I set the date to {string}") do |date|
+When('I set the date to {string}') do |date|
   date_arr = date.split('-')
   page.find('#campaign_event_date').send_keys(date_arr[0], :tab, [date_arr[1], date_arr[2]].join(''))
 end
 
-Then("I click the {string} button for the {string} campaign") do |element_text, campaign_title|
+Then('I click the {string} button for the {string} campaign') do |element_text, campaign_title|
   campaign = Campaign.find_by_title(campaign_title)
-  within("#campaign_#{campaign.id}") do 
+  within("#campaign_#{campaign.id}") do
     click_on element_text
   end
 end
 
-Given("I click on {string} on the {string} slider") do |element_text, slider_title|
+Given('I click on {string} on the {string} slider') do |element_text, slider_title|
   slider = Slider.find_by_title(slider_title)
-  within("#slider_#{slider.id}") do 
+  within("#slider_#{slider.id}") do
     click_on element_text
   end
 end
 
-Given("I confirm the popup") do
+Given('I confirm the popup') do
   page.accept_alert
 end
