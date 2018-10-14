@@ -62,8 +62,6 @@ const showMultiSelect = (elementId, options) => {
     }
 }
 
-// setPresets({element: performerChoices, presets: performers})
-
 const setPresets = options => {
     let presets = options.element.presetChoices.filter(obj => options.presets.includes(obj.label))
     presets.forEach(obj => {
@@ -72,6 +70,8 @@ const setPresets = options => {
     options.element.setChoices(presets, 'value', 'label', false)
 }
 
+// Usage example: 
+// setPresets({element: performerChoices, presets: performers})
 
 
 document.addEventListener('turbolinks:load', () => {
