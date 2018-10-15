@@ -20,7 +20,7 @@ class PaymentsController < ApplicationController
 
       charge = Stripe::Charge.create(
         customer: customer.id,
-        amount: (order.total * 100).to_i,
+        amount: order.total,
         description: 'Venue tickets',
         currency: 'sek'
       )
