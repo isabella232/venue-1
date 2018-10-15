@@ -12,7 +12,7 @@ class PaymentsController < ApplicationController
                   Stripe::Customer.create(
                     email: order.user.email,
                     source: stripe_token(params),
-                    description: 'Venue fan'
+                    description: order.user.email
                     )
                   else
                     Stripe::Customer.retrieve(customers.data.first.id)

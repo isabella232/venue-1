@@ -49,7 +49,8 @@
                                     #example2-card-cvc.input.empty
                                     %label{"data-tid" => "elements_examples.form.card_cvc_label", for: "example2-card-cvc"} CVC
                                     .baseline
-                            %button{class: 'form-submit'} Submit Payment
+                            = form.submit 'Submit Payment', class: 'form-submit'
+                            -# %button{class: 'form-submit'} Submit Payment
                             = button_tag 'Cancel', class: 'form-submit', onclick: 'cancelModal(event);' 
                             .error{role: "alert"}
                                 %span.message
