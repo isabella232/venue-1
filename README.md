@@ -46,7 +46,7 @@ for unit tests
 ## Deployment
 Deployment has been implemented using Heroku:
 
-[Venue](https://venue-show.herokuapp.com/ "Deployed with Heroku")
+[Venue](https://www.venue.show "Deployed with Heroku")
 
 ## Contributing
 Feel free to fork and submit pull requests
