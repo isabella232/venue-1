@@ -80,4 +80,11 @@ document.addEventListener('turbolinks:load', () => {
     if (slider) {
         initiateSlider('.carousel')
     }
+
+    // Send GA event using Turbolinks 
+    if (typeof gtag === 'function') {
+        gtag('config', 'UA-127569667-1', {
+            'page_location': event.data.url
+        });
+    }
 })
